@@ -1,0 +1,44 @@
+name: Infrastructure
+on: pull_request
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        environment: [alpha, beta, main]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.24
+          tf_actions_subcommand: fmt
+          tf_actions_working_dir: infrastructure/environments/${{ matrix.environment }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.24
+          tf_actions_subcommand: init
+          tf_actions_working_dir: infrastructure/environments/${{ matrix.environment }}
+        env:
+          TF_CLI_ARGS_init: '-backend-config="token=${{ secrets.TF_API_TOKEN }}" -backend-config="organization=sentrei"'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.24
+          tf_actions_subcommand: validate
+          tf_actions_working_dir: infrastructure/environments/${{ matrix.environment }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # checkov:
+  #   runs-on: ubuntu-latest
+  #   continue-on-error: true
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: bridgecrewio/bridgecrew-action@master
+  #       with:
+  #         directory: "infrastructure"
+  #         soft-fail: true
+  #         quiet: true
+  #         api-key: ${{ secrets.BRIDGE_CREW_KEY }}

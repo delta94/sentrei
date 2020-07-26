@@ -1,0 +1,25 @@
+{
+  "core": {
+    "workingDir": ".reg",
+    "actualDir": "__screenshots__",
+    "thresholdRate": 0,
+    "addIgnore": true,
+    "ximgdiff": {
+      "invocationType": "client"
+    }
+  },
+  "plugins": {
+    "reg-notify-github-plugin": {
+      "clientId": "MzKxNDMzMLcw0y9OzSspSs3UtzAyNzU3NoDxAQ==",
+      "prComment": true,
+      "setCommitStatus": false
+    },
+    "reg-publish-gcs-plugin": {
+      "bucketName": "sentrei-main-reg"
+    },
+    "reg-simple-keygen-plugin": {
+      "expectedKey": "${EXPECTED_KEY}",
+      "actualKey": "${ACTUAL_KEY}"
+    }
+  }
+}

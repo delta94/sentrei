@@ -1,0 +1,28 @@
+{
+  "const": {
+    "app": "App",
+    "description": "Description",
+    "email": "Email Address",
+    "help": "Help",
+    "id": "ID",
+    "invite": "Invite",
+    "link": "Link",
+    "loadMore": "Load More",
+    "loading": "Loading...",
+    "logout": "Logout",
+    "members": "Members",
+    "name": "Name",
+    "notifications": "Notifications",
+    "password": "Password",
+    "passwordConfirm": "Password Confirmation",
+    "passwordNew": "New Password",
+    "passwordOld": "Old Password",
+    "profile": "Profile",
+    "settings": "Settings",
+    "snackbar": {
+      "clipboard": "Copied link to clipboard!"
+    },
+    "title": "Sentrei",
+    "username": "Username"
+  }
+}

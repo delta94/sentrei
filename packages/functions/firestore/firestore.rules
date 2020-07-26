@@ -1,0 +1,192 @@
+rules_version = "2";
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /activity/{activityId} {
+      allow list:
+        if request.auth.uid != null
+        && request.query.limit <= 30
+        || get(/databases/$(database)/documents/spaces/$(request.resource.data.spaceId)/members/$(request.auth.uid)).data.role == "admin"
+        || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+        || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
+      allow get, create, update, delete:
+        if false;
+    }
+    match /analytics/{analyticsId} {
+      allow get;
+      allow list, create, update, delete:
+        if false;
+    }
+    match /profiles/{profileId} {
+      allow get;
+      allow list:
+        if request.query.limit == 1;
+      allow update:
+        if request.auth.uid != null
+        && request.auth.uid == profileId
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["name", "photo"]);
+      allow create, delete:
+        if false;
+    }
+    match /rooms/{roomId} {
+      allow get:
+        if request.auth.uid != null;
+      allow create:
+        if request.auth.uid != null
+        && request.resource.data.createdAt == request.time
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.name == request.resource.data.createdBy.name
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.photo == request.resource.data.createdBy.photo
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.username == request.resource.data.createdBy.username
+        && request.resource.data.createdByUid == request.auth.uid
+        && (request.resource.data.description == null || request.resource.data.description is string)
+        && (request.resource.data.description == null || request.resource.data.description.size() <= 1000)
+        && request.resource.data.memberCount == 0
+        && (request.resource.data.photo == null || request.resource.data.photo is string)
+        && request.resource.data.updatedAt == request.time
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.name == request.resource.data.updatedBy.name
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.photo == request.resource.data.updatedBy.photo
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.username == request.resource.data.updatedBy.username
+        && request.resource.data.updatedByUid == request.auth.uid
+        && exists(/databases/$(database)/documents/spaces/$(request.resource.data.spaceId)/members/$(request.auth.uid));
+      allow update:
+        if request.resource.data.diff(resource.data).affectedKeys().hasOnly(["description", "name", "photo", "updatedAt", "updatedBy", "updatedByUid"])
+        && (request.resource.data.description == null || request.resource.data.description is string)
+        && (request.resource.data.description == null || request.resource.data.description.size() <= 1000)
+        && (request.resource.data.photo == null || request.resource.data.photo is string)
+        && request.resource.data.updatedAt == request.time
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.name == request.resource.data.updatedBy.name
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.photo == request.resource.data.updatedBy.photo
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.username == request.resource.data.updatedBy.username
+        && request.resource.data.updatedByUid == request.auth.uid;
+      allow delete:
+        if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+        || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator"
+        || get(/databases/$(database)/documents/spaces/$(request.resource.data.spaceId)/members/$(request.auth.uid)).data.role == "admin"
+        || get(/databases/$(database)/documents/rooms/$(roomId)).data.createdByUid == request.auth.uid
+        || get(/databases/$(database)/documents/rooms/$(roomId)/members/$(request.auth.uid)).data.role == "admin"
+      match /members/{memberId} {
+        allow get, list, delete:
+          if request.auth.uid != null
+          && exists(/databases/$(database)/documents/rooms/$(roomId)/members/$(request.auth.uid))
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
+        allow create, update:
+          if false;
+      }
+    }
+    match /spaces/{spaceId} {
+      allow get:
+        if request.auth.uid != null;
+      allow create:
+        if request.auth.uid != null
+        && request.resource.data.createdAt == request.time
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.name == request.resource.data.createdBy.name
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.photo == request.resource.data.createdBy.photo
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.username == request.resource.data.createdBy.username
+        && request.resource.data.createdByUid == request.auth.uid
+        && (request.resource.data.description == null || request.resource.data.description is string)
+        && (request.resource.data.description == null || request.resource.data.description.size() <= 1000)
+        && (request.resource.data.name != null && request.resource.data.name is string)
+        && request.resource.data.memberCount == 0
+        && (request.resource.data.photo == null || request.resource.data.photo is string)
+        && request.resource.data.updatedAt == request.time
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.name == request.resource.data.updatedBy.name
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.photo == request.resource.data.updatedBy.photo
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.username == request.resource.data.updatedBy.username
+        && request.resource.data.updatedByUid == request.auth.uid;
+      allow update:
+        if request.resource.data.diff(resource.data).affectedKeys().hasOnly(["description", "name", "photo", "updatedAt", "updatedBy", "updatedByUid"])
+        && (request.resource.data.description == null || request.resource.data.description is string)
+        && (request.resource.data.description == null || request.resource.data.description.size() <= 1000)
+        && (request.resource.data.name != null && request.resource.data.name is string)
+        && (request.resource.data.photo == null || request.resource.data.photo is string)
+        && request.resource.data.updatedAt == request.time
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.name == request.resource.data.updatedBy.name
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.photo == request.resource.data.updatedBy.photo
+        && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.username == request.resource.data.updatedBy.username
+        && request.resource.data.updatedByUid == request.auth.uid;
+      allow delete:
+        if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+        || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator"
+        || get(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid)).data.role == "admin";
+      allow list:
+        if false;
+      match /members/{memberId} {
+        allow get, list:
+          if request.auth.uid != null
+          && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))
+          || get(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
+        allow create:
+          if request.auth.uid != null
+          && exists(/databases/$(database)/documents/users/$(memberId))
+          && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))
+          || get(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
+        allow delete:
+          if request.auth.uid != null
+          && request.auth.uid == memberId
+          && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+          && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))
+          || get(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator"
+        allow update:
+          if false;
+      }
+      match /rooms/{roomId} {
+        allow get, list:
+          if request.auth.uid != null
+          && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
+        allow create, update, delete:
+          if false;
+      }
+      match /{subCollection}/{docId} {
+        allow get:
+          if request.auth.uid != null
+          && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
+        allow list:
+          if request.query.limit <= 30
+          && request.auth.uid != null
+          && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
+        allow delete:
+          if request.auth.uid != null
+          && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))
+          || get(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
+      }
+    }
+    match /usernames/{usernameId} {
+      allow get;
+      allow create, update:
+        if request.auth.uid != null
+        && request.resource.data.uid == request.auth.uid
+        && usernameId.matches("^[a-z0-9][a-z0-9_]*([.][a-z0-9_]+)*$");
+      allow list, delete:
+        if false;
+    }
+    match /users/{userId} {
+      allow get:
+        if request.auth.uid == userId;
+      allow create, update:
+        if request.auth.uid == userId
+        && !request.resource.data.diff(resource.data).affectedKeys().hasOnly(["name", "notificationCount", "photo", "role", "username"])
+      allow list, delete:
+        if false;
+      match /{subCollection}/{docId} {
+        allow get, list:
+          if request.auth.uid == userId;
+        allow create, update, delete:
+          if false;
+      }
+    }
+  }
+}

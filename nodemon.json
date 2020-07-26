@@ -1,0 +1,12 @@
+{
+  "verbose": true,
+  "ignore": ["node_modules", ".next", "out"],
+  "watch": [
+    "packages/@types/src/**/*",
+    "packages/common/src/**/*",
+    "packages/functions/src/**/*",
+    "packages/ui/src/**/*",
+    "packages/web/src/**/*"
+  ],
+  "ext": "ts,tsx"
+}

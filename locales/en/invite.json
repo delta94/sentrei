@@ -1,0 +1,16 @@
+{
+  "invite": {
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "editProfile": "Edit Profile",
+    "editing": "Editing ...",
+    "invite": "Invite",
+    "title": "Settings",
+    "update": "Update",
+    "usernameAlreadyUsed": "Username is already used",
+    "usernameInvalid": "Username is invalid",
+    "usernameNotExist": "Username doesn't exist",
+    "usernameNotYourself": "Username can not be yourself",
+    "usernameRequired": "Username is required"
+  }
+}

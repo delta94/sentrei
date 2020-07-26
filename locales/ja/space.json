@@ -1,0 +1,39 @@
+{
+  "activity": {
+    "loadMore": "もっと読み込む",
+    "none": "アクティビティはありません...",
+    "title": "履歴"
+  },
+  "dashboard": {
+    "create": "スペースを作る",
+    "none": "スペースがありません...",
+    "title": "あなたのスペース"
+  },
+  "space": {
+    "cancel": "キャンセル",
+    "cover": "カバー",
+    "create": "作成する",
+    "createSpace": "スペースを作成",
+    "creating": "作成中...",
+    "edit": "編集する",
+    "editSpace": "スペースを編集",
+    "editing": "編集...",
+    "id": "ID",
+    "idAlreadyUsed": "IDは既に使用されています",
+    "idInvalid": "IDが無効です",
+    "idNotExist": "IDは存在しません",
+    "idNotYourself": "IDを自分にすることはできません",
+    "idRequired": "IDが必要です",
+    "invite": "招待する",
+    "memberCount": "会員数",
+    "nameRequired": "名前は必須です",
+    "quit": "出口",
+    "quitRequired": "終了する必要があります",
+    "quitSpace": "スペースを辞める",
+    "quitTypeRequired": "「QUIT」と入力する必要があります",
+    "quitting": "退出しています...",
+    "updatedAt": "最終更新",
+    "username": "ユーザー名",
+    "visit": "訪問する"
+  }
+}

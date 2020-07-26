@@ -1,0 +1,55 @@
+name: Functions
+on:
+  pull_request:
+    paths:
+      - "package.json"
+      - "tsconfig.json"
+      - "yarn.lock"
+      - "packages/common/**"
+      - "packages/functions/**"
+jobs:
+  functions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.1
+        with:
+          node-version: "14.4.0"
+      - id: yarn-cache-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - id: cache
+        uses: actions/cache@master
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+            ${{ steps.yarn-cache-path.outputs.dir }}
+          key: |
+            yarn-v1-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-v1-${{ runner.os }}-
+      - run: |
+          yarn install --frozen-lockfile
+      - run: |
+          yarn run typescript
+      - working-directory: packages/functions
+        run: |
+          yarn run swap:${{ github.event.pull_request.base.ref }}
+          yarn run setup
+          yarn run test
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - uses: codecov/codecov-action@v1.0.12
+        continue-on-error: true
+        timeout-minutes: 3
+        with:
+          file: packages/functions/coverage/lcov.info
+          name: sentrei
+          fail_ci_if_error: true
+          flags: functions
+      - uses: actions/upload-artifact@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: ruleCoverage.html
+          path: packages/functions/coverage/ruleCoverage.html

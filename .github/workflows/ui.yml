@@ -1,0 +1,73 @@
+name: UI
+on:
+  pull_request:
+    paths:
+      - "package.json"
+      - "tsconfig.json"
+      - "yarn.lock"
+      - ".github/workflows/ui.yml"
+      - "packages/common/**"
+      - "packages/ui/**"
+jobs:
+  ui:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v2.1.1
+        with:
+          node-version: "14.4.0"
+      - id: yarn-cache-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - id: cache
+        uses: actions/cache@master
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+            ${{ steps.yarn-cache-path.outputs.dir }}
+          key: |
+            yarn-v1-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-v1-${{ runner.os }}-
+      - run: |
+          yarn install --frozen-lockfile
+      - run: |
+          yarn run typescript
+      - id: secrets
+        uses: GoogleCloudPlatform/github-actions/get-secretmanager-secrets@master
+        with:
+          credentials: ${{ secrets.GCP_CREDENTIALS }}
+          secrets: |-
+            SERVICE_ACCOUNT_EMAIL:sentrei-main/github_main_email
+            SERVICE_ACCOUNT_KEY:sentrei-main/github_main_key
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: "286.0.0"
+          service_account_email: ${{ steps.secrets.outputs.SERVICE_ACCOUNT_EMAIL }}
+          service_account_key: ${{ steps.secrets.outputs.SERVICE_ACCOUNT_KEY }}
+          project_id: "sentrei-${{ github.event.pull_request.base.ref }}"
+          export_default_credentials: true
+      - id: reg
+        run: |
+          echo "::set-output name=actual::$(git rev-parse HEAD)"
+          echo "::set-output name=expected::$(git rev-list -1 origin/${{ github.event.pull_request.base.ref }} -- packages/ui)"
+      - working-directory: packages/ui
+        run: |
+          yarn run build
+          yarn run test
+          yarn run storycap
+          yarn run reg
+        env:
+          ACTUAL_KEY: ${{ steps.reg.outputs.actual }}
+          EXPECTED_KEY: ${{ steps.reg.outputs.expected }}
+      - uses: codecov/codecov-action@v1.0.12
+        continue-on-error: true
+        timeout-minutes: 3
+        with:
+          file: packages/ui/coverage/lcov.info
+          name: sentrei
+          fail_ci_if_error: true
+          flags: ui

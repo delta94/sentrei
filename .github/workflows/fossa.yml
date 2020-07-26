@@ -1,0 +1,37 @@
+name: Fossa
+on:
+  push:
+    branches:
+      - alpha
+      - beta
+      - main
+jobs:
+  fossa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.1
+        with:
+          node-version: "14.4.0"
+      - uses: actions/setup-python@v2.1.1
+        with:
+          python-version: "3.8"
+      - uses: dschep/install-pipenv-action@v1
+      - id: cache
+        uses: actions/cache@master
+        with:
+          path: .venv
+          key: |
+            pipenv-${{ hashFiles('**/Pipfile.lock') }}
+          restore-keys: |
+            pipenv-
+      - run: |
+          pipenv install --dev
+        env:
+          PIPENV_VENV_IN_PROJECT: true
+      - run: |
+          curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
+      - run: |
+          fossa analyze
+        env:
+          FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}

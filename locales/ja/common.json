@@ -1,0 +1,21 @@
+{
+  "const": {
+    "description": "説明",
+    "email": "電子メールアドレス",
+    "help": "ヘルプ",
+    "id": "ID",
+    "loading": "読み込んでいます...",
+    "logout": "ログアウト",
+    "members": "会員",
+    "name": "名前",
+    "password": "パスワード",
+    "passwordConfirmation": "パスワードの確認",
+    "profile": "プロフィール",
+    "settings": "設定",
+    "snackbar": {
+      "clipboard": "クリップボードへのリンクをコピーしました！"
+    },
+    "title": "Sentrei",
+    "username": "ユーザー名"
+  }
+}

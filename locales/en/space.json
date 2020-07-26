@@ -1,0 +1,39 @@
+{
+  "activity": {
+    "loadMore": "Load more",
+    "none": "You have no activities ...",
+    "title": "Activities"
+  },
+  "dashboard": {
+    "create": "Create one",
+    "none": "You have no spaces ...",
+    "title": "Your Spaces"
+  },
+  "space": {
+    "cancel": "Cancel",
+    "cover": "Cover",
+    "create": "Create",
+    "createSpace": "Create Space",
+    "creating": "Creating...",
+    "edit": "Edit",
+    "editSpace": "Edit Space",
+    "editing": "Editing...",
+    "id": "ID",
+    "idAlreadyUsed": "ID is already used",
+    "idInvalid": "ID is invalid",
+    "idNotExist": "ID doesn't exist",
+    "idNotYourself": "ID can not be yourself",
+    "idRequired": "ID is required",
+    "invite": "Invite",
+    "memberCount": "Member Count",
+    "nameRequired": "Name is required",
+    "quit": "Quit",
+    "quitRequired": "Quit is required",
+    "quitSpace": "Quit Space",
+    "quitTypeRequired": "Typing 'QUIT' is required",
+    "quitting": "Quitting...",
+    "updatedAt": "Last Updated",
+    "username": "Username",
+    "visit": "Visit"
+  }
+}

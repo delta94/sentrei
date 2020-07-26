@@ -1,0 +1,115 @@
+{
+  "banner": {
+    "bannerBottom": "にとって",
+    "bannerBottomRough": "最高の仕事場",
+    "bannerTextOne": "バーチャル・ワークスペースで",
+    "bannerTextRough": "発揮しよう",
+    "bannerTextThree": "- どこからでもワンクリックで即座にアクセス -",
+    "bannerTextTwo": "最大限のパフォーマンスを",
+    "bannerTop": "すべての",
+    "googleText": "Google で サインインする",
+    "startText": "すべて 無料 でスタートする",
+    "typicalOne": "リモートチーム",
+    "typicalThree": "クラスメート",
+    "typicalTwo": "同僚"
+  },
+  "faq": {
+    "bodyOne": "はい、それは誰にとっても無制限の時間を伴います-ワークスペースで同時に3人がいなければ。その場合は、独立したワークスペースを無料で作成するか（最大3人をサポート）、Proバージョンにアップグレードする必要があります。",
+    "bodyThree": "市場での主要な競合他社は、常に同時に通信するという事実を前提としているため、仮想ワークスペースの真のニーズを再現することはほとんどできません。それは私たちが助けるためにここにいるところです.",
+    "bodyTwo": "はい、ビデオ通信は業界標準のWeb RTCプロトコルで暗号化されています。",
+    "sectionTitle": "FAQ",
+    "titleOne": "仮想ワークスペースには本当に無制限の時間がありますか？",
+    "titleThree": "製品の背後にある動機は何ですか？",
+    "titleTwo": "ビデオ通信は暗号化されていますか？"
+  },
+  "feature": {
+    "sectionTitle": "Feature",
+    "subTitleOne": "誰もがいつでも好きなときにワークスペースにアクセスできます",
+    "subTitleThree": "個人の目標を達成するために仮想ワークスペースに費やされた毎日のパフォーマンスの分析を可能に",
+    "subTitleTwo": "簡単に気が散らないように、フォーカス指向の機能を提供します",
+    "titleOne": "無制限の時間",
+    "titleThree": "目標を達成",
+    "titleTwo": "フォーカス指向"
+  },
+  "footer": {
+    "cookies": "クッキー",
+    "legal": "法律関係",
+    "privacy": "個人情報保護方針",
+    "product": "プロダクト",
+    "releases": "リリース一覧",
+    "social": "SNS",
+    "terms": "利用規約"
+  },
+  "header": {
+    "faq": "FAQ",
+    "features": "特徴",
+    "login": "Log In",
+    "pricing": "料金",
+    "product": "プロダクト",
+    "signup": "Sign Up",
+    "testimonial": "お客様の声",
+    "title": "セントレイ"
+  },
+  "pricing": {
+    "buttonTextOne": "無料でお申し込み頂けます",
+    "buttonTextThree": "お問い合わせ",
+    "buttonTextTwo": "始めましょう",
+    "description1One": "時間無制限",
+    "description1Three": "時間無制限",
+    "description1Two": "時間無制限",
+    "description2One": "3ユーザーを含む",
+    "description2Three": "制限のないユーザーとワークスペース",
+    "description2Two": "無制限のユーザー",
+    "description3One": "ヘルプセンターへのアクセス",
+    "description3Three": "専任ヘルプチーム",
+    "description3Two": "ヘルプセンターへのアクセス",
+    "priceMonth": "/月",
+    "priceOne": "0円",
+    "priceThree": "1000円",
+    "priceTwo": "300円",
+    "sectionTitle": "Pricing",
+    "subTitleTwo": "最も人気のある",
+    "titleOne": "無料",
+    "titleThree": "企業",
+    "titleTwo": "プロフェッショナル"
+  },
+  "product": {
+    "connectSubTitle": "時間単位のビデオ会議アプリにうんざりしていませんか？私たちの仮想ワークスペースは常にどこからでもアクセスできます-物理世界と同じように",
+    "connectTitleOne": " ",
+    "connectTitleThree": "年中無休で誰でも利用可能",
+    "connectTitleTwo": "24時間",
+    "dataSubTitle": "当社のデータ分析チームは、ワークスペースでの全員のプレゼンスを追跡し、チームの生産性と効率のためのリアルタイムのインサイトを可能にします",
+    "dataTitleOne": " ",
+    "dataTitleThree": "分析とデータ",
+    "dataTitleTwo": "洞察に満ちた",
+    "videoSubTitle": "気を散らすことなく他の人と実質的に共同作業できるリモート指向のワークスペースが必要ですか？お気に入りの音楽を聴きながら、他の人と一緒に仕事に専念できるようになりました",
+    "videoTitleOne": " ",
+    "videoTitleThree": "仕事に集中しよう",
+    "videoTitleTwo": "仲間と一緒に"
+  },
+  "screen": {
+    "labelOne": "Virtual Workspace",
+    "labelThree": "View Analytics",
+    "labelTwo": "Share Love"
+  },
+  "slider": {
+    "titleOne": "これらのチームの人々はSentreiを日々 ",
+    "titleThree": " しております",
+    "titleTwo": "愛用"
+  },
+  "testimonial": {
+    "authorOne": "Shun Kakinoki",
+    "authorThree": "Shun Kakinoki",
+    "authorTwo": "Shun Kakinoki",
+    "bodyOne": "実際のTestimonialはまだありませんが、素晴らしい製品を作ることをお約束します！",
+    "bodyThree": "We don't have any actual testimonials yet, but I assure you we will build a great product!",
+    "bodyTwo": "We don't have any actual testimonials yet, but I assure you we will build a great product!",
+    "occupationOne": "Sentrei Inc.の創設者",
+    "occupationThree": "Founder, Sentrei Inc.",
+    "occupationTwo": "Founder, Sentrei Inc.",
+    "sectionTitle": "Testimonial",
+    "titleOne": "素晴らしい製品",
+    "titleThree": "A Great Product",
+    "titleTwo": "A Great Product"
+  }
+}

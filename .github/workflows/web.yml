@@ -1,0 +1,42 @@
+name: Web
+on:
+  pull_request:
+    paths:
+      - "package.json"
+      - "tsconfig.json"
+      - "yarn.lock"
+      - ".github/workflows/web.yml"
+      - "packages/common/**"
+      - "packages/ui/**"
+      - "packages/web/**"
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.1
+        with:
+          node-version: "14.4.0"
+      - id: yarn-cache-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - id: cache
+        uses: actions/cache@master
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+            ${{ steps.yarn-cache-path.outputs.dir }}
+          key: |
+            yarn-v1-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-v1-${{ runner.os }}-
+      - run: |
+          yarn install --frozen-lockfile
+      - run: |
+          yarn run typescript
+      # - uses: amondnet/vercel-action@v19
+      #   with:
+      #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+      #     vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}

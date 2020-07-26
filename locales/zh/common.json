@@ -1,0 +1,21 @@
+{
+  "const": {
+    "description": "描述",
+    "email": "电子邮件地址",
+    "help": "帮助",
+    "id": "ID",
+    "loading": "载入中...",
+    "logout": "登出",
+    "members": "会员",
+    "name": "名称",
+    "password": "密码",
+    "passwordConfirmation": "确认密码",
+    "profile": "个人资料",
+    "settings": "设定值",
+    "snackbar": {
+      "clipboard": "复制到剪贴板的链接！"
+    },
+    "title": "Sentrei",
+    "username": "用户名"
+  }
+}

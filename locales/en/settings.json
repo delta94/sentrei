@@ -1,0 +1,17 @@
+{
+  "profile": {
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "editProfile": "Edit Profile",
+    "editing": "Editing ...",
+    "update": "Update"
+  },
+  "settings": {
+    "title": "Settings",
+    "usernameAlreadyUsed": "Username is already used",
+    "usernameInvalid": "Username is invalid",
+    "usernameNotExist": "Username doesn't exist",
+    "usernameNotYourself": "Username can not be yourself",
+    "usernameRequired": "Username is required"
+  }
+}

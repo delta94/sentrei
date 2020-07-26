@@ -1,0 +1,31 @@
+{
+  "allLanguages": ["en", "ja", "zh"],
+  "defaultLanguage": "en",
+  "currentPagesDir": "pages_",
+  "finalPagesDir": "pages",
+  "localesPath": "locales",
+  "pages": {
+    "*": ["_error", "common"],
+    "/": ["index"],
+    "/[spaceId]/activity": ["space"],
+    "/[spaceId]/create": ["room", "space"],
+    "/[spaceId]/edit": ["space"],
+    "/[spaceId]/invite": ["invite"],
+    "/[spaceId]/room/[roomId]": ["space", "video"],
+    "/[spaceId]/room/[roomId]/delete": ["room", "video"],
+    "/[spaceId]/room/[roomId]/edit": ["room", "video"],
+    "/[spaceId]/quit": ["space"],
+    "/[spaceId]": ["room", "space"],
+    "/create": ["space"],
+    "/dashboard": ["space"],
+    "/login": ["auth"],
+    "/notifications": ["auth"],
+    "/privacy": ["auth"],
+    "/profile/[usernameId]": ["profile"],
+    "/profile": ["profile"],
+    "/settings": ["settings"],
+    "/signup": ["auth"],
+    "/reset-password": ["auth"],
+    "/terms": ["auth"]
+  }
+}
