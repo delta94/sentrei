@@ -15,6 +15,7 @@ import Invite from "@sentrei/types/models/Invite";
 import Space from "@sentrei/types/models/Space";
 import FormSection from "@sentrei/ui/components/FormSection";
 import InviteEmailForm from "@sentrei/ui/components/InviteEmailForm";
+import InviteLinkForm from "@sentrei/ui/components/InviteLinkForm";
 import InviteList from "@sentrei/ui/components/InviteList";
 import InviteUsernameForm from "@sentrei/ui/components/InviteUsernameForm";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
@@ -79,7 +80,22 @@ export default function InviteScreen({
               </Container>
             </>
           }
-          tabPanelTwo={<></>}
+          tabPanelTwo={
+            <>
+              <Container component="main" maxWidth="xs">
+                <InviteLinkForm
+                  profile={profile}
+                  user={user}
+                  spaceId={spaceId}
+                />
+              </Container>
+              <Box p={1} />
+              <Container component="main" maxWidth="md">
+                <></>
+                {invites && <InviteList invites={invites} type="link" />}
+              </Container>
+            </>
+          }
           tabPanelThree={
             <Container component="main" maxWidth="xs">
               <InviteUsernameForm
