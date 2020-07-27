@@ -26,17 +26,18 @@ const notificationEmailSend = functions.firestore
     if (!isEnabled || !userData.email) return false;
 
     const email = new UpdateEmail({
-      language: userData?.language || "en",
       editId: data.activityId || data.itemPath,
       name: data.user.name,
     });
 
+    const language = userData?.language || "en";
+
     const msg: Email.SendGrid = {
       to: userData.email,
       from: "support@sentrei.com",
-      subject: "",
-      text: email.text(),
-      html: email.html(),
+      subject: email.subject(language),
+      text: email.text(language),
+      html: email.html(language),
     };
 
     return MailClient.send(msg);

@@ -2,20 +2,17 @@ import Email from "@sentrei/types/models/Email";
 import User from "@sentrei/types/models/User";
 
 class UpdateEmail {
-  public constructor({language, editId, name}: Email.Update) {
-    this.language = language;
+  public constructor({editId, name}: Email.Update) {
     this.editId = editId;
     this.name = name;
   }
-
-  language: User.Language;
 
   editId: string;
 
   name: string;
 
-  public html(): string {
-    if (this.language === "ja") {
+  public html(language: User.Language): string {
+    if (language === "ja") {
       return "";
     }
     return `
@@ -26,15 +23,15 @@ class UpdateEmail {
   `;
   }
 
-  public title(): string {
-    if (this.language === "ja") {
+  public subject(language: User.Language): string {
+    if (language === "ja") {
       return "";
     }
-    return "Update from Sentrei";
+    return `Update from Sentrei at ${this.editId}`;
   }
 
-  public text(): string {
-    if (this.language === "ja") {
+  public text(language: User.Language): string {
+    if (language === "ja") {
       return "";
     }
     return `

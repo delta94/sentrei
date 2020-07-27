@@ -2,10 +2,10 @@ import Email from "@sentrei/types/models/Email";
 import User from "@sentrei/types/models/User";
 
 class InviteEmail {
-  public constructor({link, name, title, sender}: Email.Invite) {
+  public constructor({link, name, space, sender}: Email.Invite) {
     this.link = link;
     this.name = name;
-    this.title = title;
+    this.space = space;
     this.sender = sender;
   }
 
@@ -13,7 +13,7 @@ class InviteEmail {
 
   name: string;
 
-  title: string;
+  space: string;
 
   sender: string;
 
@@ -22,8 +22,8 @@ class InviteEmail {
       return "";
     }
     return `
-    <h1>Hi ${this.name}, you've been invited to join "${this.title}".</h1>
-    <p>${this.sender} has invited you to join the space: <strong>${this.title}</strong>.</p>
+    <h1>Hi ${this.name}, you've been invited to join "${this.space}".</h1>
+    <p>${this.sender} has invited you to join the space: <strong>${this.space}</strong>.</p>
     <p>Click on the link to join now: <a href="${this.link}">${this.link}</a></p>
 
     <p>Thanks,</p>
@@ -31,13 +31,20 @@ class InviteEmail {
   `;
   }
 
+  public subject(language: User.Language): string {
+    if (language === "ja") {
+      return "";
+    }
+    return `Invitation from ${this.name} at Sentrei`;
+  }
+
   public text(language: User.Language): string {
     if (language === "ja") {
       return "";
     }
     return `
-    Hi ${this.name}, you've been invited to join "${this.title}".
-    ${this.sender} has invited you to join the space: ${this.title}.
+    Hi ${this.name}, you've been invited to join "${this.space}".
+    ${this.sender} has invited you to join the space: ${this.space}.
     Click on the link to join now: ${this.link}
 
     Thanks,
