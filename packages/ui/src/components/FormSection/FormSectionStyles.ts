@@ -7,7 +7,6 @@ const AuthFormStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.primary.main,
     },
     paper: {
-      marginTop: theme.spacing(3),
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
