@@ -1,2 +1,2 @@
-export {default as activityMemberCreate} from "./activityInviteCreate";
-export {default as spaceMemberCountPlus} from "./inviteCountPlus";
+export {default as activityInviteCreate} from "./activityInviteCreate";
+export {default as inviteCountPlus} from "./inviteCountPlus";
