@@ -10,8 +10,8 @@ import * as React from "react";
 import {useForm, Controller} from "react-hook-form";
 import * as Yup from "yup";
 
-import {getProfile} from "@sentrei/common/firebase/profiles";
-
+import {createInvite} from "@sentrei/common/firebase/invites";
+import {timestamp} from "@sentrei/common/utils/firebase";
 import Props from "@sentrei/types/components/InviteEmailForm";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
@@ -34,7 +34,20 @@ const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
     snackbar("info", t("invite:invite.editing"));
     try {
-      await getProfile(data.email);
+      await createInvite("spaces", spaceId, {
+        createdAt: timestamp,
+        createdBy: profile,
+        createdByUid: user.uid,
+        email: data.email,
+        method: "email",
+        spaceId,
+        type: "spaces",
+        updatedAt: timestamp,
+        updatedBy: profile,
+        updatedByUid: user.uid,
+      })?.then(() => {
+        snackbar("success");
+      });
     } catch (err) {
       snackbar("error", err.message);
     }

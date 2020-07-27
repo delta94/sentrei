@@ -54,9 +54,9 @@ export const getInvitesLive = (
 
 export const validateSpaceInvite = async (
   spaceId: string,
-  userId: string,
+  inviteId: string,
 ): Promise<boolean> => {
-  const invite = await db.doc(`spaces/${spaceId}/invites/${userId}`).get();
+  const invite = await db.doc(`spaces/${spaceId}/invites/${inviteId}`).get();
   return invite.exists;
 };
 
@@ -67,19 +67,18 @@ export const getInvitesSnapshot = async (
   return ref.docs.map(snap => ({...snap.data(), snap}));
 };
 
-export const createInvite = (
+export const createInvite = async (
   collection: Invite.Collections,
   docId: string,
-  userId: string,
   invite: Invite.Create,
 ): Promise<void> => {
-  return db.doc(`${collection}/${docId}/invites/${userId}`).set(invite);
+  await db.collection(`${collection}/${docId}/invites`).add(invite);
 };
 
 export const deleteInvite = (
   collection: Invite.Collections,
   docId: string,
-  userId: string,
+  inviteId: string,
 ): Promise<void> => {
-  return db.doc(`${collection}/${docId}/invites/${userId}`).delete();
+  return db.doc(`${collection}/${docId}/invites/${inviteId}`).delete();
 };
