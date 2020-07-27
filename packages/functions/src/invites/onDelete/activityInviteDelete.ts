@@ -9,9 +9,9 @@ const db = admin.firestore();
 /**
  * Create invite activity on delete
  */
-const activityInviteCreate = functions.firestore
+const activityInviteDelete = functions.firestore
   .document("{collection}/{docId}/invites/{inviteId}")
-  .onCreate((snap, context) => {
+  .onDelete((snap, context) => {
     const {collection, docId, inviteId} = context.params;
 
     const data = snap.data() as Invite.Response;
@@ -34,4 +34,4 @@ const activityInviteCreate = functions.firestore
     return db.collection("activity").add(activity);
   });
 
-export default activityInviteCreate;
+export default activityInviteDelete;
