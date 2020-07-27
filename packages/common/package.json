@@ -28,7 +28,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@sentrei/types": "*",
-    "@sentry/browser": "^5.20.0",
+    "@sentry/browser": "^5.20.1",
     "@types/lodash.get": "^4.4.6",
     "@types/nprogress": "^0.2.0",
     "dayjs": "^1.8.29",
