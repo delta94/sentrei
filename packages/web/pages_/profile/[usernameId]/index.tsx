@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/require-await */
 
-import {GetServerSideProps, InferGetServerSidePropsType} from "next";
 // import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from "next";
+import {GetServerSideProps, InferGetServerSidePropsType} from "next";
 import Router from "next-translate/Router";
 
 import Error from "next/error";
@@ -9,8 +9,7 @@ import {useRouter} from "next/router";
 import * as React from "react";
 
 import AuthContext from "@sentrei/common/context/AuthContext";
-import {getProfile} from "@sentrei/common/firebase/profiles";
-import {getUsername} from "@sentrei/common/firebase/usernames";
+import {getProfileUsername} from "@sentrei/common/firebase/profiles";
 import {analytics} from "@sentrei/common/utils/firebase";
 import Props from "@sentrei/types/pages/profile/[usernameId]";
 import ProfileScreen from "@sentrei/ui/components/ProfileScreen";
@@ -23,8 +22,7 @@ import SentreiAppHeader from "@sentrei/web/components/SentreiAppHeader";
 
 // export const getStaticProps: GetStaticProps<Props> = async ({params}) => {
 //   const usernameId = String(params?.usernameId);
-//   const username = await getUsername(usernameId);
-//   const profile = await getProfile(username?.uid);
+//   const profile = await getProfileUsername(usernameId);
 //   return {props: {profile}, revalidate: 1};
 // };
 
@@ -32,8 +30,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   params,
 }) => {
   const usernameId = String(params?.usernameId);
-  const username = await getUsername(usernameId);
-  const profile = await getProfile(username?.uid);
+  const profile = await getProfileUsername(usernameId);
   return {props: {profile}};
 };
 
