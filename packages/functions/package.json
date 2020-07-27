@@ -67,7 +67,7 @@
     "watch": "yarn run tsc -w --preserveWatchOutput"
   },
   "dependencies": {
-    "@firebase/testing": "^0.20.7",
+    "@firebase/testing": "^0.20.9",
     "@sendgrid/mail": "^7.2.2",
     "@sentrei/common": "*",
     "@slack/webhook": "^5.0.3",
