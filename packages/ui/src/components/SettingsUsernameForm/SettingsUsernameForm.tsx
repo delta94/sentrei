@@ -15,16 +15,16 @@ import {
   validateUsername,
 } from "@sentrei/common/firebase/usernames";
 
-import Props from "@sentrei/types/components/UsernameForm";
+import Props from "@sentrei/types/components/SettingsUsernameForm";
 import useBackdrop from "@sentrei/ui/hooks/useBackdrop";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
-const UsernameForm = ({profile}: Props): JSX.Element => {
+const SettingsUsernameForm = ({profile}: Props): JSX.Element => {
   const {t} = useTranslation();
   const {snackbar} = useSnackbar();
   const {backdrop} = useBackdrop();
 
-  const UsernameFormSchema = Yup.object().shape({
+  const SettingsUsernameFormSchema = Yup.object().shape({
     username: Yup.string()
       .required(t("settings:settings.usernameRequired"))
       .matches(
@@ -40,7 +40,7 @@ const UsernameForm = ({profile}: Props): JSX.Element => {
   const {control, register, errors, handleSubmit} = useForm({
     mode: "onSubmit",
     reValidateMode: "onBlur",
-    resolver: yupResolver(UsernameFormSchema),
+    resolver: yupResolver(SettingsUsernameFormSchema),
   });
 
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
@@ -105,4 +105,4 @@ const UsernameForm = ({profile}: Props): JSX.Element => {
   );
 };
 
-export default UsernameForm;
+export default SettingsUsernameForm;

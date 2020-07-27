@@ -9,11 +9,15 @@ import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
 import {updateNotificationSettings} from "@sentrei/common/firebase/users";
-import Props from "@sentrei/types/components/NotificationForm";
+import Props from "@sentrei/types/components/SettingsNotificationForm";
 import User from "@sentrei/types/models/User";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
-const NotificationForm = ({user, content, label}: Props): JSX.Element => {
+const SettingsNotificationForm = ({
+  user,
+  content,
+  label,
+}: Props): JSX.Element => {
   const {t} = useTranslation();
   const {snackbar} = useSnackbar();
   const [active, setActive] = React.useState<User.NotificationType[]>([]);
@@ -71,4 +75,4 @@ const NotificationForm = ({user, content, label}: Props): JSX.Element => {
   );
 };
 
-export default NotificationForm;
+export default SettingsNotificationForm;
