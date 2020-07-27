@@ -22,6 +22,7 @@ export const MembersQuery = ({
 }: MemberQuery): firebase.firestore.Query<Member.Get> => {
   let ref = db
     .collection(`${collection}/${docId}/members`)
+    .orderBy("updatedAt", "desc")
     .withConverter(memberConverter)
     .limit(limit);
 
