@@ -76,7 +76,7 @@ export const inviteMember = (
   return db.doc(`${collection}/${docId}/members/${userId}`).set(member);
 };
 
-export const del = (
+export const deleteMember = (
   collection: Member.Collections,
   docId: string,
   userId: string,

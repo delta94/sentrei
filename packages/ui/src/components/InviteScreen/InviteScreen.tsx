@@ -1,3 +1,4 @@
+import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import EmailIcon from "@material-ui/icons/Email";
@@ -63,14 +64,20 @@ export default function InviteScreen({
           tabLabelTwo={t("common:const.link")}
           tabLabelThree={t("common:const.username")}
           tabPanelOne={
-            <Container component="main" maxWidth="xs">
-              <InviteEmailForm
-                profile={profile}
-                user={user}
-                spaceId={spaceId}
-              />
-              {invites && <InviteList invites={invites} />}
-            </Container>
+            <>
+              <Container component="main" maxWidth="xs">
+                <InviteEmailForm
+                  profile={profile}
+                  user={user}
+                  spaceId={spaceId}
+                />
+              </Container>
+              <Box p={1} />
+              <Container component="main" maxWidth="md">
+                <></>
+                {invites && <InviteList invites={invites} type="email" />}
+              </Container>
+            </>
           }
           tabPanelTwo={<></>}
           tabPanelThree={

@@ -6,22 +6,36 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 import DeleteIcon from "@material-ui/icons/Delete";
-import FolderIcon from "@material-ui/icons/Folder";
+import EmailIcon from "@material-ui/icons/Email";
+import LinkIcon from "@material-ui/icons/Link";
 import * as React from "react";
 
+import {deleteInvite} from "@sentrei/common/firebase/invites";
 import Props from "@sentrei/types/components/InviteCard";
+import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
-function InviteCard({invite}: Props): JSX.Element {
+function InviteCard({invite, type}: Props): JSX.Element {
+  const {snackbar} = useSnackbar();
+
+  const toggleDeleteInvite = (): void => {
+    try {
+      deleteInvite("spaces", invite.spaceId, invite.id);
+    } catch (err) {
+      snackbar("error", err);
+    }
+  };
+
   return (
     <ListItem>
       <ListItemAvatar>
         <Avatar>
-          <FolderIcon />
+          {type === "email" && <EmailIcon />}
+          {type === "link" && <LinkIcon />}
         </Avatar>
       </ListItemAvatar>
-      <ListItemText primary={invite.id} />
+      <ListItemText primary={type === "email" ? invite.email : invite.period} />
       <ListItemSecondaryAction>
-        <IconButton edge="end" aria-label="delete">
+        <IconButton edge="end" aria-label="delete" onClick={toggleDeleteInvite}>
           <DeleteIcon />
         </IconButton>
       </ListItemSecondaryAction>
