@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 
+import {getUsername} from "@sentrei/common/firebase/usernames";
 import serializeProfile from "@sentrei/common/serializers/Profile";
 import {db} from "@sentrei/common/utils/firebase";
 import Profile from "@sentrei/types/models/Profile";
@@ -23,6 +24,23 @@ export const getProfile = async (
   }
   const snap = await db
     .doc(`profiles/${uid}`)
+    .withConverter(profileConverter)
+    .get();
+
+  return snap.data() || null;
+};
+
+export const getProfileUsername = async (
+  usernameId: string,
+): Promise<Profile.Get | null> => {
+  const username = await getUsername(usernameId);
+
+  if (!username) {
+    return null;
+  }
+
+  const snap = await db
+    .doc(`profiles/${username.uid}`)
     .withConverter(profileConverter)
     .get();
 

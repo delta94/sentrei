@@ -125,6 +125,27 @@ service cloud.firestore {
         allow create, update, delete:
           if false;
       }
+      match /invites/{inviteId} {
+        allow get:
+          if request.auth.uid != null
+          && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
+        allow list:
+          if request.query.limit <= 30
+          && request.auth.uid != null
+          && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
+        allow create, update:
+          if request.auth.uid != null
+          && request.resource.data.createdByUid == request.auth.uid
+          && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator"
+        allow delete:
+          if false;
+      }
       match /members/{memberId} {
         allow get, list:
           if request.auth.uid != null
