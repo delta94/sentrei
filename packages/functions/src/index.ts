@@ -7,6 +7,7 @@ admin.initializeApp();
 
 import * as activity from "./activity";
 import * as analytics from "./analytics";
+import * as invites from "./invites";
 import * as log from "./log";
 import * as members from "./members";
 import * as notifications from "./notifications";
@@ -22,6 +23,7 @@ import * as users from "./users";
 const v1 = {
   activity,
   analytics,
+  invites,
   log,
   members,
   notifications,

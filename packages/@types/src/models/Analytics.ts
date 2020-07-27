@@ -2,6 +2,8 @@ export type collection =
   | "actions"
   | "activity"
   | "profiles"
+  | "invites"
+  | "members"
   | "notifications"
   | "rooms"
   | "spaces"
@@ -12,6 +14,8 @@ export const statsCollection: collection[] = [
   "actions",
   "activity",
   "profiles",
+  "invites",
+  "members",
   "notifications",
   "rooms",
   "spaces",

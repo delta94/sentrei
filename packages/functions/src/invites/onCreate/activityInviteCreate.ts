@@ -10,7 +10,7 @@ const db = admin.firestore();
  * Create invite activity on create
  */
 const activityInviteCreate = functions.firestore
-  .document("{collection}/{docId}/invites/{userId}")
+  .document("{collection}/{docId}/invites/{inviteId}")
   .onCreate((snap, context) => {
     const {collection, docId, inviteId} = context.params;
 

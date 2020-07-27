@@ -1,2 +1,2 @@
 export {default as activityInviteDelete} from "./activityInviteDelete";
-export {default as spaceInviteCountMinus} from "./inviteCountMinus";
+export {default as inviteCountMinus} from "./inviteCountMinus";
