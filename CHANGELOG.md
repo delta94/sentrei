@@ -1,3 +1,9 @@
+# [1.2.0](https://github.com/sentrei/sentrei/compare/v1.1.0...v1.2.0) (2020-07-27)
+
+### Features
+
+- 🎸 refactor analytics space ([a04050f](https://github.com/sentrei/sentrei/commit/a04050f6a8ec7d59f240724ab41ca46c2873674a))
+
 # [1.1.0](https://github.com/sentrei/sentrei/compare/v1.0.3...v1.1.0) (2020-07-27)
 
 ### Features
