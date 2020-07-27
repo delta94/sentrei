@@ -44,6 +44,7 @@ const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
         updatedAt: timestamp,
         updatedBy: profile,
         updatedByUid: user.uid,
+        window: window.location.origin,
       })?.then(() => {
         snackbar("success");
       });

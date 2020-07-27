@@ -16,7 +16,7 @@ class UpdateEmail {
       return "";
     }
     return `
-    <h1>Hi ${this.name}, you have an update at "${this.editId}".</h1>
+    <p>Hi ${this.name}, you have an update at "${this.editId}".</p>
 
     <p>Thanks,</p>
     <p>Sentrei</p>

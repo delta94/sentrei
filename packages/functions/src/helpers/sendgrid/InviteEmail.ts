@@ -22,7 +22,7 @@ class InviteEmail {
       return "";
     }
     return `
-    <h1>Hi ${this.name}, you've been invited to join "${this.space}".</h1>
+    <p>Hi ${this.name}, you've been invited to join "${this.space}".</p>
     <p>${this.sender} has invited you to join the space: <strong>${this.space}</strong>.</p>
     <p>Click on the link to join now: <a href="${this.link}">${this.link}</a></p>
 

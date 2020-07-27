@@ -23,7 +23,7 @@ const inviteEmailSend = functions.firestore
     }
 
     const email = new InviteEmail({
-      link: data.type,
+      link: `${data.window}/${data.spaceId}/invite/${snap.id}`,
       name: data.email,
       sender: data.createdBy.name,
       space: data.spaceId,

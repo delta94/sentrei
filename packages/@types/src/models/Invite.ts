@@ -14,6 +14,7 @@ declare namespace Invite {
     spaceId: string;
     type: Collections;
     period?: Period;
+    window?: string;
   }
 
   export interface Create extends Fields, Metadata.Create {}
