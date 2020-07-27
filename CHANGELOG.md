@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/sentrei/sentrei/compare/v1.3.0...v1.3.1) (2020-07-27)
+
+### Performance Improvements
+
+- ⚡️ upgrade next.js to v9.5.0 ([fc0dc4a](https://github.com/sentrei/sentrei/commit/fc0dc4ab4721474d5938400ad4ec871da62e84cf))
+
 # [1.3.0](https://github.com/sentrei/sentrei/compare/v1.2.0...v1.3.0) (2020-07-27)
 
 ### Features
