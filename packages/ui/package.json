@@ -1,6 +1,6 @@
 {
   "name": "@sentrei/ui",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "homepage": "https://sentrei.com",
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
     "@metomic/react": "^0.1.2",
     "@sentrei/common": "*",
     "@sentrei/video": "*",
-    "@sentry/browser": "^5.20.0",
+    "@sentry/browser": "^5.20.1",
     "@types/classnames": "^2.2.10",
     "@types/next": "^9.0.0",
     "@types/react": "^16.9.41",
