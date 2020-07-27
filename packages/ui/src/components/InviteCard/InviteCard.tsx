@@ -35,7 +35,11 @@ function InviteCard({invite, type}: Props): JSX.Element {
           {type === "link" && <LinkIcon />}
         </Avatar>
       </ListItemAvatar>
-      <ListItemText primary={type === "email" ? invite.email : invite.period} />
+      <ListItemText
+        primary={
+          type === "email" ? invite.email : `${window.location}/${invite.id}`
+        }
+      />
       <ListItemSecondaryAction>
         <IconButton edge="end" aria-label="delete" onClick={toggleDeleteInvite}>
           <DeleteIcon />
