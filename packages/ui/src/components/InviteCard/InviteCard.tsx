@@ -18,8 +18,10 @@ function InviteCard({invite, type}: Props): JSX.Element {
   const {snackbar} = useSnackbar();
 
   const toggleDeleteInvite = (): void => {
+    snackbar("info");
     try {
       deleteInvite("spaces", invite.spaceId, invite.id);
+      snackbar("success");
     } catch (err) {
       snackbar("error", err);
     }
