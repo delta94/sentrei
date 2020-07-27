@@ -1,8 +1,23 @@
-import Notification from "@sentrei/types/models/Notification";
+declare namespace Email {
+  export interface Invite {
+    link: string;
+    name: string;
+    space: string;
+    sender: string;
+  }
 
-export default interface Email {
-  to: string;
-  from: string;
-  templateId: string;
-  dynamic_template_data: Notification.Email;
+  export interface Update {
+    editId: string;
+    name: string;
+  }
+
+  export interface SendGrid {
+    to: string;
+    from: string;
+    subject: string;
+    text: string;
+    html: string;
+  }
 }
+
+export default Email;

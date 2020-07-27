@@ -37,5 +37,5 @@ export const createUsername = (
   usernameId: string,
   uid: string,
 ): Promise<void> => {
-  return db.doc(`usernames/${usernameId}`).set({uid});
+  return db.doc(`usernames/${usernameId}`).set(<Username>{uid});
 };

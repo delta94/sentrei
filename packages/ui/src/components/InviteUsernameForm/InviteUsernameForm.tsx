@@ -11,7 +11,7 @@ import {useForm, Controller} from "react-hook-form";
 import * as Yup from "yup";
 
 import {inviteMember} from "@sentrei/common/firebase/members";
-import {getProfile} from "@sentrei/common/firebase/profiles";
+import {getProfileUsername} from "@sentrei/common/firebase/profiles";
 import {validateUsername} from "@sentrei/common/firebase/usernames";
 import {timestamp} from "@sentrei/common/utils/firebase";
 
@@ -45,13 +45,16 @@ const InviteUsernameForm = ({profile, user, spaceId}: Props): JSX.Element => {
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
     snackbar("info", t("invite:invite.editing"));
     try {
-      const memberProfile = await getProfile(data.username);
-      if (memberProfile) {
+      const memberProfile = await getProfileUsername(data.username).catch(
+        err => {
+          snackbar("error", err.message);
+        },
+      );
+      if (memberProfile && memberProfile !== null) {
         const member: Member.Create = {
           createdAt: timestamp,
           createdBy: profile,
           createdByUid: user.uid,
-          joined: timestamp,
           name: memberProfile.name,
           photo: memberProfile.photo,
           status: "offline",
@@ -65,11 +68,13 @@ const InviteUsernameForm = ({profile, user, spaceId}: Props): JSX.Element => {
           uid: memberProfile.uid,
           username: memberProfile.username,
         };
-        await inviteMember("spaces", spaceId, memberProfile.uid, member)?.then(
-          () => {
+        await inviteMember("spaces", spaceId, memberProfile.uid, member)
+          ?.then(() => {
             snackbar("success");
-          },
-        );
+          })
+          .catch(err => {
+            snackbar("error", err.message);
+          });
       }
     } catch (err) {
       snackbar("error", err.message);

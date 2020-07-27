@@ -1,125 +1,82 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import {yupResolver} from "@hookform/resolvers";
 import Button from "@material-ui/core/Button";
+import FormControl from "@material-ui/core/FormControl";
 import Grid from "@material-ui/core/Grid";
+import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
-import Router from "next-translate/Router";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
-import {useForm, Controller} from "react-hook-form";
-import * as Yup from "yup";
 
-import {inviteMember} from "@sentrei/common/firebase/members";
-import {getProfile} from "@sentrei/common/firebase/profiles";
-import {validateUsername} from "@sentrei/common/firebase/usernames";
+import {createInvite} from "@sentrei/common/firebase/invites";
 import {timestamp} from "@sentrei/common/utils/firebase";
-
 import Props from "@sentrei/types/components/InviteLinkForm";
-import Member from "@sentrei/types/models/Member";
+import Invite from "@sentrei/types/models/Invite";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 const InviteLinkForm = ({profile, user, spaceId}: Props): JSX.Element => {
   const {t} = useTranslation();
   const {snackbar} = useSnackbar();
 
-  const InviteLinkFormSchema = Yup.object().shape({
-    username: Yup.string()
-      .required(t("invite:invite.usernameRequired"))
-      // .matches(
-      //   /^[a-z0-9][a-z0-9_]*([.][a-z0-9_]+)*$/,
-      //   t("invite:invite.usernameInvalid"),
-      // )
-      .test("id", t("invite:invite.usernameNotExist"), async value => {
-        const result = await validateUsername(value);
-        return !result;
-      }),
-  });
+  const [period, setPeriod] = React.useState<Invite.Period>("day");
 
-  const {control, register, errors, handleSubmit} = useForm({
-    mode: "onSubmit",
-    reValidateMode: "onBlur",
-    resolver: yupResolver(InviteLinkFormSchema),
-  });
+  const handleChange = (event: React.ChangeEvent<{value: unknown}>): void => {
+    setPeriod(event.target.value as Invite.Period);
+  };
 
-  const onSubmit = async (data: Record<string, any>): Promise<void> => {
+  const handleSubmit = async (): Promise<void> => {
     snackbar("info", t("invite:invite.editing"));
     try {
-      const memberProfile = await getProfile(data.username);
-      if (memberProfile) {
-        const member: Member.Create = {
-          createdAt: timestamp,
-          createdBy: profile,
-          createdByUid: user.uid,
-          joined: timestamp,
-          name: memberProfile.name,
-          photo: memberProfile.photo,
-          status: "offline",
-          type: "spaces",
-          role: "viewer",
-          roomId: null,
-          spaceId,
-          updatedAt: timestamp,
-          updatedBy: profile,
-          updatedByUid: user.uid,
-          uid: memberProfile.uid,
-          username: memberProfile.username,
-        };
-        await inviteMember("spaces", spaceId, memberProfile.uid, member)?.then(
-          () => {
-            snackbar("success");
-          },
-        );
-      }
+      await createInvite("spaces", spaceId, {
+        createdAt: timestamp,
+        createdBy: profile,
+        createdByUid: user.uid,
+        method: "link",
+        period,
+        spaceId,
+        type: "spaces",
+        updatedAt: timestamp,
+        updatedBy: profile,
+        updatedByUid: user.uid,
+      })?.then(() => {
+        snackbar("success");
+      });
     } catch (err) {
       snackbar("error", err.message);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" noValidate>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Controller
-            as={
-              <TextField
-                autoFocus
-                fullWidth
-                id="username"
-                label={t("common:const.username")}
-                margin="normal"
-                name="username"
-                required
-                variant="outlined"
-                error={!!errors.username}
-                inputRef={register}
-                helperText={errors.username ? errors.username.message : ""}
-                type="text"
-              />
-            }
-            name="username"
-            control={control}
-            defaultValue=""
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <Button type="submit" fullWidth variant="contained" color="primary">
-            {t("invite:invite.invite")}
-          </Button>
-        </Grid>
-        <Grid item xs={12}>
-          <Button
-            type="reset"
+    <Grid container direction="row" alignItems="center" spacing={3}>
+      <Grid item xs={4}>
+        <FormControl>
+          <TextField
             fullWidth
+            id="select"
+            label="Period"
+            select
+            size="medium"
             variant="outlined"
-            color="primary"
-            onClick={(): void => Router.back()}
+            value={period}
+            onChange={handleChange}
           >
-            {t("invite:invite.cancel")}
-          </Button>
-        </Grid>
+            <MenuItem value="day">Day</MenuItem>
+            <MenuItem value="week">Week</MenuItem>
+            <MenuItem value="never">Never</MenuItem>
+          </TextField>
+        </FormControl>
       </Grid>
-    </form>
+      <Grid item xs={8}>
+        <Button
+          fullWidth
+          color="primary"
+          variant="contained"
+          onClick={(): Promise<void> => handleSubmit()}
+        >
+          Create
+        </Button>
+      </Grid>
+    </Grid>
   );
 };
 

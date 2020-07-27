@@ -13,7 +13,6 @@ declare namespace Member {
   };
 
   interface Fields extends EditableFields {
-    joined: firebase.firestore.FieldValue;
     type: Collections;
     roomId: string | null;
     spaceId: string;

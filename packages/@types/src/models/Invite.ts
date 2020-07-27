@@ -3,7 +3,7 @@ import Metadata from "@sentrei/types/models/Metadata";
 declare namespace Invite {
   export type Collections = "spaces" | "rooms";
   export type Methods = "email" | "link";
-  export type Period = "week" | "month" | "never";
+  export type Period = "day" | "week" | "never";
 
   export type EditableFields = {
     email?: string;
@@ -14,6 +14,7 @@ declare namespace Invite {
     spaceId: string;
     type: Collections;
     period?: Period;
+    window?: string;
   }
 
   export interface Create extends Fields, Metadata.Create {}

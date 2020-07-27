@@ -4,14 +4,13 @@ import {yupResolver} from "@hookform/resolvers";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import Router from "next-translate/Router";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 import {useForm, Controller} from "react-hook-form";
 import * as Yup from "yup";
 
-import {getProfile} from "@sentrei/common/firebase/profiles";
-
+import {createInvite} from "@sentrei/common/firebase/invites";
+import {timestamp} from "@sentrei/common/utils/firebase";
 import Props from "@sentrei/types/components/InviteEmailForm";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
@@ -34,7 +33,21 @@ const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
     snackbar("info", t("invite:invite.editing"));
     try {
-      await getProfile(data.email);
+      await createInvite("spaces", spaceId, {
+        createdAt: timestamp,
+        createdBy: profile,
+        createdByUid: user.uid,
+        email: data.email,
+        method: "email",
+        spaceId,
+        type: "spaces",
+        updatedAt: timestamp,
+        updatedBy: profile,
+        updatedByUid: user.uid,
+        window: window.location.origin,
+      })?.then(() => {
+        snackbar("success");
+      });
     } catch (err) {
       snackbar("error", err.message);
     }
@@ -69,17 +82,6 @@ const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
         <Grid item xs={12}>
           <Button type="submit" fullWidth variant="contained" color="primary">
             {t("invite:invite.invite")}
-          </Button>
-        </Grid>
-        <Grid item xs={12}>
-          <Button
-            type="reset"
-            fullWidth
-            variant="outlined"
-            color="primary"
-            onClick={(): void => Router.back()}
-          >
-            {t("invite:invite.cancel")}
           </Button>
         </Grid>
       </Grid>
