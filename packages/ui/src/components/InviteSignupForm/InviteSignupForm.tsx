@@ -84,108 +84,106 @@ export default function InviteSignupForm({
   };
 
   return (
-    <Box pt={3}>
-      <FormSection
-        icon={<AccountCircleOutlinedIcon />}
-        title={t("auth:signup.title")}
-        size="sm"
-      >
-        <Grid container spacing={3}>
-          <Box p={1} />
+    <FormSection
+      icon={<AccountCircleOutlinedIcon />}
+      title={t("auth:invite.title")}
+      size="sm"
+    >
+      <Grid container spacing={3}>
+        <Box p={1} />
+        <Button
+          onClick={(): void => google()}
+          color="primary"
+          variant="outlined"
+          className={classes.button}
+        >
+          <img
+            width="20px"
+            alt="Google sign-in"
+            src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+            className={classes.google}
+          />
+          <Typography>{t("auth:signup.google")}</Typography>
+        </Button>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className={classes.form}
+          autoComplete="off"
+          noValidate
+        >
+          <Controller
+            as={
+              <TextField
+                autoComplete="email"
+                autoFocus
+                fullWidth
+                id="email"
+                label={t("common:const.email")}
+                margin="normal"
+                name="email"
+                placeholder="example@sentrei.com"
+                required
+                variant="outlined"
+                error={!!errors.email}
+                inputRef={register}
+                helperText={errors.email ? errors.email.message : ""}
+              />
+            }
+            name="email"
+            control={control}
+            defaultValue=""
+          />
+          <Controller
+            as={
+              <TextField
+                autoComplete="current-password"
+                fullWidth
+                id="password"
+                label={t("common:const.password")}
+                margin="normal"
+                name="password"
+                required
+                type="password"
+                variant="outlined"
+                error={!!errors.password}
+                inputRef={register}
+                helperText={errors.password ? errors.password.message : ""}
+              />
+            }
+            name="password"
+            control={control}
+            defaultValue=""
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label={t("auth:auth.remember-me")}
+          />
           <Button
-            onClick={(): void => google()}
+            type="submit"
+            fullWidth
+            variant="contained"
             color="primary"
-            variant="outlined"
-            className={classes.button}
+            className={classes.submit}
           >
-            <img
-              width="20px"
-              alt="Google sign-in"
-              src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-              className={classes.google}
-            />
-            <Typography>{t("auth:signup.google")}</Typography>
+            {t("auth:signup.button")}
           </Button>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className={classes.form}
-            autoComplete="off"
-            noValidate
-          >
-            <Controller
-              as={
-                <TextField
-                  autoComplete="email"
-                  autoFocus
-                  fullWidth
-                  id="email"
-                  label={t("common:const.email")}
-                  margin="normal"
-                  name="email"
-                  placeholder="example@sentrei.com"
-                  required
-                  variant="outlined"
-                  error={!!errors.email}
-                  inputRef={register}
-                  helperText={errors.email ? errors.email.message : ""}
-                />
-              }
-              name="email"
-              control={control}
-              defaultValue=""
-            />
-            <Controller
-              as={
-                <TextField
-                  autoComplete="current-password"
-                  fullWidth
-                  id="password"
-                  label={t("common:const.password")}
-                  margin="normal"
-                  name="password"
-                  required
-                  type="password"
-                  variant="outlined"
-                  error={!!errors.password}
-                  inputRef={register}
-                  helperText={errors.password ? errors.password.message : ""}
-                />
-              }
-              name="password"
-              control={control}
-              defaultValue=""
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label={t("auth:auth.remember-me")}
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              {t("auth:signup.button")}
-            </Button>
-          </form>
-          <Grid container justify="center">
-            <Grid item>
-              <Link href="/login" variant="body2">
-                {t("auth:signup.already-have-login")}
-              </Link>
-            </Grid>
-          </Grid>
-          <Box p={1} />
-          <Grid container justify="center">
-            <Grid item>
-              <Link href="/terms" variant="body2">
-                {t("auth:signup.by-agree-terms")}
-              </Link>
-            </Grid>
+        </form>
+        <Grid container justify="center">
+          <Grid item>
+            <Link href="/login" variant="body2">
+              {t("auth:signup.already-have-login")}
+            </Link>
           </Grid>
         </Grid>
-      </FormSection>
-    </Box>
+        <Box p={1} />
+        <Grid container justify="center">
+          <Grid item>
+            <Link href="/terms" variant="body2">
+              {t("auth:signup.by-agree-terms")}
+            </Link>
+          </Grid>
+        </Grid>
+      </Grid>
+    </FormSection>
   );
 }
