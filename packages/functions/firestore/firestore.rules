@@ -156,7 +156,7 @@ service cloud.firestore {
           || get(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid)).data.role == "admin"
           || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
           || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
-        allow update, delete:
+        allow update:
           if false;
       }
       match /members/{memberId} {
