@@ -1,3 +1,14 @@
+# [1.3.0](https://github.com/sentrei/sentrei/compare/v1.2.0...v1.3.0) (2020-07-27)
+
+### Features
+
+- 🎸 ini invite signup ([9dbd82c](https://github.com/sentrei/sentrei/commit/9dbd82c341717654979ba55055dd1611cf5d27af))
+- 🎸 refactor settings form divide ([f924f62](https://github.com/sentrei/sentrei/commit/f924f625a5da3fa216cdcdb7d2c5aad1e060e51a))
+
+### Performance Improvements
+
+- ⚡️ update score actions ([eee1abf](https://github.com/sentrei/sentrei/commit/eee1abffa42f7ba8196bacebae3c5ffb724e885c))
+
 # [1.2.0](https://github.com/sentrei/sentrei/compare/v1.1.0...v1.2.0) (2020-07-27)
 
 ### Features
