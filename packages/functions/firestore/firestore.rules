@@ -155,6 +155,19 @@ service cloud.firestore {
           || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
         allow create:
           if request.auth.uid != null
+          && request.resource.data.createdAt == request.time
+          && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.name == request.resource.data.createdBy.name
+          && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.photo == request.resource.data.createdBy.photo
+          && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.username == request.resource.data.createdBy.username
+          && request.resource.data.createdByUid == request.auth.uid
+          && request.resource.data.role is string
+          && request.resource.data.status is string
+          && request.resource.data.type is string
+          && (request.resource.data.roomId == null || request.resource.data.roomId is string)
+          && request.resource.data.spaceId is string
+          && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.name == request.resource.data.updatedBy.name
+          && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.photo == request.resource.data.updatedBy.photo
+          && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.username == request.resource.data.updatedBy.username
           && exists(/databases/$(database)/documents/users/$(memberId))
           && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))
           || get(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid)).data.role == "admin"

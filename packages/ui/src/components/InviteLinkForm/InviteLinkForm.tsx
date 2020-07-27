@@ -51,7 +51,6 @@ const InviteLinkForm = ({profile, user, spaceId}: Props): JSX.Element => {
           createdAt: timestamp,
           createdBy: profile,
           createdByUid: user.uid,
-          joined: timestamp,
           name: memberProfile.name,
           photo: memberProfile.photo,
           status: "offline",
