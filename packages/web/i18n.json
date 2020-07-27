@@ -11,6 +11,7 @@
     "/[spaceId]/create": ["room", "space"],
     "/[spaceId]/edit": ["space"],
     "/[spaceId]/invite": ["invite"],
+    "/[spaceId]/invite/[inviteId]": ["auth", "invite"],
     "/[spaceId]/room/[roomId]": ["space", "video"],
     "/[spaceId]/room/[roomId]/delete": ["room", "video"],
     "/[spaceId]/room/[roomId]/edit": ["room", "video"],

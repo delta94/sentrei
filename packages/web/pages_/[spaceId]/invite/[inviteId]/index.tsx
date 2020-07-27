@@ -10,19 +10,19 @@ import Loader from "@sentrei/ui/components/Loader";
 import NoHubSpot from "@sentrei/ui/components/NoHubSpot";
 import SentreiAppHeader from "@sentrei/web/components/SentreiAppHeader";
 
-const InviteScreen = dynamic(
+const InviteSignup = dynamic(
   () => {
-    return import("@sentrei/ui/components/InviteScreen");
+    return import("@sentrei/ui/components/InviteSignup");
   },
   {ssr: false},
 );
 
-const Invite: NextPage = () => {
+const InviteId: NextPage = () => {
   const {query} = useRouter();
   const {profile, user} = React.useContext(AuthContext);
 
   React.useEffect(() => {
-    analytics().setCurrentScreen("spaceEdit");
+    analytics().setCurrentScreen("inviteSignup");
   }, []);
 
   if (user === undefined) {
@@ -38,9 +38,8 @@ const Invite: NextPage = () => {
       <SentreiAppHeader spaceId={String(query.spaceId)} />
       <NoHubSpot />
       {user && profile && (
-        <InviteScreen
-          profile={profile}
-          user={user}
+        <InviteSignup
+          inviteId={String(query.inviteId)}
           spaceId={String(query.spaceId)}
         />
       )}
@@ -48,4 +47,4 @@ const Invite: NextPage = () => {
   );
 };
 
-export default Invite;
+export default InviteId;

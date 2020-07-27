@@ -21,7 +21,7 @@ import * as Yup from "yup";
 import signinWithGoogle from "@sentrei/common/services/signinWithGoogle";
 import signup from "@sentrei/common/services/signup";
 
-import Props from "@sentrei/types/components/Auth";
+import Props from "@sentrei/types/components/InviteSignupForm";
 import FormSection from "@sentrei/ui/components/FormSection";
 import Link from "@sentrei/ui/components/Link";
 
@@ -30,7 +30,10 @@ import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 import InviteSignupFormStyles from "./InviteSignupFormStyles";
 
-export default function InviteSignupForm({type}: Props): JSX.Element {
+export default function InviteSignupForm({
+  inviteId,
+  spaceId,
+}: Props): JSX.Element {
   const classes = InviteSignupFormStyles();
   const {backdrop} = useBackdrop();
   const {snackbar} = useSnackbar();
@@ -44,18 +47,9 @@ export default function InviteSignupForm({type}: Props): JSX.Element {
     password: Yup.string().required(t("auth:auth.password.valid")),
   });
 
-  const ResetFormSchema = Yup.object().shape({
-    email: Yup.string()
-      .required(t("auth:auth.email.required"))
-      .email(t("auth:auth.email.valid")),
-  });
-
   const {control, register, errors, handleSubmit} = useForm({
     reValidateMode: "onChange",
-    resolver:
-      type === "reset"
-        ? yupResolver(ResetFormSchema)
-        : yupResolver(InviteSignupFormSchema),
+    resolver: yupResolver(InviteSignupFormSchema),
   });
 
   const google = (): void => {
@@ -172,9 +166,7 @@ export default function InviteSignupForm({type}: Props): JSX.Element {
               color="primary"
               className={classes.submit}
             >
-              {type === "reset" && t("auth:reset-password.button")}
-              {type === "login" && t("auth:login.button")}
-              {type === "signup" && t("auth:signup.button")}
+              {t("auth:signup.button")}
             </Button>
           </form>
           <Grid container justify="center">

@@ -32,6 +32,18 @@ export const InvitesQuery = ({
   return ref;
 };
 
+export const getInvite = async (
+  spaceId: string,
+  inviteId: string,
+): Promise<Invite.Get | null> => {
+  const snap = await db
+    .doc(`spaces/${spaceId}/invites/${inviteId}`)
+    .withConverter(inviteConverter)
+    .get();
+
+  return snap.data() || null;
+};
+
 export const getInvites = async (query: InviteQuery): Promise<Invite.Get[]> => {
   const ref = await InvitesQuery(query).get();
   return ref.docs.map(doc => doc.data());
