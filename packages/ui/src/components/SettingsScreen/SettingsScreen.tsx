@@ -9,10 +9,10 @@ import * as React from "react";
 
 import Props from "@sentrei/types/components/SettingsScreen";
 import FormSection from "@sentrei/ui/components/FormSection";
-import NotificationForm from "@sentrei/ui/components/NotificationForm";
-import PasswordUpdateForm from "@sentrei/ui/components/PasswordUpdateForm";
+import NotificationForm from "@sentrei/ui/components/SettingsNotificationForm";
+import PasswordUpdateForm from "@sentrei/ui/components/SettingsPasswordForm";
+import SettingsUsernameForm from "@sentrei/ui/components/SettingsUsernameForm";
 import TabBoard from "@sentrei/ui/components/TabBoard";
-import UsernameForm from "@sentrei/ui/components/UsernameForm";
 
 const SettingsScreen = ({profile, user}: Props): JSX.Element => {
   const {t} = useTranslation();
@@ -33,7 +33,7 @@ const SettingsScreen = ({profile, user}: Props): JSX.Element => {
           tabLabelThree={t("common:const.password")}
           tabPanelOne={
             <Container component="main" maxWidth="xs">
-              <UsernameForm profile={profile} user={user} />
+              <SettingsUsernameForm profile={profile} user={user} />
             </Container>
           }
           tabPanelTwo={

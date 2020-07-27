@@ -126,11 +126,7 @@ service cloud.firestore {
           if false;
       }
       match /invites/{inviteId} {
-        allow get:
-          if request.auth.uid != null
-          && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))
-          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin"
-          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
+        allow get;
         allow list:
           if request.auth.uid != null
           && exists(/databases/$(database)/documents/spaces/$(spaceId)/members/$(request.auth.uid))

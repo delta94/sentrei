@@ -14,7 +14,7 @@ import updatePassword from "@sentrei/common/services/updatePassword";
 import useBackdrop from "@sentrei/ui/hooks/useBackdrop";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
-const PasswordUpdateForm = (): JSX.Element => {
+const SettingsPasswordForm = (): JSX.Element => {
   const {t} = useTranslation();
   const {snackbar} = useSnackbar();
   const {backdrop} = useBackdrop();
@@ -103,4 +103,4 @@ const PasswordUpdateForm = (): JSX.Element => {
   );
 };
 
-export default PasswordUpdateForm;
+export default SettingsPasswordForm;
