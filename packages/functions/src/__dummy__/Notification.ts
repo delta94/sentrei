@@ -3,12 +3,6 @@ import Notification from "@sentrei/types/models/Notification";
 
 import {profileGet} from "./Profile";
 
-export const notificationEmail: Notification.Email = {
-  editId: "editId",
-  name: "name",
-  username: "test",
-};
-
 export const notificationChatResponse: Notification.Response = {
   action: "created",
   activityId: "notificationId",
