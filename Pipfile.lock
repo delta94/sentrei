@@ -128,11 +128,11 @@
                 "gs"
             ],
             "hashes": [
-                "sha256:1846e2673ff770e1617aa7de3b886127e5ef3d78a759b326a3c97d9ab554ea5e",
-                "sha256:f92fcc74b6a27d5e16d5a2f40bfeb45889d0f064d21a8fa8d0566ba32b18648a"
+                "sha256:45207cf33005b8707d080e4584a974343d6fedcf41f977a4c519622984c2f686",
+                "sha256:f24f5cd0c8804c2044b8851bc46f8fd4bd73bcee86f1d5a5774794a84d7f1d1c"
             ],
             "index": "pypi",
-            "version": "==1.2.0"
+            "version": "==1.2.1"
         },
         "flatten-json": {
             "hashes": [
@@ -500,6 +500,13 @@
                 "sha256:db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
             ],
             "version": "==0.8.7"
+        },
+        "toml": {
+            "hashes": [
+                "sha256:926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f",
+                "sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88"
+            ],
+            "version": "==0.10.1"
         },
         "tqdm": {
             "hashes": [
