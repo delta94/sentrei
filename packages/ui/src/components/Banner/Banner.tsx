@@ -35,16 +35,35 @@ export default function Banner(): JSX.Element {
 
   return (
     <Container maxWidth="sm" component="main" className={classes.banner}>
-      <Typography component="h1" variant="h2" align="center">
-        {t("index:banner.bannerTop")}
-        <br />
-        {t("index:banner.typicalOne")}
-        <br />
-        {t("index:banner.bannerBottom")}
+      <Typography component="h1" variant="h1" align="center">
         <RoughNotation
-          initial
+          animationDelay={0}
+          animationDuration={1000}
+          brackets={["top"]}
+          iterations={1}
+          strokeWidth={3}
           color="primary"
-          text={t("index:banner.bannerBottomRough")}
+          text="Bond."
+          type="bracket"
+        />
+        <br />
+        <RoughNotation
+          animationDelay={1000}
+          animationDuration={1000}
+          strokeWidth={3}
+          iterations={1}
+          padding={3}
+          color="primary"
+          text="Focus."
+          type="box"
+        />
+        <br />
+        <RoughNotation
+          animationDelay={2000}
+          animationDuration={1000}
+          strokeWidth={3}
+          color="primary"
+          text="Work."
           type="underline"
         />
       </Typography>
@@ -65,7 +84,7 @@ export default function Banner(): JSX.Element {
       >
         {t("index:banner.bannerTextTwo")}
         <RoughNotation
-          animationDelay={1000}
+          animationDelay={3000}
           animationDuration={3000}
           color="secondary-light"
           text={t("index:banner.bannerTextRough")}
