@@ -129,21 +129,28 @@ https://www.shunkakinoki.com
 
 #### Please summarize your project in one sentence. Write as you would to a friend. The summary should be comprehensible to anyone in the world, with no domain expertise.
 
-Coming soon after launch...
+A focus oriented virtual workspace.
 
 ### What's new about this? (Visible during the Tournament)
 
-Coming soon after launch...
+Most current video conference apps are optimized for synchronous communication among individuals. However, most time at work is spent focusing which requires a distraction-free environment. Through an asynchronous and focus oriented UI, we help teams get things done.
 
 ### Why you? Why do you think you could do this? (Visible during the Tournament)
 
-Coming soon after launch...
+Over the last 20 years, there were absolutely zero startups born in Japan that have a present market cap of over \$10 billion.
+Personally speaking, I am on a mission to prove that even Japanese entrepreneurs can create great software products used by people all around the world.
 
 ### Project details
 
 #### What are you going to make? How will it work? Why will it be useful? Please be as descriptive as possible.
 
-Coming soon after launch...
+Virtual workspace tailored for teams to get things done.
+
+Key Features.
+
+1. Focus-oriented. You will not get distracted through notifications or your colleagues' keyboard noise. Reflect back on how productive you were through metrics and compete with your colleagues through a dedicated leaderboard.
+2. Stress-free. Hop in to the same virtual room when you want to get work (same static link always!!!), and never worry about time-limits, invitations, or passcodes. No peripheral sound or avatar-like functions. Everything is minimalistic and kept simple.
+3. Asynchronous video chat. Send video messages to each other while resting, or when you're tired and want to poke at others. Messages don't disappear since the virtual workspace is always available for you.
 
 ### Project website
 
@@ -157,7 +164,8 @@ Other / Unicorn
 
 ### Which competitors do you fear?
 
-Coming soon after launch...
+- Sidekick (https://sidekick.video/)
+- Wfh.land (https://wfh.land/)
 
 ### What do you plan to accomplish over the next 4 weeks? (Visible during the Tournament)
 
@@ -167,9 +175,9 @@ Initial Product Launch
 
 #### Revenue, users, YouTube views, SoundCloud plays, etc.
 
-- Paying Premium Customers
-- Google Analytics
-- Github Project Stars
+- Daily Active Users
+- MRR
+- Time spent on the virtual workspace / per user
 
 ### Which category best applies to your project?
 
