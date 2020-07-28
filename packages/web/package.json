@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
-    "@next/bundle-analyzer": "^9.4.4",
+    "@next/bundle-analyzer": "^9.5.0",
     "@sentrei/common": "*",
     "@sentrei/ui": "*",
     "@sentry/webpack-plugin": "^1.12.0",
