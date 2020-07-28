@@ -7,3 +7,5 @@
 - Upload an unlisted YouTube video with embedding enabled.
 
 ## Uploading a video is highly, highly encouraged. It will be shown to Pioneer experts during voting.
+
+https://youtu.be/6ddsD9CirbI
