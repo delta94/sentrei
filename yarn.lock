@@ -5198,32 +5198,7 @@
     prop-types "^15.7.2"
     react-is "^16.8.0"
 
-"@mdx-js/mdx@^1.1.0", "@mdx-js/mdx@^1.5.1", "@mdx-js/mdx@^1.6.6":
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-1.6.6.tgz#6e235f0ca47c8652f4c744cf7bc46a1015bcaeaa"
-  integrity sha512-Q1j/RtjNbRZRC/ciaOqQLplsJ9lb0jJhDSvkusmzCsCX+NZH7YTUvccWf7l6zKW1CAiofJfqZdZtXkeJUDZiMw==
-  dependencies:
-    "@babel/core" "7.9.6"
-    "@babel/plugin-syntax-jsx" "7.8.3"
-    "@babel/plugin-syntax-object-rest-spread" "7.8.3"
-    "@mdx-js/util" "^1.6.6"
-    babel-plugin-apply-mdx-type-prop "^1.6.6"
-    babel-plugin-extract-import-names "^1.6.6"
-    camelcase-css "2.0.1"
-    detab "2.0.3"
-    hast-util-raw "5.0.2"
-    lodash.uniq "4.5.0"
-    mdast-util-to-hast "9.1.0"
-    remark-footnotes "1.0.0"
-    remark-mdx "^1.6.6"
-    remark-parse "8.0.2"
-    remark-squeeze-paragraphs "4.0.0"
-    style-to-object "0.3.0"
-    unified "9.0.0"
-    unist-builder "2.0.3"
-    unist-util-visit "2.0.2"
-
-"@mdx-js/mdx@^1.6.10":
+"@mdx-js/mdx@^1.1.0", "@mdx-js/mdx@^1.5.1", "@mdx-js/mdx@^1.6.10", "@mdx-js/mdx@^1.6.6":
   version "1.6.10"
   resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-1.6.10.tgz#63c099b32f212b31d78228cf64ae24b54d7ab57c"
   integrity sha512-4IAupGOJxlti/IIfRuiK0gYXw6pLxTR465HmHcEEiGOHPdxOyrK3NssmKBUf9UOWAg6wBqwwSvRF/TrzKzUE/Q==
@@ -5248,12 +5223,7 @@
     unist-builder "2.0.3"
     unist-util-visit "2.0.3"
 
-"@mdx-js/react@^1.0.27", "@mdx-js/react@^1.6.6":
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.6.6.tgz#71ece2a24261eed0e184c0ef9814fcb77b1a4aee"
-  integrity sha512-zOOdNreHUNSFQ0dg3wYYg9sOGg2csf7Sk8JGBigeBq+4Xk4LO0QdycGAmgKNfeme+SyBV5LBIPjt1NNsScyWEQ==
-
-"@mdx-js/react@^1.6.10":
+"@mdx-js/react@^1.0.27", "@mdx-js/react@^1.6.10", "@mdx-js/react@^1.6.6":
   version "1.6.10"
   resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.6.10.tgz#a288ae8a110d3db208ec40a61c0c3f11fe4cd8b4"
   integrity sha512-UeMHkWUZlQdYp1wA2SuGbF9Jg+aulCB7OXt8e0C+XPTScqcmE/UrPBqZIJzeiqCPbV9aIzKQV9eAmsL+ai9mdQ==
@@ -5300,10 +5270,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@narative/gatsby-theme-novela@^0.16.0":
-  version "0.16.4"
-  resolved "https://registry.yarnpkg.com/@narative/gatsby-theme-novela/-/gatsby-theme-novela-0.16.4.tgz#c6da6047d3990061630c1a9e556cd4db05593536"
-  integrity sha512-6UBGI7PI9GwUfh5fis6fla+j3i7qzH0NKNpozmUg3r5MlEDgj2FDfTHRoMsWwQztN/sOwbr1tgMLYifriSQJzA==
+"@narative/gatsby-theme-novela@^0.16.5":
+  version "0.16.5"
+  resolved "https://registry.yarnpkg.com/@narative/gatsby-theme-novela/-/gatsby-theme-novela-0.16.5.tgz#4fa31667b2871a276a315361532b094a1ee25c14"
+  integrity sha512-FkjPXg9iZRyYPZUvmqXuJmnMydUpxcjscCfuMBrhCsv6GpljXOyFAcm43lR5WwzYK9x5JHOXt7kSTAvB5LTcIQ==
   dependencies:
     "@blocks/kit" "^0.0.28"
     "@emotion/core" "^10.0.14"
@@ -9188,14 +9158,6 @@ babel-plugin-apply-mdx-type-prop@^1.6.10:
     "@babel/helper-plugin-utils" "7.10.4"
     "@mdx-js/util" "^1.6.10"
 
-babel-plugin-apply-mdx-type-prop@^1.6.6:
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/babel-plugin-apply-mdx-type-prop/-/babel-plugin-apply-mdx-type-prop-1.6.6.tgz#f72d7ff9f40620c51280a1acb4964c55bc07ba02"
-  integrity sha512-rUzVvkQa8/9M63OZT6qQQ1bS8P0ozhXp9e5uJ3RwRJF5Me7s4nZK5SYhyNHYc0BkAflWnCOGMP3oPQUfuyB8tg==
-  dependencies:
-    "@babel/helper-plugin-utils" "7.8.3"
-    "@mdx-js/util" "^1.6.6"
-
 babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.3.tgz#84fda19c976ec5c6defef57f9427b3def66e17a3"
@@ -9225,13 +9187,6 @@ babel-plugin-extract-import-names@^1.6.10:
   integrity sha512-R3anzKpXjqw/NqX4tey28zS2SdB+keuCzjS/twdJ6g/aBQyI4UX9I0PI41QVvvy1Ovh8Bsno/3LR5QJjNBvU0Q==
   dependencies:
     "@babel/helper-plugin-utils" "7.10.4"
-
-babel-plugin-extract-import-names@^1.6.6:
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/babel-plugin-extract-import-names/-/babel-plugin-extract-import-names-1.6.6.tgz#70e39a46f1b2a08fbd061336a322d1ddd81a2f44"
-  integrity sha512-UtMuiQJnhVPAGE2+pDe7Nc9NVEmDdqGTN74BtRALgH+7oag88RpxFLOSiA+u5mFkFg741wW9Ut5KiyJpksEj/g==
-  dependencies:
-    "@babel/helper-plugin-utils" "7.8.3"
 
 babel-plugin-istanbul@^6.0.0:
   version "6.0.0"
@@ -18337,18 +18292,6 @@ hast-to-hyperscript@^5.0.0:
     unist-util-is "^2.0.0"
     web-namespaces "^1.1.2"
 
-hast-to-hyperscript@^7.0.0:
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/hast-to-hyperscript/-/hast-to-hyperscript-7.0.4.tgz#7c4c037d9a8ea19b0a3fdb676a26448ad922353d"
-  integrity sha512-vmwriQ2H0RPS9ho4Kkbf3n3lY436QKLq6VaGA1pzBh36hBi3tm1DO9bR+kaJIbpT10UqaANDkMjxvjVfr+cnOA==
-  dependencies:
-    comma-separated-tokens "^1.0.0"
-    property-information "^5.3.0"
-    space-separated-tokens "^1.0.0"
-    style-to-object "^0.2.1"
-    unist-util-is "^3.0.0"
-    web-namespaces "^1.1.2"
-
 hast-to-hyperscript@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/hast-to-hyperscript/-/hast-to-hyperscript-9.0.0.tgz#768fb557765fe28749169c885056417342d71e83"
@@ -18373,17 +18316,6 @@ hast-util-from-parse5@^4.0.2:
     web-namespaces "^1.1.2"
     xtend "^4.0.1"
 
-hast-util-from-parse5@^5.0.0:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/hast-util-from-parse5/-/hast-util-from-parse5-5.0.3.tgz#3089dc0ee2ccf6ec8bc416919b51a54a589e097c"
-  integrity sha512-gOc8UB99F6eWVWFtM9jUikjN7QkWxB3nY0df5Z0Zq1/Nkwl5V4hAAsl0tmwlgWl/1shlTF8DnNYLO8X6wRV9pA==
-  dependencies:
-    ccount "^1.0.3"
-    hastscript "^5.0.0"
-    property-information "^5.0.0"
-    web-namespaces "^1.1.2"
-    xtend "^4.0.1"
-
 hast-util-from-parse5@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/hast-util-from-parse5/-/hast-util-from-parse5-6.0.0.tgz#b38793c81e1a99f5fd592a4a88fc2731dccd0f30"
@@ -18405,20 +18337,6 @@ hast-util-parse-selector@^2.0.0, hast-util-parse-selector@^2.2.0:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/hast-util-parse-selector/-/hast-util-parse-selector-2.2.4.tgz#60c99d0b519e12ab4ed32e58f150ec3f61ed1974"
   integrity sha512-gW3sxfynIvZApL4L07wryYF4+C9VvH3AUi7LAnVXV4MneGEgwOByXvFo18BgmTWnm7oHAe874jKbIB1YhHSIzA==
-
-hast-util-raw@5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/hast-util-raw/-/hast-util-raw-5.0.2.tgz#62288f311ec2f35e066a30d5e0277f963ad43a67"
-  integrity sha512-3ReYQcIHmzSgMq8UrDZHFL0oGlbuVGdLKs8s/Fe8BfHFAyZDrdv1fy/AGn+Fim8ZuvAHcJ61NQhVMtyfHviT/g==
-  dependencies:
-    hast-util-from-parse5 "^5.0.0"
-    hast-util-to-parse5 "^5.0.0"
-    html-void-elements "^1.0.0"
-    parse5 "^5.0.0"
-    unist-util-position "^3.0.0"
-    web-namespaces "^1.0.0"
-    xtend "^4.0.0"
-    zwitch "^1.0.0"
 
 hast-util-raw@6.0.0:
   version "6.0.0"
@@ -18475,17 +18393,6 @@ hast-util-to-parse5@^4.0.1:
     property-information "^4.0.0"
     web-namespaces "^1.0.0"
     xtend "^4.0.1"
-    zwitch "^1.0.0"
-
-hast-util-to-parse5@^5.0.0:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/hast-util-to-parse5/-/hast-util-to-parse5-5.1.2.tgz#09d27bee9ba9348ea05a6cfcc44e02f9083969b6"
-  integrity sha512-ZgYLJu9lYknMfsBY0rBV4TJn2xiwF1fXFFjbP6EE7S0s5mS8LIKBVWzhA1MeIs1SWW6GnnE4In6c3kPb+CWhog==
-  dependencies:
-    hast-to-hyperscript "^7.0.0"
-    property-information "^5.0.0"
-    web-namespaces "^1.0.0"
-    xtend "^4.0.0"
     zwitch "^1.0.0"
 
 hast-util-to-parse5@^6.0.0:
@@ -33396,15 +33303,6 @@ unist-util-visit-parents@^3.0.0:
     "@types/unist" "^2.0.0"
     unist-util-is "^4.0.0"
 
-unist-util-visit@2.0.2, unist-util-visit@^2.0.0, unist-util-visit@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-2.0.2.tgz#3843782a517de3d2357b4c193b24af2d9366afb7"
-  integrity sha512-HoHNhGnKj6y+Sq+7ASo2zpVdfdRifhTgX2KTU3B/sO/TTlZchp7E3S4vjRzDJ7L60KmrCPsQkVK3lEF3cz36XQ==
-  dependencies:
-    "@types/unist" "^2.0.0"
-    unist-util-is "^4.0.0"
-    unist-util-visit-parents "^3.0.0"
-
 unist-util-visit@2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-2.0.3.tgz#c3703893146df47203bb8a9795af47d7b971208c"
@@ -33420,6 +33318,15 @@ unist-util-visit@^1.0.0, unist-util-visit@^1.1.0, unist-util-visit@^1.1.3, unist
   integrity sha512-AvGNk7Bb//EmJZyhtRUnNMEpId/AZ5Ph/KUpTI09WHQuDZHKovQ1oEv3mfmKpWKtoMzyMC4GLBm1Zy5k12fjIw==
   dependencies:
     unist-util-visit-parents "^2.0.0"
+
+unist-util-visit@^2.0.0, unist-util-visit@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-2.0.2.tgz#3843782a517de3d2357b4c193b24af2d9366afb7"
+  integrity sha512-HoHNhGnKj6y+Sq+7ASo2zpVdfdRifhTgX2KTU3B/sO/TTlZchp7E3S4vjRzDJ7L60KmrCPsQkVK3lEF3cz36XQ==
+  dependencies:
+    "@types/unist" "^2.0.0"
+    unist-util-is "^4.0.0"
+    unist-util-visit-parents "^3.0.0"
 
 universal-analytics@^0.4.16:
   version "0.4.20"
