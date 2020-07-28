@@ -10,6 +10,9 @@ import Typography from "@material-ui/core/Typography";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 import UseAnimations from "react-useanimations";
+import github from "react-useanimations/lib/github";
+import linkedin from "react-useanimations/lib/linkedin";
+import twitter from "react-useanimations/lib/twitter";
 
 import metomic from "@sentrei/common/services/metomic";
 import Copyright from "@sentrei/ui/components/Copyright";
@@ -64,21 +67,21 @@ export default function Footer(): JSX.Element {
                 <Grid item>
                   <MuiLink href="https://github.com/sentrei/sentrei">
                     <Avatar aria-label="github" variant="rounded">
-                      <UseAnimations animationKey="github" />
+                      <UseAnimations animation={github} />
                     </Avatar>
                   </MuiLink>
                 </Grid>
                 <Grid item>
                   <MuiLink href="https://linkedin.com/company/sentrei">
                     <Avatar aria-label="linkedin" variant="rounded">
-                      <UseAnimations animationKey="linkedin" />
+                      <UseAnimations animation={linkedin} />
                     </Avatar>
                   </MuiLink>
                 </Grid>
                 <Grid item>
                   <MuiLink href="https://twitter.com/sentrei_com">
                     <Avatar aria-label="twitter" variant="rounded">
-                      <UseAnimations animationKey="twitter" />
+                      <UseAnimations animation={twitter} />
                     </Avatar>
                   </MuiLink>
                 </Grid>
