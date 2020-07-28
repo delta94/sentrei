@@ -28246,13 +28246,6 @@ react-twitter-embed@^2.0.8:
     react-proptype-conditional-require "^1.0.4"
     scriptjs "^2.5.9"
 
-react-typist@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/react-typist/-/react-typist-2.0.5.tgz#9830395a73a03e6368e1392ecb98edaa3a648e44"
-  integrity sha512-iZCkeqeegO0TlkTMiH2JD1tvMtY9RrXkRylnAI6m8aCVAUUwNzoWTVF7CKLij6THeOMcUDCznLDDvNp55s+YZA==
-  dependencies:
-    prop-types "^15.5.10"
-
 react-use-gesture@^7.0.15:
   version "7.0.15"
   resolved "https://registry.yarnpkg.com/react-use-gesture/-/react-use-gesture-7.0.15.tgz#93c651e916a31cfb12d079e7fa1543d5b0511e07"
