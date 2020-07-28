@@ -7324,10 +7324,10 @@
   resolved "https://registry.yarnpkg.com/@types/tmp/-/tmp-0.0.33.tgz#1073c4bc824754ae3d10cfab88ab0237ba964e4d"
   integrity sha1-EHPEvIJHVK49EM+riKsCN7qWTk0=
 
-"@types/twilio-video@^2.0.10":
-  version "2.0.12"
-  resolved "https://registry.yarnpkg.com/@types/twilio-video/-/twilio-video-2.0.12.tgz#569beb08ebe97471d4a2d6019d87fe31c845b166"
-  integrity sha512-GrkdzvOFxGFOGlThKcjQce32Pwycoubl5oQK5+H4KSeyDvGHzyZSbnX7qoyWFMXKSHBc165f3dw+oORdr2E7ew==
+"@types/twilio-video@^2.7.0":
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/@types/twilio-video/-/twilio-video-2.7.0.tgz#eb20bcd76c0104ed20755fe733e3141645a41620"
+  integrity sha512-GaMvB9alAdHklKBqBLX0IqUvE5XmJSoQ0Ub4HD69UQt/fwwz+KoDmvHLVfJgYEmoq4ATtmA7Glh10pwa2rux0Q==
 
 "@types/uglify-js@*":
   version "3.9.2"
