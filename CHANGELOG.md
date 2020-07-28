@@ -1,3 +1,9 @@
+## [1.3.9](https://github.com/sentrei/sentrei/compare/v1.3.8...v1.3.9) (2020-07-28)
+
+### Bug Fixes
+
+- 🐛 use animations complete error ([3d97b35](https://github.com/sentrei/sentrei/commit/3d97b35f8f0ad6235ce05be2f7b7819d4de9deb4))
+
 ## [1.3.8](https://github.com/sentrei/sentrei/compare/v1.3.7...v1.3.8) (2020-07-28)
 
 ### Bug Fixes
