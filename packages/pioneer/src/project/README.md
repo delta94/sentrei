@@ -164,6 +164,7 @@ Other / Unicorn
 
 ### Which competitors do you fear?
 
+- Pragli (https://pragli.com/)
 - Sidekick (https://sidekick.video/)
 - Wfh.land (https://wfh.land/)
 
