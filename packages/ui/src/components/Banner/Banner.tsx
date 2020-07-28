@@ -12,7 +12,6 @@ import * as React from "react";
 import signinWithGoogle from "@sentrei/common/services/signinWithGoogle";
 
 import RoughNotation from "@sentrei/ui/components/RoughNotation";
-import Typical from "@sentrei/ui/components/Typical";
 
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
@@ -39,11 +38,7 @@ export default function Banner(): JSX.Element {
       <Typography component="h1" variant="h2" align="center">
         {t("index:banner.bannerTop")}
         <br />
-        <Typical
-          typicalOne={t("index:banner.typicalOne")}
-          typicalTwo={t("index:banner.typicalTwo")}
-          typicalThree={t("index:banner.typicalThree")}
-        />
+        {t("index:banner.typicalOne")}
         <br />
         {t("index:banner.bannerBottom")}
         <RoughNotation
