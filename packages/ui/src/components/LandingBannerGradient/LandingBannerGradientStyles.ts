@@ -1,11 +1,12 @@
-import {createStyles, makeStyles} from "@material-ui/core/styles";
+import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 
-const LandingBannerGradientStyles = makeStyles(() =>
+const LandingBannerGradientStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
       position: "relative",
     },
     typography: {
+      color: theme.palette.grey[800],
       position: "relative",
       fontFamily: "-apple-system, system-ui, BlinkMacSystemFont, Roboto",
       fontSize: 130,
