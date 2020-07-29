@@ -1,9 +1,9 @@
 {
   "common": {
     "app": "",
-    "description": "",
     "cancel": "",
     "create": "",
+    "description": "",
     "edit": "",
     "email": "",
     "help": "",
@@ -23,18 +23,18 @@
     "profile": "",
     "quit": "",
     "settings": "",
-    "update": "",
     "title": "",
+    "update": "",
     "username": "",
     "visit": ""
   },
   "snackbar": {
+    "clipboard": "",
     "creating": "",
     "deleting": "",
     "editing": "",
     "inviting": "",
     "loading": "",
-    "quiting": "",
-    "clipboard": ""
+    "quiting": ""
   }
 }

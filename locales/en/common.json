@@ -1,9 +1,9 @@
 {
   "common": {
     "app": "App",
-    "description": "Description",
     "cancel": "Cancel",
     "create": "Create",
+    "description": "Description",
     "edit": "Edit",
     "email": "Email Address",
     "help": "Help",
@@ -23,18 +23,18 @@
     "profile": "Profile",
     "quit": "Quit",
     "settings": "Settings",
-    "update": "Update",
     "title": "Sentrei",
+    "update": "Update",
     "username": "Username",
     "visit": "Visit"
   },
   "snackbar": {
+    "clipboard": "Copied link to clipboard!",
     "creating": "Creating...",
     "deleting": "Deleting...",
     "editing": "Editing...",
     "inviting": "Inviting...",
     "loading": "Loading...",
-    "quiting": "Quiting...",
-    "clipboard": "Copied link to clipboard!"
+    "quiting": "Quiting..."
   }
 }
