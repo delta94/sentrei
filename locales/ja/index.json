@@ -1,17 +1,14 @@
 {
   "banner": {
-    "bannerBottom": "にとって",
-    "bannerBottomRough": "最高の仕事場",
+    "bannerHeaderOne": "繋がる",
+    "bannerHeaderThree": "作業",
+    "bannerHeaderTwo": "集中",
     "bannerTextOne": "バーチャル・ワークスペースで",
     "bannerTextRough": "発揮しよう",
-    "bannerTextThree": "- どこからでもワンクリックで即座にアクセス -",
+    "bannerTextThree": "-フォーカス専用の仮想ワークスペース-",
     "bannerTextTwo": "最大限のパフォーマンスを",
-    "bannerTop": "すべての",
     "googleText": "Google で サインインする",
-    "startText": "すべて 無料 でスタートする",
-    "typicalOne": "リモートチーム",
-    "typicalThree": "クラスメート",
-    "typicalTwo": "同僚"
+    "startText": "すべて 無料 でスタートする"
   },
   "faq": {
     "bodyOne": "はい、それは誰にとっても無制限の時間を伴います-ワークスペースで同時に3人がいなければ。その場合は、独立したワークスペースを無料で作成するか（最大3人をサポート）、Proバージョンにアップグレードする必要があります。",
