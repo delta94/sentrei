@@ -2,7 +2,7 @@ import * as React from "react";
 import {useInView} from "react-intersection-observer";
 
 import {analytics} from "@sentrei/common/utils/firebase";
-import Feature from "@sentrei/ui/components/Feature";
+import LandingFeature from "@sentrei/ui/components/LandingFeature";
 import FocusPicture from "@sentrei/web/images/svg/FocusPicture";
 import GoalPicture from "@sentrei/web/images/svg/GoalPicture";
 import TimePicture from "@sentrei/web/images/svg/TimePicture";
@@ -20,7 +20,7 @@ export default function SentreiFeature(): JSX.Element {
 
   return (
     <div ref={ref}>
-      <Feature
+      <LandingFeature
         imgOne={<TimePicture />}
         imgTwo={<FocusPicture />}
         imgThree={<GoalPicture />}

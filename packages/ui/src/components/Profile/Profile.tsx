@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import * as React from "react";
