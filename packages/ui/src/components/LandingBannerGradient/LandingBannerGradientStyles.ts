@@ -11,7 +11,7 @@ const LandingBannerGradientStyles = makeStyles(() =>
       fontSize: 130,
       fontWeight: 900,
       margin: 0,
-      lineHeight: "1.2em",
+      lineHeight: "1.1em",
       letterSpacing: -3,
     },
     gradient: {
