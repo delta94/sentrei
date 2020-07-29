@@ -71,18 +71,18 @@
     "titleTwo": "プロフェッショナル"
   },
   "product": {
-    "connectSubTitle": "時間単位のビデオ会議アプリにうんざりしていませんか？私たちの仮想ワークスペースは常にどこからでもアクセスできます-物理世界と同じように",
-    "connectTitleOne": " ",
-    "connectTitleThree": "年中無休で誰でも利用可能",
-    "connectTitleTwo": "24時間",
-    "dataSubTitle": "当社のデータ分析チームは、ワークスペースでの全員のプレゼンスを追跡し、チームの生産性と効率のためのリアルタイムのインサイトを可能にします",
-    "dataTitleOne": " ",
-    "dataTitleThree": "分析とデータ",
-    "dataTitleTwo": "洞察に満ちた",
-    "videoSubTitle": "気を散らすことなく他の人と実質的に共同作業できるリモート指向のワークスペースが必要ですか？お気に入りの音楽を聴きながら、他の人と一緒に仕事に専念できるようになりました",
-    "videoTitleOne": " ",
-    "videoTitleThree": "仕事に集中しよう",
-    "videoTitleTwo": "仲間と一緒に"
+    "bottomSubTitle": "当社のデータ分析チームは、ワークスペースでの全員のプレゼンスを追跡し、チームの生産性と効率のためのリアルタイムのインサイトを可能にします",
+    "bottomTitleOne": " ",
+    "bottomTitleThree": "分析とデータ",
+    "bottomTitleTwo": "洞察に満ちた",
+    "centerSubTitle": "時間単位のビデオ会議アプリにうんざりしていませんか？私たちの仮想ワークスペースは常にどこからでもアクセスできます-物理世界と同じように",
+    "centerTitleOne": " ",
+    "centerTitleThree": "いつでもどこからでも利用可能",
+    "centerTitleTwo": "ストレスフリー",
+    "topSubTitle": "気を散らすことなく他の人と実質的に共同作業できるリモート指向のワークスペースが必要ですか？お気に入りの音楽を聴きながら、他の人と一緒に仕事に専念できるようになりました",
+    "topTitleOne": " ",
+    "topTitleThree": "仕事に集中しよう",
+    "topTitleTwo": "仲間と一緒に"
   },
   "screen": {
     "labelOne": "繋がる",

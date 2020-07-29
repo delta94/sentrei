@@ -71,18 +71,18 @@
     "titleTwo": "对于"
   },
   "product": {
-    "connectSubTitle": "厌倦了分钟受限的视频会议应用程序？我们的虚拟工作空间将永远为您服务-就像现实世界一样",
-    "connectTitleOne": " ",
-    "connectTitleThree": "随时向所有人开放",
-    "connectTitleTwo": "24/7",
-    "dataSubTitle": "我们的数据分析团队将跟踪每个人在工作区中的存在，并向您提供实时更新，以提高团队的工作效率",
-    "dataTitleOne": " ",
-    "dataTitleThree": "分析和数据",
-    "dataTitleTwo": "深入的",
-    "videoSubTitle": "想要一个面向远程的工作空间来与他人合作，而又不会分心吗？现在，您可以一边聆听自己喜欢的音乐，一边全神贯注地与他人一起工作",
-    "videoTitleOne": " ",
-    "videoTitleThree": "结合在一起",
-    "videoTitleTwo": "聚焦时"
+    "bottomSubTitle": "我们的数据分析团队将跟踪每个人在工作区中的存在，并向您提供实时更新，以提高团队的工作效率",
+    "bottomTitleOne": " ",
+    "bottomTitleThree": "分析和数据",
+    "bottomTitleTwo": "深入的",
+    "centerSubTitle": "厌倦了分钟受限的视频会议应用程序？我们的虚拟工作空间将永远为您服务-就像现实世界一样",
+    "centerTitleOne": " ",
+    "centerTitleThree": "随时向所有人开放",
+    "centerTitleTwo": "24/7",
+    "topSubTitle": "想要一个面向远程的工作空间来与他人合作，而又不会分心吗？现在，您可以一边聆听自己喜欢的音乐，一边全神贯注地与他人一起工作",
+    "topTitleOne": " ",
+    "topTitleThree": "结合在一起",
+    "topTitleTwo": "聚焦时"
   },
   "screen": {
     "labelOne": "键",

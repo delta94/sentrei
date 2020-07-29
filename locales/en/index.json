@@ -71,18 +71,18 @@
     "titleTwo": "Pro"
   },
   "product": {
-    "connectSubTitle": "Tired of minutes-restriced video conference apps? Our virtual workspace will be always there for you - just like in the physical world",
-    "connectTitleOne": " ",
-    "connectTitleThree": " Always available for everyone",
-    "connectTitleTwo": "24/7",
-    "dataSubTitle": "Our data analytics team will track everyone's presence on the workspace and present you with real-time updates for team productivity and efficiency",
-    "dataTitleOne": " ",
-    "dataTitleThree": " analytics and data",
-    "dataTitleTwo": "Insightful",
-    "videoSubTitle": "Want a remote-oriented workspace for working with others virtually without ever getting distracted? You can now focus solely on your work with the company of others all while listening to your favorite music",
-    "videoTitleOne": " ",
-    "videoTitleThree": " while focusing",
-    "videoTitleTwo": "Bond together"
+    "bottomSubTitle": "Our data analytics team will track everyone's presence on the workspace and present you with real-time updates for team productivity and efficiency, so that you can get your work done.",
+    "bottomTitleOne": " ",
+    "bottomTitleThree": " analytics and data",
+    "bottomTitleTwo": "Insightful",
+    "centerSubTitle": "Tired of minutes-restriced video conference apps? Our virtual workspace will be always there for you - just like in the physical world",
+    "centerTitleOne": " ",
+    "centerTitleThree": " Always available for everyone",
+    "centerTitleTwo": "Seamless.",
+    "topSubTitle": "Ever dreamed of having a perfect experience of virtually working with your colleagues without ever getting distracted? You can now focus solely on your work with the company of others all while listening to your favorite music",
+    "topTitleOne": " ",
+    "topTitleThree": " while focusing",
+    "topTitleTwo": "Bond together"
   },
   "screen": {
     "labelOne": "Bond",
