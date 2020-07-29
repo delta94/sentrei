@@ -1,8 +1,8 @@
 {
   "settings": {
-    "title": "",
-    "usernameAlreadyUsed": "",
-    "usernameInvalid": "",
-    "usernameRequired": ""
+    "title": "设定值",
+    "usernameAlreadyUsed": "用户名已被使用",
+    "usernameInvalid": "无效的用户名",
+    "usernameRequired": "用户名为必填项"
   }
 }

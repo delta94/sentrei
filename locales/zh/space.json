@@ -1,27 +1,27 @@
 {
   "activity": {
-    "title": ""
+    "title": "活动项目"
   },
   "dashboard": {
-    "create": "",
-    "none": "",
-    "title": ""
+    "create": "创建一个",
+    "none": "你没有空格...",
+    "title": "您的空间"
   },
   "invite": {
-    "invite": "",
-    "usernameInvalid": "",
-    "usernameNotExist": "",
-    "usernameRequired": ""
+    "invite": "邀请",
+    "usernameInvalid": "无效的用户名",
+    "usernameNotExist": "用户名不存在",
+    "usernameRequired": "用户名为必填项"
   },
   "space": {
-    "createSpace": "",
-    "editSpace": "",
-    "idAlreadyUsed": "",
-    "idInvalid": "",
-    "idRequired": "",
-    "nameRequired": "",
-    "quitRequired": "",
-    "quitSpace": "",
-    "quitTypeRequired": ""
+    "createSpace": "创造空间",
+    "editSpace": "编辑空间",
+    "idAlreadyUsed": "ID已被使用",
+    "idInvalid": "ID无效",
+    "idRequired": "ID为必填项",
+    "nameRequired": "名称为必填项",
+    "quitRequired": "必须退出",
+    "quitSpace": "退出空间",
+    "quitTypeRequired": "必须输入“ QUIT”"
   }
 }
