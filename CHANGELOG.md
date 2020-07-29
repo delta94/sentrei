@@ -1,3 +1,14 @@
+# [1.5.0](https://github.com/sentrei/sentrei/compare/v1.4.4...v1.5.0) (2020-07-29)
+
+### Features
+
+- 🎸 complete faq section upgrade ([1381c99](https://github.com/sentrei/sentrei/commit/1381c992d09538c12a7c332dde715344114f192c))
+- 🎸 complete i18n refactor ([d1bc904](https://github.com/sentrei/sentrei/commit/d1bc904f0e6bfe0bd09f55bf65bd9b9814855b0e))
+- 🎸 complete product section ([e67ed60](https://github.com/sentrei/sentrei/commit/e67ed60a51b17d5d56776613284edb9599dc4c4a))
+- 🎸 complete refactor banner ([d03c094](https://github.com/sentrei/sentrei/commit/d03c09454aa38dc2196f02556b6730c983cad3a3))
+- 🎸 complete refactor props to components ([1ac6ef3](https://github.com/sentrei/sentrei/commit/1ac6ef3596db427ab36d21b841d4ed5c7c75bdf4))
+- 🎸 complete screen section ([650c78f](https://github.com/sentrei/sentrei/commit/650c78fa37c6353389ba31f119ee40b1c6fe445c))
+
 ## [1.4.4](https://github.com/sentrei/sentrei/compare/v1.4.3...v1.4.4) (2020-07-29)
 
 ### Performance Improvements
