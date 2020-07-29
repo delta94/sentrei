@@ -10,6 +10,7 @@ import {useRouter} from "next/router";
 import * as React from "react";
 
 import signinWithGoogle from "@sentrei/common/services/signinWithGoogle";
+import LandingBannerGradient from "@sentrei/ui/components/LandingBannerGradient";
 import RoughNotation from "@sentrei/ui/components/RoughNotation";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
@@ -34,35 +35,7 @@ export default function LandingBanner(): JSX.Element {
   return (
     <Container maxWidth="sm" component="main" className={classes.banner}>
       <Typography component="h1" variant="h1" align="center">
-        <RoughNotation
-          animationDelay={0}
-          animationDuration={1000}
-          iterations={2}
-          strokeWidth={3}
-          color="primary"
-          text={t("index:banner.bannerHeaderOne")}
-          type="underline"
-        />
-        <br />
-        <RoughNotation
-          animationDelay={1000}
-          animationDuration={1000}
-          iterations={2}
-          strokeWidth={3}
-          color="primary"
-          text={t("index:banner.bannerHeaderTwo")}
-          type="underline"
-        />
-        <br />
-        <RoughNotation
-          animationDelay={2000}
-          animationDuration={1000}
-          iterations={2}
-          strokeWidth={3}
-          color="primary"
-          text={t("index:banner.bannerHeaderThree")}
-          type="underline"
-        />
+        <LandingBannerGradient />
       </Typography>
       <Box p={1} />
       <Typography

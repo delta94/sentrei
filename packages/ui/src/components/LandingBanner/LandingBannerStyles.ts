@@ -3,7 +3,7 @@ import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 const LandingBannerStyles = makeStyles((theme: Theme) =>
   createStyles({
     banner: {
-      padding: theme.spacing(12, 0, 0),
+      padding: theme.spacing(9, 0, 0),
     },
     google: {
       marginRight: "1em",
