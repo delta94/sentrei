@@ -6,7 +6,9 @@ import Router from "next-translate/Router";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/RoomNone";
+export interface Props {
+  spaceId: string;
+}
 
 export default function SpaceNone({spaceId}: Props): JSX.Element {
   const {t} = useTranslation();

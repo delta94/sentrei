@@ -4,11 +4,14 @@ import {motion} from "framer-motion";
 import Link from "next-translate/Link";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/ProfileCard";
-
+import Member from "@sentrei/types/models/Member";
 import BadgeAway from "@sentrei/ui/components/BadgeAway";
 import BadgeOffline from "@sentrei/ui/components/BadgeOffline";
 import BadgeOnline from "@sentrei/ui/components/BadgeOnline";
+
+export interface Props {
+  member: Member.Get;
+}
 
 function ProfileCard({member}: Props): JSX.Element {
   return (

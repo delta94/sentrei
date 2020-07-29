@@ -11,7 +11,14 @@ import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
 import {auth} from "@sentrei/common/utils/firebase";
-import Props from "@sentrei/types/components/ProfileMenu";
+
+export interface Props {
+  anchorEl?: Element | ((element: Element) => Element) | null | undefined;
+  open: boolean;
+  onClose?:
+    | ((event: {}, reason: "backdropClick" | "escapeKeyDown") => void)
+    | undefined;
+}
 
 export default function ProfileMenu({
   anchorEl,

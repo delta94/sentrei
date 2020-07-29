@@ -4,10 +4,18 @@ import Grid from "@material-ui/core/Grid";
 
 import * as React from "react";
 
-import Props from "@sentrei/types/components/SpaceBoard";
+import Member from "@sentrei/types/models/Member";
+import Room from "@sentrei/types/models/Room";
+import Space from "@sentrei/types/models/Space";
 import RoomCard from "@sentrei/ui/components/RoomCard";
 import RoomNone from "@sentrei/ui/components/RoomNone";
 import SpacePanel from "@sentrei/ui/components/SpacePanel";
+
+export interface Props {
+  members: Member.Get[];
+  rooms: Room.Get[] | null;
+  space: Space.Get;
+}
 
 export default function SpaceBoard({rooms, space}: Props): JSX.Element {
   return (

@@ -11,9 +11,13 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import Link from "next-translate/Link";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/SpacePanel";
-
 import SpacePanelStyles from "./SpacePanelStyles";
+
+export interface Props {
+  photo?: string | null;
+  name: string;
+  spaceId: string;
+}
 
 export default function SpacePanel({photo, name, spaceId}: Props): JSX.Element {
   const classes = SpacePanelStyles();

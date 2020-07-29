@@ -7,12 +7,18 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/SettingsScreen";
+import Profile from "@sentrei/types/models/Profile";
+import User from "@sentrei/types/models/User";
 import FormSection from "@sentrei/ui/components/FormSection";
 import NotificationForm from "@sentrei/ui/components/SettingsNotificationForm";
 import PasswordUpdateForm from "@sentrei/ui/components/SettingsPasswordForm";
 import SettingsUsernameForm from "@sentrei/ui/components/SettingsUsernameForm";
 import TabBoard from "@sentrei/ui/components/TabBoard";
+
+export interface Props {
+  profile: Profile.Get;
+  user: User.Get;
+}
 
 const SettingsScreen = ({profile, user}: Props): JSX.Element => {
   const {t} = useTranslation();

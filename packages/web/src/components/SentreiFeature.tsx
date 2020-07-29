@@ -11,11 +11,13 @@ export default function SentreiFeature(): JSX.Element {
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
+
   React.useEffect(() => {
     if (inView) {
       analytics().logEvent("landing", {section: "feature"});
     }
   }, [inView]);
+
   return (
     <div ref={ref}>
       <Feature

@@ -10,9 +10,16 @@ import * as React from "react";
 
 import {createInvite} from "@sentrei/common/firebase/invites";
 import {timestamp} from "@sentrei/common/utils/firebase";
-import Props from "@sentrei/types/components/InviteLinkForm";
 import Invite from "@sentrei/types/models/Invite";
+import Profile from "@sentrei/types/models/Profile";
+import User from "@sentrei/types/models/User";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
+
+export interface Props {
+  profile: Profile.Get;
+  spaceId: string;
+  user: User.Get;
+}
 
 const InviteLinkForm = ({profile, user, spaceId}: Props): JSX.Element => {
   const {t} = useTranslation();

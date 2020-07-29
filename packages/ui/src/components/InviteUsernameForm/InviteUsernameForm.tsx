@@ -15,9 +15,16 @@ import {getProfileUsername} from "@sentrei/common/firebase/profiles";
 import {validateUsername} from "@sentrei/common/firebase/usernames";
 import {timestamp} from "@sentrei/common/utils/firebase";
 
-import Props from "@sentrei/types/components/InviteUsernameForm";
 import Member from "@sentrei/types/models/Member";
+import Profile from "@sentrei/types/models/Profile";
+import User from "@sentrei/types/models/User";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
+
+export interface Props {
+  profile: Profile.Get;
+  spaceId: string;
+  user: User.Get;
+}
 
 const InviteUsernameForm = ({profile, user, spaceId}: Props): JSX.Element => {
   const {t} = useTranslation();

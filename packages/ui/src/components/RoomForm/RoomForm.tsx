@@ -19,10 +19,20 @@ import {
 } from "@sentrei/common/firebase/rooms";
 
 import {timestamp} from "@sentrei/common/utils/firebase";
-import Props from "@sentrei/types/components/RoomForm";
+import Profile from "@sentrei/types/models/Profile";
+import Room from "@sentrei/types/models/Room";
+import User from "@sentrei/types/models/User";
 import FormSection from "@sentrei/ui/components/FormSection";
 import useBackdrop from "@sentrei/ui/hooks/useBackdrop";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
+
+export interface Props {
+  profile: Profile.Get;
+  type: "create" | "edit" | "delete";
+  user: User.Get;
+  room?: Room.Get;
+  spaceId: string;
+}
 
 const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
   const {t} = useTranslation();

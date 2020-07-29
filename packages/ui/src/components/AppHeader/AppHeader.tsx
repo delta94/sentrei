@@ -7,12 +7,16 @@ import MenuIcon from "@material-ui/icons/Menu";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/AppHeader";
 import ListMenu from "@sentrei/ui/components/ListMenu";
 import Logo from "@sentrei/ui/components/Logo";
 import ProfileMenu from "@sentrei/ui/components/ProfileMenu";
 
 import AppHeaderStyles from "./AppHeaderStyles";
+
+export interface Props {
+  logo: JSX.Element;
+  spaceId?: string;
+}
 
 export default function AppHeader({logo, spaceId}: Props): JSX.Element {
   const classes = AppHeaderStyles();

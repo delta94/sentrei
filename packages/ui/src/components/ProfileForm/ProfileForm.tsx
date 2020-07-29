@@ -13,10 +13,16 @@ import * as Yup from "yup";
 
 import {updateProfile} from "@sentrei/common/firebase/profiles";
 
-import Props from "@sentrei/types/components/ProfileForm";
+import Profile from "@sentrei/types/models/Profile";
+import User from "@sentrei/types/models/User";
 import FormSection from "@sentrei/ui/components/FormSection";
 import useBackdrop from "@sentrei/ui/hooks/useBackdrop";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
+
+export interface Props {
+  profile: Profile.Get;
+  user: User.Get;
+}
 
 const ProfileForm = ({profile}: Props): JSX.Element => {
   const {t} = useTranslation();

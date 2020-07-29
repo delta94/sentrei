@@ -5,13 +5,21 @@ import {getMembers} from "@sentrei/common/firebase/members";
 import {getRoom} from "@sentrei/common/firebase/rooms";
 import {getSpace} from "@sentrei/common/firebase/spaces";
 import issueRoomToken from "@sentrei/common/services/issueRoomToken";
-import Props from "@sentrei/types/components/RoomScreen";
 import Member from "@sentrei/types/models/Member";
+import Profile from "@sentrei/types/models/Profile";
 import Room from "@sentrei/types/models/Room";
 import Space from "@sentrei/types/models/Space";
+import User from "@sentrei/types/models/User";
 import Loader from "@sentrei/ui/components/Loader";
 import VideoScreen from "@sentrei/ui/components/VideoScreen";
 import AppStateProvider from "@sentrei/video/state";
+
+export interface Props {
+  user: User.Get;
+  profile: Profile.Get;
+  spaceId: string;
+  roomId: string;
+}
 
 export default function RoomScreen({
   user,

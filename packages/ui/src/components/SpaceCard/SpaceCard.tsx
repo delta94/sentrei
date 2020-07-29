@@ -18,13 +18,17 @@ import * as React from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 import {getMembers} from "@sentrei/common/firebase/members";
-import Props from "@sentrei/types/components/SpaceCard";
 import Member from "@sentrei/types/models/Member";
 
+import Space from "@sentrei/types/models/Space";
 import ProfileCard from "@sentrei/ui/components/ProfileCard";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 import SpaceCardStyles from "./SpaceCardStyles";
+
+export interface Props {
+  space: Space.Get;
+}
 
 export default function SpaceCard({space}: Props): JSX.Element {
   const classes = SpaceCardStyles();

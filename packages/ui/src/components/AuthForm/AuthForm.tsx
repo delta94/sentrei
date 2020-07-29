@@ -26,7 +26,6 @@ import signinWithGoogle from "@sentrei/common/services/signinWithGoogle";
 import signup from "@sentrei/common/services/signup";
 
 import {auth} from "@sentrei/common/utils/firebase";
-import Props from "@sentrei/types/components/Auth";
 import FormSection from "@sentrei/ui/components/FormSection";
 import Link from "@sentrei/ui/components/Link";
 
@@ -34,6 +33,10 @@ import useBackdrop from "@sentrei/ui/hooks/useBackdrop";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 import AuthFormStyles from "./AuthFormStyles";
+
+export interface Props {
+  type: "login" | "reset" | "signup";
+}
 
 export default function AuthForm({type}: Props): JSX.Element {
   const classes = AuthFormStyles();

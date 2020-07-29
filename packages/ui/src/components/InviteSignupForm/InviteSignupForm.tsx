@@ -21,7 +21,6 @@ import * as Yup from "yup";
 import signinWithGoogle from "@sentrei/common/services/signinWithGoogle";
 import signup from "@sentrei/common/services/signup";
 
-import Props from "@sentrei/types/components/InviteSignupForm";
 import FormSection from "@sentrei/ui/components/FormSection";
 import Link from "@sentrei/ui/components/Link";
 
@@ -30,8 +29,15 @@ import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 import InviteSignupFormStyles from "./InviteSignupFormStyles";
 
+export interface Props {
+  inviteId: string;
+  spaceId: string;
+}
+
 export default function InviteSignupForm({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   inviteId,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   spaceId,
 }: Props): JSX.Element {
   const classes = InviteSignupFormStyles();

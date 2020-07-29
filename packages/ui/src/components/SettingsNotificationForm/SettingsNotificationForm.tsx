@@ -9,9 +9,17 @@ import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
 import {updateNotificationSettings} from "@sentrei/common/firebase/users";
-import Props from "@sentrei/types/components/SettingsNotificationForm";
+import Notification from "@sentrei/types/models/Notification";
+import Profile from "@sentrei/types/models/Profile";
 import User from "@sentrei/types/models/User";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
+
+export interface Props {
+  profile: Profile.Get;
+  user: User.Get;
+  content: Notification.Type;
+  label: string;
+}
 
 const SettingsNotificationForm = ({
   user,

@@ -13,8 +13,13 @@ import * as React from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 import {deleteInvite} from "@sentrei/common/firebase/invites";
-import Props from "@sentrei/types/components/InviteCard";
+import Invite from "@sentrei/types/models/Invite";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
+
+export interface Props {
+  invite: Invite.Get;
+  type: Invite.Methods;
+}
 
 function InviteCard({invite, type}: Props): JSX.Element {
   const {snackbar} = useSnackbar();

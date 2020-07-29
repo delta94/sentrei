@@ -3,10 +3,15 @@ import Container from "@material-ui/core/Container";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/Product";
 import ProductCard from "@sentrei/ui/components/ProductCard";
 
 import ProductStyles from "./ProductStyles";
+
+export interface Props {
+  connectImg: JSX.Element;
+  dataImg: JSX.Element;
+  videoImg: JSX.Element;
+}
 
 export default function Product({
   connectImg,

@@ -16,12 +16,17 @@ import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 import Scrollspy from "react-scrollspy";
 
-import Props from "@sentrei/types/components/Header";
 import HubSpot from "@sentrei/ui/components/HubSpot";
 import IntlMenu from "@sentrei/ui/components/IntlMenu";
 import Logo from "@sentrei/ui/components/Logo";
 
 import HeaderStyles from "./HeaderStyles";
+
+export interface Props {
+  logo: JSX.Element;
+  sign?: boolean;
+  spy?: boolean;
+}
 
 export default function Header({
   logo,

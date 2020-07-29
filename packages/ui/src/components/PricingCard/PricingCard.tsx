@@ -6,9 +6,20 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/PricingCard";
-
 import PricingCardStyles from "./PricingCardStyles";
+
+export interface Props {
+  action?: string;
+  buttonText: string;
+  buttonVariant: "text" | "outlined" | "contained";
+  description1: string;
+  description2: string;
+  description3: string;
+  price: string;
+  priceMonth: string;
+  subTitle?: string;
+  title: string;
+}
 
 export default function PricingCard({
   action,

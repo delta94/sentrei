@@ -23,10 +23,20 @@ import {
 } from "@sentrei/common/firebase/spaces";
 import {timestamp} from "@sentrei/common/utils/firebase";
 import sleep from "@sentrei/common/utils/sleep";
-import Props from "@sentrei/types/components/SpaceForm";
+import Profile from "@sentrei/types/models/Profile";
+import Space from "@sentrei/types/models/Space";
+import User from "@sentrei/types/models/User";
 import FormSection from "@sentrei/ui/components/FormSection";
 import useBackdrop from "@sentrei/ui/hooks/useBackdrop";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
+
+export interface Props {
+  profile: Profile.Get;
+  space?: Space.Get;
+  spaceId?: string;
+  type: "create" | "edit" | "quit";
+  user: User.Get;
+}
 
 const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
   const {t} = useTranslation();

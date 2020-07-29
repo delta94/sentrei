@@ -1,10 +1,15 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import * as React from "react";
 
 import styled from "styled-components";
 
-import Props from "@sentrei/types/components/PicturePng";
+export interface Props {
+  alt: string;
+  height?: number;
+  width?: number;
+  src: any;
+}
 
 const StyledImg = styled.img`
   max-width: 100%;

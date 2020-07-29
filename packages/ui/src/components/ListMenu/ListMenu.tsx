@@ -6,7 +6,13 @@ import AccessibilityNewIcon from "@material-ui/icons/AccessibilityNew";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/ListMenu";
+export interface Props {
+  anchorEl?: Element | ((element: Element) => Element) | null | undefined;
+  open: boolean;
+  onClose?:
+    | ((event: {}, reason: "backdropClick" | "escapeKeyDown") => void)
+    | undefined;
+}
 
 export default function ListMenu({
   anchorEl,

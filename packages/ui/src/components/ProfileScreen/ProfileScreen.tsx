@@ -7,9 +7,13 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/ProfileScreen";
+import Profile from "@sentrei/types/models/Profile";
 
 import ProfileScreenStyles from "./ProfileScreenStyles";
+
+export interface Props {
+  profile: Profile.Get;
+}
 
 export default function ProfileScreen({profile}: Props): JSX.Element {
   const classes = ProfileScreenStyles();

@@ -18,13 +18,19 @@ import * as React from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 import {getMembersLive} from "@sentrei/common/firebase/members";
-import Props from "@sentrei/types/components/RoomCard";
 import Member from "@sentrei/types/models/Member";
+import Room from "@sentrei/types/models/Room";
+import Space from "@sentrei/types/models/Space";
 import ProfileCard from "@sentrei/ui/components/ProfileCard";
 import RoomMenu from "@sentrei/ui/components/RoomMenu";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 import RoomCardStyles from "./RoomCardStyles";
+
+export interface Props {
+  room: Room.Get;
+  space: Space.Get;
+}
 
 export default function RoomCard({room, space}: Props): JSX.Element {
   const classes = RoomCardStyles();

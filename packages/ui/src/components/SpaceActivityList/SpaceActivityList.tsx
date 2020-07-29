@@ -5,10 +5,16 @@ import Typography from "@material-ui/core/Typography";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/SpaceActivityList";
 import Activity from "@sentrei/types/models/Activity";
 import ActivityCard from "@sentrei/ui/components/ActivityCard";
 import SpaceActivityLoadMore from "@sentrei/ui/components/SpaceActivityLoadMore";
+
+export interface Props {
+  activityShot: Activity.Snapshot[];
+  spaceId: string;
+  last?: firebase.firestore.DocumentSnapshot;
+  limit?: number;
+}
 
 export default function SpaceActivityList({
   activityShot,

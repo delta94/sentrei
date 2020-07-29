@@ -11,13 +11,15 @@ import {VideoProvider} from "@sentrei/video/components/VideoProvider";
 import {useAppState} from "@sentrei/video/state";
 import generateConnectionOptions from "@sentrei/video/utils/generateConnectionOptions";
 
+export interface Props {
+  tokenId: string;
+  profile: Profile.Get;
+}
+
 export default function SentreiVideoApp({
   tokenId,
   profile,
-}: {
-  tokenId: string;
-  profile: Profile.Get;
-}): JSX.Element {
+}: Props): JSX.Element {
   const {error, setError, settings} = useAppState();
   const connectionOptions = generateConnectionOptions(settings);
 

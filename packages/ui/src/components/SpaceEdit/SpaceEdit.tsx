@@ -2,10 +2,17 @@ import Error from "next/error";
 import * as React from "react";
 
 import {getSpace} from "@sentrei/common/firebase/spaces";
-import Props from "@sentrei/types/components/SpaceEdit";
+import Profile from "@sentrei/types/models/Profile";
 import Space from "@sentrei/types/models/Space";
+import User from "@sentrei/types/models/User";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
 import SpaceForm from "@sentrei/ui/components/SpaceForm";
+
+export interface Props {
+  profile: Profile.Get;
+  spaceId: string;
+  user: User.Get;
+}
 
 export default function SpaceEdit({
   profile,

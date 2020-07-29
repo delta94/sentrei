@@ -2,10 +2,17 @@ import Grid from "@material-ui/core/Grid";
 import List from "@material-ui/core/List";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/InviteList";
+import Invite from "@sentrei/types/models/Invite";
 import InviteCard from "@sentrei/ui/components/InviteCard";
 
 import InviteListStyles from "./InviteListStyles";
+
+export interface Props {
+  invites: Invite.Get[];
+  type: Invite.Methods;
+  last?: firebase.firestore.DocumentSnapshot;
+  limit?: number;
+}
 
 export default function InviteList({invites, type}: Props): JSX.Element {
   const classes = InviteListStyles();

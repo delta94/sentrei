@@ -15,9 +15,15 @@ import {
   validateUsername,
 } from "@sentrei/common/firebase/usernames";
 
-import Props from "@sentrei/types/components/SettingsUsernameForm";
+import Profile from "@sentrei/types/models/Profile";
+import User from "@sentrei/types/models/User";
 import useBackdrop from "@sentrei/ui/hooks/useBackdrop";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
+
+export interface Props {
+  profile: Profile.Get;
+  user: User.Get;
+}
 
 const SettingsUsernameForm = ({profile}: Props): JSX.Element => {
   const {t} = useTranslation();
