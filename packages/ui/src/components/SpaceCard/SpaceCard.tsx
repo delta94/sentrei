@@ -80,7 +80,7 @@ export default function SpaceCard({space}: Props): JSX.Element {
               <CopyToClipboard
                 text={`${window.location.origin}/${space.id}`}
                 onCopy={(): void =>
-                  snackbar("success", t("common:const.snackbar.clipboard"))
+                  snackbar("success", t("common:snackbar.clipboard"))
                 }
               >
                 <IconButton aria-label="share">
@@ -111,7 +111,7 @@ export default function SpaceCard({space}: Props): JSX.Element {
             <Grid item xs={3}>
               <Link href="/[spaceId]" as={`/${space.id}`}>
                 <Button fullWidth variant="outlined" color="primary">
-                  {t("space:space.visit")}
+                  {t("common:common.visit")}
                 </Button>
               </Link>
             </Grid>

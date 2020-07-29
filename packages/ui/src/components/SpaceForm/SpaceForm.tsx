@@ -103,7 +103,7 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
     switch (type) {
       case "create":
-        snackbar("info", t("space:space.creating"));
+        snackbar("info", t("common:snackbar.creating"));
         try {
           await createSpace(
             {
@@ -130,7 +130,7 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
         }
         break;
       case "edit":
-        snackbar("info", t("space:space.editing"));
+        snackbar("info", t("common:snackbar.editing"));
         try {
           if (!space) {
             return;
@@ -157,7 +157,7 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
         }
         break;
       case "quit":
-        snackbar("info", t("space:space.quitting"));
+        snackbar("info", t("common:snackbar.quiting"));
         try {
           if (!space) {
             return;
@@ -231,7 +231,7 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
                         <TextField
                           fullWidth
                           id="space"
-                          label={t("common:const.id")}
+                          label={t("common:common.id")}
                           margin="normal"
                           name="id"
                           required
@@ -258,7 +258,7 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
                       autoFocus
                       fullWidth
                       id="space-name"
-                      label={t("common:const.name")}
+                      label={t("common:common.name")}
                       margin="normal"
                       name="name"
                       required
@@ -284,7 +284,7 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
                       multiline
                       rows={1}
                       id="space-description"
-                      label={t("common:const.description")}
+                      label={t("common:common.description")}
                       margin="normal"
                       name="description"
                       required
@@ -335,9 +335,9 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
                 variant="contained"
                 color="primary"
               >
-                {type === "create" && t("space:space.create")}
-                {type === "edit" && t("space:space.edit")}
-                {type === "quit" && t("space:space.quit")}
+                {type === "create" && t("common:common.create")}
+                {type === "edit" && t("common:common.edit")}
+                {type === "quit" && t("common:common.quit")}
               </Button>
             </Grid>
             <Grid item xs={12}>
@@ -348,7 +348,7 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
                 color="primary"
                 onClick={(): void => Router.back()}
               >
-                {t("space:space.cancel")}
+                {t("common:common.cancel")}
               </Button>
             </Grid>
           </Grid>

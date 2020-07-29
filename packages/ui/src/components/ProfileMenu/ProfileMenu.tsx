@@ -49,7 +49,7 @@ export default function ProfileMenu({
           <ListItemIcon>
             <PersonIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary={t("common:const.profile")} />
+          <ListItemText primary={t("common:common.profile")} />
         </MenuItem>
       </Link>
       <Link href="/notifications">
@@ -57,7 +57,7 @@ export default function ProfileMenu({
           <ListItemIcon>
             <NotificationsIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary={t("common:const.notifications")} />
+          <ListItemText primary={t("common:common.notifications")} />
         </MenuItem>
       </Link>
       <Link href="/settings">
@@ -65,14 +65,14 @@ export default function ProfileMenu({
           <ListItemIcon>
             <SettingsIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary={t("common:const.settings")} />
+          <ListItemText primary={t("common:common.settings")} />
         </MenuItem>
       </Link>
       <MenuItem onClick={(): Promise<void> => auth.signOut()}>
         <ListItemIcon>
           <ExitToAppIcon fontSize="small" />
         </ListItemIcon>
-        <ListItemText primary={t("common:const.logout")} />
+        <ListItemText primary={t("common:common.logout")} />
       </MenuItem>
     </Menu>
   );

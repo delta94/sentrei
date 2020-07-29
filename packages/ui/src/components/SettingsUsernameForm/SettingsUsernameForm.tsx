@@ -50,7 +50,7 @@ const SettingsUsernameForm = ({profile}: Props): JSX.Element => {
   });
 
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
-    snackbar("info", t("settings:profile.editing"));
+    snackbar("info", t("common:snackbar.editing"));
     try {
       await createUsername(data.username, profile.uid)?.then(() => {
         snackbar("success");
@@ -74,7 +74,7 @@ const SettingsUsernameForm = ({profile}: Props): JSX.Element => {
                 autoFocus
                 fullWidth
                 id="username"
-                label={t("common:const.username")}
+                label={t("common:common.username")}
                 margin="normal"
                 name="username"
                 required
@@ -92,7 +92,7 @@ const SettingsUsernameForm = ({profile}: Props): JSX.Element => {
         </Grid>
         <Grid item xs={12}>
           <Button type="submit" fullWidth variant="contained" color="primary">
-            {t("settings:profile.edit")}
+            {t("common:common.edit")}
           </Button>
         </Grid>
         <Grid item xs={12}>
@@ -103,7 +103,7 @@ const SettingsUsernameForm = ({profile}: Props): JSX.Element => {
             color="primary"
             onClick={(): void => Router.back()}
           >
-            {t("settings:profile.cancel")}
+            {t("common:common.cancel")}
           </Button>
         </Grid>
       </Grid>

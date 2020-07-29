@@ -1,39 +1,27 @@
 {
   "activity": {
-    "loadMore": "装载更多",
-    "none": "您没有活动...",
-    "title": "活动项目"
+    "title": ""
   },
   "dashboard": {
-    "create": "创建一个",
-    "none": "你没有空格...",
-    "title": "您的空间"
+    "create": "",
+    "none": "",
+    "title": ""
+  },
+  "invite": {
+    "invite": "",
+    "usernameInvalid": "",
+    "usernameNotExist": "",
+    "usernameRequired": ""
   },
   "space": {
-    "cancel": "取消",
-    "cover": "盖",
-    "create": "创造",
-    "createSpace": "创造空间",
-    "creating": "正在建立...",
-    "edit": "编辑",
-    "editSpace": "编辑空间",
-    "editing": "编辑中...",
-    "id": "ID",
-    "idAlreadyUsed": "ID已被使用",
-    "idInvalid": "ID无效",
-    "idNotExist": "ID不存在",
-    "idNotYourself": "身份证不能是你自己",
-    "idRequired": "ID为必填项",
-    "invite": "邀请",
-    "memberCount": "会员数",
-    "nameRequired": "名称为必填项",
-    "quit": "出口",
-    "quitRequired": "必须退出",
-    "quitSpace": "出口空间",
-    "quitTypeRequired": "必须输入“ QUIT”",
-    "quitting": "退出...",
-    "updatedAt": "最近更新时间",
-    "username": "用户名",
-    "visit": "访问"
+    "createSpace": "",
+    "editSpace": "",
+    "idAlreadyUsed": "",
+    "idInvalid": "",
+    "idRequired": "",
+    "nameRequired": "",
+    "quitRequired": "",
+    "quitSpace": "",
+    "quitTypeRequired": ""
   }
 }

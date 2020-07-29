@@ -78,7 +78,7 @@ export default function MemberFab({space, members}: Props): JSX.Element {
                 component="h6"
                 color="textSecondary"
               >
-                {t("common:const.members")}
+                {t("common:common.members")}
               </Typography>
               <Box p={1} />
               <Badge badgeContent={space.memberCount} color="primary">

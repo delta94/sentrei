@@ -1,21 +1,40 @@
 {
-  "const": {
+  "common": {
+    "app": "アプリ",
+    "cancel": "キャンセル",
+    "create": "作成する",
     "description": "説明",
+    "edit": "編集する",
     "email": "電子メールアドレス",
-    "help": "ヘルプ",
+    "help": "助けて",
     "id": "ID",
-    "loading": "読み込んでいます...",
+    "invite": "招待する",
+    "link": "リンク",
+    "loadMore": "もっと読み込む",
     "logout": "ログアウト",
     "members": "会員",
     "name": "名前",
+    "none": "なし",
+    "notifications": "お知らせ",
     "password": "パスワード",
-    "passwordConfirmation": "パスワードの確認",
+    "passwordConfirm": "パスワードの確認",
+    "passwordNew": "新しいパスワード",
+    "passwordOld": "以前のパスワード",
     "profile": "プロフィール",
+    "quit": "終了する",
     "settings": "設定",
-    "snackbar": {
-      "clipboard": "クリップボードへのリンクをコピーしました！"
-    },
-    "title": "Sentrei",
-    "username": "ユーザー名"
+    "title": "セントレイ",
+    "update": "更新",
+    "username": "ユーザー名",
+    "visit": "訪問"
+  },
+  "snackbar": {
+    "clipboard": "クリップボードへのリンクをコピーしました！",
+    "creating": "作成...",
+    "deleting": "削除しています...",
+    "editing": "編集...",
+    "inviting": "招待しています...",
+    "loading": "読み込んでいます...",
+    "quiting": "終了しています..."
   }
 }

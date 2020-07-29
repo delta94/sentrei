@@ -42,7 +42,7 @@ export default function ListMenu({
         <ListItemIcon>
           <AccessibilityNewIcon fontSize="small" />
         </ListItemIcon>
-        <ListItemText primary={t("common:const.help")} />
+        <ListItemText primary={t("common:common.help")} />
       </MenuItem>
     </Menu>
   );

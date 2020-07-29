@@ -22,7 +22,7 @@ export default function Banner(): JSX.Element {
   const {push, query} = useRouter();
 
   const google = (): void => {
-    snackbar("info", t("common:const.loading"));
+    snackbar("info", t("common:snackbar.loading"));
     signinWithGoogle(lang)
       .then(() => {
         snackbar("dismiss");

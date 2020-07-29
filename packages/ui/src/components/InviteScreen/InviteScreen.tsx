@@ -62,15 +62,15 @@ export default function InviteScreen({
   }
 
   return (
-    <FormSection icon={<SettingsIcon />} title={t("common:const.invite")}>
+    <FormSection icon={<SettingsIcon />} title={t("common:common.invite")}>
       <>
         <TabBoard
           tabIconOne={<EmailIcon />}
           tabIconTwo={<LinkIcon />}
           tabIconThree={<AssignmentIndIcon />}
-          tabLabelOne={t("common:const.email")}
-          tabLabelTwo={t("common:const.link")}
-          tabLabelThree={t("common:const.username")}
+          tabLabelOne={t("common:common.email")}
+          tabLabelTwo={t("common:common.link")}
+          tabLabelThree={t("common:common.username")}
           tabPanelOne={
             <>
               <Container component="main" maxWidth="xs">

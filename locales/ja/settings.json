@@ -1,9 +1,8 @@
 {
-  "profile": {
-    "cancel": "キャンセル",
-    "edit": "編集する",
-    "editProfile": "プロファイル編集",
-    "editing": "編集中..."
-  },
-  "title": "セントレイ"
+  "settings": {
+    "title": "設定",
+    "usernameAlreadyUsed": "ユーザー名は既に使用されています",
+    "usernameInvalid": "ユーザー名が無効です",
+    "usernameRequired": "ユーザー名は必須です"
+  }
 }

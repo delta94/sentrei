@@ -32,12 +32,12 @@ const InviteUsernameForm = ({profile, user, spaceId}: Props): JSX.Element => {
 
   const InviteUsernameFormSchema = Yup.object().shape({
     username: Yup.string()
-      .required(t("invite:invite.usernameRequired"))
+      .required(t("space:invite.usernameRequired"))
       // .matches(
       //   /^[a-z0-9][a-z0-9_]*([.][a-z0-9_]+)*$/,
-      //   t("invite:invite.usernameInvalid"),
+      //   t("space:invite.usernameInvalid"),
       // )
-      .test("id", t("invite:invite.usernameNotExist"), async value => {
+      .test("id", t("space:invite.usernameNotExist"), async value => {
         const result = await validateUsername(value);
         return !result;
       }),
@@ -50,7 +50,7 @@ const InviteUsernameForm = ({profile, user, spaceId}: Props): JSX.Element => {
   });
 
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
-    snackbar("info", t("invite:invite.editing"));
+    snackbar("info", t("common:snackbar.inviting"));
     try {
       const memberProfile = await getProfileUsername(data.username).catch(
         err => {
@@ -98,7 +98,7 @@ const InviteUsernameForm = ({profile, user, spaceId}: Props): JSX.Element => {
                 autoFocus
                 fullWidth
                 id="username"
-                label={t("common:const.username")}
+                label={t("common:common.username")}
                 margin="normal"
                 name="username"
                 required
@@ -116,7 +116,7 @@ const InviteUsernameForm = ({profile, user, spaceId}: Props): JSX.Element => {
         </Grid>
         <Grid item xs={12}>
           <Button type="submit" fullWidth variant="contained" color="primary">
-            {t("invite:invite.invite")}
+            {t("space:invite.invite")}
           </Button>
         </Grid>
         <Grid item xs={12}>
@@ -127,7 +127,7 @@ const InviteUsernameForm = ({profile, user, spaceId}: Props): JSX.Element => {
             color="primary"
             onClick={(): void => Router.back()}
           >
-            {t("invite:invite.cancel")}
+            {t("common:common.cancel")}
           </Button>
         </Grid>
       </Grid>

@@ -28,7 +28,7 @@ export default function ProfileScreen({profile}: Props): JSX.Element {
           </Avatar>
           <Box p={1} />
           <Typography component="h3" variant="h3" color="primary">
-            {t("common:const.profile")}
+            {t("common:common.profile")}
           </Typography>
         </Grid>
       </div>
@@ -53,7 +53,7 @@ export default function ProfileScreen({profile}: Props): JSX.Element {
         </Grid>
         <Grid item>
           <Typography noWrap component="h5" variant="h6" color="textSecondary">
-            {t("common:const.id")}
+            {t("common:common.id")}
             {": "}
             {profile.username}
           </Typography>

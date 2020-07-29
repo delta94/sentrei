@@ -38,7 +38,7 @@ const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
   });
 
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
-    snackbar("info", t("invite:invite.editing"));
+    snackbar("info", t("common:snackbar.editing"));
     try {
       await createInvite("spaces", spaceId, {
         createdAt: timestamp,
@@ -70,7 +70,7 @@ const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
                 autoFocus
                 fullWidth
                 id="email"
-                label={t("common:const.email")}
+                label={t("common:common.email")}
                 margin="normal"
                 name="email"
                 required
@@ -88,7 +88,7 @@ const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
         </Grid>
         <Grid item xs={12}>
           <Button type="submit" fullWidth variant="contained" color="primary">
-            {t("invite:invite.invite")}
+            {t("common:snackbar.invite")}
           </Button>
         </Grid>
       </Grid>

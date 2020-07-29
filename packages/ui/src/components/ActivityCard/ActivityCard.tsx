@@ -56,7 +56,7 @@ export default function ActivityCard({activity}: Props): JSX.Element {
             </Grid>
             <Grid item xs={5} sm={5} md={5}>
               <Typography noWrap>
-                {t("common:const.id")}
+                {t("common:common.id")}
                 {": "}
                 {activity.user.username}
               </Typography>

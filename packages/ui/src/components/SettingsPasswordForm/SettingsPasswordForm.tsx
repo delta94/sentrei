@@ -30,7 +30,7 @@ const SettingsPasswordForm = (): JSX.Element => {
   });
 
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
-    snackbar("info", t("settings:profile.editing"));
+    snackbar("info", t("common:snackbar.editing"));
     try {
       await updatePassword(data.passwordOld, data.passwordNew)?.then(() => {
         snackbar("success");
@@ -51,7 +51,7 @@ const SettingsPasswordForm = (): JSX.Element => {
                 autoFocus
                 fullWidth
                 id="passwordOld"
-                label={t("common:const.passwordOld")}
+                label={t("common:common.passwordOld")}
                 margin="normal"
                 name="password"
                 required
@@ -75,7 +75,7 @@ const SettingsPasswordForm = (): JSX.Element => {
               <TextField
                 fullWidth
                 id="passwordNew"
-                label={t("common:const.passwordNew")}
+                label={t("common:common.passwordNew")}
                 margin="normal"
                 name="password"
                 required
@@ -95,7 +95,7 @@ const SettingsPasswordForm = (): JSX.Element => {
         </Grid>
         <Grid item xs={12}>
           <Button type="submit" fullWidth variant="contained" color="primary">
-            {t("settings:profile.update")}
+            {t("common:common.update")}
           </Button>
         </Grid>
       </Grid>

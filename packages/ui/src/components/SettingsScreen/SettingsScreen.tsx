@@ -34,9 +34,9 @@ const SettingsScreen = ({profile, user}: Props): JSX.Element => {
           tabIconOne={<AssignmentIndIcon />}
           tabIconTwo={<NotificationsIcon />}
           tabIconThree={<LockIcon />}
-          tabLabelOne={t("common:const.username")}
-          tabLabelTwo={t("common:const.notifications")}
-          tabLabelThree={t("common:const.password")}
+          tabLabelOne={t("common:common.username")}
+          tabLabelTwo={t("common:common.notifications")}
+          tabLabelThree={t("common:common.password")}
           tabPanelOne={
             <Container component="main" maxWidth="xs">
               <SettingsUsernameForm profile={profile} user={user} />

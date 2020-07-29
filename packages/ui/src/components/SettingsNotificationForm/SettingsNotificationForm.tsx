@@ -65,7 +65,7 @@ const SettingsNotificationForm = ({
               color="primary"
             />
           }
-          label={t("common:const.app")}
+          label={t("common:common.app")}
         />
         <FormControlLabel
           control={
@@ -76,7 +76,7 @@ const SettingsNotificationForm = ({
               color="primary"
             />
           }
-          label={t("common:const.email")}
+          label={t("common:common.email")}
         />
       </FormGroup>
     </FormControl>

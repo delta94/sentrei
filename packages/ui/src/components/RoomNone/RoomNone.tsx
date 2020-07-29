@@ -22,7 +22,7 @@ export default function SpaceNone({spaceId}: Props): JSX.Element {
           color="textSecondary"
           component="h5"
         >
-          {t("room:room.none")}
+          {t("common:common.none")}
         </Typography>
         <Box p={3} />
         <Button
@@ -33,7 +33,7 @@ export default function SpaceNone({spaceId}: Props): JSX.Element {
             Router.pushI18n("/[spaceId]/create", `/${spaceId}/create`)
           }
         >
-          {t("room:room.create")}
+          {t("common:common.create")}
         </Button>
       </Container>
     </Box>

@@ -92,7 +92,7 @@ export default function RoomCard({room, space}: Props): JSX.Element {
             <CopyToClipboard
               text={`${window.location.href}/room/${room.id}`}
               onCopy={(): void =>
-                snackbar("success", t("common:const.snackbar.clipboard"))
+                snackbar("success", t("common:snackbar.clipboard"))
               }
             >
               <IconButton aria-label="share">
@@ -142,7 +142,7 @@ export default function RoomCard({room, space}: Props): JSX.Element {
                 as={`/${space.id}/room/${room.id}`}
               >
                 <Button fullWidth variant="outlined" color="primary">
-                  {t("space:space.visit")}
+                  {t("common:common.visit")}
                 </Button>
               </Link>
             </Grid>

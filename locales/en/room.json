@@ -1,35 +1,10 @@
 {
   "room": {
-    "cancel": "Cancel",
-    "cover": "Cover",
-    "create": "Create",
     "createRoom": "Create Room",
-    "creating": "Creating...",
-    "delete": "Delete",
     "deleteRequired": "Delete is required",
     "deleteRoom": "Delete Room",
     "deleteTypeRequired": "Typing 'DELETE' is required",
-    "deleting": "Deleting...",
-    "edit": "Edit",
     "editRoom": "Edit Room",
-    "editing": "Editing...",
-    "id": "ID",
-    "idAlreadyUsed": "ID is already used",
-    "idInvalid": "ID is invalid",
-    "idNotExist": "ID doesn't exist",
-    "idNotYourself": "ID can not be yourself",
-    "idRequired": "ID is required",
-    "invite": "Invite",
-    "memberCount": "Member Count",
-    "nameRequired": "Name is required",
-    "none": "You have no rooms ...",
-    "quit": "Quit",
-    "quitRequired": "Quit is Required",
-    "quitRoom": "Quit Room",
-    "quitTypeRequired": "Typing \"",
-    "quitting": "Quitting ...",
-    "updatedAt": "Last Updated",
-    "username": "Username",
-    "visit": "Visit"
+    "nameRequired": "Name is Required"
   }
 }

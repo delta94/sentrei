@@ -55,7 +55,7 @@ export default function SpaceFab({spaceId, type}: Props): JSX.Element {
           <SpeedDialAction
             key="quit"
             icon={<CreateIcon />}
-            tooltipTitle={t("room:room.create")}
+            tooltipTitle={t("common:common.create")}
             tooltipOpen
             onClick={(): void =>
               Router.pushI18n("/[spaceId]/create", `/${spaceId}/create`)
@@ -66,7 +66,7 @@ export default function SpaceFab({spaceId, type}: Props): JSX.Element {
           <SpeedDialAction
             key="quit"
             icon={<ExitToAppIcon />}
-            tooltipTitle={t("space:space.quit")}
+            tooltipTitle={t("common:common.quit")}
             tooltipOpen
             onClick={(): void =>
               Router.pushI18n("/[spaceId]/quit", `/${spaceId}/quit`)

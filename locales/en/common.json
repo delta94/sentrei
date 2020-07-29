@@ -1,28 +1,40 @@
 {
-  "const": {
+  "common": {
     "app": "App",
     "description": "Description",
+    "cancel": "Cancel",
+    "create": "Create",
+    "edit": "Edit",
     "email": "Email Address",
     "help": "Help",
     "id": "ID",
     "invite": "Invite",
     "link": "Link",
     "loadMore": "Load More",
-    "loading": "Loading...",
     "logout": "Logout",
     "members": "Members",
     "name": "Name",
+    "none": "None",
     "notifications": "Notifications",
     "password": "Password",
     "passwordConfirm": "Password Confirmation",
     "passwordNew": "New Password",
     "passwordOld": "Old Password",
     "profile": "Profile",
+    "quit": "Quit",
     "settings": "Settings",
-    "snackbar": {
-      "clipboard": "Copied link to clipboard!"
-    },
+    "update": "Update",
     "title": "Sentrei",
-    "username": "Username"
+    "username": "Username",
+    "visit": "Visit"
+  },
+  "snackbar": {
+    "creating": "Creating...",
+    "deleting": "Deleting...",
+    "editing": "Editing...",
+    "inviting": "Inviting...",
+    "loading": "Loading...",
+    "quiting": "Quiting...",
+    "clipboard": "Copied link to clipboard!"
   }
 }

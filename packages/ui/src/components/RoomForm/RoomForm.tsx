@@ -69,7 +69,7 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
     switch (type) {
       case "create":
-        snackbar("info", t("room:room.creating"));
+        snackbar("info", t("common.snackbar.creating"));
         try {
           if (!spaceId) {
             return;
@@ -98,7 +98,7 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
         }
         break;
       case "edit":
-        snackbar("info", t("room:room.editing"));
+        snackbar("info", t("common:snackbar.editing"));
         try {
           if (!room || !spaceId) {
             return;
@@ -125,7 +125,7 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
         }
         break;
       case "delete":
-        snackbar("info", t("room:room.deleting"));
+        snackbar("info", t("common:snackbar.deleting"));
         try {
           if (!room || !spaceId) {
             return;
@@ -180,7 +180,7 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
                       autoFocus
                       fullWidth
                       id="room"
-                      label={t("common:const.name")}
+                      label={t("common:common.name")}
                       margin="normal"
                       name="name"
                       required
@@ -205,7 +205,7 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
                       autoFocus
                       fullWidth
                       id="room-name"
-                      label={t("common:const.name")}
+                      label={t("common:common.name")}
                       margin="normal"
                       name="name"
                       required
@@ -231,7 +231,7 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
                       multiline
                       rows={1}
                       id="room-description"
-                      label={t("common:const.description")}
+                      label={t("common:common.description")}
                       margin="normal"
                       name="description"
                       required
@@ -282,9 +282,9 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
                 variant="contained"
                 color="primary"
               >
-                {type === "create" && t("room:room.create")}
-                {type === "edit" && t("room:room.edit")}
-                {type === "delete" && t("room:room.delete")}
+                {type === "create" && t("common:common.create")}
+                {type === "edit" && t("common:common.edit")}
+                {type === "delete" && t("common:common.delete")}
               </Button>
             </Grid>
             <Grid item xs={12}>
@@ -295,7 +295,7 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
                 color="primary"
                 onClick={(): void => Router.back()}
               >
-                {t("room:room.cancel")}
+                {t("common:common.cancel")}
               </Button>
             </Grid>
           </Grid>
