@@ -9,8 +9,12 @@ export default function CustomRoughNotation({
   animate = true,
   animationDelay = 0,
   animationDuration = 800,
-  color,
   initial = false,
+  strokeWidth = 1,
+  brackets,
+  color,
+  iterations,
+  padding,
   text,
   type,
 }: Props): JSX.Element {
@@ -18,6 +22,7 @@ export default function CustomRoughNotation({
   const [ref, inView] = useInView({
     threshold: 0,
   });
+
   React.useEffect(() => {
     setShow(inView);
   }, [inView]);
@@ -28,6 +33,8 @@ export default function CustomRoughNotation({
         animate={animate}
         animationDelay={animationDelay}
         animationDuration={animationDuration}
+        brackets={brackets}
+        strokeWidth={strokeWidth}
         color={
           color === "primary"
             ? Theme.palette.primary.main
@@ -39,6 +46,8 @@ export default function CustomRoughNotation({
             ? Theme.palette.secondary.light
             : color
         }
+        iterations={iterations}
+        padding={padding}
         show={show}
         type={type}
       >
