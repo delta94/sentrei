@@ -1,3 +1,9 @@
+## [1.4.3](https://github.com/sentrei/sentrei/compare/v1.4.2...v1.4.3) (2020-07-29)
+
+### Bug Fixes
+
+- **deps:** bump @testing-library/jest-dom from 5.11.1 to 5.11.2 ([fd48b92](https://github.com/sentrei/sentrei/commit/fd48b92ceb9a59cbe82605cc8bab5ff204a4d2b8))
+
 ## [1.3.10](https://github.com/sentrei/sentrei/compare/v1.3.9...v1.3.10) (2020-07-28)
 
 ### Bug Fixes
