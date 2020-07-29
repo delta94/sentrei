@@ -39,28 +39,27 @@ export default function Banner(): JSX.Element {
         <RoughNotation
           animationDelay={0}
           animationDuration={1000}
-          brackets={["top"]}
-          iterations={1}
           strokeWidth={3}
+          iterations={1}
           color="primary"
           text="Bond."
-          type="bracket"
+          type="underline"
         />
         <br />
         <RoughNotation
           animationDelay={1000}
           animationDuration={1000}
+          iterations={2}
           strokeWidth={3}
-          iterations={1}
-          padding={3}
           color="primary"
           text="Focus."
-          type="box"
+          type="underline"
         />
         <br />
         <RoughNotation
           animationDelay={2000}
           animationDuration={1000}
+          iterations={3}
           strokeWidth={3}
           color="primary"
           text="Work."
