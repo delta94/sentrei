@@ -1,17 +1,14 @@
 {
   "banner": {
-    "bannerBottom": "do ",
-    "bannerBottomRough": "great work",
-    "bannerTextOne": "A unified virtual workspace",
-    "bannerTextRough": "never disappears",
-    "bannerTextThree": "- instantly accessible from anywhere with a protected link -",
-    "bannerTextTwo": "that ",
-    "bannerTop": "Where",
+    "bannerHeaderOne": "Bond.",
+    "bannerHeaderThree": "Work.",
+    "bannerHeaderTwo": "Focus.",
+    "bannerTextOne": "A specialized video conferencing tool",
+    "bannerTextRough": "get things done",
+    "bannerTextThree": "- A focus oriented virtual workspace -",
+    "bannerTextTwo": "that helps you ",
     "googleText": "Sign up with Google",
-    "startText": "Get Started Now (Beta)",
-    "typicalOne": "remote teams",
-    "typicalThree": "classmates",
-    "typicalTwo": "workforces"
+    "startText": "Get Started Now (Beta)"
   },
   "faq": {
     "bodyOne": "Yes, it comes with unlimited time for anyone - as long as you don't have simultaneously three people on the workspace. In that case, you will have to create a seperate workspace for free (which supports up to 3 people) or upgrade to the Pro version.",
@@ -23,8 +20,8 @@
     "titleTwo": "Is the video communication encrypted?"
   },
   "feature": {
-    "sectionTitle": "Feature",
-    "subTitleOne": "Everyone can access the workspace anytime they like",
+    "sectionTitle": "Features",
+    "subTitleOne": "Everyone can access the workspace anytime they like, just in the real world, so you can get things done.",
     "subTitleThree": "Track daily analytics spent on the virtual workspace to achieve your personal goals",
     "subTitleTwo": "We provide focus oriented features so that you will not get distracted easily",
     "titleOne": "Unlimited Time",
@@ -65,8 +62,8 @@
     "description3Two": "Help center access",
     "priceMonth": "/mo",
     "priceOne": "$0",
-    "priceThree": "$10",
-    "priceTwo": "$3",
+    "priceThree": "$60",
+    "priceTwo": "$30",
     "sectionTitle": "Pricing",
     "subTitleTwo": "Most popular",
     "titleOne": "Free",
@@ -74,23 +71,23 @@
     "titleTwo": "Pro"
   },
   "product": {
-    "connectSubTitle": "Tired of minutes-restriced video conference apps? Our virtual workspace will be always there for you - just like in the physical world",
-    "connectTitleOne": " ",
-    "connectTitleThree": " Always available for everyone",
-    "connectTitleTwo": "24/7",
-    "dataSubTitle": "Our data analytics team will track everyone's presence on the workspace and present you with real-time updates for team productivity and efficiency",
-    "dataTitleOne": " ",
-    "dataTitleThree": " analytics and data",
-    "dataTitleTwo": "Insightful",
-    "videoSubTitle": "Want a remote-oriented workspace for working with others virtually without ever getting distracted? You can now focus solely on your work with the company of others all while listening to your favorite music",
-    "videoTitleOne": " ",
-    "videoTitleThree": " while focusing",
-    "videoTitleTwo": "Bond together"
+    "bottomSubTitle": "Our data analytics team will track everyone's presence on the workspace and present you with real-time updates for team productivity and efficiency, so that you can get your work done.",
+    "bottomTitleOne": " ",
+    "bottomTitleThree": " analytics and data",
+    "bottomTitleTwo": "Insightful",
+    "centerSubTitle": "Tired of minutes-restriced video conference apps? Our virtual workspace will be always there for you - just like in the physical world",
+    "centerTitleOne": " ",
+    "centerTitleThree": " Always available for everyone",
+    "centerTitleTwo": "Seamless.",
+    "topSubTitle": "Ever dreamed of having a perfect experience of virtually working with your colleagues without ever getting distracted? You can now focus solely on your work with the company of others all while listening to your favorite music",
+    "topTitleOne": " ",
+    "topTitleThree": " while focusing",
+    "topTitleTwo": "Bond together"
   },
   "screen": {
-    "labelOne": "Virtual Workspace",
-    "labelThree": "View Analytics",
-    "labelTwo": "Share Love"
+    "labelOne": "Bond",
+    "labelThree": "Work",
+    "labelTwo": "Focus"
   },
   "slider": {
     "titleOne": "The people from these teams are ",

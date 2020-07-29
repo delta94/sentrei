@@ -3,9 +3,16 @@ import Container from "@material-ui/core/Container";
 import * as React from "react";
 
 import {getSpacesSnapshot} from "@sentrei/common/firebase/spaces";
-import Props from "@sentrei/types/components/SpaceLoadMore";
 import Space from "@sentrei/types/models/Space";
 import LoadMore from "@sentrei/ui/components/LoadMore";
+
+export interface Props {
+  lastItem: string | firebase.firestore.DocumentSnapshot;
+  length: number;
+  limit: number;
+  userId?: string;
+  onLoadMore: (posts: Space.Get[]) => void;
+}
 
 export default function SpaceLoadMore({
   lastItem,

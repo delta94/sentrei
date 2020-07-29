@@ -21,7 +21,6 @@ import * as Yup from "yup";
 import signinWithGoogle from "@sentrei/common/services/signinWithGoogle";
 import signup from "@sentrei/common/services/signup";
 
-import Props from "@sentrei/types/components/InviteSignupForm";
 import FormSection from "@sentrei/ui/components/FormSection";
 import Link from "@sentrei/ui/components/Link";
 
@@ -30,8 +29,15 @@ import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 import InviteSignupFormStyles from "./InviteSignupFormStyles";
 
+export interface Props {
+  inviteId: string;
+  spaceId: string;
+}
+
 export default function InviteSignupForm({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   inviteId,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   spaceId,
 }: Props): JSX.Element {
   const classes = InviteSignupFormStyles();
@@ -53,7 +59,7 @@ export default function InviteSignupForm({
   });
 
   const google = (): void => {
-    snackbar("info", t("common:const.loading"));
+    snackbar("info", t("common:snackbar.loading"));
     signinWithGoogle(lang)
       .then(() => {
         snackbar("dismiss");
@@ -66,7 +72,7 @@ export default function InviteSignupForm({
 
   // eslint-disable-next-line @typescript-eslint/require-await
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
-    snackbar("info", t("common:const.loading"));
+    snackbar("info", t("common:snackbar.loading"));
     try {
       signup(data.email, data.password, lang)
         .then(() => {
@@ -118,7 +124,7 @@ export default function InviteSignupForm({
                 autoFocus
                 fullWidth
                 id="email"
-                label={t("common:const.email")}
+                label={t("common:common.email")}
                 margin="normal"
                 name="email"
                 placeholder="example@sentrei.com"
@@ -139,7 +145,7 @@ export default function InviteSignupForm({
                 autoComplete="current-password"
                 fullWidth
                 id="password"
-                label={t("common:const.password")}
+                label={t("common:common.password")}
                 margin="normal"
                 name="password"
                 required
@@ -156,7 +162,7 @@ export default function InviteSignupForm({
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label={t("auth:auth.remember-me")}
+            label={t("auth:auth.rememberMe")}
           />
           <Button
             type="submit"
@@ -171,7 +177,7 @@ export default function InviteSignupForm({
         <Grid container justify="center">
           <Grid item>
             <Link href="/login" variant="body2">
-              {t("auth:signup.already-have-login")}
+              {t("auth:signup.alreadyHaveLogin")}
             </Link>
           </Grid>
         </Grid>
@@ -179,7 +185,7 @@ export default function InviteSignupForm({
         <Grid container justify="center">
           <Grid item>
             <Link href="/terms" variant="body2">
-              {t("auth:signup.by-agree-terms")}
+              {t("auth:signup.byAgreeTerms")}
             </Link>
           </Grid>
         </Grid>

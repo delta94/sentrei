@@ -2,10 +2,14 @@ import Error from "next/error";
 import * as React from "react";
 
 import {getInvite} from "@sentrei/common/firebase/invites";
-import Props from "@sentrei/types/components/InviteSignup";
 import Invite from "@sentrei/types/models/Invite";
 import InviteSignupForm from "@sentrei/ui/components/InviteSignupForm";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
+
+export interface Props {
+  inviteId: string;
+  spaceId: string;
+}
 
 export default function InviteSignup({inviteId, spaceId}: Props): JSX.Element {
   const [invite, setInvite] = React.useState<Invite.Get | null | undefined>();

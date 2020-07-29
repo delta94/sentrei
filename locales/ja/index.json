@@ -1,17 +1,14 @@
 {
   "banner": {
-    "bannerBottom": "にとって",
-    "bannerBottomRough": "最高の仕事場",
+    "bannerHeaderOne": "繋がる",
+    "bannerHeaderThree": "作業",
+    "bannerHeaderTwo": "集中",
     "bannerTextOne": "バーチャル・ワークスペースで",
     "bannerTextRough": "発揮しよう",
-    "bannerTextThree": "- どこからでもワンクリックで即座にアクセス -",
+    "bannerTextThree": "-フォーカス専用の仮想ワークスペース-",
     "bannerTextTwo": "最大限のパフォーマンスを",
-    "bannerTop": "すべての",
     "googleText": "Google で サインインする",
-    "startText": "すべて 無料 でスタートする",
-    "typicalOne": "リモートチーム",
-    "typicalThree": "クラスメート",
-    "typicalTwo": "同僚"
+    "startText": "すべて 無料 でスタートする"
   },
   "faq": {
     "bodyOne": "はい、それは誰にとっても無制限の時間を伴います-ワークスペースで同時に3人がいなければ。その場合は、独立したワークスペースを無料で作成するか（最大3人をサポート）、Proバージョンにアップグレードする必要があります。",
@@ -23,7 +20,7 @@
     "titleTwo": "ビデオ通信は暗号化されていますか？"
   },
   "feature": {
-    "sectionTitle": "Feature",
+    "sectionTitle": "特徴",
     "subTitleOne": "誰もがいつでも好きなときにワークスペースにアクセスできます",
     "subTitleThree": "個人の目標を達成するために仮想ワークスペースに費やされた毎日のパフォーマンスの分析を可能に",
     "subTitleTwo": "簡単に気が散らないように、フォーカス指向の機能を提供します",
@@ -65,8 +62,8 @@
     "description3Two": "ヘルプセンターへのアクセス",
     "priceMonth": "/月",
     "priceOne": "0円",
-    "priceThree": "1000円",
-    "priceTwo": "300円",
+    "priceThree": "6000円",
+    "priceTwo": "3000円",
     "sectionTitle": "Pricing",
     "subTitleTwo": "最も人気のある",
     "titleOne": "無料",
@@ -74,23 +71,23 @@
     "titleTwo": "プロフェッショナル"
   },
   "product": {
-    "connectSubTitle": "時間単位のビデオ会議アプリにうんざりしていませんか？私たちの仮想ワークスペースは常にどこからでもアクセスできます-物理世界と同じように",
-    "connectTitleOne": " ",
-    "connectTitleThree": "年中無休で誰でも利用可能",
-    "connectTitleTwo": "24時間",
-    "dataSubTitle": "当社のデータ分析チームは、ワークスペースでの全員のプレゼンスを追跡し、チームの生産性と効率のためのリアルタイムのインサイトを可能にします",
-    "dataTitleOne": " ",
-    "dataTitleThree": "分析とデータ",
-    "dataTitleTwo": "洞察に満ちた",
-    "videoSubTitle": "気を散らすことなく他の人と実質的に共同作業できるリモート指向のワークスペースが必要ですか？お気に入りの音楽を聴きながら、他の人と一緒に仕事に専念できるようになりました",
-    "videoTitleOne": " ",
-    "videoTitleThree": "仕事に集中しよう",
-    "videoTitleTwo": "仲間と一緒に"
+    "bottomSubTitle": "当社のデータ分析チームは、ワークスペースでの全員のプレゼンスを追跡し、チームの生産性と効率のためのリアルタイムのインサイトを可能にします",
+    "bottomTitleOne": " ",
+    "bottomTitleThree": "分析とデータ",
+    "bottomTitleTwo": "洞察に満ちた",
+    "centerSubTitle": "時間単位のビデオ会議アプリにうんざりしていませんか？私たちの仮想ワークスペースは常にどこからでもアクセスできます-物理世界と同じように",
+    "centerTitleOne": " ",
+    "centerTitleThree": "いつでもどこからでも利用可能",
+    "centerTitleTwo": "ストレスフリー",
+    "topSubTitle": "気を散らすことなく他の人と実質的に共同作業できるリモート指向のワークスペースが必要ですか？お気に入りの音楽を聴きながら、他の人と一緒に仕事に専念できるようになりました",
+    "topTitleOne": " ",
+    "topTitleThree": "仕事に集中しよう",
+    "topTitleTwo": "仲間と一緒に"
   },
   "screen": {
-    "labelOne": "Virtual Workspace",
-    "labelThree": "View Analytics",
-    "labelTwo": "Share Love"
+    "labelOne": "繋がる",
+    "labelThree": "作業",
+    "labelTwo": "集中"
   },
   "slider": {
     "titleOne": "これらのチームの人々はSentreiを日々 ",

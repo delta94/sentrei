@@ -11,8 +11,15 @@ import * as Yup from "yup";
 
 import {createInvite} from "@sentrei/common/firebase/invites";
 import {timestamp} from "@sentrei/common/utils/firebase";
-import Props from "@sentrei/types/components/InviteEmailForm";
+import Profile from "@sentrei/types/models/Profile";
+import User from "@sentrei/types/models/User";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
+
+export interface Props {
+  profile: Profile.Get;
+  spaceId: string;
+  user: User.Get;
+}
 
 const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
   const {t} = useTranslation();
@@ -31,7 +38,7 @@ const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
   });
 
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
-    snackbar("info", t("invite:invite.editing"));
+    snackbar("info", t("common:snackbar.editing"));
     try {
       await createInvite("spaces", spaceId, {
         createdAt: timestamp,
@@ -63,7 +70,7 @@ const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
                 autoFocus
                 fullWidth
                 id="email"
-                label={t("common:const.email")}
+                label={t("common:common.email")}
                 margin="normal"
                 name="email"
                 required
@@ -81,7 +88,7 @@ const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
         </Grid>
         <Grid item xs={12}>
           <Button type="submit" fullWidth variant="contained" color="primary">
-            {t("invite:invite.invite")}
+            {t("common:snackbar.invite")}
           </Button>
         </Grid>
       </Grid>

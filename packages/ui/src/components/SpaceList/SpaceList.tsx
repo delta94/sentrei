@@ -5,12 +5,18 @@ import Typography from "@material-ui/core/Typography";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/SpaceList";
 import Space from "@sentrei/types/models/Space";
 
 import SpaceCard from "@sentrei/ui/components/SpaceCard";
 import SpaceLoadMore from "@sentrei/ui/components/SpaceLoadMore";
 import SpaceNone from "@sentrei/ui/components/SpaceNone";
+
+export interface Props {
+  spaceShot: Space.Snapshot[];
+  last?: firebase.firestore.DocumentSnapshot;
+  limit?: number;
+  userId?: string;
+}
 
 export default function SpaceList({
   spaceShot,

@@ -3,9 +3,14 @@ import * as React from "react";
 
 import oneTap from "@sentrei/common/services/oneTap";
 import firebase from "@sentrei/common/utils/firebase";
-import Props from "@sentrei/types/components/OneTap";
+import User from "@sentrei/types/models/User";
 import useBackdrop from "@sentrei/ui/hooks/useBackdrop";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
+
+export interface Props {
+  user: User.Get | undefined | null;
+  delay?: boolean;
+}
 
 const OneTap = ({delay = false, user}: Props): JSX.Element => {
   const {backdrop} = useBackdrop();

@@ -1,7 +1,7 @@
+import Accordion from "@material-ui/core/Accordion";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Container from "@material-ui/core/Container";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import useTranslation from "next-translate/useTranslation";
@@ -19,8 +19,8 @@ export default function Faq(): JSX.Element {
     <>
       <Section title={t("index:faq.sectionTitle")} subTitle="" />
       <Container maxWidth="md" component="main">
-        <ExpansionPanel>
-          <ExpansionPanelSummary
+        <Accordion>
+          <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
@@ -28,13 +28,13 @@ export default function Faq(): JSX.Element {
             <Typography variant="h6" className={classes.heading}>
               {t("index:faq.titleOne")}
             </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          </AccordionSummary>
+          <AccordionDetails>
             <Typography>{t("index:faq.bodyOne")}</Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel>
-          <ExpansionPanelSummary
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
             id="panel2a-header"
@@ -42,13 +42,13 @@ export default function Faq(): JSX.Element {
             <Typography variant="h6" className={classes.heading}>
               {t("index:faq.titleTwo")}
             </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          </AccordionSummary>
+          <AccordionDetails>
             <Typography>{t("index:faq.bodyTwo")}</Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel>
-          <ExpansionPanelSummary
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel3a-content"
             id="panel3a-header"
@@ -56,11 +56,11 @@ export default function Faq(): JSX.Element {
             <Typography variant="h6" className={classes.heading}>
               {t("index:faq.titleThree")}
             </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          </AccordionSummary>
+          <AccordionDetails>
             <Typography>{t("index:faq.bodyThree")}</Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+          </AccordionDetails>
+        </Accordion>
       </Container>
     </>
   );

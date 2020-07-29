@@ -5,10 +5,18 @@ import * as React from "react";
 
 import {maxFileSize} from "@sentrei/common/const";
 import upload from "@sentrei/common/services/upload";
-import Props from "@sentrei/types/components/ImageUpload";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 import ImageUploadStyles from "./ImageUploadStyles";
+
+export interface Props {
+  hideImg?: boolean;
+  id?: string;
+  img?: string | null;
+  label?: string;
+  size?: string;
+  onSave: (url: string) => void;
+}
 
 const ImageUpload = ({
   hideImg,

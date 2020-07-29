@@ -3,11 +3,16 @@ import Grid from "@material-ui/core/Grid";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/Feature";
 import FeatureCard from "@sentrei/ui/components/FeatureCard";
 import Section from "@sentrei/ui/components/Section";
 
 import FeatureStyles from "./FeatureStyles";
+
+export interface Props {
+  imgOne: JSX.Element;
+  imgTwo: JSX.Element;
+  imgThree: JSX.Element;
+}
 
 export default function Feature({
   imgOne,

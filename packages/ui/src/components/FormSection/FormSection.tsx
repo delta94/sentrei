@@ -5,9 +5,14 @@ import Typography from "@material-ui/core/Typography";
 
 import * as React from "react";
 
-import Props from "@sentrei/types/components/FormSection";
-
 import FormSectionStyles from "./FormSectionStyles";
+
+export interface Props {
+  children: JSX.Element;
+  icon: JSX.Element;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | false;
+  title: string;
+}
 
 export default function FormSection({
   children,

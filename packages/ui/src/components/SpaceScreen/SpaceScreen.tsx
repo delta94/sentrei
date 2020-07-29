@@ -4,7 +4,6 @@ import * as React from "react";
 import {getMembersLive} from "@sentrei/common/firebase/members";
 import {getRoomsLive} from "@sentrei/common/firebase/rooms";
 import {getSpace} from "@sentrei/common/firebase/spaces";
-import Props from "@sentrei/types/components/SpaceScreen";
 import Member from "@sentrei/types/models/Member";
 import Room from "@sentrei/types/models/Room";
 import Space from "@sentrei/types/models/Space";
@@ -12,6 +11,10 @@ import MemberFab from "@sentrei/ui/components/MemberFab";
 import SkeletonScreen from "@sentrei/ui/components/SkeletonScreen";
 import SpaceBoard from "@sentrei/ui/components/SpaceBoard";
 import SpaceFab from "@sentrei/ui/components/SpaceFab";
+
+export interface Props {
+  spaceId: string;
+}
 
 export default function SpaceScreen({spaceId}: Props): JSX.Element {
   const [space, setSpace] = React.useState<Space.Get | null | undefined>();

@@ -22,7 +22,7 @@ export default function Banner(): JSX.Element {
   const {push, query} = useRouter();
 
   const google = (): void => {
-    snackbar("info", t("common:const.loading"));
+    snackbar("info", t("common:snackbar.loading"));
     signinWithGoogle(lang)
       .then(() => {
         snackbar("dismiss");
@@ -37,10 +37,10 @@ export default function Banner(): JSX.Element {
         <RoughNotation
           animationDelay={0}
           animationDuration={1000}
-          iterations={1}
+          iterations={2}
           strokeWidth={3}
           color="primary"
-          text="Bond."
+          text={t("index:banner.bannerHeaderOne")}
           type="underline"
         />
         <br />
@@ -50,17 +50,17 @@ export default function Banner(): JSX.Element {
           iterations={2}
           strokeWidth={3}
           color="primary"
-          text="Focus."
+          text={t("index:banner.bannerHeaderTwo")}
           type="underline"
         />
         <br />
         <RoughNotation
           animationDelay={2000}
           animationDuration={1000}
-          iterations={3}
+          iterations={2}
           strokeWidth={3}
           color="primary"
-          text="Work."
+          text={t("index:banner.bannerHeaderThree")}
           type="underline"
         />
       </Typography>

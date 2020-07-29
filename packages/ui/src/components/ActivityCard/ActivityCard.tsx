@@ -8,9 +8,13 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/ActivityCard";
+import Activity from "@sentrei/types/models/Activity";
 
 import ActivityCardStyles from "./ActivityCardStyles";
+
+export interface Props {
+  activity: Activity.Get;
+}
 
 export default function ActivityCard({activity}: Props): JSX.Element {
   const classes = ActivityCardStyles();
@@ -52,7 +56,7 @@ export default function ActivityCard({activity}: Props): JSX.Element {
             </Grid>
             <Grid item xs={5} sm={5} md={5}>
               <Typography noWrap>
-                {t("common:const.id")}
+                {t("common:common.id")}
                 {": "}
                 {activity.user.username}
               </Typography>

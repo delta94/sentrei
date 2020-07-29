@@ -7,9 +7,13 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/ProfileScreen";
+import Profile from "@sentrei/types/models/Profile";
 
 import ProfileScreenStyles from "./ProfileScreenStyles";
+
+export interface Props {
+  profile: Profile.Get;
+}
 
 export default function ProfileScreen({profile}: Props): JSX.Element {
   const classes = ProfileScreenStyles();
@@ -24,7 +28,7 @@ export default function ProfileScreen({profile}: Props): JSX.Element {
           </Avatar>
           <Box p={1} />
           <Typography component="h3" variant="h3" color="primary">
-            {t("common:const.profile")}
+            {t("common:common.profile")}
           </Typography>
         </Grid>
       </div>
@@ -49,7 +53,7 @@ export default function ProfileScreen({profile}: Props): JSX.Element {
         </Grid>
         <Grid item>
           <Typography noWrap component="h5" variant="h6" color="textSecondary">
-            {t("common:const.id")}
+            {t("common:common.id")}
             {": "}
             {profile.username}
           </Typography>

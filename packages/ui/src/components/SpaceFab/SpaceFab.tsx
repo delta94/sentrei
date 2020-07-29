@@ -9,9 +9,12 @@ import Router from "next-translate/Router";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/SpaceFab";
-
 import SpaceFabStyles from "./SpaceFabStyles";
+
+export interface Props {
+  spaceId?: string;
+  type: "dashboard" | "space";
+}
 
 export default function SpaceFab({spaceId, type}: Props): JSX.Element {
   const classes = SpaceFabStyles();
@@ -52,7 +55,7 @@ export default function SpaceFab({spaceId, type}: Props): JSX.Element {
           <SpeedDialAction
             key="quit"
             icon={<CreateIcon />}
-            tooltipTitle={t("room:room.create")}
+            tooltipTitle={t("common:common.create")}
             tooltipOpen
             onClick={(): void =>
               Router.pushI18n("/[spaceId]/create", `/${spaceId}/create`)
@@ -63,7 +66,7 @@ export default function SpaceFab({spaceId, type}: Props): JSX.Element {
           <SpeedDialAction
             key="quit"
             icon={<ExitToAppIcon />}
-            tooltipTitle={t("space:space.quit")}
+            tooltipTitle={t("common:common.quit")}
             tooltipOpen
             onClick={(): void =>
               Router.pushI18n("/[spaceId]/quit", `/${spaceId}/quit`)

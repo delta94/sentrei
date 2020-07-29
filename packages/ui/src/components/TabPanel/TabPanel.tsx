@@ -2,7 +2,11 @@ import Box from "@material-ui/core/Box";
 import Grow from "@material-ui/core/Grow";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/TabPanel";
+export interface Props {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
 
 export default function TabPanel(props: Props): JSX.Element {
   const {children, value, index, ...other} = props;

@@ -10,9 +10,10 @@ import * as React from "react";
 
 import {getInvitesLive} from "@sentrei/common/firebase/invites";
 import {getSpace} from "@sentrei/common/firebase/spaces";
-import Props from "@sentrei/types/components/InviteScreen";
 import Invite from "@sentrei/types/models/Invite";
+import Profile from "@sentrei/types/models/Profile";
 import Space from "@sentrei/types/models/Space";
+import User from "@sentrei/types/models/User";
 import FormSection from "@sentrei/ui/components/FormSection";
 import InviteEmailForm from "@sentrei/ui/components/InviteEmailForm";
 import InviteLinkForm from "@sentrei/ui/components/InviteLinkForm";
@@ -20,6 +21,12 @@ import InviteList from "@sentrei/ui/components/InviteList";
 import InviteUsernameForm from "@sentrei/ui/components/InviteUsernameForm";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
 import TabBoard from "@sentrei/ui/components/TabBoard";
+
+export interface Props {
+  profile: Profile.Get;
+  spaceId: string;
+  user: User.Get;
+}
 
 export default function InviteScreen({
   profile,
@@ -55,15 +62,15 @@ export default function InviteScreen({
   }
 
   return (
-    <FormSection icon={<SettingsIcon />} title={t("common:const.invite")}>
+    <FormSection icon={<SettingsIcon />} title={t("common:common.invite")}>
       <>
         <TabBoard
           tabIconOne={<EmailIcon />}
           tabIconTwo={<LinkIcon />}
           tabIconThree={<AssignmentIndIcon />}
-          tabLabelOne={t("common:const.email")}
-          tabLabelTwo={t("common:const.link")}
-          tabLabelThree={t("common:const.username")}
+          tabLabelOne={t("common:common.email")}
+          tabLabelTwo={t("common:common.link")}
+          tabLabelThree={t("common:common.username")}
           tabPanelOne={
             <>
               <Container component="main" maxWidth="xs">

@@ -13,8 +13,13 @@ import * as React from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 import {deleteInvite} from "@sentrei/common/firebase/invites";
-import Props from "@sentrei/types/components/InviteCard";
+import Invite from "@sentrei/types/models/Invite";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
+
+export interface Props {
+  invite: Invite.Get;
+  type: Invite.Methods;
+}
 
 function InviteCard({invite, type}: Props): JSX.Element {
   const {snackbar} = useSnackbar();
@@ -39,7 +44,7 @@ function InviteCard({invite, type}: Props): JSX.Element {
             <CopyToClipboard
               text={`${window.location}/${invite.id}`}
               onCopy={(): void =>
-                snackbar("success", t("common:const.snackbar.clipboard"))
+                snackbar("success", t("common:snackbar.clipboard"))
               }
             >
               <IconButton aria-label="share">

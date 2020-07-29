@@ -1,15 +1,27 @@
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
+import {Breakpoint} from "@material-ui/core/styles/createBreakpoints";
 import Typography from "@material-ui/core/Typography";
 import withWidth, {isWidthUp, isWidthDown} from "@material-ui/core/withWidth";
 import * as React from "react";
 
 import Tilt from "react-parallax-tilt";
 
-import Props from "@sentrei/types/components/ProductCard";
 import RoughNotation from "@sentrei/ui/components/RoughNotation";
 
 import ProductStyles from "./ProductCardStyles";
+
+export interface Props {
+  color: string;
+  left: boolean;
+  img: JSX.Element;
+  subTitle: string;
+  titleOne: string;
+  titleTwo: string;
+  titleThree: string;
+  type: "underline" | "box" | "circle" | "highlight";
+  width: Breakpoint;
+}
 
 function ProductCard({
   color,

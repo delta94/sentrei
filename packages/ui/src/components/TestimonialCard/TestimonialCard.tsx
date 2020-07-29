@@ -7,9 +7,15 @@ import QuoteIcon from "@material-ui/icons/FormatQuote";
 
 import * as React from "react";
 
-import Props from "@sentrei/types/components/TestimonialCard";
-
 import TestimonialCardStyles from "./TestimonialCardStyles";
+
+export interface Props {
+  author: string;
+  body: string;
+  img: JSX.Element;
+  occupation: string;
+  title: string;
+}
 
 export default function TestimonialCard({
   author,

@@ -26,7 +26,6 @@ import signinWithGoogle from "@sentrei/common/services/signinWithGoogle";
 import signup from "@sentrei/common/services/signup";
 
 import {auth} from "@sentrei/common/utils/firebase";
-import Props from "@sentrei/types/components/Auth";
 import FormSection from "@sentrei/ui/components/FormSection";
 import Link from "@sentrei/ui/components/Link";
 
@@ -34,6 +33,10 @@ import useBackdrop from "@sentrei/ui/hooks/useBackdrop";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 import AuthFormStyles from "./AuthFormStyles";
+
+export interface Props {
+  type: "login" | "reset" | "signup";
+}
 
 export default function AuthForm({type}: Props): JSX.Element {
   const classes = AuthFormStyles();
@@ -64,7 +67,7 @@ export default function AuthForm({type}: Props): JSX.Element {
   });
 
   const google = (): void => {
-    snackbar("info", t("common:const.loading"));
+    snackbar("info", t("common:snackbar.loading"));
     signinWithGoogle(lang)
       .then(() => {
         snackbar("dismiss");
@@ -76,7 +79,7 @@ export default function AuthForm({type}: Props): JSX.Element {
   };
 
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
-    snackbar("info", t("common:const.loading"));
+    snackbar("info", t("common:snackbar.loading"));
 
     switch (type) {
       case "reset":
@@ -144,7 +147,7 @@ export default function AuthForm({type}: Props): JSX.Element {
         }
         title={
           type === "reset"
-            ? t("auth:reset-password.title")
+            ? t("auth:resetPassword.title")
             : type === "login"
             ? t("auth:login.title")
             : type === "signup"
@@ -187,7 +190,7 @@ export default function AuthForm({type}: Props): JSX.Element {
                   autoFocus
                   fullWidth
                   id="email"
-                  label={t("common:const.email")}
+                  label={t("common:common.email")}
                   margin="normal"
                   name="email"
                   placeholder="example@sentrei.com"
@@ -209,7 +212,7 @@ export default function AuthForm({type}: Props): JSX.Element {
                     autoComplete="current-password"
                     fullWidth
                     id="password"
-                    label={t("common:const.password")}
+                    label={t("common:common.password")}
                     margin="normal"
                     name="password"
                     required
@@ -228,7 +231,7 @@ export default function AuthForm({type}: Props): JSX.Element {
             {type === "login" || type === "signup" ? (
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
-                label={t("auth:auth.remember-me")}
+                label={t("auth:auth.rememberMe")}
               />
             ) : null}
             <Button
@@ -238,7 +241,7 @@ export default function AuthForm({type}: Props): JSX.Element {
               color="primary"
               className={classes.submit}
             >
-              {type === "reset" && t("auth:reset-password.button")}
+              {type === "reset" && t("auth:resetPassword.button")}
               {type === "login" && t("auth:login.button")}
               {type === "signup" && t("auth:signup.button")}
             </Button>
@@ -247,12 +250,12 @@ export default function AuthForm({type}: Props): JSX.Element {
             <Grid container>
               <Grid item xs>
                 <Link href="/reset-password" variant="body2">
-                  {t("auth:login.forgot-password")}
+                  {t("auth:login.forgotPassword")}
                 </Link>
               </Grid>
               <Grid item>
                 <Link href="/signup" variant="body2">
-                  {t("auth:login.dont-have-signup")}
+                  {t("auth:login.dontHaveSignup")}
                 </Link>
               </Grid>
             </Grid>
@@ -262,7 +265,7 @@ export default function AuthForm({type}: Props): JSX.Element {
               <Grid container justify="center">
                 <Grid item>
                   <Link href="/login" variant="body2">
-                    {t("auth:signup.already-have-login")}
+                    {t("auth:signup.alreadyHaveLogin")}
                   </Link>
                 </Grid>
               </Grid>
@@ -270,7 +273,7 @@ export default function AuthForm({type}: Props): JSX.Element {
               <Grid container justify="center">
                 <Grid item>
                   <Link href="/terms" variant="body2">
-                    {t("auth:signup.by-agree-terms")}
+                    {t("auth:signup.byAgreeTerms")}
                   </Link>
                 </Grid>
               </Grid>

@@ -3,10 +3,15 @@ import Container from "@material-ui/core/Container";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/Product";
 import ProductCard from "@sentrei/ui/components/ProductCard";
 
 import ProductStyles from "./ProductStyles";
+
+export interface Props {
+  connectImg: JSX.Element;
+  dataImg: JSX.Element;
+  videoImg: JSX.Element;
+}
 
 export default function Product({
   connectImg,
@@ -22,10 +27,10 @@ export default function Product({
         left
         color="secondary-light"
         img={videoImg}
-        subTitle={t("index:product.videoSubTitle")}
-        titleOne={t("index:product.videoTitleOne")}
-        titleTwo={t("index:product.videoTitleTwo")}
-        titleThree={t("index:product.videoTitleThree")}
+        subTitle={t("index:product.topSubTitle")}
+        titleOne={t("index:product.topTitleOne")}
+        titleTwo={t("index:product.topTitleTwo")}
+        titleThree={t("index:product.topTitleThree")}
         type="highlight"
       />
       <Box py={3} />
@@ -33,10 +38,10 @@ export default function Product({
         left={false}
         color="secondary-light"
         img={connectImg}
-        subTitle={t("index:product.connectSubTitle")}
-        titleOne={t("index:product.connectTitleOne")}
-        titleTwo={t("index:product.connectTitleTwo")}
-        titleThree={t("index:product.connectTitleThree")}
+        subTitle={t("index:product.centerSubTitle")}
+        titleOne={t("index:product.centerTitleOne")}
+        titleTwo={t("index:product.centerTitleTwo")}
+        titleThree={t("index:product.centerTitleThree")}
         type="highlight"
       />
       <Box py={3} />
@@ -44,10 +49,10 @@ export default function Product({
         left
         color="secondary-light"
         img={dataImg}
-        subTitle={t("index:product.dataSubTitle")}
-        titleOne={t("index:product.dataTitleOne")}
-        titleTwo={t("index:product.dataTitleTwo")}
-        titleThree={t("index:product.dataTitleThree")}
+        subTitle={t("index:product.bottomSubTitle")}
+        titleOne={t("index:product.bottomTitleOne")}
+        titleTwo={t("index:product.bottomTitleTwo")}
+        titleThree={t("index:product.bottomTitleThree")}
         type="highlight"
       />
     </Container>

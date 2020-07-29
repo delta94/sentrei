@@ -18,13 +18,17 @@ import * as React from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 import {getMembers} from "@sentrei/common/firebase/members";
-import Props from "@sentrei/types/components/SpaceCard";
 import Member from "@sentrei/types/models/Member";
 
+import Space from "@sentrei/types/models/Space";
 import ProfileCard from "@sentrei/ui/components/ProfileCard";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 import SpaceCardStyles from "./SpaceCardStyles";
+
+export interface Props {
+  space: Space.Get;
+}
 
 export default function SpaceCard({space}: Props): JSX.Element {
   const classes = SpaceCardStyles();
@@ -76,7 +80,7 @@ export default function SpaceCard({space}: Props): JSX.Element {
               <CopyToClipboard
                 text={`${window.location.origin}/${space.id}`}
                 onCopy={(): void =>
-                  snackbar("success", t("common:const.snackbar.clipboard"))
+                  snackbar("success", t("common:snackbar.clipboard"))
                 }
               >
                 <IconButton aria-label="share">
@@ -107,7 +111,7 @@ export default function SpaceCard({space}: Props): JSX.Element {
             <Grid item xs={3}>
               <Link href="/[spaceId]" as={`/${space.id}`}>
                 <Button fullWidth variant="outlined" color="primary">
-                  {t("space:space.visit")}
+                  {t("common:common.visit")}
                 </Button>
               </Link>
             </Grid>

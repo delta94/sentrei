@@ -1,7 +1,12 @@
 import * as React from "react";
 
 import {updateStatus} from "@sentrei/common/firebase/status";
-import Props from "@sentrei/types/components/StatusSpace";
+import Profile from "@sentrei/types/models/Profile";
+
+export interface Props {
+  profile: Profile.Get;
+  userId: string;
+}
 
 function getVisibility(): true | "hidden" | "visible" {
   if (typeof document === "undefined") return true;

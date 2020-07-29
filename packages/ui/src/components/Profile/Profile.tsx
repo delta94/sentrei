@@ -3,10 +3,13 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/Profile";
 import Section from "@sentrei/ui/components/Section";
 
 import ProfileStyles from "./ProfileStyles";
+
+export interface Props {
+  userEmail: string | null;
+}
 
 export default function Profile({userEmail}: Props): JSX.Element {
   const classes = ProfileStyles();

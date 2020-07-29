@@ -74,7 +74,7 @@ function LoadMore<T>({
       )}
       {shouldLoadMore && lastItem && (
         <Button fullWidth variant="outlined" color="primary" onClick={loadMore}>
-          {t("common:const.loadMore")}
+          {t("common:common.loadMore")}
         </Button>
       )}
     </>

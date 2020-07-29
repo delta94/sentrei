@@ -3,7 +3,11 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import * as React from "react";
 
-import Props from "@sentrei/types/components/SpaceSection";
+export interface Props {
+  icon: JSX.Element;
+  title: String;
+  button?: JSX.Element;
+}
 
 export default function SpaceSection({
   icon,

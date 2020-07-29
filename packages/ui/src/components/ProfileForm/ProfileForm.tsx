@@ -13,10 +13,16 @@ import * as Yup from "yup";
 
 import {updateProfile} from "@sentrei/common/firebase/profiles";
 
-import Props from "@sentrei/types/components/ProfileForm";
+import Profile from "@sentrei/types/models/Profile";
+import User from "@sentrei/types/models/User";
 import FormSection from "@sentrei/ui/components/FormSection";
 import useBackdrop from "@sentrei/ui/hooks/useBackdrop";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
+
+export interface Props {
+  profile: Profile.Get;
+  user: User.Get;
+}
 
 const ProfileForm = ({profile}: Props): JSX.Element => {
   const {t} = useTranslation();
@@ -36,7 +42,7 @@ const ProfileForm = ({profile}: Props): JSX.Element => {
   });
 
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
-    snackbar("info", t("profile:profile.editing"));
+    snackbar("info", t("common:snackbar.editing"));
     try {
       await updateProfile(
         {
@@ -70,7 +76,7 @@ const ProfileForm = ({profile}: Props): JSX.Element => {
                     autoFocus
                     fullWidth
                     id="room"
-                    label={t("common:const.name")}
+                    label={t("common:common.name")}
                     margin="normal"
                     name="name"
                     required
@@ -93,7 +99,7 @@ const ProfileForm = ({profile}: Props): JSX.Element => {
                 variant="contained"
                 color="primary"
               >
-                {t("profile:profile.edit")}
+                {t("common:common.edit")}
               </Button>
             </Grid>
             <Grid item xs={12}>
@@ -104,7 +110,7 @@ const ProfileForm = ({profile}: Props): JSX.Element => {
                 color="primary"
                 onClick={(): void => Router.back()}
               >
-                {t("profile:profile.cancel")}
+                {t("common:common.cancel")}
               </Button>
             </Grid>
           </Grid>

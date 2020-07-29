@@ -8,6 +8,7 @@ export default function SentreiFaq(): JSX.Element {
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
+
   React.useEffect(() => {
     if (inView) {
       analytics().logEvent("landing", {section: "faq"});
