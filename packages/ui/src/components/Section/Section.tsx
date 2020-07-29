@@ -19,7 +19,13 @@ export default function Section({subTitle, title}: Props): JSX.Element {
         color="textPrimary"
         gutterBottom
       >
-        <RoughNotation color="primary" text={title} type="underline" />
+        <RoughNotation
+          color="primary"
+          strokeWidth={3}
+          iterations={3}
+          text={title}
+          type="underline"
+        />
       </Typography>
       <Typography
         variant="h5"

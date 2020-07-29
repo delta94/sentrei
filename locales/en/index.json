@@ -20,8 +20,8 @@
     "titleTwo": "Is the video communication encrypted?"
   },
   "feature": {
-    "sectionTitle": "Feature",
-    "subTitleOne": "Everyone can access the workspace anytime they like",
+    "sectionTitle": "Features",
+    "subTitleOne": "Everyone can access the workspace anytime they like, just in the real world, so you can get things done.",
     "subTitleThree": "Track daily analytics spent on the virtual workspace to achieve your personal goals",
     "subTitleTwo": "We provide focus oriented features so that you will not get distracted easily",
     "titleOne": "Unlimited Time",
@@ -62,8 +62,8 @@
     "description3Two": "Help center access",
     "priceMonth": "/mo",
     "priceOne": "$0",
-    "priceThree": "$10",
-    "priceTwo": "$3",
+    "priceThree": "$60",
+    "priceTwo": "$30",
     "sectionTitle": "Pricing",
     "subTitleTwo": "Most popular",
     "titleOne": "Free",

@@ -20,7 +20,7 @@
     "titleTwo": "视频通信是否已加密？"
   },
   "feature": {
-    "sectionTitle": "Feature",
+    "sectionTitle": "特征",
     "subTitleOne": "每个人都可以随时访问工作空间",
     "subTitleThree": "跟踪花费在虚拟工作区上的每日分析以实现您的个人目标",
     "subTitleTwo": "我们提供了针对焦点的功能，因此您不会轻易分心",
@@ -61,9 +61,9 @@
     "description3Three": "指定成功团队",
     "description3Two": "帮助中心访问",
     "priceMonth": "/月",
-    "priceOne": "$ 0",
-    "priceThree": "$ 10",
-    "priceTwo": "$ 3",
+    "priceOne": "$0",
+    "priceThree": "$60",
+    "priceTwo": "$30",
     "sectionTitle": "Pricing",
     "subTitleTwo": "最受欢迎",
     "titleOne": "自由",
