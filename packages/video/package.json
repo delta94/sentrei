@@ -33,7 +33,7 @@
     "@material-ui/styles": "^4.10.0",
     "@primer/octicons-react": "^9.0.0",
     "@sentrei/common": "*",
-    "@testing-library/jest-dom": "^5.11.1",
+    "@testing-library/jest-dom": "^5.11.2",
     "@testing-library/react": "^10.4.3",
     "@testing-library/react-hooks": "^3.2.1",
     "@types/d3-timer": "^1.0.9",
