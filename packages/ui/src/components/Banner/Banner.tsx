@@ -10,9 +10,7 @@ import {useRouter} from "next/router";
 import * as React from "react";
 
 import signinWithGoogle from "@sentrei/common/services/signinWithGoogle";
-
 import RoughNotation from "@sentrei/ui/components/RoughNotation";
-
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 import BannerStyles from "./BannerStyles";
@@ -51,12 +49,13 @@ export default function Banner(): JSX.Element {
         <RoughNotation
           animationDelay={1000}
           animationDuration={1000}
+          brackets={["left", "right"]}
           iterations={1}
-          padding={3}
+          padding={[3, 10]}
           strokeWidth={3}
           color="primary"
           text="Focus."
-          type="box"
+          type="bracket"
         />
         <br />
         <RoughNotation
