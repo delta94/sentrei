@@ -25,9 +25,9 @@
         },
         "atpublic": {
             "hashes": [
-                "sha256:7dca670499e9a9d3aae5a8914bc799475fe24be3bcd29c8129642dda665f7a44"
+                "sha256:ebeb62b71a5c683a84c1b16bbf415708af5a46841b142b85ac3a22ec2d7613b0"
             ],
-            "version": "==1.0"
+            "version": "==2.0"
         },
         "cachetools": {
             "hashes": [
@@ -128,18 +128,18 @@
                 "gs"
             ],
             "hashes": [
-                "sha256:45207cf33005b8707d080e4584a974343d6fedcf41f977a4c519622984c2f686",
-                "sha256:f24f5cd0c8804c2044b8851bc46f8fd4bd73bcee86f1d5a5774794a84d7f1d1c"
+                "sha256:8c723c8d9731e87569809ac51c4ae0e790581a2f0f786ea30feab93b5ae74c2c",
+                "sha256:faf7abbeef4d2d43bf95db83ad04a8aa33764df4227b94860b5b08ce6d6286ef"
             ],
             "index": "pypi",
-            "version": "==1.2.1"
+            "version": "==1.2.2"
         },
         "flatten-json": {
             "hashes": [
-                "sha256:a2850468b9c8b59e2454df7ba653ac0f719365f14f99f10a72ff4c225ef5d3f0",
-                "sha256:ab269f4bd50be33503d699c8c9c6ceb068cd767bbb9302a7f42ffc2485883281"
+                "sha256:06341ba64baf2fd9b960b4cacf3d3bab38e1e09a855d9902e79cfd2fe66fa29c",
+                "sha256:cdb1a0802f0268f892294f51014097912ba5a6fea99996573a7e3f0cc43cfd26"
             ],
-            "version": "==0.1.8"
+            "version": "==0.1.7"
         },
         "flufl.lock": {
             "hashes": [
@@ -182,10 +182,10 @@
         },
         "google-auth": {
             "hashes": [
-                "sha256:15b42d57d6c3d868d318e8273c06b2692fc5aad1bc45989a4f68f1fee05d41b2",
-                "sha256:f404448f3d3c91944b1d907427d4a0c48f465898e9dbacf1bdebf95c5fe03273"
+                "sha256:25c97cec5d4f6821f3ab67eb25b264fb00fda8fb9e2f05869bfa93dfcb8b50ee",
+                "sha256:c6e9735a2ee829a75b546702e460489db5cc35567a27fabd70b7c459f11efd58"
             ],
-            "version": "==1.19.2"
+            "version": "==1.20.0"
         },
         "google-cloud-core": {
             "hashes": [
@@ -431,7 +431,7 @@
                 "sha256:109ea5a66744dd859bf16fe904b8d8b627adafb9408753161e766a92e7d681fa",
                 "sha256:6166864e23d6b5195a5cfed6cd9fed0fe774e226d8f854fcb23b7bbef0350233"
             ],
-            "markers": "python_version >= '3'",
+            "markers": "python_version >= '3.5'",
             "version": "==4.6"
         },
         "ruamel.yaml": {
