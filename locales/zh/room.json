@@ -1,10 +1,10 @@
 {
   "room": {
-    "createRoom": "",
-    "deleteRequired": "",
-    "deleteRoom": "",
-    "deleteTypeRequired": "",
-    "editRoom": "",
-    "nameRequired": ""
+    "createRoom": "创建房间",
+    "deleteRequired": "必须删除",
+    "deleteRoom": "删除房间",
+    "deleteTypeRequired": "必须输入“删除”",
+    "editRoom": "编辑室",
+    "nameRequired": "名称为必填项"
   }
 }
