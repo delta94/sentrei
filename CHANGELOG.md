@@ -1,3 +1,9 @@
+# [1.6.0](https://github.com/sentrei/sentrei/compare/v1.5.0...v1.6.0) (2020-07-29)
+
+### Features
+
+- 🎸 refactor rename landing ([fbdefbf](https://github.com/sentrei/sentrei/commit/fbdefbf925c0113cd092552214003a37fd7f9c1a))
+
 # [1.5.0](https://github.com/sentrei/sentrei/compare/v1.4.4...v1.5.0) (2020-07-29)
 
 ### Features
