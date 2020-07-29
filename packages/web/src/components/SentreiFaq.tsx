@@ -2,7 +2,7 @@ import * as React from "react";
 import {useInView} from "react-intersection-observer";
 
 import {analytics} from "@sentrei/common/utils/firebase";
-import Faq from "@sentrei/ui/components/Faq";
+import LandingFaq from "@sentrei/ui/components/LandingFaq";
 
 export default function SentreiFaq(): JSX.Element {
   const [ref, inView] = useInView({
@@ -17,7 +17,7 @@ export default function SentreiFaq(): JSX.Element {
 
   return (
     <div ref={ref}>
-      <Faq />
+      <LandingFaq />
     </div>
   );
 }

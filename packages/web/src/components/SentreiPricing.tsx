@@ -2,7 +2,7 @@ import * as React from "react";
 import {useInView} from "react-intersection-observer";
 
 import {analytics} from "@sentrei/common/utils/firebase";
-import Pricing from "@sentrei/ui/components/Pricing";
+import LandingPricing from "@sentrei/ui/components/LandingPricing";
 
 export default function SentreiPricing(): JSX.Element {
   const [ref, inView] = useInView({
@@ -17,7 +17,7 @@ export default function SentreiPricing(): JSX.Element {
 
   return (
     <div ref={ref}>
-      <Pricing />
+      <LandingPricing />
     </div>
   );
 }
