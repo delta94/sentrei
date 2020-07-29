@@ -1,3 +1,9 @@
+## [1.4.4](https://github.com/sentrei/sentrei/compare/v1.4.3...v1.4.4) (2020-07-29)
+
+### Performance Improvements
+
+- ⚡️ finalize banner design for notation ([eb21027](https://github.com/sentrei/sentrei/commit/eb210273d06dcd65a0b3efca0160f401aee89689))
+
 ## [1.4.3](https://github.com/sentrei/sentrei/compare/v1.4.2...v1.4.3) (2020-07-29)
 
 ### Bug Fixes
