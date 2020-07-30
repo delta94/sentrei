@@ -1,3 +1,20 @@
+# [1.9.0](https://github.com/sentrei/sentrei/compare/v1.8.2...v1.9.0) (2020-07-30)
+
+### Features
+
+- 🎸 add firestore validation ([c9f6e17](https://github.com/sentrei/sentrei/commit/c9f6e17a5cc631c4a2cb5b5b016390efdd63fe34))
+- 🎸 ini members screen ([1f7acdf](https://github.com/sentrei/sentrei/commit/1f7acdf43a96b24b8a3fb6f6138941774083508f))
+- 🎸 ini room settings ([56b45c4](https://github.com/sentrei/sentrei/commit/56b45c4bbe8eb09c16c019442014234147740a81))
+- 🎸 ini settings page ([12b14a0](https://github.com/sentrei/sentrei/commit/12b14a00fe6cc934bc0692fbef2840a19c8786ff))
+- 🎸 ini space settings ([e73ccea](https://github.com/sentrei/sentrei/commit/e73cceaa7ed48a00a98e5e875d0da70119a54c9c))
+- 🎸 sublime mui link ([a59f735](https://github.com/sentrei/sentrei/commit/a59f735d1c47eb190f68e76a43db028e1fa1005b))
+
+### Performance Improvements
+
+- ⚡️ add room settings ([b969780](https://github.com/sentrei/sentrei/commit/b969780bb69e92ce962d1e90cf95de85f3d0a6ef))
+- ⚡️ settings screen tab order refactor ([f97b2d5](https://github.com/sentrei/sentrei/commit/f97b2d5cd71f0ba17f55a8491f6159b46f0b65de))
+- ⚡️ update space fab ([34e2f70](https://github.com/sentrei/sentrei/commit/34e2f7094f0932fdc24b013085f98691514364f8))
+
 ## [1.8.2](https://github.com/sentrei/sentrei/compare/v1.8.1...v1.8.2) (2020-07-30)
 
 ### Performance Improvements
