@@ -6,7 +6,8 @@
     "deleteTypeRequired": "Typing 'DELETE' is required",
     "editRoom": "Edit Room",
     "nameRequired": "Name is Required",
-    "none": "You have no rooms ..."
+    "none": "You have no rooms ...",
+    "settings": "Settings"
   },
   "settings": {
     "title": "Room Settings"
