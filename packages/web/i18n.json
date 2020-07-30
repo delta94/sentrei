@@ -17,6 +17,7 @@
     "/[spaceId]/room/[roomId]/delete": ["room", "video"],
     "/[spaceId]/room/[roomId]/edit": ["room", "video"],
     "/[spaceId]/quit": ["space"],
+    "/[spaceId]/settings": ["space"],
     "/[spaceId]": ["room", "space"],
     "/create": ["space"],
     "/dashboard": ["space"],
