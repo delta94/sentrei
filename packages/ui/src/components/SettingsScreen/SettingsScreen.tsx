@@ -34,15 +34,10 @@ const SettingsScreen = ({profile, user}: Props): JSX.Element => {
           tabIconOne={<AssignmentIndIcon />}
           tabIconTwo={<NotificationsIcon />}
           tabIconThree={<LockIcon />}
-          tabLabelOne={t("common:common.username")}
-          tabLabelTwo={t("common:common.notifications")}
-          tabLabelThree={t("common:common.password")}
+          tabLabelOne={t("common:common.notifications")}
+          tabLabelTwo={t("common:common.password")}
+          tabLabelThree={t("common:common.username")}
           tabPanelOne={
-            <Container component="main" maxWidth="xs">
-              <SettingsUsernameForm profile={profile} user={user} />
-            </Container>
-          }
-          tabPanelTwo={
             <Container component="main" maxWidth="xs">
               <Grid container justify="center" direction="row" spacing={3}>
                 <Grid item xs={12}>
@@ -72,9 +67,14 @@ const SettingsScreen = ({profile, user}: Props): JSX.Element => {
               </Grid>
             </Container>
           }
-          tabPanelThree={
+          tabPanelTwo={
             <Container component="main" maxWidth="xs">
               <PasswordUpdateForm />
+            </Container>
+          }
+          tabPanelThree={
+            <Container component="main" maxWidth="xs">
+              <SettingsUsernameForm profile={profile} user={user} />
             </Container>
           }
         />
