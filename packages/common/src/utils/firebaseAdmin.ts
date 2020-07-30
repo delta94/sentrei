@@ -9,12 +9,9 @@ const firebaseAdminConfig = {
   databaseURL: process.env.FIREBASE_DATABASE_URL,
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export default function firebaseAdminDb() {
-  try {
-    return admin.firestore();
-  } catch (error) {
-    admin.initializeApp(firebaseAdminConfig);
-    return admin.firestore();
-  }
+if (!admin.apps.length) {
+  admin.initializeApp(firebaseAdminConfig);
 }
+
+// eslint-disable-next-line import/prefer-default-export
+export const adminDb = admin.firestore();

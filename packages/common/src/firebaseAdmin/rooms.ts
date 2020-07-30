@@ -2,7 +2,7 @@ import {
   serializeRoom,
   serializeAdminRoom,
 } from "@sentrei/common/serializers/Room";
-import adminDb from "@sentrei/common/utils/firebaseAdminDb";
+import {adminDb} from "@sentrei/common/utils/firebaseAdmin";
 import Room from "@sentrei/types/models/Room";
 import RoomQuery from "@sentrei/types/services/RoomQuery";
 
@@ -35,7 +35,7 @@ export const getAdminRoom = async (
     return null;
   }
 
-  const snap = await adminDb()
+  const snap = await adminDb
     .doc(`rooms/${roomId}`)
     .withConverter(roomAdminConverter)
     .get();
@@ -49,7 +49,7 @@ export const roomsAdminQuery = ({
   spaceId,
 }: RoomQuery): FirebaseFirestore.Query<Room.Get> => {
   const collection = spaceId ? `spaces/${spaceId}/rooms` : "rooms";
-  let ref = adminDb()
+  let ref = adminDb
     .collection(collection)
     .withConverter(roomAdminConverter)
     .orderBy("updatedAt", "desc")

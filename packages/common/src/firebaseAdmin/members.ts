@@ -1,5 +1,5 @@
 import {serializeAdminMember} from "@sentrei/common/serializers/Member";
-import adminDb from "@sentrei/common/utils/firebaseAdminDb";
+import {adminDb} from "@sentrei/common/utils/firebaseAdmin";
 import Member from "@sentrei/types/models/Member";
 import MembersQuery from "@sentrei/types/services/MemberQuery";
 
@@ -20,7 +20,7 @@ export const membersAdminQuery = ({
   last,
   limit = 10,
 }: MembersQuery): FirebaseFirestore.Query<Member.Get> => {
-  let ref = adminDb()
+  let ref = adminDb
     .collection(`${collection}/${docId}/members`)
     .withConverter(memberAdminConverter)
     .orderBy("xp", "desc")
