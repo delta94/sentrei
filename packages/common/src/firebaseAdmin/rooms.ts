@@ -1,23 +1,9 @@
-import {
-  serializeRoom,
-  serializeAdminRoom,
-} from "@sentrei/common/serializers/Room";
+import {serializeAdminRoom} from "@sentrei/common/serializers/Room";
 import {adminDb} from "@sentrei/common/utils/firebaseAdmin";
 import Room from "@sentrei/types/models/Room";
 import RoomQuery from "@sentrei/types/services/RoomQuery";
 
-export const roomConverter: firebase.firestore.FirestoreDataConverter<Room.Get> = {
-  toFirestore(data: Room.Get) {
-    return data;
-  },
-  fromFirestore(
-    snapshot: firebase.firestore.QueryDocumentSnapshot<Room.Response>,
-  ): Room.Get {
-    return serializeRoom(snapshot);
-  },
-};
-
-export const roomAdminConverter: FirebaseFirestore.FirestoreDataConverter<Room.Get> = {
+export const roomConverter: FirebaseFirestore.FirestoreDataConverter<Room.Get> = {
   toFirestore(data: Room.Get) {
     return data;
   },
@@ -28,7 +14,7 @@ export const roomAdminConverter: FirebaseFirestore.FirestoreDataConverter<Room.G
   },
 };
 
-export const getAdminRoom = async (
+export const getRoom = async (
   roomId: string | undefined,
 ): Promise<Room.Get | null> => {
   if (!roomId) {
@@ -37,13 +23,13 @@ export const getAdminRoom = async (
 
   const snap = await adminDb
     .doc(`rooms/${roomId}`)
-    .withConverter(roomAdminConverter)
+    .withConverter(roomConverter)
     .get();
 
   return snap.data() || null;
 };
 
-export const roomsAdminQuery = ({
+export const roomsQuery = ({
   limit = 10,
   last,
   spaceId,
@@ -51,7 +37,7 @@ export const roomsAdminQuery = ({
   const collection = spaceId ? `spaces/${spaceId}/rooms` : "rooms";
   let ref = adminDb
     .collection(collection)
-    .withConverter(roomAdminConverter)
+    .withConverter(roomConverter)
     .orderBy("updatedAt", "desc")
     .limit(limit);
 
@@ -62,7 +48,7 @@ export const roomsAdminQuery = ({
   return ref;
 };
 
-export const getAdminRooms = async (query: RoomQuery): Promise<Room.Get[]> => {
-  const ref = await roomsAdminQuery(query).get();
+export const getRooms = async (query: RoomQuery): Promise<Room.Get[]> => {
+  const ref = await roomsQuery(query).get();
   return ref.docs.map(doc => doc.data());
 };
