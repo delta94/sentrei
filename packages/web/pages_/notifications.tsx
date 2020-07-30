@@ -26,7 +26,7 @@ const Notifications: NextPage = () => {
   return (
     <>
       <NoHubSpot />
-      {user && <SentreiAppHeader userId={user.uid} />}
+      {user ? <SentreiAppHeader userId={user.uid} /> : <SentreiAppHeader />}
     </>
   );
 };

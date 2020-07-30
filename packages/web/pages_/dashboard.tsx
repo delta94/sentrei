@@ -36,7 +36,7 @@ const Dashboard: NextPage = () => {
   return (
     <>
       <NoHubSpot />
-      {user && <SentreiAppHeader userId={user.uid} />}
+      {user ? <SentreiAppHeader userId={user.uid} /> : <SentreiAppHeader />}
       {user && profile && <StatusSpace userId={user.uid} profile={profile} />}
       {user ? <SpaceDashboard user={user} /> : <SkeletonScreen />}
     </>
