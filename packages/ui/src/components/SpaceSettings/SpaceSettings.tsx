@@ -6,7 +6,7 @@ import Profile from "@sentrei/types/models/Profile";
 import Space from "@sentrei/types/models/Space";
 import User from "@sentrei/types/models/User";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
-import SpaceForm from "@sentrei/ui/components/SpaceForm";
+import SpaceSettingsForm from "@sentrei/ui/components/SpaceSettingsForm";
 
 export interface Props {
   profile: Profile.Get;
@@ -33,5 +33,12 @@ export default function SpaceSettings({
     return <Error statusCode={404} />;
   }
 
-  return <SpaceForm type="edit" profile={profile} space={space} user={user} />;
+  return (
+    <SpaceSettingsForm
+      profile={profile}
+      user={user}
+      space={space}
+      spaceId={spaceId}
+    />
+  );
 }

@@ -16,6 +16,9 @@
   "member": {
     "title": "Members"
   },
+  "settings": {
+    "title": "Space Settings"
+  },
   "space": {
     "createSpace": "Create Space",
     "editSpace": "Edit Space",

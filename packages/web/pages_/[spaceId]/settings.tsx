@@ -7,7 +7,7 @@ import AuthContext from "@sentrei/common/context/AuthContext";
 import {analytics} from "@sentrei/common/utils/firebase";
 import Loader from "@sentrei/ui/components/Loader";
 import NoHubSpot from "@sentrei/ui/components/NoHubSpot";
-import SpaceSetting from "@sentrei/ui/components/SpaceSettings";
+import SpaceSettings from "@sentrei/ui/components/SpaceSettings";
 import SentreiAppHeader from "@sentrei/web/components/SentreiAppHeader";
 
 const SettingsPage: NextPage = () => {
@@ -35,7 +35,7 @@ const SettingsPage: NextPage = () => {
         <SentreiAppHeader spaceId={String(query.spaceId)} />
       )}
       {user && profile && (
-        <SpaceSetting
+        <SpaceSettings
           user={user}
           profile={profile}
           spaceId={String(query.spaceId)}
