@@ -5,6 +5,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import GroupRoundedIcon from "@material-ui/icons/GroupRounded";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
+import SettingsIcon from "@material-ui/icons/Settings";
 import SpeedDial from "@material-ui/lab/SpeedDial";
 import SpeedDialAction from "@material-ui/lab/SpeedDialAction";
 import SpeedDialIcon from "@material-ui/lab/SpeedDialIcon";
@@ -84,6 +85,17 @@ export default function SpaceFab({spaceId, type}: Props): JSX.Element {
             tooltipOpen
             onClick={(): void =>
               Router.pushI18n("/[spaceId]/members", `/${spaceId}/members`)
+            }
+          />
+        )}
+        {type === "space" && (
+          <SpeedDialAction
+            key="settings"
+            icon={<SettingsIcon />}
+            tooltipTitle={t("common:common.settings")}
+            tooltipOpen
+            onClick={(): void =>
+              Router.pushI18n("/[spaceId]/settings", `/${spaceId}/settings`)
             }
           />
         )}
