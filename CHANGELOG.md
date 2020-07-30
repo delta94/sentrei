@@ -1,3 +1,9 @@
+## [1.8.2](https://github.com/sentrei/sentrei/compare/v1.8.1...v1.8.2) (2020-07-30)
+
+### Performance Improvements
+
+- ⚡️ refactor firebase admin w/ server runtime config ([1d9e416](https://github.com/sentrei/sentrei/commit/1d9e416b028621dd4f4d4247fefbe4262f3b302b))
+
 ## [1.8.1](https://github.com/sentrei/sentrei/compare/v1.8.0...v1.8.1) (2020-07-30)
 
 ### Performance Improvements
