@@ -13,6 +13,9 @@
     "usernameNotExist": "Username doesn't exist",
     "usernameRequired": "Username is required"
   },
+  "member": {
+    "title": "Members"
+  },
   "space": {
     "createSpace": "Create Space",
     "editSpace": "Edit Space",
