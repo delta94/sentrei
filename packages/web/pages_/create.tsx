@@ -33,8 +33,8 @@ const Create: NextPage = () => {
 
   return (
     <>
-      <SentreiAppHeader />
       <NoHubSpot />
+      {user && <SentreiAppHeader userId={user.uid} />}
       {user && profile && <SpaceCreate profile={profile} user={user} />}
     </>
   );

@@ -33,8 +33,10 @@ const Delete: NextPage = () => {
 
   return (
     <>
-      <SentreiAppHeader spaceId={String(query.spaceId)} />
       <NoHubSpot />
+      {user && (
+        <SentreiAppHeader userId={user.uid} spaceId={String(query.spaceId)} />
+      )}
       {user && profile && (
         <RoomDelete
           roomId={String(query.roomId)}

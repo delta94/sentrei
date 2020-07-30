@@ -28,8 +28,10 @@ const ActivityPage: NextPage = () => {
 
   return (
     <>
-      <SentreiAppHeader spaceId={String(query.spaceId)} />
       <NoHubSpot />
+      {user && (
+        <SentreiAppHeader userId={user.uid} spaceId={String(query.spaceId)} />
+      )}
       <SpaceActivity spaceId={String(query.spaceId)} />
     </>
   );

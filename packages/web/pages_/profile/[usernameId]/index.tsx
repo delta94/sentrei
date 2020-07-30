@@ -48,7 +48,7 @@ const UsernameId = ({
   if (user === undefined || (!profile && isFallback)) {
     return (
       <>
-        <SentreiAppHeader />
+        {user && <SentreiAppHeader userId={user.uid} />}
         <SkeletonForm />
       </>
     );
@@ -64,7 +64,7 @@ const UsernameId = ({
 
   return (
     <>
-      <SentreiAppHeader />
+      {user && <SentreiAppHeader userId={user.uid} />}
       {user && profile && <ProfileScreen profile={profile} />}
     </>
   );

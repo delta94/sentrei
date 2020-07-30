@@ -1,7 +1,9 @@
+import Divider from "@material-ui/core/Divider";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import AccessibilityNewIcon from "@material-ui/icons/AccessibilityNew";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import PersonIcon from "@material-ui/icons/Person";
@@ -68,6 +70,13 @@ export default function ProfileMenu({
           <ListItemText primary={t("common:common.settings")} />
         </MenuItem>
       </Link>
+      <Divider />
+      <MenuItem>
+        <ListItemIcon>
+          <AccessibilityNewIcon fontSize="small" />
+        </ListItemIcon>
+        <ListItemText primary={t("common:common.help")} />
+      </MenuItem>
       <MenuItem onClick={(): Promise<void> => auth.signOut()}>
         <ListItemIcon>
           <ExitToAppIcon fontSize="small" />

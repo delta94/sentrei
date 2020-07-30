@@ -36,8 +36,8 @@ const SpaceId = (): JSX.Element => {
 
   return (
     <>
-      <SentreiAppHeader />
       <NoHubSpot />
+      {user && <SentreiAppHeader userId={user.uid} />}
       {user && profile && <StatusSpace userId={user.uid} profile={profile} />}
       {user && profile && <SpaceScreen spaceId={String(query.spaceId)} />}
     </>

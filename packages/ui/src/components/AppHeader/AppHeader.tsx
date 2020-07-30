@@ -15,10 +15,11 @@ import AppHeaderStyles from "./AppHeaderStyles";
 
 export interface Props {
   logo: JSX.Element;
+  userId?: string;
   spaceId?: string;
 }
 
-export default function AppHeader({logo, spaceId}: Props): JSX.Element {
+export default function AppHeader({logo, userId, spaceId}: Props): JSX.Element {
   const classes = AppHeaderStyles();
 
   const [listAnchorEl, listSetAnchorEl] = React.useState<null | HTMLElement>(
@@ -59,6 +60,7 @@ export default function AppHeader({logo, spaceId}: Props): JSX.Element {
             anchorEl={listAnchorEl}
             open={Boolean(listAnchorEl)}
             onClose={handleClose}
+            userId={userId}
           />
           <Grid container alignItems="center" justify="center">
             <Logo

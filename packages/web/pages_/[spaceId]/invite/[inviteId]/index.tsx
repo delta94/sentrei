@@ -35,8 +35,10 @@ const InviteId: NextPage = () => {
 
   return (
     <>
-      <SentreiAppHeader spaceId={String(query.spaceId)} />
       <NoHubSpot />
+      {user && (
+        <SentreiAppHeader userId={user.uid} spaceId={String(query.spaceId)} />
+      )}
       {user && profile && (
         <InviteSignup
           inviteId={String(query.inviteId)}
