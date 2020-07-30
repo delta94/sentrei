@@ -1,3 +1,14 @@
+# [1.8.0](https://github.com/sentrei/sentrei/compare/v1.7.1...v1.8.0) (2020-07-30)
+
+### Features
+
+- 🎸 complete refactor user verify app-header ([299e2d8](https://github.com/sentrei/sentrei/commit/299e2d88b4d3c7b7d75e835dfa7c34eeecb508ff))
+- 🎸 refactor list menu ([f1a1263](https://github.com/sentrei/sentrei/commit/f1a12635891447bfa6975612b9826d264ea045d5))
+
+### Performance Improvements
+
+- ⚡️ refactor list menu styles w/ i18n ([1f47fc1](https://github.com/sentrei/sentrei/commit/1f47fc1ab1b23491e64108617b66b6b31fd64874))
+
 ## [1.7.1](https://github.com/sentrei/sentrei/compare/v1.7.0...v1.7.1) (2020-07-30)
 
 ### Bug Fixes
