@@ -1,7 +1,6 @@
 import Avatar from "@material-ui/core/Avatar";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import ListSubheader from "@material-ui/core/ListSubheader";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Link from "next-translate/Link";
@@ -54,9 +53,7 @@ export default function ListMenu({
       onClose={onClose}
     >
       <MenuItem disabled>
-        <ListSubheader color="primary">
-          {t("space:space.mySpaces")}
-        </ListSubheader>
+        <ListItemText primary={t("space:space.mySpaces")} />
       </MenuItem>
       {spaces &&
         spaces.map(space => (
