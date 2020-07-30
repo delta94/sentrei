@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/require-await */
 
-// import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from "next";
-import {GetServerSideProps, InferGetServerSidePropsType} from "next";
+// import {GetServerSideProps, InferGetServerSidePropsType} from "next";
+import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from "next";
 import Router from "next-translate/Router";
 
 import Error from "next/error";
@@ -16,28 +16,28 @@ import ProfileScreen from "@sentrei/ui/components/ProfileScreen";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
 import SentreiAppHeader from "@sentrei/web/components/SentreiAppHeader";
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   return {paths: [], fallback: true};
-// };
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {paths: [], fallback: true};
+};
 
-// export const getStaticProps: GetStaticProps<Props> = async ({params}) => {
-//   const usernameId = String(params?.usernameId);
-//   const profile = await getProfileUsername(usernameId);
-//   return {props: {profile}, revalidate: 1};
-// };
-
-export const getServerSideProps: GetServerSideProps<Props> = async ({
-  params,
-}) => {
+export const getStaticProps: GetStaticProps<Props> = async ({params}) => {
   const usernameId = String(params?.usernameId);
   const profile = await getProfileUsername(usernameId);
-  return {props: {profile}};
+  return {props: {profile}, revalidate: 1};
 };
+
+// export const getServerSideProps: GetServerSideProps<Props> = async ({
+//   params,
+// }) => {
+//   const usernameId = String(params?.usernameId);
+//   const profile = await getProfileUsername(usernameId);
+//   return {props: {profile}};
+// };
 
 const UsernameId = ({
   profile,
-}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
-  // }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
+}: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
+  // }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
   const {user} = React.useContext(AuthContext);
   const {isFallback} = useRouter();
 
