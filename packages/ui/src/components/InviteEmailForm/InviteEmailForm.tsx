@@ -88,7 +88,7 @@ const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
         </Grid>
         <Grid item xs={12}>
           <Button type="submit" fullWidth variant="contained" color="primary">
-            {t("common:snackbar.invite")}
+            {t("common:common.invite")}
           </Button>
         </Grid>
       </Grid>

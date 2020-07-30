@@ -22,7 +22,7 @@ export default function SpaceNone({spaceId}: Props): JSX.Element {
           color="textSecondary"
           component="h5"
         >
-          {t("common:common.none")}
+          {t("room:room.none")}
         </Typography>
         <Box p={3} />
         <Button

@@ -5,6 +5,7 @@
     "deleteRoom": "Delete Room",
     "deleteTypeRequired": "Typing 'DELETE' is required",
     "editRoom": "Edit Room",
-    "nameRequired": "Name is Required"
+    "nameRequired": "Name is Required",
+    "none": "You have no rooms ..."
   }
 }

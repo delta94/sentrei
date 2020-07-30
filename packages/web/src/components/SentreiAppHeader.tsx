@@ -6,6 +6,9 @@ import LogoPicture from "@sentrei/web/images/png/LogoPicture";
 
 type Props = Omit<Original, "logo">;
 
-export default function SentreiAppHeader({spaceId}: Props): JSX.Element {
-  return <AppHeader logo={<LogoPicture />} spaceId={spaceId} />;
+export default function SentreiAppHeader({
+  spaceId,
+  userId,
+}: Props): JSX.Element {
+  return <AppHeader logo={<LogoPicture />} spaceId={spaceId} userId={userId} />;
 }

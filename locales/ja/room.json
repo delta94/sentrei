@@ -5,6 +5,7 @@
     "deleteRoom": "部屋を削除",
     "deleteTypeRequired": "「DELETE」と入力する必要があります",
     "editRoom": "部屋を編集",
-    "nameRequired": "名前は必須です"
+    "nameRequired": "名前は必須です",
+    "none": "部屋がありません..."
   }
 }

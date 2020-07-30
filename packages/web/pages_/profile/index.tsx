@@ -27,7 +27,7 @@ const Profile: NextPage = () => {
 
   return (
     <>
-      <SentreiAppHeader />
+      {user ? <SentreiAppHeader userId={user.uid} /> : <SentreiAppHeader />}
       {user && profile && <ProfileForm user={user} profile={profile} />}
     </>
   );

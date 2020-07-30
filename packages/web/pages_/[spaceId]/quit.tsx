@@ -33,8 +33,12 @@ const Quit: NextPage = () => {
 
   return (
     <>
-      <SentreiAppHeader spaceId={String(query.spaceId)} />
       <NoHubSpot />
+      {user ? (
+        <SentreiAppHeader userId={user.uid} spaceId={String(query.spaceId)} />
+      ) : (
+        <SentreiAppHeader spaceId={String(query.spaceId)} />
+      )}
       {user && profile && (
         <SpaceQuit
           spaceId={String(query.spaceId)}

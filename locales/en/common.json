@@ -3,6 +3,7 @@
     "app": "App",
     "cancel": "Cancel",
     "create": "Create",
+    "delete": "Delete",
     "description": "Description",
     "edit": "Edit",
     "email": "Email Address",
