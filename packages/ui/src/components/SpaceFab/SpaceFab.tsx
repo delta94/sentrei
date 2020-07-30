@@ -56,7 +56,7 @@ export default function SpaceFab({spaceId, type}: Props): JSX.Element {
         )}
         {type === "space" && (
           <SpeedDialAction
-            key="quit"
+            key="create"
             icon={<MeetingRoomIcon />}
             tooltipTitle={t("common:common.create")}
             tooltipOpen
@@ -64,7 +64,7 @@ export default function SpaceFab({spaceId, type}: Props): JSX.Element {
               Router.pushI18n("/[spaceId]/create", `/${spaceId}/create`)
             }
           />
-        )}{" "}
+        )}
         {type === "space" && (
           <SpeedDialAction
             key="edit"
