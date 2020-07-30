@@ -22,7 +22,7 @@ import signinWithGoogle from "@sentrei/common/services/signinWithGoogle";
 import signup from "@sentrei/common/services/signup";
 
 import FormSection from "@sentrei/ui/components/FormSection";
-import Link from "@sentrei/ui/components/Link";
+import MuiLink from "@sentrei/ui/components/MuiLink";
 
 import useBackdrop from "@sentrei/ui/hooks/useBackdrop";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
@@ -176,17 +176,17 @@ export default function InviteSignupForm({
         </form>
         <Grid container justify="center">
           <Grid item>
-            <Link href="/login" variant="body2">
+            <MuiLink href="/login" variant="body2">
               {t("auth:signup.alreadyHaveLogin")}
-            </Link>
+            </MuiLink>
           </Grid>
         </Grid>
         <Box p={1} />
         <Grid container justify="center">
           <Grid item>
-            <Link href="/terms" variant="body2">
+            <MuiLink href="/terms" variant="body2">
               {t("auth:signup.byAgreeTerms")}
-            </Link>
+            </MuiLink>
           </Grid>
         </Grid>
       </Grid>

@@ -4,7 +4,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import MuiLink from "@material-ui/core/Link";
+import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 
 import useTranslation from "next-translate/useTranslation";
@@ -16,8 +16,8 @@ import twitter from "react-useanimations/lib/twitter";
 
 import metomic from "@sentrei/common/services/metomic";
 import Copyright from "@sentrei/ui/components/Copyright";
-import Link from "@sentrei/ui/components/Link";
 import Metomic from "@sentrei/ui/components/Metomic";
+import MuiLink from "@sentrei/ui/components/MuiLink";
 
 import FooterStyles from "./FooterStyles";
 
@@ -35,29 +35,30 @@ export default function Footer(): JSX.Element {
               <Typography variant="h6" gutterBottom>
                 {t("index:footer.product")}
               </Typography>
-              <MuiLink href="https://github.com/sentrei/sentrei/releases">
+              <Link href="https://github.com/sentrei/sentrei/releases">
                 <Typography gutterBottom>
                   {t("index:footer.releases")}
                 </Typography>
-              </MuiLink>
+              </Link>
             </Grid>
             <Grid item xs={12} sm={4}>
               <Typography variant="h6" gutterBottom>
                 {t("index:footer.legal")}
               </Typography>
-              <MuiLink onClick={(): void => metomic()}>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <Link onClick={(): void => metomic()}>
                 <Typography gutterBottom>
                   {t("index:footer.cookies")}
                 </Typography>
-              </MuiLink>
-              <Link href="/privacy">
+              </Link>
+              <MuiLink href="/privacy">
                 <Typography gutterBottom>
                   {t("index:footer.privacy")}
                 </Typography>
-              </Link>
-              <Link href="/terms">
+              </MuiLink>
+              <MuiLink href="/terms">
                 <Typography gutterBottom>{t("index:footer.terms")}</Typography>
-              </Link>
+              </MuiLink>
             </Grid>
             <Grid item xs={12} sm={4}>
               <Typography variant="h6" gutterBottom>
@@ -65,25 +66,25 @@ export default function Footer(): JSX.Element {
               </Typography>
               <Grid container direction="row" spacing={3}>
                 <Grid item>
-                  <MuiLink href="https://github.com/sentrei/sentrei">
+                  <Link href="https://github.com/sentrei/sentrei">
                     <Avatar aria-label="github" variant="rounded">
                       <UseAnimations animation={github} />
                     </Avatar>
-                  </MuiLink>
+                  </Link>
                 </Grid>
                 <Grid item>
-                  <MuiLink href="https://linkedin.com/company/sentrei">
+                  <Link href="https://linkedin.com/company/sentrei">
                     <Avatar aria-label="linkedin" variant="rounded">
                       <UseAnimations animation={linkedin} />
                     </Avatar>
-                  </MuiLink>
+                  </Link>
                 </Grid>
                 <Grid item>
-                  <MuiLink href="https://twitter.com/sentrei_com">
+                  <Link href="https://twitter.com/sentrei_com">
                     <Avatar aria-label="twitter" variant="rounded">
                       <UseAnimations animation={twitter} />
                     </Avatar>
-                  </MuiLink>
+                  </Link>
                 </Grid>
               </Grid>
             </Grid>

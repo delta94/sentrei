@@ -15,7 +15,7 @@ import * as React from "react";
 
 import Member from "@sentrei/types/models/Member";
 import Space from "@sentrei/types/models/Space";
-import {default as MuiLink} from "@sentrei/ui/components/Link";
+import MuiLink from "@sentrei/ui/components/MuiLink";
 import ProfileCard from "@sentrei/ui/components/ProfileCard";
 
 import MemberFabStyles from "./MemberFabStyles";

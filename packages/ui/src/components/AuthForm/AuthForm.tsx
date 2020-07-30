@@ -27,7 +27,7 @@ import signup from "@sentrei/common/services/signup";
 
 import {auth} from "@sentrei/common/utils/firebase";
 import FormSection from "@sentrei/ui/components/FormSection";
-import Link from "@sentrei/ui/components/Link";
+import MuiLink from "@sentrei/ui/components/MuiLink";
 
 import useBackdrop from "@sentrei/ui/hooks/useBackdrop";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
@@ -249,14 +249,14 @@ export default function AuthForm({type}: Props): JSX.Element {
           {type === "login" && (
             <Grid container>
               <Grid item xs>
-                <Link href="/reset-password" variant="body2">
+                <MuiLink href="/reset-password" variant="body2">
                   {t("auth:login.forgotPassword")}
-                </Link>
+                </MuiLink>
               </Grid>
               <Grid item>
-                <Link href="/signup" variant="body2">
+                <MuiLink href="/signup" variant="body2">
                   {t("auth:login.dontHaveSignup")}
-                </Link>
+                </MuiLink>
               </Grid>
             </Grid>
           )}
@@ -264,17 +264,17 @@ export default function AuthForm({type}: Props): JSX.Element {
             <>
               <Grid container justify="center">
                 <Grid item>
-                  <Link href="/login" variant="body2">
+                  <MuiLink href="/login" variant="body2">
                     {t("auth:signup.alreadyHaveLogin")}
-                  </Link>
+                  </MuiLink>
                 </Grid>
               </Grid>
               <Box p={1} />
               <Grid container justify="center">
                 <Grid item>
-                  <Link href="/terms" variant="body2">
+                  <MuiLink href="/terms" variant="body2">
                     {t("auth:signup.byAgreeTerms")}
-                  </Link>
+                  </MuiLink>
                 </Grid>
               </Grid>
             </>
