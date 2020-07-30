@@ -33,12 +33,5 @@ export default function SpaceSettings({
     return <Error statusCode={404} />;
   }
 
-  return (
-    <SpaceSettingsForm
-      profile={profile}
-      user={user}
-      space={space}
-      spaceId={spaceId}
-    />
-  );
+  return <SpaceSettingsForm profile={profile} user={user} space={space} />;
 }

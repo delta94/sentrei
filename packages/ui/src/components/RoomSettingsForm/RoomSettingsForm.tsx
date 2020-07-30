@@ -10,24 +10,24 @@ import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
 import Profile from "@sentrei/types/models/Profile";
-import Space from "@sentrei/types/models/Space";
+import Room from "@sentrei/types/models/Room";
 import User from "@sentrei/types/models/User";
 import FormSection from "@sentrei/ui/components/FormSection";
 import TabBoard from "@sentrei/ui/components/TabBoard";
 
 export interface Props {
   profile: Profile.Get;
-  space: Space.Get;
+  room: Room.Get;
   user: User.Get;
 }
 
-const SpaceSettingsForm = ({profile, space, user}: Props): JSX.Element => {
+const RoomSettingsForm = ({profile, room, user}: Props): JSX.Element => {
   const {t} = useTranslation();
 
   return (
     <FormSection
       icon={<SettingsIcon />}
-      title={t("space:settings.title")}
+      title={t("room:settings.title")}
       size="md"
     >
       <>
@@ -59,4 +59,4 @@ const SpaceSettingsForm = ({profile, space, user}: Props): JSX.Element => {
   );
 };
 
-export default SpaceSettingsForm;
+export default RoomSettingsForm;
