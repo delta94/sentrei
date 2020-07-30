@@ -1,5 +1,5 @@
 import {serializeAdminSpace} from "@sentrei/common/serializers/Space";
-import adminDb from "@sentrei/common/utils/firebaseAdminDb";
+import {adminDb} from "@sentrei/common/utils/firebaseAdmin";
 import Space from "@sentrei/types/models/Space";
 
 export const spaceAdminConverter: FirebaseFirestore.FirestoreDataConverter<Space.Get> = {
@@ -13,10 +13,8 @@ export const spaceAdminConverter: FirebaseFirestore.FirestoreDataConverter<Space
   },
 };
 
-export const getAdminSpace = async (
-  spaceId: string,
-): Promise<Space.Get | null> => {
-  const snap = await adminDb()
+export const getSpace = async (spaceId: string): Promise<Space.Get | null> => {
+  const snap = await adminDb
     .doc(`spaces/${spaceId}`)
     .withConverter(spaceAdminConverter)
     .get();

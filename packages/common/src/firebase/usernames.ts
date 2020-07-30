@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 
-import serializeUsername from "@sentrei/common/serializers/Username";
+import {serializeUsername} from "@sentrei/common/serializers/Username";
 import {db} from "@sentrei/common/utils/firebase";
 import Username from "@sentrei/types/models/Username";
 

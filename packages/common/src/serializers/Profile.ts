@@ -2,7 +2,7 @@
 
 import Profile from "@sentrei/types/models/Profile";
 
-const serializeProfile = (
+export const serializeProfile = (
   snap: firebase.firestore.DocumentSnapshot<Profile.Response>,
 ): Profile.Get => {
   const data = snap.data()!;
@@ -13,4 +13,13 @@ const serializeProfile = (
   };
 };
 
-export default serializeProfile;
+export const serializeAdminProfile = (
+  snap: FirebaseFirestore.DocumentSnapshot<Profile.Response>,
+): Profile.Get => {
+  const data = snap.data()!;
+
+  return {
+    ...data,
+    uid: snap.id,
+  };
+};
