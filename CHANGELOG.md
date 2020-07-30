@@ -1,3 +1,11 @@
+## [1.8.1](https://github.com/sentrei/sentrei/compare/v1.8.0...v1.8.1) (2020-07-30)
+
+### Performance Improvements
+
+- ⚡️ get static props ([94c79f8](https://github.com/sentrei/sentrei/commit/94c79f848bffdfb110b31d897c637e8393dc0d96))
+- ⚡️ update firebase Admin service functions ([db844f2](https://github.com/sentrei/sentrei/commit/db844f2ab5d78299b595a233d68efc300de7c3f2))
+- ⚡️ upgrade next 9.5.1 ([27ce0d0](https://github.com/sentrei/sentrei/commit/27ce0d0dc3af000da105617d31373f641560f9c4))
+
 # [1.8.0](https://github.com/sentrei/sentrei/compare/v1.7.1...v1.8.0) (2020-07-30)
 
 ### Features
