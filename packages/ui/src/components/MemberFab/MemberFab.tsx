@@ -15,6 +15,7 @@ import * as React from "react";
 
 import Member from "@sentrei/types/models/Member";
 import Space from "@sentrei/types/models/Space";
+import MuiLink from "@sentrei/ui/components/MuiLink";
 import ProfileCard from "@sentrei/ui/components/ProfileCard";
 
 import MemberFabStyles from "./MemberFabStyles";
@@ -72,14 +73,16 @@ export default function MemberFab({space, members}: Props): JSX.Element {
         <Grid container>
           <Box p={3}>
             <Grid container direction="row">
-              <Typography
-                align="center"
-                variant="h5"
-                component="h6"
-                color="textSecondary"
-              >
-                {t("common:common.members")}
-              </Typography>
+              <MuiLink href="/[spaceId]/members" as={`/${space.id}/members`}>
+                <Typography
+                  align="center"
+                  variant="h5"
+                  component="h6"
+                  color="textSecondary"
+                >
+                  {t("common:common.members")}
+                </Typography>
+              </MuiLink>
               <Box p={1} />
               <Badge badgeContent={space.memberCount} color="primary">
                 <SupervisorAccountIcon color="primary" />

@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import CreateIcon from "@material-ui/icons/Create";
+import EditIcon from "@material-ui/icons/Edit";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import GroupRoundedIcon from "@material-ui/icons/GroupRounded";
+import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
+import SettingsIcon from "@material-ui/icons/Settings";
 import SpeedDial from "@material-ui/lab/SpeedDial";
 import SpeedDialAction from "@material-ui/lab/SpeedDialAction";
 import SpeedDialIcon from "@material-ui/lab/SpeedDialIcon";
@@ -53,12 +57,45 @@ export default function SpaceFab({spaceId, type}: Props): JSX.Element {
         )}
         {type === "space" && (
           <SpeedDialAction
-            key="quit"
-            icon={<CreateIcon />}
+            key="create"
+            icon={<MeetingRoomIcon />}
             tooltipTitle={t("common:common.create")}
             tooltipOpen
             onClick={(): void =>
               Router.pushI18n("/[spaceId]/create", `/${spaceId}/create`)
+            }
+          />
+        )}
+        {type === "space" && (
+          <SpeedDialAction
+            key="edit"
+            icon={<EditIcon />}
+            tooltipTitle={t("common:common.edit")}
+            tooltipOpen
+            onClick={(): void =>
+              Router.pushI18n("/[spaceId]/edit", `/${spaceId}/edit`)
+            }
+          />
+        )}
+        {type === "space" && (
+          <SpeedDialAction
+            key="member"
+            icon={<GroupRoundedIcon />}
+            tooltipTitle={t("common:common.members")}
+            tooltipOpen
+            onClick={(): void =>
+              Router.pushI18n("/[spaceId]/members", `/${spaceId}/members`)
+            }
+          />
+        )}
+        {type === "space" && (
+          <SpeedDialAction
+            key="settings"
+            icon={<SettingsIcon />}
+            tooltipTitle={t("common:common.settings")}
+            tooltipOpen
+            onClick={(): void =>
+              Router.pushI18n("/[spaceId]/settings", `/${spaceId}/settings`)
             }
           />
         )}

@@ -27,9 +27,11 @@ export default function SpacePanel({photo, name, spaceId}: Props): JSX.Element {
       <Grid container alignItems="center" justify="flex-end" direction="row">
         <Grid item xs={5} sm={6} md={7} />
         <Grid item xs={7} sm={6} md={5}>
-          <IconButton>
-            <SettingsIcon color="action" />
-          </IconButton>
+          <Link href="/[spaceId]/settings" as={`/${spaceId}/settings`}>
+            <IconButton>
+              <SettingsIcon color="action" />
+            </IconButton>
+          </Link>
           <Link href="/[spaceId]/activity" as={`/${spaceId}/activity`}>
             <IconButton>
               <HistoryIcon color="action" />

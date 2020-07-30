@@ -1,6 +1,7 @@
 {
   "common": {
     "app": "App",
+    "billing": "Billing",
     "cancel": "Cancel",
     "create": "Create",
     "delete": "Delete",
@@ -23,7 +24,9 @@
     "passwordOld": "Old Password",
     "profile": "Profile",
     "quit": "Quit",
+    "room": "Room",
     "settings": "Settings",
+    "space": "Space",
     "title": "Sentrei",
     "update": "Update",
     "username": "Username",
