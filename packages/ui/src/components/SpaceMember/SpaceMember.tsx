@@ -1,3 +1,4 @@
+import Error from "next/error";
 import * as React from "react";
 
 import {getMembersLive} from "@sentrei/common/firebase/members";
@@ -23,7 +24,13 @@ export default function SpaceMember({spaceId}: Props): JSX.Element {
     };
   }, [spaceId]);
 
-  return (
-    <>{members ? <SpaceMemberList members={members} /> : <SkeletonList />}</>
-  );
+  if (members === undefined) {
+    return <SkeletonList />;
+  }
+
+  if (members === null) {
+    return <Error statusCode={404} />;
+  }
+
+  return <SpaceMemberList members={members} />;
 }

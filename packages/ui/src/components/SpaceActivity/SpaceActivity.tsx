@@ -1,3 +1,4 @@
+import Error from "next/error";
 import * as React from "react";
 
 import {getActivitiesSnapshot} from "@sentrei/common/firebase/activity";
@@ -16,17 +17,19 @@ export default function SpaceActivity({spaceId}: Props): JSX.Element {
     getActivitiesSnapshot({spaceId}).then(setActivityShot);
   }, [spaceId]);
 
+  if (activityShot === undefined) {
+    return <SkeletonList />;
+  }
+
+  if (activityShot === null) {
+    return <Error statusCode={404} />;
+  }
+
   return (
-    <>
-      {activityShot ? (
-        <SpaceActivityList
-          activityShot={activityShot}
-          last={activityShot[activityShot.length - 1]?.snap || 0}
-          spaceId={spaceId}
-        />
-      ) : (
-        <SkeletonList />
-      )}
-    </>
+    <SpaceActivityList
+      activityShot={activityShot}
+      last={activityShot[activityShot.length - 1]?.snap || 0}
+      spaceId={spaceId}
+    />
   );
 }
