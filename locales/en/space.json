@@ -16,10 +16,10 @@
   "space": {
     "createSpace": "Create Space",
     "editSpace": "Edit Space",
-    "mySpaces": "My Spaces",
     "idAlreadyUsed": "ID is already used",
     "idInvalid": "ID is invalid",
     "idRequired": "ID is required",
+    "mySpaces": "My Spaces",
     "nameRequired": "Name is required",
     "quitRequired": "Quit is required",
     "quitSpace": "Quit Space",
