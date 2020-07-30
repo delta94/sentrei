@@ -1,3 +1,9 @@
+## [1.7.1](https://github.com/sentrei/sentrei/compare/v1.7.0...v1.7.1) (2020-07-30)
+
+### Bug Fixes
+
+- **deps:** bump dayjs from 1.8.29 to 1.8.31 ([cbe0419](https://github.com/sentrei/sentrei/commit/cbe0419ab4fdb640cf3e699677e039db29859b89))
+
 # [1.6.0](https://github.com/sentrei/sentrei/compare/v1.5.0...v1.6.0) (2020-07-29)
 
 ### Features
