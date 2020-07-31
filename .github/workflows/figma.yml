@@ -9,19 +9,19 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           find design/figma -name "*.png" -type f -delete
-      - uses: primer/figma-action@master
+      - uses: primer/figma-action@v1.0.0-alpha.2
         with:
           args: "format=png outputDir=design/figma/const"
         env:
           FIGMA_FILE_URL: "https://www.figma.com/file/FcE7ACUUJAey0gspwpFN48/const"
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-      - uses: primer/figma-action@master
+      - uses: primer/figma-action@v1.0.0-alpha.2
         with:
           args: "format=png outputDir=design/figma/mobile"
         env:
           FIGMA_FILE_URL: "https://www.figma.com/file/0HJCBXV4H81774BKNzdTPs/mobile"
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-      - uses: primer/figma-action@master
+      - uses: primer/figma-action@v1.0.0-alpha.2
         with:
           args: "format=png outputDir=design/figma/web"
         env:

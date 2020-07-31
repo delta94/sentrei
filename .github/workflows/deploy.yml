@@ -23,7 +23,7 @@ jobs:
       - id: yarn-cache-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - id: cache
-        uses: actions/cache@master
+        uses: actions/cache@v2.1.0
         with:
           path: |
             node_modules
@@ -73,7 +73,7 @@ jobs:
       - id: yarn-cache-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - id: cache
-        uses: actions/cache@master
+        uses: actions/cache@v2.1.0
         with:
           path: |
             node_modules
@@ -124,7 +124,7 @@ jobs:
       - id: yarn-cache-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - id: cache
-        uses: actions/cache@master
+        uses: actions/cache@v2.1.0
         with:
           path: |
             node_modules
@@ -175,7 +175,7 @@ jobs:
       - id: yarn-cache-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - id: cache
-        uses: actions/cache@master
+        uses: actions/cache@v2.1.0
         with:
           path: |
             node_modules
@@ -226,7 +226,7 @@ jobs:
       - id: yarn-cache-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - id: cache
-        uses: actions/cache@master
+        uses: actions/cache@v2.1.0
         with:
           path: |
             node_modules
@@ -279,7 +279,7 @@ jobs:
       - id: yarn-cache-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - id: cache
-        uses: actions/cache@master
+        uses: actions/cache@v2.1.0
         with:
           path: |
             node_modules
@@ -299,7 +299,7 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       - id: secrets
-        uses: GoogleCloudPlatform/github-actions/get-secretmanager-secrets@master
+        uses: GoogleCloudPlatform/github-actions/get-secretmanager-secrets@0.1.3
         with:
           credentials: ${{ secrets.GCP_CREDENTIALS }}
           secrets: |-
@@ -351,7 +351,7 @@ jobs:
           tag_with_ref: false
           tag_with_sha: false
           push: true
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@0.1.3
         with:
           version: "286.0.0"
           service_account_email: ${{ steps.secrets.outputs.SERVICE_ACCOUNT_EMAIL }}
