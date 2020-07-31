@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/sentrei/sentrei/compare/v1.9.0...v1.10.0) (2020-07-31)
+
+### Features
+
+- 🎸 activity leaderboard functions model refactor ([22eb8ce](https://github.com/sentrei/sentrei/commit/22eb8ceb9d7a84905abdf82a7ec5026fc1747044))
+- 🎸 add leaderboard tests ([048e501](https://github.com/sentrei/sentrei/commit/048e501762d794d176478fcb5e29cf5fe5984d39))
+
 # [1.9.0](https://github.com/sentrei/sentrei/compare/v1.8.2...v1.9.0) (2020-07-30)
 
 ### Features
