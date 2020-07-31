@@ -4,7 +4,7 @@ import functions from "firebase-functions-test";
 import {profileResponse} from "@sentrei/functions/__dummy__/Profile";
 import Profile from "@sentrei/types/models/Profile";
 
-import memberProfileUpdate from "../memberProfileUpdate";
+import leaderboardProfileUpdate from "../leaderboardProfileUpdate";
 
 const testEnv = functions();
 const db = admin.firestore();
@@ -19,7 +19,7 @@ test("Return when the data did not change", async done => {
     },
   };
 
-  const wrapped = testEnv.wrap(memberProfileUpdate);
+  const wrapped = testEnv.wrap(leaderboardProfileUpdate);
   const req = await wrapped(noChange, {params: {profileId: "userId"}});
 
   expect(req).toBe(false);
@@ -42,7 +42,7 @@ test("Update the public profile when user settings change", async done => {
     },
   };
 
-  const wrapped = testEnv.wrap(memberProfileUpdate);
+  const wrapped = testEnv.wrap(leaderboardProfileUpdate);
   const req = await wrapped(change, {params: {profileId: "userId"}});
   const spy1 = (await db.collectionGroup("").where("", "==", "").get()).docs[0]
     .ref.update;
@@ -50,7 +50,7 @@ test("Update the public profile when user settings change", async done => {
     .ref.update;
 
   expect(req).toBe("updated");
-  expect(db.collectionGroup).toHaveBeenCalledWith("members");
+  expect(db.collectionGroup).toHaveBeenCalledWith("leaderboard");
   expect(db.collectionGroup("").where("uid", "==", "userId"));
   expect(spy1).toHaveBeenCalledWith(profileResponse);
   expect(spy2).toHaveBeenCalledWith(profileResponse);
