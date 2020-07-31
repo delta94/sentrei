@@ -1,3 +1,9 @@
+# [1.13.0](https://github.com/sentrei/sentrei/compare/v1.12.0...v1.13.0) (2020-07-31)
+
+### Features
+
+- 🎸 darkmode and intl ([711c1e4](https://github.com/sentrei/sentrei/commit/711c1e4e9bb68cb18f51eb537c5365f816a449d3))
+
 # [1.12.0](https://github.com/sentrei/sentrei/compare/v1.11.1...v1.12.0) (2020-07-31)
 
 ### Features
