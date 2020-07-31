@@ -1,3 +1,9 @@
+## [1.11.1](https://github.com/sentrei/sentrei/compare/v1.11.0...v1.11.1) (2020-07-31)
+
+### Performance Improvements
+
+- ⚡️ refactor next config & fossa ci cd ([1037f8d](https://github.com/sentrei/sentrei/commit/1037f8d3c399f203a66cdfda621e34bc7de162c4))
+
 # [1.11.0](https://github.com/sentrei/sentrei/compare/v1.10.0...v1.11.0) (2020-07-31)
 
 ### Features
