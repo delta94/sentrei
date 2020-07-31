@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import AuthState from "@sentrei/types/models/AuthState";
+import AuthState from "@sentrei/types/states/AuthState";
 
 const AuthContext = React.createContext<AuthState>({
   profile: null,
