@@ -421,10 +421,10 @@
         },
         "rich": {
             "hashes": [
-                "sha256:27dbe8d539fac0deb450054ee57c03c8d8467ee74435173cd31c5e05b80958c0",
-                "sha256:89f5913fadcf52ad1f4d83aae48446663bd64a0b5bf5cdc75ad9ac41f0a12206"
+                "sha256:136a02e84361b760e4c0c9090dd725f6bc76b2d5806d0da7cd3ea9bc8075cf6d",
+                "sha256:89ea8935f40357d724ac8a2c0eac1f2042fc2ff63436a984042c12a9f111cce6"
             ],
-            "version": "==4.2.1"
+            "version": "==4.2.2"
         },
         "rsa": {
             "hashes": [
@@ -584,11 +584,11 @@
         },
         "isort": {
             "hashes": [
-                "sha256:761a8f490d8bbcd3549b5618ed423468bbdece603cce44b290ee274c9a360893",
-                "sha256:a4401d357b0f7a9064781da345e6e2f075ebc09fbebf605740163140d5ac418c"
+                "sha256:96b27045e3187b9bdde001143b79f9b10a462f372bff7062302818013b6c86f3",
+                "sha256:aea484023188ef1c38256dd24afa96e914adafe3a911a1786800a74e433006d1"
             ],
             "index": "pypi",
-            "version": "==5.2.1"
+            "version": "==5.2.2"
         },
         "mccabe": {
             "hashes": [
