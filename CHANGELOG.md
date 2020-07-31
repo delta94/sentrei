@@ -1,3 +1,9 @@
+# [1.12.0](https://github.com/sentrei/sentrei/compare/v1.11.1...v1.12.0) (2020-07-31)
+
+### Features
+
+- 🎸 revamp leaderboard collectiongroup ([afd3430](https://github.com/sentrei/sentrei/commit/afd34303238eb9c979bda521d801827d0986748c))
+
 ## [1.11.1](https://github.com/sentrei/sentrei/compare/v1.11.0...v1.11.1) (2020-07-31)
 
 ### Performance Improvements
