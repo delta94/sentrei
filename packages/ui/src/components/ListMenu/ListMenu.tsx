@@ -1,4 +1,6 @@
 import Avatar from "@material-ui/core/Avatar";
+import Divider from "@material-ui/core/Divider";
+import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Menu from "@material-ui/core/Menu";
@@ -9,6 +11,8 @@ import * as React from "react";
 
 import {getSpaces} from "@sentrei/common/firebase/spaces";
 import Space from "@sentrei/types/models/Space";
+import DarkModeButton from "@sentrei/ui/components/DarkModeButton";
+import IntlForm from "@sentrei/ui/components/IntlForm";
 
 export interface Props {
   anchorEl?: Element | ((element: Element) => Element) | null | undefined;
@@ -66,6 +70,17 @@ export default function ListMenu({
             </MenuItem>
           </Link>
         ))}
+      <Divider />
+      <ListItem>
+        <DarkModeButton />
+      </ListItem>
+      <Divider />
+      <MenuItem disabled>
+        <ListItemText primary={t("common:common.language")} />
+      </MenuItem>
+      <ListItem>
+        <IntlForm />
+      </ListItem>
     </Menu>
   );
 }

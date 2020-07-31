@@ -3,10 +3,16 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import LanguageIcon from "@material-ui/icons/Language";
 
+import Link from "next-translate/Link";
 import Router from "next-translate/Router";
+import useTranslation from "next-translate/useTranslation";
+import {useRouter} from "next/router";
 import * as React from "react";
 
 export default function Header(): JSX.Element {
+  const router = useRouter();
+  const {lang} = useTranslation();
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
@@ -15,9 +21,23 @@ export default function Header(): JSX.Element {
 
   const handleClose = (language?: string): void => {
     if (language) {
-      Router.pushI18n("/", undefined, {lang: language});
+      Router.pushI18n(router.pathname, undefined, {lang: language});
     }
     setAnchorEl(null);
+  };
+
+  const pathnameNoLang = (): string => {
+    if (
+      router.pathname === "/" ||
+      router.pathname === "/ja" ||
+      router.pathname === "/zh"
+    ) {
+      return "/";
+    }
+    return router.pathname
+      .split("/")
+      .filter(section => section !== lang)
+      .join("/");
   };
 
   return (
@@ -37,9 +57,15 @@ export default function Header(): JSX.Element {
         open={Boolean(anchorEl)}
         onClose={(): void => handleClose()}
       >
-        <MenuItem onClick={(): void => handleClose("en")}>English</MenuItem>
-        <MenuItem onClick={(): void => handleClose("ja")}>日本語</MenuItem>
-        <MenuItem onClick={(): void => handleClose("zh")}>中文</MenuItem>
+        <Link href={pathnameNoLang()} lang="en">
+          <MenuItem>English</MenuItem>
+        </Link>
+        <Link href={pathnameNoLang()} lang="ja">
+          <MenuItem>日本語</MenuItem>
+        </Link>
+        <Link href={pathnameNoLang()} lang="zh">
+          <MenuItem>中文</MenuItem>
+        </Link>
       </Menu>
     </>
   );
