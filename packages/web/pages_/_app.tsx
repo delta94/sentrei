@@ -1,5 +1,8 @@
 import CssBaseline from "@material-ui/core/CssBaseline";
-import {ThemeProvider as MaterialThemeProvider} from "@material-ui/core/styles";
+import {
+  ThemeProvider as MaterialThemeProvider,
+  createMuiTheme,
+} from "@material-ui/core/styles";
 import {AppProps} from "next/app";
 import Head from "next/head";
 import * as React from "react";
@@ -7,6 +10,9 @@ import {ThemeProvider as StyledThemeProvider} from "styled-components";
 
 import Theme from "@sentrei/common/containers/Theme";
 import AuthContext from "@sentrei/common/context/AuthContext";
+import DispatchContext, {
+  themeReducer,
+} from "@sentrei/common/context/DispatchContext";
 import GlobalContext from "@sentrei/common/context/GlobalContext";
 import BackdropEmitter from "@sentrei/common/utils/backdrop";
 import SnackbarEmitter from "@sentrei/common/utils/snackbar";
@@ -27,6 +33,20 @@ const CustomApp = ({Component, pageProps}: AppProps): JSX.Element => {
   );
   const [profile, setProfile] = React.useState<Profile.Get | null>(null);
 
+  const [state, dispatch] = React.useReducer(themeReducer, {
+    darkMode: false,
+  });
+
+  const {darkMode} = state;
+  const theme = React.useMemo(() => {
+    return createMuiTheme({
+      ...Theme,
+      palette: {
+        type: darkMode ? "dark" : "light",
+      },
+    });
+  }, [darkMode]);
+
   return (
     <>
       <Head>
@@ -36,17 +56,19 @@ const CustomApp = ({Component, pageProps}: AppProps): JSX.Element => {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <StyledThemeProvider theme={Theme}>
-        <MaterialThemeProvider theme={Theme}>
+      <StyledThemeProvider theme={theme}>
+        <MaterialThemeProvider theme={theme}>
           <CssBaseline />
           <AuthContext.Provider value={{profile, user, setProfile, setUser}}>
             <GlobalContext.Provider
               value={{backdrop: BackdropEmitter, snackbar: SnackbarEmitter}}
             >
-              <Authentication />
-              <Backdrop />
-              <Snackbar />
-              <Component {...pageProps} />
+              <DispatchContext.Provider value={dispatch}>
+                <Authentication />
+                <Backdrop />
+                <Snackbar />
+                <Component {...pageProps} />
+              </DispatchContext.Provider>
             </GlobalContext.Provider>
           </AuthContext.Provider>
         </MaterialThemeProvider>
