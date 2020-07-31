@@ -15,7 +15,7 @@ test("Send a request to add a new delete to activities", async done => {
     data: (): Member.Response => viewerMemberResponse,
   };
   const context = {
-    params: {collection: "spaces", docId: "spaceId", userId: "userId"},
+    params: {collection: "spaces", docId: "spaceId", memberId: "userId"},
   };
 
   spyOn(db.collection(""), "add").and.returnValue(true);

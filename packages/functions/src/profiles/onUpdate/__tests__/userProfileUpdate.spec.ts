@@ -27,7 +27,7 @@ test("Return when the data did not change", async done => {
   };
 
   const wrapped = testEnv.wrap(userProfileUpdate);
-  const req = await wrapped(noChange, {params: {uid: "testUserId"}});
+  const req = await wrapped(noChange, {params: {profileId: "testUserId"}});
 
   expect(req).toBe(false);
   done();
@@ -37,7 +37,7 @@ test("Update the public profile when user settings change", async done => {
   spyOn(db.doc(""), "update").and.returnValue("settings");
 
   const wrapped = testEnv.wrap(userProfileUpdate);
-  const req = await wrapped(change, {params: {uid: "testUserId"}});
+  const req = await wrapped(change, {params: {profileId: "testUserId"}});
 
   expect(db.doc).toHaveBeenCalledWith("users/testUserId");
   expect(db.doc("").update).toHaveBeenCalledWith(profileResponse);

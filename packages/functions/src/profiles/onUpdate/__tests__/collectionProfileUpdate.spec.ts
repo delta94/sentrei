@@ -31,7 +31,7 @@ test("Return when the data did not change", async done => {
   };
 
   const wrapped = testEnv.wrap(collectionProfileUpdate);
-  const req = await wrapped(noChange, {params: {uid: "testUserId"}});
+  const req = await wrapped(noChange, {params: {profileId: "userId"}});
 
   expect(req).toBe(false);
   done();
@@ -47,7 +47,7 @@ test("Should update the profile for all collections", async done => {
   });
 
   const wrapped = testEnv.wrap(collectionProfileUpdate);
-  const req = await wrapped(change, {params: {uid: "testUserId"}});
+  const req = await wrapped(change, {params: {profileId: "userId"}});
 
   const spy1 = (await db.collection("").where("", "==", "").get()).docs[0].ref
     .update;
@@ -60,12 +60,12 @@ test("Should update the profile for all collections", async done => {
   expect(db.collection("").where).toHaveBeenCalledWith(
     "createdByUid",
     "==",
-    "testUserId",
+    "userId",
   );
   expect(db.collection("").where).toHaveBeenCalledWith(
     "updatedByUid",
     "==",
-    "testUserId",
+    "userId",
   );
   expect(spy1).toHaveBeenCalledWith({createdBy: profileResponse});
   expect(spy2).toHaveBeenCalledWith({updatedBy: profileResponse});

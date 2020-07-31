@@ -9,7 +9,7 @@ const db = admin.firestore();
 test("On members delete, delete the user item spaces", async done => {
   spyOn(db.doc(""), "delete").and.returnValue("deleted");
 
-  const params = {spaceId: "spaceId", userId: "userId"};
+  const params = {spaceId: "spaceId", memberId: "userId"};
   const wrapped = testEnv.wrap(userSpaceDelete);
   const req = await wrapped({}, {params});
 

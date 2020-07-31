@@ -6,9 +6,9 @@ import {getProfileChanges, updateProfile} from "@sentrei/functions/helpers";
  * Add profiles to each collection
  */
 const collectionProfileUpdate = functions.firestore
-  .document("profiles/{uid}")
+  .document("profiles/{profileId}")
   .onUpdate(async (change, context) => {
-    const {uid} = context.params;
+    const {profileId} = context.params;
 
     const profileData = getProfileChanges(change);
 
@@ -21,8 +21,8 @@ const collectionProfileUpdate = functions.firestore
     const promises: any[] = [];
 
     collections.forEach(item => {
-      promises.push(updateProfile(change, item, "created", uid));
-      promises.push(updateProfile(change, item, "updated", uid));
+      promises.push(updateProfile(change, item, "created", profileId));
+      promises.push(updateProfile(change, item, "updated", profileId));
     });
 
     return Promise.all(promises);

@@ -19,7 +19,7 @@ test("Send a request to update a user's profile and claims", async done => {
       data: (): Profile.Response => profileResponse,
     },
   };
-  const params = {uid: "userId"};
+  const params = {profileId: "userId"};
 
   const wrapped = testEnv.wrap(sdkProfileUpdate);
   const req = await wrapped(change, {params});

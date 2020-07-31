@@ -13,7 +13,7 @@ test("On members create, update space to set a user's spaces", async done => {
   spyOn(db.doc(""), "set").and.returnValue("updated");
   spyOn(db.doc(""), "get").and.returnValue({data: () => spaceResponse});
 
-  const params = {spaceId: "spaceId", userId: "userId"};
+  const params = {spaceId: "spaceId", memberId: "userId"};
   const snap = {
     data: (): Space.Response => spaceResponse,
   };

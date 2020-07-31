@@ -20,7 +20,7 @@ test("Return when the data did not change", async done => {
   };
 
   const wrapped = testEnv.wrap(memberProfileUpdate);
-  const req = await wrapped(noChange, {params: {uid: "testUserId"}});
+  const req = await wrapped(noChange, {params: {profileId: "userId"}});
 
   expect(req).toBe(false);
   done();
@@ -43,7 +43,7 @@ test("Update the public profile when user settings change", async done => {
   };
 
   const wrapped = testEnv.wrap(memberProfileUpdate);
-  const req = await wrapped(change, {params: {uid: "testUserId"}});
+  const req = await wrapped(change, {params: {profileId: "userId"}});
   const spy1 = (await db.collectionGroup("").where("", "==", "").get()).docs[0]
     .ref.update;
   const spy2 = (await db.collectionGroup("").where("", "==", "").get()).docs[1]

@@ -9,7 +9,7 @@ const db = admin.firestore();
  * Increase member count to arbitrary collection
  */
 const memberCountPlus = functions.firestore
-  .document("{collection}/{docId}/members/{userId}")
+  .document("{collection}/{docId}/members/{memberId}")
   .onCreate((_, context) => {
     const {collection, docId} = context.params;
     return db.doc(`${collection}/${docId}`).update(<Space.AdminUpdate>{

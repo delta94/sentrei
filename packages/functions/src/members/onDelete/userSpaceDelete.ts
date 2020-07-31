@@ -7,10 +7,10 @@ const db = admin.firestore();
  * Delete space for user
  */
 const userSpaceDelete = functions.firestore
-  .document("spaces/{spaceId}/members/{userId}")
+  .document("spaces/{spaceId}/members/{memberId}")
   .onDelete((_, context) => {
-    const {spaceId, userId} = context.params;
-    return db.doc(`users/${userId}/spaces/${spaceId}`).delete();
+    const {spaceId, memberId} = context.params;
+    return db.doc(`users/${memberId}/spaces/${spaceId}`).delete();
   });
 
 export default userSpaceDelete;

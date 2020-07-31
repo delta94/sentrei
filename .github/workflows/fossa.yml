@@ -30,6 +30,12 @@ jobs:
           pipenv install --dev
         env:
           PIPENV_VENV_IN_PROJECT: true
+      - if: failure()
+        run: |
+          pipenv --rm
+          pipenv install --dev
+        env:
+          PIPENV_VENV_IN_PROJECT: true
       - run: |
           curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
       - run: |

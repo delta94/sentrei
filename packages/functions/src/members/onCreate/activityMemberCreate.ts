@@ -10,9 +10,9 @@ const db = admin.firestore();
  * Create member activity on create
  */
 const activityMemberCreate = functions.firestore
-  .document("{collection}/{docId}/members/{userId}")
+  .document("{collection}/{docId}/members/{memberId}")
   .onCreate((snap, context) => {
-    const {collection, docId, userId} = context.params;
+    const {collection, docId, memberId} = context.params;
 
     const data = snap.data() as Member.Response;
 
@@ -21,10 +21,10 @@ const activityMemberCreate = functions.firestore
       before: null,
       after: data,
       category: "members",
-      categoryId: userId,
+      categoryId: memberId,
       createdByUid: data.createdByUid,
-      fullItemPath: `${collection}/${docId}/members/${userId}`,
-      itemPath: `members/${userId}`,
+      fullItemPath: `${collection}/${docId}/members/${memberId}`,
+      itemPath: `members/${memberId}`,
       updatedAt: data.updatedAt,
       spaceId: data.spaceId,
       user: data.updatedBy,

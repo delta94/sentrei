@@ -2,7 +2,6 @@ import Profile from "@sentrei/types/models/Profile";
 
 declare namespace Leaderboard {
   export interface Response extends Profile.Response {
-    createdByUid: string;
     score: FirebaseFirestore.FieldValue | number;
   }
 

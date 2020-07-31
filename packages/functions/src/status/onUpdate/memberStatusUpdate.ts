@@ -10,21 +10,21 @@ const db = admin.firestore();
  * Update status from members
  */
 const memberStatusUpdate = functions.database
-  .ref("/status/{uid}")
+  .ref("/status/{statusId}")
   .onUpdate(async (change, context) => {
-    const {uid} = context.params;
+    const {statusId} = context.params;
     const eventStatus = change.after.val() as Status;
 
     const items = await db
       .collectionGroup("members")
-      .where("uid", "==", uid)
+      .where("uid", "==", statusId)
       .get();
 
     const memberUpdate: Member.Update = {
       status: eventStatus.status,
       updatedAt: admin.firestore.FieldValue.serverTimestamp(),
       updatedBy: eventStatus.profile,
-      updatedByUid: uid,
+      updatedByUid: statusId,
     };
 
     const promises = items.docs.map(doc => doc.ref.update(memberUpdate));
