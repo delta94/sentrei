@@ -5,7 +5,7 @@ import {getProfileChanges} from "@sentrei/functions/helpers";
 
 const db = admin.firestore();
 
-const memberProfileUpdate = functions.firestore
+const leaderboardProfileUpdate = functions.firestore
   .document("profiles/{profileId}")
   .onUpdate(async (change, context) => {
     const {profileId} = context.params;
@@ -17,7 +17,7 @@ const memberProfileUpdate = functions.firestore
     }
 
     const items = await db
-      .collectionGroup("members")
+      .collectionGroup("leaderboard")
       .where("uid", "==", profileId)
       .get();
 
@@ -25,4 +25,4 @@ const memberProfileUpdate = functions.firestore
     return Promise.all(promises);
   });
 
-export default memberProfileUpdate;
+export default leaderboardProfileUpdate;

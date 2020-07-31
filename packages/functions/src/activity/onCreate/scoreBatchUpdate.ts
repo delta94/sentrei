@@ -34,7 +34,6 @@ const scoreBatchUpdate = functions.firestore
 
     const newData: Leaderboard.Response = {
       ...data.user,
-      createdByUid: userId,
       score: scoreField,
     };
 

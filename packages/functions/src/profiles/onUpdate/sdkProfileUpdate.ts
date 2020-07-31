@@ -9,17 +9,17 @@ const auth = admin.auth();
  * Update sdk from profile
  */
 const sdkProfileUpdate = functions.firestore
-  .document("profiles/{uid}")
+  .document("profiles/{profileId}")
   .onUpdate((change, context) => {
-    const {uid} = context.params;
+    const {profileId} = context.params;
 
     const {name, photo, username} = change.after.data() as Profile.Response;
-    const updateUser = auth.updateUser(uid, <admin.auth.UpdateRequest>{
+    const updateUser = auth.updateUser(profileId, <admin.auth.UpdateRequest>{
       displayName: name,
       photoURL: photo,
     });
 
-    const updateClaims = auth.setCustomUserClaims(uid, {username});
+    const updateClaims = auth.setCustomUserClaims(profileId, {username});
 
     return Promise.all([updateUser, updateClaims]);
   });

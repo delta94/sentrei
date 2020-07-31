@@ -9,9 +9,9 @@ const db = admin.firestore();
  * Update profile of user
  */
 const userProfileUpdate = functions.firestore
-  .document("profiles/{uid}")
+  .document("profiles/{profileId}")
   .onUpdate(async (change, context) => {
-    const {uid} = context.params;
+    const {profileId} = context.params;
 
     const profileData = getProfileChanges(change);
 
@@ -19,7 +19,7 @@ const userProfileUpdate = functions.firestore
       return false;
     }
 
-    return db.doc(`users/${uid}`).update(profileData);
+    return db.doc(`users/${profileId}`).update(profileData);
   });
 
 export default userProfileUpdate;

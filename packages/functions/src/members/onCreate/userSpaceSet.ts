@@ -9,13 +9,13 @@ const db = admin.firestore();
  * Set space for user
  */
 const userSpaceSet = functions.firestore
-  .document("spaces/{spaceId}/members/{userId}")
+  .document("spaces/{spaceId}/members/{memberId}")
   .onCreate(async (snap, context) => {
-    const {spaceId, userId} = context.params;
+    const {spaceId, memberId} = context.params;
     const doc = await db.doc(`spaces/${spaceId}`).get();
     const data = doc.data() as Space.Response;
 
-    return db.doc(`users/${userId}/spaces/${spaceId}`).set(data);
+    return db.doc(`users/${memberId}/spaces/${spaceId}`).set(data);
   });
 
 export default userSpaceSet;

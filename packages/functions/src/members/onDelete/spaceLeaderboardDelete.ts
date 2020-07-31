@@ -7,10 +7,10 @@ const db = admin.firestore();
  * Delete leaderboard for user
  */
 const spaceLeaderboardDelete = functions.firestore
-  .document("spaces/{spaceId}/members/{userId}")
+  .document("spaces/{spaceId}/members/{memberId}")
   .onDelete(async (_, context) => {
-    const {spaceId, userId} = context.params;
-    return db.doc(`spaces/${spaceId}/leaderboard/${userId}`).delete();
+    const {spaceId, memberId} = context.params;
+    return db.doc(`spaces/${spaceId}/leaderboard/${memberId}`).delete();
   });
 
 export default spaceLeaderboardDelete;
