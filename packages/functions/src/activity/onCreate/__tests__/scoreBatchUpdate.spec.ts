@@ -10,10 +10,12 @@ import {
   activityRoomResponseDeleted,
   activityRoomResponseUpdated,
 } from "@sentrei/functions/__dummy__/Activity";
+import {leaderboardResponse} from "@sentrei/functions/__dummy__/Leaderboard";
 import {roomResponse} from "@sentrei/functions/__dummy__/Room";
 
 import scoreActions from "@sentrei/functions/helpers/scoreActions";
 import Activity from "@sentrei/types/models/Activity";
+import Leaderboard from "@sentrei/types/models/Leaderboard";
 
 import scoreBatchUpdate from "../scoreBatchUpdate";
 
@@ -37,8 +39,8 @@ test("Increase score when a space item is created", async done => {
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);
-  const payload = {
-    createdByUid: "userId",
+  const payload: Leaderboard.Response = {
+    ...leaderboardResponse,
     score: scoreActions.created_spaces,
   };
 
@@ -55,8 +57,8 @@ test("Increase score when a space item is updated", async done => {
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);
-  const payload = {
-    createdByUid: "userId",
+  const payload: Leaderboard.Response = {
+    ...leaderboardResponse,
     score: scoreActions.updated_spaces,
   };
 
@@ -86,8 +88,8 @@ test("Increase score when a room item is created", async done => {
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);
-  const payload = {
-    createdByUid: "userId",
+  const payload: Leaderboard.Response = {
+    ...leaderboardResponse,
     score: scoreActions.created_rooms,
   };
 
@@ -104,8 +106,8 @@ test("Increase score when a room item is updated", async done => {
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);
-  const payload = {
-    createdByUid: "userId",
+  const payload: Leaderboard.Response = {
+    ...leaderboardResponse,
     score: scoreActions.updated_rooms,
   };
 
@@ -122,8 +124,8 @@ test("Decrease score when a room item is deleted by author", async done => {
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);
-  const payload = {
-    createdByUid: "userId",
+  const payload: Leaderboard.Response = {
+    ...leaderboardResponse,
     score: -scoreActions.created_rooms,
   };
 
@@ -144,8 +146,8 @@ test("Decrease score when a room item is deleted by other user", async done => {
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);
-  const payload = {
-    createdByUid: "userId",
+  const payload: Leaderboard.Response = {
+    ...leaderboardResponse,
     score: scoreActions.deleted_rooms,
   };
 

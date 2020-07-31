@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
+import * as admin from "firebase-admin";
 import * as functions from "firebase-functions";
 
 import scoreActions from "@sentrei/functions/helpers/scoreActions";
-import scoreUpdate from "@sentrei/functions/helpers/scoreUpdate";
 import Activity from "@sentrei/types/models/Activity";
+import Leaderboard from "@sentrei/types/models/Leaderboard";
+
+const db = admin.firestore();
 
 /**
  * Batch update scores for each activity
@@ -26,7 +28,20 @@ const scoreBatchUpdate = functions.firestore
       }
     }
 
-    return scoreUpdate(data, score, data.createdByUid);
+    const batch = db.batch();
+    const scoreField = admin.firestore.FieldValue.increment(score || 1);
+    const userId = data.createdByUid;
+
+    const newData: Leaderboard.Response = {
+      ...data.user,
+      createdByUid: userId,
+      score: scoreField,
+    };
+
+    const ref = db.doc(`spaces/${data.spaceId}/leaderboard/${userId}`);
+    batch.set(ref, newData, {merge: true});
+
+    return batch.commit();
   });
 
 export default scoreBatchUpdate;
