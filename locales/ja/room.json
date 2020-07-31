@@ -6,6 +6,10 @@
     "deleteTypeRequired": "「DELETE」と入力する必要があります",
     "editRoom": "部屋を編集",
     "nameRequired": "名前は必須です",
-    "none": "部屋がありません..."
+    "none": "部屋がありません...",
+    "settings": "設定"
+  },
+  "settings": {
+    "title": "部屋の設定"
   }
 }

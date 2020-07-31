@@ -12,6 +12,7 @@
     "/[spaceId]/edit": ["space"],
     "/[spaceId]/invite": ["space"],
     "/[spaceId]/invite/[inviteId]": ["auth", "space"],
+    "/[spaceId]/leaderboard": ["space"],
     "/[spaceId]/members": ["space"],
     "/[spaceId]/room/[roomId]": ["space", "video"],
     "/[spaceId]/room/[roomId]/delete": ["room"],

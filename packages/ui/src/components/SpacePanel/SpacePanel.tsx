@@ -6,8 +6,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import EditIcon from "@material-ui/icons/Edit";
+import FormatListNumberedIcon from "@material-ui/icons/FormatListNumbered";
 import HistoryIcon from "@material-ui/icons/History";
-import SettingsIcon from "@material-ui/icons/Settings";
 import Link from "next-translate/Link";
 import * as React from "react";
 
@@ -27,9 +27,9 @@ export default function SpacePanel({photo, name, spaceId}: Props): JSX.Element {
       <Grid container alignItems="center" justify="flex-end" direction="row">
         <Grid item xs={5} sm={6} md={7} />
         <Grid item xs={7} sm={6} md={5}>
-          <Link href="/[spaceId]/settings" as={`/${spaceId}/settings`}>
+          <Link href="/[spaceId]/leaderboard" as={`/${spaceId}/leaderboard`}>
             <IconButton>
-              <SettingsIcon color="action" />
+              <FormatListNumberedIcon color="action" />
             </IconButton>
           </Link>
           <Link href="/[spaceId]/activity" as={`/${spaceId}/activity`}>

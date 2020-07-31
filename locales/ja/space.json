@@ -13,6 +13,15 @@
     "usernameNotExist": "ユーザー名が存在しません",
     "usernameRequired": "ユーザー名は必須です"
   },
+  "leaderboard": {
+    "title": "リーダーボード"
+  },
+  "member": {
+    "title": "会員"
+  },
+  "settings": {
+    "title": "スペース設定"
+  },
   "space": {
     "createSpace": "スペースを作成する",
     "editSpace": "スペースを編集",
