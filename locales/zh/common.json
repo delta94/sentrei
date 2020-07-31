@@ -1,8 +1,10 @@
 {
   "common": {
     "app": "应用程式",
+    "billing": "开票",
     "cancel": "取消",
     "create": "创造",
+    "delete": "删除",
     "description": "描述",
     "edit": "编辑",
     "email": "电子邮件地址",
@@ -22,7 +24,9 @@
     "passwordOld": "旧密码",
     "profile": "个人资料",
     "quit": "退出",
+    "room": "房间",
     "settings": "设定值",
+    "space": "空间",
     "title": "森特雷",
     "update": "更新资料",
     "username": "用户名",

@@ -1,12 +1,9 @@
 import * as functions from "firebase-functions";
 
 import getProfileChanges from "@sentrei/functions/helpers/getProfileChanges";
-import updateProfile from "@sentrei/functions/helpers/updateProfile";
+import updateGroupProfile from "@sentrei/functions/helpers/updateGroupProfile";
 
-/**
- * Add profiles to each collection
- */
-const collectionProfileUpdate = functions.firestore
+const collectionGroupProfileUpdate = functions.firestore
   .document("profiles/{profileId}")
   .onUpdate(async (change, context) => {
     const {profileId} = context.params;
@@ -17,16 +14,15 @@ const collectionProfileUpdate = functions.firestore
       return false;
     }
 
-    const collections = ["rooms", "spaces"];
+    const collections = ["members", "leaderboard"];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const promises: any[] = [];
 
     collections.forEach(item => {
-      promises.push(updateProfile(change, item, "created", profileId));
-      promises.push(updateProfile(change, item, "updated", profileId));
+      promises.push(updateGroupProfile(change, item, profileId));
     });
 
     return Promise.all(promises);
   });
 
-export default collectionProfileUpdate;
+export default collectionGroupProfileUpdate;

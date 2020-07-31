@@ -6,6 +6,10 @@
     "deleteTypeRequired": "必须输入“删除”",
     "editRoom": "编辑室",
     "nameRequired": "名称为必填项",
-    "none": "你没有房间..."
+    "none": "你没有房间...",
+    "settings": "设定值"
+  },
+  "settings": {
+    "title": "房间设置"
   }
 }

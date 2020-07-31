@@ -13,6 +13,15 @@
     "usernameNotExist": "用户名不存在",
     "usernameRequired": "用户名为必填项"
   },
+  "leaderboard": {
+    "title": "排行榜"
+  },
+  "member": {
+    "title": "会员"
+  },
+  "settings": {
+    "title": "空间设定"
+  },
   "space": {
     "createSpace": "创造空间",
     "editSpace": "编辑空间",

@@ -1,8 +1,10 @@
 {
   "common": {
     "app": "アプリ",
+    "billing": "課金",
     "cancel": "キャンセル",
     "create": "作成する",
+    "delete": "削除する",
     "description": "説明",
     "edit": "編集する",
     "email": "電子メールアドレス",
@@ -22,7 +24,9 @@
     "passwordOld": "以前のパスワード",
     "profile": "プロフィール",
     "quit": "終了する",
+    "room": "ルーム",
     "settings": "設定",
+    "space": "スペース",
     "title": "セントレイ",
     "update": "更新",
     "username": "ユーザー名",
