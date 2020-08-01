@@ -1,3 +1,9 @@
+## [1.17.1](https://github.com/sentrei/sentrei/compare/v1.17.0...v1.17.1) (2020-08-01)
+
+### Bug Fixes
+
+- 🐛 intlform router error ([717b1b6](https://github.com/sentrei/sentrei/commit/717b1b65cb42598a1b13d74e560bf1bf8d600d23))
+
 # [1.17.0](https://github.com/sentrei/sentrei/compare/v1.16.0...v1.17.0) (2020-08-01)
 
 ### Features
