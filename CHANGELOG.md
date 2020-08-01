@@ -1,3 +1,9 @@
+# [1.15.0](https://github.com/sentrei/sentrei/compare/v1.14.0...v1.15.0) (2020-08-01)
+
+### Features
+
+- 🎸 revamp profile update functions ([0a09a17](https://github.com/sentrei/sentrei/commit/0a09a17459313be32da8c9fbefaaca8cb4049d6d))
+
 # [1.13.0](https://github.com/sentrei/sentrei/compare/v1.12.0...v1.13.0) (2020-07-31)
 
 ### Features
