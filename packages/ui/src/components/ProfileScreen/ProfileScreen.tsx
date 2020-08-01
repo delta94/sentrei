@@ -1,6 +1,4 @@
 import Avatar from "@material-ui/core/Avatar";
-import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
@@ -8,6 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
 import Profile from "@sentrei/types/models/Profile";
+import FormSection from "@sentrei/ui/components/FormSection";
 
 import ProfileScreenStyles from "./ProfileScreenStyles";
 
@@ -20,18 +19,11 @@ export default function ProfileScreen({profile}: Props): JSX.Element {
   const {t} = useTranslation();
 
   return (
-    <Container maxWidth="md" component="main">
-      <div className={classes.paper}>
-        <Grid container direction="row" justify="center" alignItems="center">
-          <Avatar className={classes.avatar}>
-            <AccountCircleIcon />
-          </Avatar>
-          <Box p={1} />
-          <Typography component="h3" variant="h3" color="primary">
-            {t("common:common.profile")}
-          </Typography>
-        </Grid>
-      </div>
+    <FormSection
+      icon={<AccountCircleIcon />}
+      title={t("common:common.profile")}
+      size="sm"
+    >
       <Grid
         container
         direction="column"
@@ -41,24 +33,24 @@ export default function ProfileScreen({profile}: Props): JSX.Element {
       >
         <Grid item>
           <Avatar
-            alt="Remy Sharp"
+            alt="profile"
             src={profile.photo || undefined}
             className={classes.large}
           />
         </Grid>
         <Grid item>
-          <Typography component="h1" variant="h3">
+          <Typography component="h1" variant="h3" color="textSecondary">
             {profile.name}
           </Typography>
         </Grid>
         <Grid item>
           <Typography noWrap component="h5" variant="h6" color="textSecondary">
-            {t("common:common.id")}
+            {t("common:common.username")}
             {": "}
             {profile.username}
           </Typography>
         </Grid>
       </Grid>
-    </Container>
+    </FormSection>
   );
 }
