@@ -15,11 +15,17 @@ import AppHeaderStyles from "./AppHeaderStyles";
 
 export interface Props {
   logo: JSX.Element;
+  notificationCount?: number;
   userId?: string;
   spaceId?: string;
 }
 
-export default function AppHeader({logo, userId, spaceId}: Props): JSX.Element {
+export default function AppHeader({
+  logo,
+  notificationCount,
+  userId,
+  spaceId,
+}: Props): JSX.Element {
   const classes = AppHeaderStyles();
 
   const [listAnchorEl, listSetAnchorEl] = React.useState<null | HTMLElement>(
@@ -79,6 +85,7 @@ export default function AppHeader({logo, userId, spaceId}: Props): JSX.Element {
             {profileAnchorEl ? <CloseIcon /> : <PermIdentityIcon />}
           </IconButton>
           <ProfileMenu
+            notificationCount={notificationCount}
             anchorEl={profileAnchorEl}
             open={Boolean(profileAnchorEl)}
             onClose={handleClose}

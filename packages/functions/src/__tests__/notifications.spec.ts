@@ -62,7 +62,7 @@ test("Can not update a notification item", async done => {
   done();
 });
 
-test("Can not delete a notification item", async done => {
-  await firebase.assertFails(doc.delete());
+test("Can delete a notification item", async done => {
+  await firebase.assertSucceeds(doc.delete());
   done();
 });

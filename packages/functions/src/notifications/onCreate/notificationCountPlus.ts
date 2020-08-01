@@ -6,7 +6,7 @@ import User from "@sentrei/types/models/User";
 
 const db = admin.firestore();
 
-const notificationCountUpdate = functions.firestore
+const notificationCountPlus = functions.firestore
   .document("users/{userId}/notifications/{notificationId}")
   .onCreate(async (snap, context) => {
     const {userId} = context.params;
@@ -24,4 +24,4 @@ const notificationCountUpdate = functions.firestore
     });
   });
 
-export default notificationCountUpdate;
+export default notificationCountPlus;

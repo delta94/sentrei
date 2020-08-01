@@ -9,7 +9,7 @@ import {
 import Notification from "@sentrei/types/models/Notification";
 import Space from "@sentrei/types/models/Space";
 
-import notificationCountUpdate from "../notificationCountUpdate";
+import notificationCountPlus from "../notificationCountPlus";
 
 const testEnv = functions();
 const db = admin.firestore();
@@ -29,7 +29,7 @@ test("On create, return when app notifications are disabled", async done => {
   });
 
   const context = {params: {userId: "userId"}};
-  const wrapped = testEnv.wrap(notificationCountUpdate);
+  const wrapped = testEnv.wrap(notificationCountPlus);
   const req = await wrapped(snap, context);
 
   expect(req).toBe(false);
@@ -50,7 +50,7 @@ test("On create, increment notificationCount", async done => {
   });
 
   const context = {params: {userId: "userId"}};
-  const wrapped = testEnv.wrap(notificationCountUpdate);
+  const wrapped = testEnv.wrap(notificationCountPlus);
   const req = await wrapped(snap, context);
 
   expect(req).toBe("updated");

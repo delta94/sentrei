@@ -24,7 +24,7 @@
     "/create": ["space"],
     "/dashboard": ["space"],
     "/login": ["auth"],
-    "/notifications": ["auth"],
+    "/notifications": ["notifications"],
     "/privacy": ["auth"],
     "/profile/[usernameId]": ["profile"],
     "/profile": ["profile"],

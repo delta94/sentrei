@@ -34,7 +34,14 @@ const Create: NextPage = () => {
   return (
     <>
       <NoHubSpot />
-      {user ? <SentreiAppHeader userId={user.uid} /> : <SentreiAppHeader />}
+      {user ? (
+        <SentreiAppHeader
+          notificationCount={Number(user.notificationCount)}
+          userId={user.uid}
+        />
+      ) : (
+        <SentreiAppHeader />
+      )}
       {user && profile && <SpaceCreate profile={profile} user={user} />}
     </>
   );
