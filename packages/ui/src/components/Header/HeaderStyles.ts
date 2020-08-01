@@ -29,8 +29,8 @@ const HeaderStyles = makeStyles((theme: Theme) =>
     margin: {
       margin: theme.spacing(1),
     },
-    primary: {
-      backgroundColor: theme.palette.common.white,
+    paper: {
+      backgroundColor: theme.palette.background.paper,
     },
     sectionDesktop: {
       display: "none",

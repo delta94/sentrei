@@ -16,6 +16,7 @@ import twitter from "react-useanimations/lib/twitter";
 
 import metomic from "@sentrei/common/services/metomic";
 import Copyright from "@sentrei/ui/components/Copyright";
+import DarkModeButton from "@sentrei/ui/components/DarkModeButton";
 import Metomic from "@sentrei/ui/components/Metomic";
 import MuiLink from "@sentrei/ui/components/MuiLink";
 
@@ -31,7 +32,7 @@ export default function Footer(): JSX.Element {
       <footer className={classes.footer}>
         <Container maxWidth="md" component="footer" className={classes.footer}>
           <Grid container justify="space-evenly">
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={3}>
               <Typography variant="h6" gutterBottom>
                 {t("index:footer.product")}
               </Typography>
@@ -41,7 +42,7 @@ export default function Footer(): JSX.Element {
                 </Typography>
               </Link>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={3}>
               <Typography variant="h6" gutterBottom>
                 {t("index:footer.legal")}
               </Typography>
@@ -60,7 +61,13 @@ export default function Footer(): JSX.Element {
                 <Typography gutterBottom>{t("index:footer.terms")}</Typography>
               </MuiLink>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={3}>
+              <Typography variant="h6" gutterBottom>
+                {t("index:footer.preferences")}
+              </Typography>
+              <DarkModeButton />
+            </Grid>
+            <Grid item xs={12} sm={3}>
               <Typography variant="h6" gutterBottom>
                 {t("index:footer.social")}
               </Typography>

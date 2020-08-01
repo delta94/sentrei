@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import Theme from "@sentrei/common/containers/Theme";
+import Theme from "@sentrei/common/containers/LightTheme";
 
 const Meta = (): JSX.Element => {
   return (

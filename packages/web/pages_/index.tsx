@@ -16,7 +16,6 @@ import SentreiOneTap from "@sentrei/web/components/SentreiOneTap";
 import SentreiPricing from "@sentrei/web/components/SentreiPricing";
 import SentreiProduct from "@sentrei/web/components/SentreiProduct";
 import SentreiScreen from "@sentrei/web/components/SentreiScreen";
-import SentreiSlider from "@sentrei/web/components/SentreiSlider";
 import SentreiTestimonial from "@sentrei/web/components/SentreiTestimonial";
 
 const Index: NextPage = () => {
@@ -49,7 +48,6 @@ const Index: NextPage = () => {
       <div id="product">
         <SentreiProduct />
       </div>
-      <SentreiSlider />
       <Spacing />
       <div id="feature">
         <SentreiFeature />

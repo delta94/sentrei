@@ -1,8 +1,7 @@
+import {useTheme} from "@material-ui/core/styles";
 import * as React from "react";
 import {useInView} from "react-intersection-observer";
 import {RoughNotation} from "react-rough-notation";
-
-import Theme from "@sentrei/common/containers/Theme";
 
 declare type brackets = "left" | "right" | "top" | "bottom";
 
@@ -40,6 +39,8 @@ export default function CustomRoughNotation({
   text,
   type,
 }: Props): JSX.Element {
+  const theme = useTheme();
+
   const [show, setShow] = React.useState(initial);
   const [ref, inView] = useInView({
     threshold: 0,
@@ -59,13 +60,13 @@ export default function CustomRoughNotation({
         strokeWidth={strokeWidth}
         color={
           color === "primary"
-            ? Theme.palette.primary.main
+            ? theme.palette.primary.main
             : color === "primary-light"
-            ? Theme.palette.primary.light
+            ? theme.palette.primary.light
             : color === "secondary"
-            ? Theme.palette.secondary.main
+            ? theme.palette.secondary.main
             : color === "secondary-light"
-            ? Theme.palette.secondary.light
+            ? theme.palette.secondary.light
             : color
         }
         iterations={iterations}

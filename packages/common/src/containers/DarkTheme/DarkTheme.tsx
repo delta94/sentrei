@@ -2,10 +2,11 @@ import {createMuiTheme, responsiveFontSizes} from "@material-ui/core/styles";
 
 import SentreiTheme from "@sentrei/types/containers/SentreiTheme";
 
-const theme = createMuiTheme({
+const DarkTheme = createMuiTheme({
   palette: {
+    type: "dark",
     secondary: {
-      main: "#ffdbe2",
+      main: "#e6739f",
     },
   },
   typography: {
@@ -21,4 +22,4 @@ const theme = createMuiTheme({
   sidebarMobileHeight: 90,
 } as SentreiTheme);
 
-export default responsiveFontSizes(theme);
+export default responsiveFontSizes(DarkTheme);

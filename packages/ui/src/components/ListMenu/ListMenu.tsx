@@ -71,6 +71,9 @@ export default function ListMenu({
           </Link>
         ))}
       <Divider />
+      <MenuItem disabled>
+        <ListItemText primary={t("common:common.mode")} />
+      </MenuItem>
       <ListItem>
         <DarkModeButton />
       </ListItem>

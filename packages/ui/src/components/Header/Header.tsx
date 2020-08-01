@@ -61,7 +61,7 @@ export default function Header({
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes.transparent]: true,
-    [classes.primary]: false,
+    [classes.paper]: false,
   });
 
   const headerColorChange = (): void => {
@@ -72,14 +72,14 @@ export default function Header({
         .classList.remove(classes.transparent);
       document.body
         .getElementsByTagName("header")[0]
-        .classList.add(classes.primary);
+        .classList.add(classes.paper);
     } else {
       document.body
         .getElementsByTagName("header")[0]
         .classList.add(classes.transparent);
       document.body
         .getElementsByTagName("header")[0]
-        .classList.remove(classes.primary);
+        .classList.remove(classes.paper);
     }
   };
 
