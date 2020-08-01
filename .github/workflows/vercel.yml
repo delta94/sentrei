@@ -36,8 +36,9 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           ref: ${{ github.branch }}
           target_url: https://preview.sentrei.com
-          environment: "Vercel Preview ${{ github.event.pull_request.base.ref }}"
+          environment: "Vercel preview ${{ github.event.pull_request.base.ref }}"
       - uses: amondnet/vercel-action@v19
+        timeout-minutes: 30
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -66,8 +67,9 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           ref: ${{ github.branch }}
           target_url: https://sentrei.com
-          environment: "Vercel Production"
+          environment: "Vercel production"
       - if: github.ref == 'refs/heads/main'
+        timeout-minutes: 30
         uses: amondnet/vercel-action@v19
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}

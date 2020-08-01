@@ -39,9 +39,10 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           ref: ${{ github.branch }}
-          target_url: https://pull.sentrei.com
+          target_url: https://${{ github.event.pull_request.base.ref }}.pull.sentrei.com
           environment: "Web Pull ${{ github.event.pull_request.base.ref }}"
       - uses: amondnet/vercel-action@v19
+        timeout-minutes: 30
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -55,11 +56,11 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           state: "success"
           deployment_id: ${{ steps.pull.outputs.deployment_id }}
-          target_url: https://pull.sentrei.com
+          target_url: https://${{ github.event.pull_request.base.ref }}.pull.sentrei.com
       - if: failure()
         uses: chrnorm/deployment-status@releases/v1
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           state: "failure"
           deployment_id: ${{ steps.pull.outputs.deployment_id }}
-          target_url: https://pull.sentrei.com
+          target_url: https://${{ github.event.pull_request.base.ref }}.pull.sentrei.com
