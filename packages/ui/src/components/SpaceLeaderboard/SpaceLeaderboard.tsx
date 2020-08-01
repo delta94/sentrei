@@ -27,10 +27,6 @@ export default function SpaceLeaderboard({spaceId}: Props): JSX.Element {
     return <Error statusCode={404} />;
   }
 
-  if (leaderboardShot) {
-    console.log(leaderboardShot);
-  }
-
   return (
     <SpaceLeaderboardList
       leaderboardShot={leaderboardShot}
