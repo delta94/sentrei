@@ -1,3 +1,9 @@
+import Container from "@material-ui/core/Container";
+import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
+import DescriptionIcon from "@material-ui/icons/Description";
+import PhotoIcon from "@material-ui/icons/Photo";
+import SettingsIcon from "@material-ui/icons/Settings";
+import useTranslation from "next-translate/useTranslation";
 import Error from "next/error";
 import * as React from "react";
 
@@ -5,10 +11,13 @@ import {getSpace} from "@sentrei/common/firebase/spaces";
 import Profile from "@sentrei/types/models/Profile";
 import Space from "@sentrei/types/models/Space";
 import User from "@sentrei/types/models/User";
+import FormSection from "@sentrei/ui/components/FormSection";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
-import SpaceForm from "@sentrei/ui/components/SpaceForm";
+import SpaceDescriptionForm from "@sentrei/ui/components/SpaceDescriptionForm";
+import SpaceNameForm from "@sentrei/ui/components/SpaceNameForm";
+import TabBoard from "@sentrei/ui/components/TabBoard";
 
-export interface Props {
+interface Props {
   profile: Profile.Get;
   spaceId: string;
   user: User.Get;
@@ -19,6 +28,8 @@ export default function SpaceEdit({
   spaceId,
   user,
 }: Props): JSX.Element {
+  const {t} = useTranslation();
+
   const [space, setSpace] = React.useState<Space.Get | null | undefined>();
 
   React.useEffect(() => {
@@ -33,5 +44,37 @@ export default function SpaceEdit({
     return <Error statusCode={404} />;
   }
 
-  return <SpaceForm type="edit" profile={profile} space={space} user={user} />;
+  return (
+    <FormSection
+      icon={<SettingsIcon />}
+      title={t("space:space.editSpace")}
+      size="md"
+    >
+      <>
+        <TabBoard
+          tabIconOne={<DescriptionIcon />}
+          tabIconTwo={<AssignmentIndIcon />}
+          tabIconThree={<PhotoIcon />}
+          tabLabelOne={t("common:common.description")}
+          tabLabelTwo={t("common:common.name")}
+          tabLabelThree={t("common:common.photo")}
+          tabPanelOne={
+            <Container component="main" maxWidth="xs">
+              <SpaceDescriptionForm
+                profile={profile}
+                space={space}
+                user={user}
+              />
+            </Container>
+          }
+          tabPanelTwo={
+            <Container component="main" maxWidth="xs">
+              <SpaceNameForm profile={profile} space={space} user={user} />
+            </Container>
+          }
+          tabPanelThree={<></>}
+        />
+      </>
+    </FormSection>
+  );
 }

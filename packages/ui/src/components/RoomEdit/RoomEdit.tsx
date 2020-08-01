@@ -26,6 +26,7 @@ export interface Props {
 
 export default function RoomEdit({profile, roomId, user}: Props): JSX.Element {
   const {t} = useTranslation();
+
   const [room, setRoom] = React.useState<Room.Get | null | undefined>();
 
   React.useEffect(() => {
