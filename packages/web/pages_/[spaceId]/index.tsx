@@ -37,7 +37,14 @@ const SpaceId = (): JSX.Element => {
   return (
     <>
       <NoHubSpot />
-      {user ? <SentreiAppHeader userId={user.uid} /> : <SentreiAppHeader />}
+      {user ? (
+        <SentreiAppHeader
+          notificationCount={Number(user.notificationCount)}
+          userId={user.uid}
+        />
+      ) : (
+        <SentreiAppHeader />
+      )}
       {user && profile && <StatusSpace userId={user.uid} profile={profile} />}
       {user && profile && <SpaceScreen spaceId={String(query.spaceId)} />}
     </>

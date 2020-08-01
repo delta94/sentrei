@@ -1,12 +1,21 @@
 import {NextPage} from "next";
 import Router from "next-translate/Router";
+import dynamic from "next/dynamic";
 import * as React from "react";
 
 import AuthContext from "@sentrei/common/context/AuthContext";
 import {analytics} from "@sentrei/common/utils/firebase";
 import Loader from "@sentrei/ui/components/Loader";
 import NoHubSpot from "@sentrei/ui/components/NoHubSpot";
+import SkeletonScreen from "@sentrei/ui/components/SkeletonScreen";
 import SentreiAppHeader from "@sentrei/web/components/SentreiAppHeader";
+
+const NotificationScreen = dynamic(
+  () => {
+    return import("@sentrei/ui/components/NotificationScreen");
+  },
+  {ssr: false},
+);
 
 const Notifications: NextPage = () => {
   const {user} = React.useContext(AuthContext);
@@ -26,7 +35,15 @@ const Notifications: NextPage = () => {
   return (
     <>
       <NoHubSpot />
-      {user ? <SentreiAppHeader userId={user.uid} /> : <SentreiAppHeader />}
+      {user ? (
+        <SentreiAppHeader
+          notificationCount={Number(user.notificationCount)}
+          userId={user.uid}
+        />
+      ) : (
+        <SentreiAppHeader />
+      )}
+      {user ? <NotificationScreen user={user} /> : <SkeletonScreen />}
     </>
   );
 };

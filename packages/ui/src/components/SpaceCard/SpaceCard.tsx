@@ -70,6 +70,7 @@ export default function SpaceCard({space}: Props): JSX.Element {
               variant="h4"
               align="center"
               color="textPrimary"
+              noWrap
               gutterBottom
             >
               {space.name}

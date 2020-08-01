@@ -38,7 +38,11 @@ const Settings: NextPage = () => {
     <>
       <NoHubSpot />
       {user ? (
-        <SentreiAppHeader userId={user.uid} spaceId={String(query.spaceId)} />
+        <SentreiAppHeader
+          notificationCount={Number(user.notificationCount)}
+          userId={user.uid}
+          spaceId={String(query.spaceId)}
+        />
       ) : (
         <SentreiAppHeader spaceId={String(query.spaceId)} />
       )}

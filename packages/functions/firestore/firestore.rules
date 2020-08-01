@@ -230,6 +230,14 @@ service cloud.firestore {
         && !request.resource.data.diff(resource.data).affectedKeys().hasOnly(["name", "notificationCount", "photo", "role", "username"])
       allow list, delete:
         if false;
+      match /notifications/{notificationId} {
+        allow list:
+          if request.auth.uid == userId;
+        allow delete:
+          if request.auth.uid == userId;
+        allow get, create, update:
+          if false;
+      }
       match /{subCollection}/{docId} {
         allow get, list:
           if request.auth.uid == userId;

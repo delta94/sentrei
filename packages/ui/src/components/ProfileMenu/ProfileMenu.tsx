@@ -1,3 +1,4 @@
+import Badge from "@material-ui/core/Badge";
 import Divider from "@material-ui/core/Divider";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -15,6 +16,7 @@ import * as React from "react";
 import {auth} from "@sentrei/common/utils/firebase";
 
 export interface Props {
+  notificationCount?: number;
   anchorEl?: Element | ((element: Element) => Element) | null | undefined;
   open: boolean;
   onClose?:
@@ -23,6 +25,7 @@ export interface Props {
 }
 
 export default function ProfileMenu({
+  notificationCount,
   anchorEl,
   open,
   onClose,
@@ -57,7 +60,9 @@ export default function ProfileMenu({
       <Link href="/notifications">
         <MenuItem>
           <ListItemIcon>
-            <NotificationsIcon fontSize="small" />
+            <Badge color="secondary" badgeContent={notificationCount}>
+              <NotificationsIcon fontSize="small" />
+            </Badge>
           </ListItemIcon>
           <ListItemText primary={t("common:common.notifications")} />
         </MenuItem>

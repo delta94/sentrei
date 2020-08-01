@@ -27,7 +27,14 @@ const Settings: NextPage = () => {
   return (
     <>
       <NoHubSpot />
-      {user ? <SentreiAppHeader userId={user.uid} /> : <SentreiAppHeader />}
+      {user ? (
+        <SentreiAppHeader
+          notificationCount={Number(user.notificationCount)}
+          userId={user.uid}
+        />
+      ) : (
+        <SentreiAppHeader />
+      )}
       {user && profile && <SettingsScreen user={user} profile={profile} />}
     </>
   );

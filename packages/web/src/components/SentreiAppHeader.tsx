@@ -7,8 +7,16 @@ import LogoPicture from "@sentrei/web/images/png/LogoPicture";
 type Props = Omit<Original, "logo">;
 
 export default function SentreiAppHeader({
+  notificationCount,
   spaceId,
   userId,
 }: Props): JSX.Element {
-  return <AppHeader logo={<LogoPicture />} spaceId={spaceId} userId={userId} />;
+  return (
+    <AppHeader
+      logo={<LogoPicture />}
+      notificationCount={notificationCount}
+      spaceId={spaceId}
+      userId={userId}
+    />
+  );
 }

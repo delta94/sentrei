@@ -83,6 +83,7 @@ export default function RoomCard({room, space}: Props): JSX.Element {
               variant="h4"
               align="center"
               color="textPrimary"
+              noWrap
               gutterBottom
             >
               {room.name}
