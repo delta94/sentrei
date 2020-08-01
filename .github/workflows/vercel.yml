@@ -60,6 +60,7 @@ jobs:
           deployment_id: ${{ steps.preview.outputs.deployment_id }}
           target_url: https://preview.sentrei.com
       - if: github.ref == 'refs/heads/main'
+        uses: chrnorm/deployment-action@releases/v1
         id: production
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
