@@ -1,3 +1,14 @@
+# [1.17.0](https://github.com/sentrei/sentrei/compare/v1.16.0...v1.17.0) (2020-08-01)
+
+### Features
+
+- 🎸 ini description form ([b867283](https://github.com/sentrei/sentrei/commit/b867283b53b3c36714f4792639af0c06c8620c9b))
+- 🎸 ini profile edit ([2b3126b](https://github.com/sentrei/sentrei/commit/2b3126b278f66fc16958fa17a6fcd0b7f4e3490a))
+- 🎸 ini room name form ([eedb761](https://github.com/sentrei/sentrei/commit/eedb7619b20ab61be4a6de15917ce8430110e8de))
+- 🎸 ini space edit ([f1c6556](https://github.com/sentrei/sentrei/commit/f1c6556be905101b924c9f66763bc68a3515dfe4))
+- 🎸 refactor notification screen ([55a187b](https://github.com/sentrei/sentrei/commit/55a187b98d622aefe8f4f90bf6ed9fe137fa9c19))
+- 🎸 remove edit form ([d87309a](https://github.com/sentrei/sentrei/commit/d87309a6a236fb3ff2ed40701d62cacd9aa1d8f6))
+
 # [1.16.0](https://github.com/sentrei/sentrei/compare/v1.15.0...v1.16.0) (2020-08-01)
 
 ### Features
