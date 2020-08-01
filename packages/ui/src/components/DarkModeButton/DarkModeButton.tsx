@@ -1,19 +1,27 @@
-import IconButton from "@material-ui/core/IconButton";
-import useTheme from "@material-ui/core/styles/useTheme";
-import Brightness4 from "@material-ui/icons/Brightness4";
-import Brightness5 from "@material-ui/icons/Brightness5";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormGroup from "@material-ui/core/FormGroup";
+import Switch from "@material-ui/core/Switch";
+import useTranslation from "next-translate/useTranslation";
+
 import * as React from "react";
 
 import useDarkMode from "use-dark-mode";
 
 function DarkModeButton(): JSX.Element {
-  const paletteType = useTheme().palette.type;
+  const {t} = useTranslation();
   const {value: isDark, toggle: toggleDarkMode} = useDarkMode(false);
 
   return (
-    <IconButton onClick={toggleDarkMode}>
-      {paletteType === "dark" ? <Brightness5 /> : <Brightness4 />}
-    </IconButton>
+    <FormGroup>
+      <FormControlLabel
+        control={
+          <Switch color="primary" checked={isDark} onChange={toggleDarkMode} />
+        }
+        label={
+          isDark ? t("common:common.darkMode") : t("common:common.lightMode")
+        }
+      />
+    </FormGroup>
   );
 }
 
