@@ -21,7 +21,7 @@ export interface Props {
 export default function NotificationList({
   notificationShot,
   last,
-  limit = 3,
+  limit = 5,
   userId,
 }: Props): JSX.Element {
   const {t} = useTranslation();

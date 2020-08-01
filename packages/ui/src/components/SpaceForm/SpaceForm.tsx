@@ -18,7 +18,6 @@ import {validateSpaceMember} from "@sentrei/common/firebase/members";
 import {
   createSpace,
   deleteSpaceMember,
-  updateSpace,
   validateSpaceId,
 } from "@sentrei/common/firebase/spaces";
 import {timestamp} from "@sentrei/common/utils/firebase";
@@ -34,7 +33,7 @@ export interface Props {
   profile: Profile.Get;
   space?: Space.Get;
   spaceId?: string;
-  type: "create" | "edit" | "quit";
+  type: "create" | "quit";
   user: User.Get;
 }
 
@@ -56,12 +55,6 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
       }),
   });
 
-  const SpaceEditSchema = Yup.object().shape({
-    name: Yup.string(),
-    description: Yup.string(),
-    photo: Yup.string(),
-  });
-
   const QuitFormSchema = Yup.object().shape({
     quit: Yup.string()
       .required(t("space:space.quitRequired"))
@@ -74,8 +67,6 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
     resolver:
       type === "create"
         ? yupResolver(SpaceCreateSchema)
-        : type === "edit"
-        ? yupResolver(SpaceEditSchema)
         : yupResolver(QuitFormSchema),
   });
 
@@ -129,33 +120,6 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
           snackbar("error", err.message);
         }
         break;
-      case "edit":
-        snackbar("info", t("common:snackbar.editing"));
-        try {
-          if (!space) {
-            return;
-          }
-          await updateSpace(
-            {
-              name: data.name,
-              description: data.description,
-              photo: null,
-              updatedAt: timestamp,
-              updatedBy: profile,
-              updatedByUid: user.uid,
-            },
-            space.id,
-          )?.then(() => {
-            snackbar("success");
-            backdrop("loading");
-            setTimeout(() => {
-              Router.pushI18n("/[spaceId]", `/${space.id}`);
-            }, 300);
-          });
-        } catch (err) {
-          snackbar("error", err.message);
-        }
-        break;
       case "quit":
         snackbar("info", t("common:snackbar.quiting"));
         try {
@@ -182,28 +146,16 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
       icon={
         type === "create" ? (
           <AddToPhotosIcon />
-        ) : type === "edit" ? (
-          <AddToPhotosIcon />
         ) : type === "quit" ? (
           <ExitToAppIcon />
         ) : (
           <></>
         )
       }
-      size={
-        type === "create"
-          ? "sm"
-          : type === "edit"
-          ? "sm"
-          : type === "quit"
-          ? "xs"
-          : "xs"
-      }
+      size={type === "create" ? "sm" : type === "quit" ? "xs" : "xs"}
       title={
         type === "create"
           ? t("space:space.createSpace")
-          : type === "edit"
-          ? t("space:space.editSpace")
           : type === "quit"
           ? t("space:space.quitSpace")
           : ""
@@ -250,59 +202,6 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
                 </Grid>
               </Grid>
             )}
-            {type === "edit" && (
-              <Grid item xs={12}>
-                <Controller
-                  as={
-                    <TextField
-                      autoFocus
-                      fullWidth
-                      id="space-name"
-                      label={t("common:common.name")}
-                      margin="normal"
-                      name="name"
-                      required
-                      variant="outlined"
-                      error={!!errors.name}
-                      inputRef={register}
-                      helperText={errors.name ? errors.name.message : ""}
-                      type="text"
-                    />
-                  }
-                  name="name"
-                  control={control}
-                  defaultValue={space?.name}
-                />
-              </Grid>
-            )}
-            {type === "edit" && (
-              <Grid item xs={12}>
-                <Controller
-                  as={
-                    <TextField
-                      fullWidth
-                      multiline
-                      rows={1}
-                      id="space-description"
-                      label={t("common:common.description")}
-                      margin="normal"
-                      name="description"
-                      required
-                      variant="outlined"
-                      error={!!errors.description}
-                      inputRef={register}
-                      helperText={
-                        errors.description ? errors.description.message : ""
-                      }
-                      type="text"
-                    />
-                  }
-                  name="description"
-                  control={control}
-                  defaultValue={space?.description}
-                />
-              </Grid>
-            )}
             {type === "quit" && (
               <Grid item xs={12}>
                 <Controller
@@ -336,7 +235,6 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
                 color="primary"
               >
                 {type === "create" && t("common:common.create")}
-                {type === "edit" && t("common:common.edit")}
                 {type === "quit" && t("common:common.quit")}
               </Button>
             </Grid>

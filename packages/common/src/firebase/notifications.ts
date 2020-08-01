@@ -47,7 +47,7 @@ export const getNotificationLive = (
 };
 
 export const notificationsQuery = ({
-  limit = 3,
+  limit = 5,
   last,
   userId,
 }: NotificationQuery): firebase.firestore.Query<Notification.Get> => {
