@@ -2,6 +2,7 @@
   "version": 2,
   "cleanUrls": true,
   "public": true,
+  "scope": "sentrei",
   "trailingSlash": false,
   "github": {
     "enabled": false
