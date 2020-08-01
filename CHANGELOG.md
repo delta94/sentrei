@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/sentrei/sentrei/compare/v1.15.0...v1.16.0) (2020-08-01)
+
+### Features
+
+- 🎸 ini notifications screen ([f24d4f8](https://github.com/sentrei/sentrei/commit/f24d4f88b48a61723066163d4c04a8cb338f5a88))
+- 🎸 refactor notification count plus & minus ([d16fa62](https://github.com/sentrei/sentrei/commit/d16fa62203d171861d20187b9496510e008ab45f))
+
 # [1.15.0](https://github.com/sentrei/sentrei/compare/v1.14.0...v1.15.0) (2020-08-01)
 
 ### Features
