@@ -12,11 +12,7 @@ import * as React from "react";
 import {useForm, Controller} from "react-hook-form";
 import * as Yup from "yup";
 
-import {
-  createRoom,
-  deleteRoom,
-  updateRoom,
-} from "@sentrei/common/firebase/rooms";
+import {createRoom, deleteRoom} from "@sentrei/common/firebase/rooms";
 
 import {timestamp} from "@sentrei/common/utils/firebase";
 import Profile from "@sentrei/types/models/Profile";
@@ -28,7 +24,7 @@ import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 export interface Props {
   profile: Profile.Get;
-  type: "create" | "edit" | "delete";
+  type: "create" | "delete";
   user: User.Get;
   room?: Room.Get;
   spaceId: string;
@@ -43,12 +39,6 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
     name: Yup.string().required(t("room:room.nameRequired")),
   });
 
-  const RoomEditSchema = Yup.object().shape({
-    name: Yup.string(),
-    description: Yup.string(),
-    photo: Yup.string(),
-  });
-
   const DeleteFormSchema = Yup.object().shape({
     delete: Yup.string()
       .required(t("room:room.deleteRequired"))
@@ -61,8 +51,6 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
     resolver:
       type === "create"
         ? yupResolver(RoomCreateSchema)
-        : type === "edit"
-        ? yupResolver(RoomEditSchema)
         : yupResolver(DeleteFormSchema),
   });
 
@@ -97,33 +85,6 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
           snackbar("error", err.message);
         }
         break;
-      case "edit":
-        snackbar("info", t("common:snackbar.editing"));
-        try {
-          if (!room || !spaceId) {
-            return;
-          }
-          await updateRoom(
-            {
-              name: data.name,
-              description: data.description,
-              photo: null,
-              updatedAt: timestamp,
-              updatedBy: profile,
-              updatedByUid: user.uid,
-            },
-            room.id,
-          )?.then(() => {
-            snackbar("success");
-            backdrop("loading");
-            setTimeout(() => {
-              Router.pushI18n("/[spaceId]", `/${spaceId}`);
-            }, 300);
-          });
-        } catch (err) {
-          snackbar("error", err.message);
-        }
-        break;
       case "delete":
         snackbar("info", t("common:snackbar.deleting"));
         try {
@@ -150,8 +111,6 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
       icon={
         type === "create" ? (
           <AddToPhotosIcon />
-        ) : type === "edit" ? (
-          <AddToPhotosIcon />
         ) : type === "delete" ? (
           <DeleteIcon />
         ) : (
@@ -161,8 +120,6 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
       title={
         type === "create"
           ? t("room:room.createRoom")
-          : type === "edit"
-          ? t("room:room.editRoom")
           : type === "delete"
           ? t("room:room.deleteRoom")
           : ""
@@ -194,59 +151,6 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
                   name="name"
                   control={control}
                   defaultValue=""
-                />
-              </Grid>
-            )}
-            {type === "edit" && (
-              <Grid item xs={12}>
-                <Controller
-                  as={
-                    <TextField
-                      autoFocus
-                      fullWidth
-                      id="room-name"
-                      label={t("common:common.name")}
-                      margin="normal"
-                      name="name"
-                      required
-                      variant="outlined"
-                      error={!!errors.name}
-                      inputRef={register}
-                      helperText={errors.name ? errors.name.message : ""}
-                      type="text"
-                    />
-                  }
-                  name="name"
-                  control={control}
-                  defaultValue={room?.name}
-                />
-              </Grid>
-            )}
-            {type === "edit" && (
-              <Grid item xs={12}>
-                <Controller
-                  as={
-                    <TextField
-                      fullWidth
-                      multiline
-                      rows={1}
-                      id="room-description"
-                      label={t("common:common.description")}
-                      margin="normal"
-                      name="description"
-                      required
-                      variant="outlined"
-                      error={!!errors.description}
-                      inputRef={register}
-                      helperText={
-                        errors.description ? errors.description.message : ""
-                      }
-                      type="text"
-                    />
-                  }
-                  name="description"
-                  control={control}
-                  defaultValue={room?.description}
                 />
               </Grid>
             )}
@@ -283,7 +187,6 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
                 color="primary"
               >
                 {type === "create" && t("common:common.create")}
-                {type === "edit" && t("common:common.edit")}
                 {type === "delete" && t("common:common.delete")}
               </Button>
             </Grid>
