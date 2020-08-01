@@ -14,7 +14,7 @@ export default function IntlForm(): JSX.Element {
 
   const [period] = React.useState<User.Language>(lang as User.Language);
 
-  const pathnameNoLang = router.pathname
+  const pathnameNoLang = router.asPath
     .split("/")
     .filter(section => section !== lang)
     .join("/");
