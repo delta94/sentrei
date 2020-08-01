@@ -2,8 +2,6 @@ name: Vercel
 on:
   push:
     branches:
-      - alpha
-      - beta
       - main
 jobs:
   vercel:
@@ -31,43 +29,14 @@ jobs:
       - run: |
           yarn run typescript
       - uses: chrnorm/deployment-action@releases/v1
-        id: preview
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          ref: ${{ github.branch }}
-          target_url: https://preview.sentrei.com
-          environment: "Vercel Preview ${{ github.event.pull_request.base.ref }}"
-      - uses: amondnet/vercel-action@v19
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          alias-domains: |
-            preview.sentrei.com
-      - if: success()
-        uses: chrnorm/deployment-status@releases/v1
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          state: "success"
-          deployment_id: ${{ steps.preview.outputs.deployment_id }}
-          target_url: https://preview.sentrei.com
-      - if: failure()
-        uses: chrnorm/deployment-status@releases/v1
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          state: "failure"
-          deployment_id: ${{ steps.preview.outputs.deployment_id }}
-          target_url: https://preview.sentrei.com
-      - if: github.ref == 'refs/heads/main'
-        uses: chrnorm/deployment-action@releases/v1
         id: production
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           ref: ${{ github.branch }}
           target_url: https://sentrei.com
-          environment: "Vercel Production"
+          environment: "Vercel production"
       - if: github.ref == 'refs/heads/main'
+        timeout-minutes: 30
         uses: amondnet/vercel-action@v19
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
@@ -75,14 +44,14 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: "--prod"
-      - if: github.ref == 'refs/heads/main' && success()
+      - if: success()
         uses: chrnorm/deployment-status@releases/v1
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           state: "success"
           deployment_id: ${{ steps.production.outputs.deployment_id }}
           target_url: https://sentrei.com
-      - if: github.ref == 'refs/heads/main' && failure()
+      - if: failure()
         uses: chrnorm/deployment-status@releases/v1
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
