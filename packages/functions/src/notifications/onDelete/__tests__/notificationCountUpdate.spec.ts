@@ -6,7 +6,7 @@ import {userResponseApp} from "@sentrei/functions/__dummy__/User";
 import Notification from "@sentrei/types/models/Notification";
 import Space from "@sentrei/types/models/Space";
 
-import notificationCountUpdate from "../notificationCountUpdate";
+import notificationCountMinus from "../notificationCountMinus";
 
 const testEnv = functions();
 const db = admin.firestore();
@@ -26,7 +26,7 @@ test("On delete, decrement notificationCount", async done => {
   });
 
   const context = {params: {userId: "userId"}};
-  const wrapped = testEnv.wrap(notificationCountUpdate);
+  const wrapped = testEnv.wrap(notificationCountMinus);
   const req = await wrapped(snap, context);
 
   expect(req).toBe("updated");
