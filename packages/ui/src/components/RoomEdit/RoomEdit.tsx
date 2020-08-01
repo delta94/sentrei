@@ -1,6 +1,6 @@
 import Container from "@material-ui/core/Container";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
-import LockIcon from "@material-ui/icons/Lock";
+import DescriptionIcon from "@material-ui/icons/Description";
 import PhotoIcon from "@material-ui/icons/Photo";
 import SettingsIcon from "@material-ui/icons/Settings";
 import useTranslation from "next-translate/useTranslation";
@@ -12,8 +12,8 @@ import Profile from "@sentrei/types/models/Profile";
 import Room from "@sentrei/types/models/Room";
 import User from "@sentrei/types/models/User";
 import FormSection from "@sentrei/ui/components/FormSection";
+import RoomDescriptionForm from "@sentrei/ui/components/RoomDescriptionForm";
 import RoomNameForm from "@sentrei/ui/components/RoomNameForm";
-import SettingsUsernameForm from "@sentrei/ui/components/SettingsUsernameForm";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
 import TabBoard from "@sentrei/ui/components/TabBoard";
 
@@ -48,23 +48,23 @@ export default function RoomEdit({profile, roomId, user}: Props): JSX.Element {
     >
       <>
         <TabBoard
-          tabIconOne={<AssignmentIndIcon />}
-          tabIconTwo={<PhotoIcon />}
-          tabIconThree={<LockIcon />}
-          tabLabelOne={t("common:common.name")}
-          tabLabelTwo={t("common:common.photo")}
-          tabLabelThree={t("common:common.username")}
+          tabIconOne={<DescriptionIcon />}
+          tabIconTwo={<AssignmentIndIcon />}
+          tabIconThree={<PhotoIcon />}
+          tabLabelOne={t("common:common.description")}
+          tabLabelTwo={t("common:common.name")}
+          tabLabelThree={t("common:common.photo")}
           tabPanelOne={
+            <Container component="main" maxWidth="xs">
+              <RoomDescriptionForm profile={profile} room={room} user={user} />
+            </Container>
+          }
+          tabPanelTwo={
             <Container component="main" maxWidth="xs">
               <RoomNameForm profile={profile} room={room} user={user} />
             </Container>
           }
-          tabPanelTwo={<></>}
-          tabPanelThree={
-            <Container component="main" maxWidth="xs">
-              <SettingsUsernameForm profile={profile} user={user} />
-            </Container>
-          }
+          tabPanelThree={<></>}
         />
       </>
     </FormSection>
