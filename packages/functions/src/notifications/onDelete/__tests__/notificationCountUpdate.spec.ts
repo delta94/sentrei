@@ -31,7 +31,6 @@ test("On delete, decrement notificationCount", async done => {
 
   expect(req).toBe("updated");
   expect(db.doc).toHaveBeenCalledWith("users/userId");
-  expect(db.doc("").get).toHaveBeenCalledTimes(1);
   expect(db.doc("").update).toHaveBeenCalledWith(<Space.AdminUpdate>{
     notificationCount: -1,
   });
