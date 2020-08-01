@@ -2,7 +2,7 @@ import * as React from "react";
 import {useInView} from "react-intersection-observer";
 import {RoughNotation} from "react-rough-notation";
 
-import Theme from "@sentrei/common/containers/Theme";
+import Theme from "@sentrei/common/containers/LightTheme";
 
 declare type brackets = "left" | "right" | "top" | "bottom";
 
