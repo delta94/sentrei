@@ -34,9 +34,32 @@ jobs:
           yarn install --frozen-lockfile
       - run: |
           yarn run typescript
-      # - uses: amondnet/vercel-action@v19
-      #   with:
-      #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-      #     vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+      - uses: chrnorm/deployment-action@releases/v1
+        id: pull
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          ref: ${{ github.branch }}
+          target_url: https://pull.sentrei.com
+          environment: "Web Pull ${{ github.event.pull_request.base.ref }}"
+      - uses: amondnet/vercel-action@v19
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          # alias-domains: |
+          #   pull.sentrei.com
+      - if: success()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          state: "success"
+          deployment_id: ${{ steps.pull.outputs.deployment_id }}
+          target_url: https://pull.sentrei.com
+      - if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          state: "failure"
+          deployment_id: ${{ steps.pull.outputs.deployment_id }}
+          target_url: https://pull.sentrei.com
