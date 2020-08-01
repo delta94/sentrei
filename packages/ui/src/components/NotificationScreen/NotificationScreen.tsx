@@ -5,7 +5,7 @@ import Notification from "@sentrei/types/models/Notification";
 
 import User from "@sentrei/types/models/User";
 import NotificationList from "@sentrei/ui/components/NotificationList";
-import SkeletonScreen from "@sentrei/ui/components/SkeletonScreen";
+import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
 
 export interface Props {
   user: User.Get;
@@ -22,7 +22,7 @@ export default function NotificationScreen({user}: Props): JSX.Element {
     }
   }, [user]);
 
-  if (!notificationShot) return <SkeletonScreen />;
+  if (!notificationShot) return <SkeletonForm />;
 
   return (
     <>
