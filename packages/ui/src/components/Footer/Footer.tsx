@@ -63,7 +63,7 @@ export default function Footer(): JSX.Element {
             </Grid>
             <Grid item xs={12} sm={3}>
               <Typography variant="h6" gutterBottom>
-                {t("index:footer.mode")}
+                {t("index:footer.preferences")}
               </Typography>
               <DarkModeButton />
             </Grid>
