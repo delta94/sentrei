@@ -9,17 +9,17 @@
     "idInvalid": "ID is invalid",
     "idRequired": "ID is required"
   },
+  "name": {
+    "nameRequired": "Name is required"
+  },
   "password": {
     "match": "Passwords must match",
     "valid": "Please enter a valid password"
   },
-  "name": {
-    "nameRequired": "Name is required"
-  },
   "username": {
     "usernameAlreadyUsed": "Username is already used",
     "usernameInvalid": "Username is invalid",
-    "usernameRequired": "Username is required",
-    "usernameNotExist": "Username doesn't exist"
+    "usernameNotExist": "Username doesn't exist",
+    "usernameRequired": "Username is required"
   }
 }
