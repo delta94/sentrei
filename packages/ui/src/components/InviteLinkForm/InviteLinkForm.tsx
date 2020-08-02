@@ -55,10 +55,9 @@ const InviteLinkForm = ({profile, user, spaceId}: Props): JSX.Element => {
 
   return (
     <Grid container direction="row" alignItems="center" spacing={3}>
-      <Grid item xs={4}>
-        <FormControl>
+      <Grid item xs={12} sm={12} md={4}>
+        <FormControl fullWidth size="small">
           <TextField
-            fullWidth
             id="select"
             label="Period"
             select
@@ -67,20 +66,20 @@ const InviteLinkForm = ({profile, user, spaceId}: Props): JSX.Element => {
             value={period}
             onChange={handleChange}
           >
-            <MenuItem value="day">Day</MenuItem>
-            <MenuItem value="week">Week</MenuItem>
-            <MenuItem value="never">Never</MenuItem>
+            <MenuItem value="day">{t("common:common.day")}</MenuItem>
+            <MenuItem value="week">{t("common:common.week")}</MenuItem>
+            <MenuItem value="never">{t("common:common.never")}</MenuItem>
           </TextField>
         </FormControl>
       </Grid>
-      <Grid item xs={8}>
+      <Grid item xs={12} sm={12} md={8}>
         <Button
           fullWidth
           color="primary"
           variant="contained"
           onClick={(): Promise<void> => handleSubmit()}
         >
-          Create
+          {t("common:common.create")}
         </Button>
       </Grid>
     </Grid>

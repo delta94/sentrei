@@ -6,6 +6,7 @@
     "create": "创造",
     "darkMode": "暗模式",
     "dashboard": "仪表板",
+    "day": "天",
     "delete": "删除",
     "description": "描述",
     "edit": "编辑",
@@ -21,12 +22,14 @@
     "members": "会员",
     "mode": "模式",
     "name": "名称",
+    "never": "决不",
     "none": "没有",
     "notifications": "通知事项",
     "password": "密码",
     "passwordConfirm": "确认密码",
     "passwordNew": "新密码",
     "passwordOld": "旧密码",
+    "photo": "照片",
     "profile": "个人资料",
     "quit": "退出",
     "room": "房间",
@@ -35,7 +38,8 @@
     "title": "森特雷",
     "update": "更新资料",
     "username": "用户名",
-    "visit": "访问"
+    "visit": "访问",
+    "week": "周"
   },
   "snackbar": {
     "clipboard": "复制到剪贴板的链接！",

@@ -79,10 +79,7 @@ export default function InviteScreen({
                   user={user}
                   spaceId={spaceId}
                 />
-              </Container>
-              <Box p={1} />
-              <Container component="main" maxWidth="md">
-                <></>
+                <Box p={1} />
                 {invites && <InviteList invites={invites} type="email" />}
               </Container>
             </>
@@ -95,10 +92,7 @@ export default function InviteScreen({
                   user={user}
                   spaceId={spaceId}
                 />
-              </Container>
-              <Box p={1} />
-              <Container component="main" maxWidth="md">
-                <></>
+                <Box p={1} />
                 {invites && <InviteList invites={invites} type="link" />}
               </Container>
             </>

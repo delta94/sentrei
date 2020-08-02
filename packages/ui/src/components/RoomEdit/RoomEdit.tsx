@@ -47,27 +47,25 @@ export default function RoomEdit({profile, roomId, user}: Props): JSX.Element {
       title={t("room:room.editRoom")}
       size="md"
     >
-      <>
-        <TabBoard
-          tabIconOne={<DescriptionIcon />}
-          tabIconTwo={<AssignmentIndIcon />}
-          tabIconThree={<PhotoIcon />}
-          tabLabelOne={t("common:common.description")}
-          tabLabelTwo={t("common:common.name")}
-          tabLabelThree={t("common:common.photo")}
-          tabPanelOne={
-            <Container component="main" maxWidth="xs">
-              <RoomDescriptionForm profile={profile} room={room} user={user} />
-            </Container>
-          }
-          tabPanelTwo={
-            <Container component="main" maxWidth="xs">
-              <RoomNameForm profile={profile} room={room} user={user} />
-            </Container>
-          }
-          tabPanelThree={<></>}
-        />
-      </>
+      <TabBoard
+        tabIconOne={<DescriptionIcon />}
+        tabIconTwo={<AssignmentIndIcon />}
+        tabIconThree={<PhotoIcon />}
+        tabLabelOne={t("common:common.description")}
+        tabLabelTwo={t("common:common.name")}
+        tabLabelThree={t("common:common.photo")}
+        tabPanelOne={
+          <Container component="main" maxWidth="xs">
+            <RoomDescriptionForm profile={profile} room={room} user={user} />
+          </Container>
+        }
+        tabPanelTwo={
+          <Container component="main" maxWidth="xs">
+            <RoomNameForm profile={profile} room={room} user={user} />
+          </Container>
+        }
+        tabPanelThree={<></>}
+      />
     </FormSection>
   );
 }
