@@ -1,3 +1,9 @@
+## [1.17.2](https://github.com/sentrei/sentrei/compare/v1.17.1...v1.17.2) (2020-08-02)
+
+### Performance Improvements
+
+- ⚡️ i18n for invite form ([cf976df](https://github.com/sentrei/sentrei/commit/cf976df198dfda81345ecc749112de55f58fc56f))
+
 ## [1.17.1](https://github.com/sentrei/sentrei/compare/v1.17.0...v1.17.1) (2020-08-01)
 
 ### Bug Fixes
