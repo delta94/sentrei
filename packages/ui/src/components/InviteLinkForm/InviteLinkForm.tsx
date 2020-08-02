@@ -66,9 +66,9 @@ const InviteLinkForm = ({profile, user, spaceId}: Props): JSX.Element => {
             value={period}
             onChange={handleChange}
           >
-            <MenuItem value="day">Day</MenuItem>
-            <MenuItem value="week">Week</MenuItem>
-            <MenuItem value="never">Never</MenuItem>
+            <MenuItem value="day">{t("common:common.day")}</MenuItem>
+            <MenuItem value="week">{t("common:common.week")}</MenuItem>
+            <MenuItem value="never">{t("common:common.never")}</MenuItem>
           </TextField>
         </FormControl>
       </Grid>
@@ -79,7 +79,7 @@ const InviteLinkForm = ({profile, user, spaceId}: Props): JSX.Element => {
           variant="contained"
           onClick={(): Promise<void> => handleSubmit()}
         >
-          Create
+          {t("common:common.create")}
         </Button>
       </Grid>
     </Grid>

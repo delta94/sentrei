@@ -6,6 +6,7 @@
     "create": "作成する",
     "darkMode": "ダークモード",
     "dashboard": "ダッシュボード",
+    "day": "日",
     "delete": "削除する",
     "description": "説明",
     "edit": "編集する",
@@ -21,12 +22,14 @@
     "members": "会員",
     "mode": "モード",
     "name": "名前",
+    "never": "決して",
     "none": "なし",
     "notifications": "お知らせ",
     "password": "パスワード",
     "passwordConfirm": "パスワードの確認",
     "passwordNew": "新しいパスワード",
     "passwordOld": "以前のパスワード",
+    "photo": "写真",
     "profile": "プロフィール",
     "quit": "終了する",
     "room": "ルーム",
@@ -35,7 +38,8 @@
     "title": "セントレイ",
     "update": "更新",
     "username": "ユーザー名",
-    "visit": "訪問"
+    "visit": "訪問",
+    "week": "週間"
   },
   "snackbar": {
     "clipboard": "クリップボードへのリンクをコピーしました！",

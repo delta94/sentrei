@@ -6,6 +6,7 @@
     "create": "Create",
     "darkMode": "Dark Mode",
     "dashboard": "Dashboard",
+    "day": "Day",
     "delete": "Delete",
     "description": "Description",
     "edit": "Edit",
@@ -21,6 +22,7 @@
     "members": "Members",
     "mode": "Mode",
     "name": "Name",
+    "never": "Never",
     "none": "None",
     "notifications": "Notifications",
     "password": "Password",
@@ -36,7 +38,8 @@
     "title": "Sentrei",
     "update": "Update",
     "username": "Username",
-    "visit": "Visit"
+    "visit": "Visit",
+    "week": "Week"
   },
   "snackbar": {
     "clipboard": "Copied link to clipboard!",
