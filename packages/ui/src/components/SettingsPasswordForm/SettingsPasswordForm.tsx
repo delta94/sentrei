@@ -20,8 +20,8 @@ const SettingsPasswordForm = (): JSX.Element => {
   const {backdrop} = useBackdrop();
 
   const PasswordFormSchema = Yup.object().shape({
-    passwordNew: Yup.string().required(t("auth:auth.password.valid")),
-    passwordOld: Yup.string().required(t("auth:auth.password.valid")),
+    passwordNew: Yup.string().required(t("form:password.valid")),
+    passwordOld: Yup.string().required(t("form.password.valid")),
   });
 
   const {control, register, errors, handleSubmit} = useForm({

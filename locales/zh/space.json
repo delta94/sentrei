@@ -8,10 +8,7 @@
     "title": "您的空间"
   },
   "invite": {
-    "invite": "邀请",
-    "usernameInvalid": "无效的用户名",
-    "usernameNotExist": "用户名不存在",
-    "usernameRequired": "用户名为必填项"
+    "invite": "邀请"
   },
   "leaderboard": {
     "title": "排行榜"
@@ -25,13 +22,6 @@
   "space": {
     "createSpace": "创造空间",
     "editSpace": "编辑空间",
-    "idAlreadyUsed": "ID已被使用",
-    "idInvalid": "ID无效",
-    "idRequired": "ID为必填项",
-    "mySpaces": "我的空间",
-    "nameRequired": "名称为必填项",
-    "quitRequired": "必须退出",
-    "quitSpace": "退出空间",
-    "quitTypeRequired": "必须输入“ QUIT”"
+    "quitSpace": "退出空间"
   }
 }

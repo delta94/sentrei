@@ -1,4 +1,3 @@
-import Container from "@material-ui/core/Container";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import DescriptionIcon from "@material-ui/icons/Description";
 import PhotoIcon from "@material-ui/icons/Photo";
@@ -45,12 +44,14 @@ export default function SpaceEdit({
   }
 
   return (
-    <FormSection
-      icon={<SettingsIcon />}
-      title={t("space:space.editSpace")}
-      size="md"
-    >
+    <>
+      <FormSection
+        icon={<SettingsIcon />}
+        title={t("space:space.editSpace")}
+        size="md"
+      />
       <TabBoard
+        size="sm"
         tabIconOne={<DescriptionIcon />}
         tabIconTwo={<AssignmentIndIcon />}
         tabIconThree={<PhotoIcon />}
@@ -58,17 +59,13 @@ export default function SpaceEdit({
         tabLabelTwo={t("common:common.name")}
         tabLabelThree={t("common:common.photo")}
         tabPanelOne={
-          <Container component="main" maxWidth="xs">
-            <SpaceDescriptionForm profile={profile} space={space} user={user} />
-          </Container>
+          <SpaceDescriptionForm profile={profile} space={space} user={user} />
         }
         tabPanelTwo={
-          <Container component="main" maxWidth="xs">
-            <SpaceNameForm profile={profile} space={space} user={user} />
-          </Container>
+          <SpaceNameForm profile={profile} space={space} user={user} />
         }
         tabPanelThree={<></>}
       />
-    </FormSection>
+    </>
   );
 }

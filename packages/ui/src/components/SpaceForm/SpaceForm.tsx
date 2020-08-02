@@ -44,12 +44,9 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
 
   const SpaceCreateSchema = Yup.object().shape({
     id: Yup.string()
-      .required(t("space:space.idRequired"))
-      .matches(
-        /^[a-z0-9][a-z0-9_]*([.][a-z0-9_]+)*$/,
-        t("space:space.idInvalid"),
-      )
-      .test("id", t("space:space.idAlreadyUsed"), async value => {
+      .required(t("form:id.idRequired"))
+      .matches(/^[a-z0-9][a-z0-9_]*([.][a-z0-9_]+)*$/, t("form:id.idInvalid"))
+      .test("id", t("form:id.idAlreadyUsed"), async value => {
         const result = await validateSpaceId(value);
         return result;
       }),
@@ -142,117 +139,111 @@ const SpaceForm = ({profile, space, type, user}: Props): JSX.Element => {
   };
 
   return (
-    <FormSection
-      icon={
-        type === "create" ? (
-          <AddToPhotosIcon />
-        ) : type === "quit" ? (
-          <ExitToAppIcon />
-        ) : (
-          <></>
-        )
-      }
-      size={type === "create" ? "sm" : type === "quit" ? "xs" : "xs"}
-      title={
-        type === "create"
-          ? t("space:space.createSpace")
-          : type === "quit"
-          ? t("space:space.quitSpace")
-          : ""
-      }
-    >
-      <>
-        <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" noValidate>
-          <Grid container spacing={3}>
-            {type === "create" && (
-              <Grid item xs={12}>
-                <Grid container direction="row" alignItems="center">
-                  <Grid item xs={6}>
-                    <Typography
-                      variant="h5"
-                      color="textSecondary"
-                      display="inline"
-                      gutterBottom
-                    >
-                      sentrei.com/
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Controller
-                      as={
-                        <TextField
-                          fullWidth
-                          id="space"
-                          label={t("common:common.id")}
-                          margin="normal"
-                          name="id"
-                          required
-                          variant="outlined"
-                          error={!!errors.id}
-                          inputRef={register}
-                          helperText={errors.id ? errors.id.message : ""}
-                          type="text"
-                        />
-                      }
-                      name="id"
-                      control={control}
-                      defaultValue=""
-                    />
-                  </Grid>
+    <>
+      <FormSection
+        icon={
+          type === "create" ? (
+            <AddToPhotosIcon />
+          ) : type === "quit" ? (
+            <ExitToAppIcon />
+          ) : (
+            <></>
+          )
+        }
+        size={type === "create" ? "sm" : type === "quit" ? "xs" : "xs"}
+        title={
+          type === "create"
+            ? t("space:space.createSpace")
+            : type === "quit"
+            ? t("space:space.quitSpace")
+            : ""
+        }
+      />
+      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" noValidate>
+        <Grid container spacing={3}>
+          {type === "create" && (
+            <Grid item xs={12}>
+              <Grid container direction="row" alignItems="center">
+                <Grid item xs={6}>
+                  <Typography
+                    variant="h5"
+                    color="textSecondary"
+                    display="inline"
+                    gutterBottom
+                  >
+                    sentrei.com/
+                  </Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Controller
+                    as={
+                      <TextField
+                        fullWidth
+                        id="space"
+                        label={t("common:common.id")}
+                        margin="normal"
+                        name="id"
+                        required
+                        variant="outlined"
+                        error={!!errors.id}
+                        inputRef={register}
+                        helperText={errors.id ? errors.id.message : ""}
+                        type="text"
+                      />
+                    }
+                    name="id"
+                    control={control}
+                    defaultValue=""
+                  />
                 </Grid>
               </Grid>
-            )}
-            {type === "quit" && (
-              <Grid item xs={12}>
-                <Controller
-                  as={
-                    <TextField
-                      autoFocus
-                      fullWidth
-                      id="space-quit"
-                      label="Type QUIT"
-                      margin="normal"
-                      name="quit"
-                      required
-                      variant="outlined"
-                      error={!!errors.quit}
-                      inputRef={register}
-                      helperText={errors.quit ? errors.quit.message : ""}
-                      type="text"
-                    />
-                  }
-                  name="quit"
-                  control={control}
-                  defaultValue=""
-                />
-              </Grid>
-            )}
-            <Grid item xs={12}>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-              >
-                {type === "create" && t("common:common.create")}
-                {type === "quit" && t("common:common.quit")}
-              </Button>
             </Grid>
+          )}
+          {type === "quit" && (
             <Grid item xs={12}>
-              <Button
-                type="reset"
-                fullWidth
-                variant="outlined"
-                color="primary"
-                onClick={(): void => Router.back()}
-              >
-                {t("common:common.cancel")}
-              </Button>
+              <Controller
+                as={
+                  <TextField
+                    autoFocus
+                    fullWidth
+                    id="space-quit"
+                    label="Type QUIT"
+                    margin="normal"
+                    name="quit"
+                    required
+                    variant="outlined"
+                    error={!!errors.quit}
+                    inputRef={register}
+                    helperText={errors.quit ? errors.quit.message : ""}
+                    type="text"
+                  />
+                }
+                name="quit"
+                control={control}
+                defaultValue=""
+              />
             </Grid>
+          )}
+          <Grid item xs={12}>
+            <Button type="submit" fullWidth variant="contained" color="primary">
+              {type === "create" && t("common:common.create")}
+              {type === "quit" && t("common:common.quit")}
+            </Button>
           </Grid>
-        </form>
-      </>
-    </FormSection>
+          <Grid item xs={12}>
+            <Button
+              type="reset"
+              fullWidth
+              variant="outlined"
+              color="primary"
+              onClick={(): void => Router.back()}
+            >
+              {t("common:common.cancel")}
+            </Button>
+          </Grid>
+        </Grid>
+      </form>
+    </>
   );
 };
 

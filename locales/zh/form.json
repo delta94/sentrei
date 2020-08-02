@@ -1,0 +1,25 @@
+{
+  "email": {
+    "check": "请查看你的邮箱",
+    "required": "电子邮件为必填项",
+    "valid": "请输入有效电子邮件"
+  },
+  "id": {
+    "idAlreadyUsed": "ID已被使用",
+    "idInvalid": "ID无效",
+    "idRequired": "ID为必填项"
+  },
+  "name": {
+    "nameRequired": "名称为必填项"
+  },
+  "password": {
+    "match": "密码必须匹配",
+    "valid": "请输入有效密码"
+  },
+  "username": {
+    "usernameAlreadyUsed": "用户名已被使用",
+    "usernameInvalid": "无效的用户名",
+    "usernameNotExist": "用户名不存在",
+    "usernameRequired": "用户名为必填项"
+  }
+}

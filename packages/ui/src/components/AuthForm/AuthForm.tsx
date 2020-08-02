@@ -47,15 +47,15 @@ export default function AuthForm({type}: Props): JSX.Element {
 
   const AuthFormSchema = Yup.object().shape({
     email: Yup.string()
-      .required(t("auth:auth.email.required"))
-      .email(t("auth:auth.email.valid")),
-    password: Yup.string().required(t("auth:auth.password.valid")),
+      .required(t("form.email.required"))
+      .email(t("form.email.valid")),
+    password: Yup.string().required(t("form.password.valid")),
   });
 
   const ResetFormSchema = Yup.object().shape({
     email: Yup.string()
-      .required(t("auth:auth.email.required"))
-      .email(t("auth:auth.email.valid")),
+      .required(t("form.email.required"))
+      .email(t("form.email.valid")),
   });
 
   const {control, register, errors, handleSubmit} = useForm({
@@ -87,7 +87,7 @@ export default function AuthForm({type}: Props): JSX.Element {
           await auth.sendPasswordResetEmail(data.email).catch(err => {
             snackbar("error", err.message);
           });
-          snackbar("success", t("auth:auth.email.check"));
+          snackbar("success", t("form.email.check"));
         } catch (err) {
           snackbar("error", err.message);
         }
@@ -155,132 +155,131 @@ export default function AuthForm({type}: Props): JSX.Element {
             : ""
         }
         size="sm"
-      >
-        <Grid container spacing={3}>
-          <Box p={1} />
-          {type !== "reset" && (
-            <Button
-              onClick={(): void => google()}
-              color="primary"
-              variant="outlined"
-              className={classes.button}
-            >
-              <img
-                width="20px"
-                alt="Google sign-in"
-                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-                className={classes.google}
-              />
-              <Typography>
-                {type === "login" && t("auth:login.google")}
-                {type === "signup" && t("auth:signup.google")}
-              </Typography>
-            </Button>
-          )}
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className={classes.form}
-            autoComplete="off"
-            noValidate
+      />
+      <Grid container spacing={3}>
+        <Box p={1} />
+        {type !== "reset" && (
+          <Button
+            onClick={(): void => google()}
+            color="primary"
+            variant="outlined"
+            className={classes.button}
           >
+            <img
+              width="20px"
+              alt="Google sign-in"
+              src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+              className={classes.google}
+            />
+            <Typography>
+              {type === "login" && t("auth:login.google")}
+              {type === "signup" && t("auth:signup.google")}
+            </Typography>
+          </Button>
+        )}
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className={classes.form}
+          autoComplete="off"
+          noValidate
+        >
+          <Controller
+            as={
+              <TextField
+                autoComplete="email"
+                autoFocus
+                fullWidth
+                id="email"
+                label={t("common:common.email")}
+                margin="normal"
+                name="email"
+                placeholder="example@sentrei.com"
+                required
+                variant="outlined"
+                error={!!errors.email}
+                inputRef={register}
+                helperText={errors.email ? errors.email.message : ""}
+              />
+            }
+            name="email"
+            control={control}
+            defaultValue=""
+          />
+          {type === "login" || type === "signup" ? (
             <Controller
               as={
                 <TextField
-                  autoComplete="email"
-                  autoFocus
+                  autoComplete="current-password"
                   fullWidth
-                  id="email"
-                  label={t("common:common.email")}
+                  id="password"
+                  label={t("common:common.password")}
                   margin="normal"
-                  name="email"
-                  placeholder="example@sentrei.com"
+                  name="password"
                   required
+                  type="password"
                   variant="outlined"
-                  error={!!errors.email}
+                  error={!!errors.password}
                   inputRef={register}
-                  helperText={errors.email ? errors.email.message : ""}
+                  helperText={errors.password ? errors.password.message : ""}
                 />
               }
-              name="email"
+              name="password"
               control={control}
               defaultValue=""
             />
-            {type === "login" || type === "signup" ? (
-              <Controller
-                as={
-                  <TextField
-                    autoComplete="current-password"
-                    fullWidth
-                    id="password"
-                    label={t("common:common.password")}
-                    margin="normal"
-                    name="password"
-                    required
-                    type="password"
-                    variant="outlined"
-                    error={!!errors.password}
-                    inputRef={register}
-                    helperText={errors.password ? errors.password.message : ""}
-                  />
-                }
-                name="password"
-                control={control}
-                defaultValue=""
-              />
-            ) : null}
-            {type === "login" || type === "signup" ? (
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label={t("auth:auth.rememberMe")}
-              />
-            ) : null}
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              {type === "reset" && t("auth:resetPassword.button")}
-              {type === "login" && t("auth:login.button")}
-              {type === "signup" && t("auth:signup.button")}
-            </Button>
-          </form>
-          {type === "login" && (
-            <Grid container>
-              <Grid item xs>
-                <MuiLink href="/reset-password" variant="body2">
-                  {t("auth:login.forgotPassword")}
-                </MuiLink>
-              </Grid>
+          ) : null}
+          {type === "login" || type === "signup" ? (
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label={t("auth:auth.rememberMe")}
+            />
+          ) : null}
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            {type === "reset" && t("auth:resetPassword.button")}
+            {type === "login" && t("auth:login.button")}
+            {type === "signup" && t("auth:signup.button")}
+          </Button>
+        </form>
+        {type === "login" && (
+          <Grid container>
+            <Grid item xs>
+              <MuiLink href="/reset-password" variant="body2">
+                {t("auth:login.forgotPassword")}
+              </MuiLink>
+            </Grid>
+            <Grid item>
+              <MuiLink href="/signup" variant="body2">
+                {t("auth:login.dontHaveSignup")}
+              </MuiLink>
+            </Grid>
+          </Grid>
+        )}
+        {type === "signup" && (
+          <>
+            <Grid container justify="center">
               <Grid item>
-                <MuiLink href="/signup" variant="body2">
-                  {t("auth:login.dontHaveSignup")}
+                <MuiLink href="/login" variant="body2">
+                  {t("auth:signup.alreadyHaveLogin")}
                 </MuiLink>
               </Grid>
             </Grid>
-          )}
-          {type === "signup" && (
-            <>
-              <Grid container justify="center">
-                <Grid item>
-                  <MuiLink href="/login" variant="body2">
-                    {t("auth:signup.alreadyHaveLogin")}
-                  </MuiLink>
-                </Grid>
+            <Box p={1} />
+            <Grid container justify="center">
+              <Grid item>
+                <MuiLink href="/terms" variant="body2">
+                  {t("auth:signup.byAgreeTerms")}
+                </MuiLink>
               </Grid>
-              <Box p={1} />
-              <Grid container justify="center">
-                <Grid item>
-                  <MuiLink href="/terms" variant="body2">
-                    {t("auth:signup.byAgreeTerms")}
-                  </MuiLink>
-                </Grid>
-              </Grid>
-            </>
-          )}
-        </Grid>
-      </FormSection>
+            </Grid>
+          </>
+        )}
+      </Grid>
     </Box>
   );
 }

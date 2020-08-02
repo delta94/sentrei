@@ -1,8 +1,5 @@
 {
   "settings": {
-    "title": "設定",
-    "usernameAlreadyUsed": "ユーザー名は既に使用されています",
-    "usernameInvalid": "ユーザー名が無効です",
-    "usernameRequired": "ユーザー名は必須です"
+    "title": "設定"
   }
 }
