@@ -59,6 +59,8 @@ function InviteCard({invite, type}: Props): JSX.Element {
           type === "email" ? invite.email : `${window.location}/${invite.id}`
         }
         secondary={type === "email" ? null : invite.period}
+        primaryTypographyProps={{noWrap: true}}
+        secondaryTypographyProps={{noWrap: true}}
       />
       <ListItemSecondaryAction>
         <IconButton edge="end" aria-label="delete" onClick={toggleDeleteInvite}>

@@ -55,10 +55,9 @@ const InviteLinkForm = ({profile, user, spaceId}: Props): JSX.Element => {
 
   return (
     <Grid container direction="row" alignItems="center" spacing={3}>
-      <Grid item xs={4}>
-        <FormControl>
+      <Grid item xs={12} sm={12} md={4}>
+        <FormControl fullWidth size="small">
           <TextField
-            fullWidth
             id="select"
             label="Period"
             select
@@ -73,7 +72,7 @@ const InviteLinkForm = ({profile, user, spaceId}: Props): JSX.Element => {
           </TextField>
         </FormControl>
       </Grid>
-      <Grid item xs={8}>
+      <Grid item xs={12} sm={12} md={8}>
         <Button
           fullWidth
           color="primary"

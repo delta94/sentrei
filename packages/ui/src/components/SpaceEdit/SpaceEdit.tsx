@@ -50,31 +50,25 @@ export default function SpaceEdit({
       title={t("space:space.editSpace")}
       size="md"
     >
-      <>
-        <TabBoard
-          tabIconOne={<DescriptionIcon />}
-          tabIconTwo={<AssignmentIndIcon />}
-          tabIconThree={<PhotoIcon />}
-          tabLabelOne={t("common:common.description")}
-          tabLabelTwo={t("common:common.name")}
-          tabLabelThree={t("common:common.photo")}
-          tabPanelOne={
-            <Container component="main" maxWidth="xs">
-              <SpaceDescriptionForm
-                profile={profile}
-                space={space}
-                user={user}
-              />
-            </Container>
-          }
-          tabPanelTwo={
-            <Container component="main" maxWidth="xs">
-              <SpaceNameForm profile={profile} space={space} user={user} />
-            </Container>
-          }
-          tabPanelThree={<></>}
-        />
-      </>
+      <TabBoard
+        tabIconOne={<DescriptionIcon />}
+        tabIconTwo={<AssignmentIndIcon />}
+        tabIconThree={<PhotoIcon />}
+        tabLabelOne={t("common:common.description")}
+        tabLabelTwo={t("common:common.name")}
+        tabLabelThree={t("common:common.photo")}
+        tabPanelOne={
+          <Container component="main" maxWidth="xs">
+            <SpaceDescriptionForm profile={profile} space={space} user={user} />
+          </Container>
+        }
+        tabPanelTwo={
+          <Container component="main" maxWidth="xs">
+            <SpaceNameForm profile={profile} space={space} user={user} />
+          </Container>
+        }
+        tabPanelThree={<></>}
+      />
     </FormSection>
   );
 }
