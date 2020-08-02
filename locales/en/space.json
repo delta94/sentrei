@@ -8,10 +8,7 @@
     "title": "My Spaces"
   },
   "invite": {
-    "invite": "Invite",
-    "usernameInvalid": "Username is invalid",
-    "usernameNotExist": "Username doesn't exist",
-    "usernameRequired": "Username is required"
+    "invite": "Invite"
   },
   "leaderboard": {
     "title": "Leaderboard"
@@ -25,13 +22,6 @@
   "space": {
     "createSpace": "Create Space",
     "editSpace": "Edit Space",
-    "idAlreadyUsed": "ID is already used",
-    "idInvalid": "ID is invalid",
-    "idRequired": "ID is required",
-    "mySpaces": "My Spaces",
-    "nameRequired": "Name is required",
-    "quitRequired": "Quit is required",
-    "quitSpace": "Quit Space",
-    "quitTypeRequired": "Typing 'QUIT' is required"
+    "quitSpace": "Quit Space"
   }
 }

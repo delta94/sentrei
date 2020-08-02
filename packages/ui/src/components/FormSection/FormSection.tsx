@@ -8,14 +8,12 @@ import * as React from "react";
 import FormSectionStyles from "./FormSectionStyles";
 
 export interface Props {
-  children: JSX.Element;
   icon: JSX.Element;
   size?: "xs" | "sm" | "md" | "lg" | "xl" | false;
   title: string;
 }
 
 export default function FormSection({
-  children,
   icon,
   size = "xs",
   title,
@@ -31,7 +29,7 @@ export default function FormSection({
         <Typography component="h1" variant="h3">
           {title}
         </Typography>
-        <Box p={3}>{children}</Box>
+        <Box p={3} />
       </div>
     </Container>
   );

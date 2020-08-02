@@ -1,0 +1,25 @@
+{
+  "email": {
+    "check": "Please check your email",
+    "required": "Email is required",
+    "valid": "Please enter a valid email"
+  },
+  "id": {
+    "idAlreadyUsed": "ID is already used",
+    "idInvalid": "ID is invalid",
+    "idRequired": "ID is required"
+  },
+  "password": {
+    "match": "Passwords must match",
+    "valid": "Please enter a valid password"
+  },
+  "name": {
+    "nameRequired": "Name is required"
+  },
+  "username": {
+    "usernameAlreadyUsed": "Username is already used",
+    "usernameInvalid": "Username is invalid",
+    "usernameRequired": "Username is required",
+    "usernameNotExist": "Username doesn't exist"
+  }
+}

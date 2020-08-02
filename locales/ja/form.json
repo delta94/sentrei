@@ -1,0 +1,25 @@
+{
+  "email": {
+    "check": "メールを確認してください",
+    "required": "メールは必須です",
+    "valid": "正しいメールアドレスを入力してください"
+  },
+  "id": {
+    "idAlreadyUsed": "IDは既に使用されています",
+    "idInvalid": "IDが無効です",
+    "idRequired": "IDが必要です"
+  },
+  "name": {
+    "nameRequired": "名前は必須です"
+  },
+  "password": {
+    "match": "パスワードが一致する必要があります",
+    "valid": "有効なパスワードを入力して下さい"
+  },
+  "username": {
+    "usernameAlreadyUsed": "ユーザー名は既に使用されています",
+    "usernameInvalid": "ユーザー名が無効です",
+    "usernameNotExist": "ユーザー名が存在しません",
+    "usernameRequired": "ユーザー名は必須です"
+  }
+}

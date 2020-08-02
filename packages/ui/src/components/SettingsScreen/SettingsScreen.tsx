@@ -1,4 +1,3 @@
-import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import LockIcon from "@material-ui/icons/Lock";
@@ -24,12 +23,14 @@ const SettingsScreen = ({profile, user}: Props): JSX.Element => {
   const {t} = useTranslation();
 
   return (
-    <FormSection
-      icon={<SettingsIcon />}
-      title={t("settings:settings.title")}
-      size="md"
-    >
+    <>
+      <FormSection
+        icon={<SettingsIcon />}
+        title={t("settings:settings.title")}
+        size="md"
+      />
       <TabBoard
+        size="sm"
         tabIconOne={<AssignmentIndIcon />}
         tabIconTwo={<NotificationsIcon />}
         tabIconThree={<LockIcon />}
@@ -37,47 +38,37 @@ const SettingsScreen = ({profile, user}: Props): JSX.Element => {
         tabLabelTwo={t("common:common.password")}
         tabLabelThree={t("common:common.username")}
         tabPanelOne={
-          <Container component="main" maxWidth="xs">
-            <Grid container justify="center" direction="row" spacing={3}>
-              <Grid item xs={12}>
-                <NotificationForm
-                  profile={profile}
-                  user={user}
-                  content="chat"
-                  label="Chat"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <NotificationForm
-                  profile={profile}
-                  user={user}
-                  content="invitation"
-                  label="Invitation"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <NotificationForm
-                  profile={profile}
-                  user={user}
-                  content="update"
-                  label="Update"
-                />
-              </Grid>
+          <Grid container justify="center" direction="row" spacing={3}>
+            <Grid item xs={12}>
+              <NotificationForm
+                profile={profile}
+                user={user}
+                content="chat"
+                label="Chat"
+              />
             </Grid>
-          </Container>
+            <Grid item xs={12}>
+              <NotificationForm
+                profile={profile}
+                user={user}
+                content="invitation"
+                label="Invitation"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <NotificationForm
+                profile={profile}
+                user={user}
+                content="update"
+                label="Update"
+              />
+            </Grid>
+          </Grid>
         }
-        tabPanelTwo={
-          <Container component="main" maxWidth="xs">
-            <PasswordUpdateForm />
-          </Container>
-        }
-        tabPanelThree={
-          <Container component="main" maxWidth="xs">
-            <SettingsUsernameForm profile={profile} user={user} />
-          </Container>
-        }
+        tabPanelTwo={<PasswordUpdateForm />}
+        tabPanelThree={<SettingsUsernameForm profile={profile} user={user} />}
       />
-    </FormSection>
+    </>
   );
 };
 

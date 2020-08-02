@@ -1,5 +1,4 @@
 import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import EmailIcon from "@material-ui/icons/Email";
 import LinkIcon from "@material-ui/icons/Link";
@@ -62,52 +61,34 @@ export default function InviteScreen({
   }
 
   return (
-    <FormSection icon={<SettingsIcon />} title={t("common:common.invite")}>
-      <>
-        <TabBoard
-          tabIconOne={<EmailIcon />}
-          tabIconTwo={<LinkIcon />}
-          tabIconThree={<AssignmentIndIcon />}
-          tabLabelOne={t("common:common.email")}
-          tabLabelTwo={t("common:common.link")}
-          tabLabelThree={t("common:common.username")}
-          tabPanelOne={
-            <>
-              <Container component="main" maxWidth="xs">
-                <InviteEmailForm
-                  profile={profile}
-                  user={user}
-                  spaceId={spaceId}
-                />
-                <Box p={1} />
-                {invites && <InviteList invites={invites} type="email" />}
-              </Container>
-            </>
-          }
-          tabPanelTwo={
-            <>
-              <Container component="main" maxWidth="xs">
-                <InviteLinkForm
-                  profile={profile}
-                  user={user}
-                  spaceId={spaceId}
-                />
-                <Box p={1} />
-                {invites && <InviteList invites={invites} type="link" />}
-              </Container>
-            </>
-          }
-          tabPanelThree={
-            <Container component="main" maxWidth="xs">
-              <InviteUsernameForm
-                profile={profile}
-                user={user}
-                spaceId={spaceId}
-              />
-            </Container>
-          }
-        />
-      </>
-    </FormSection>
+    <>
+      <FormSection icon={<SettingsIcon />} title={t("common:common.invite")} />
+      <TabBoard
+        size="sm"
+        tabIconOne={<EmailIcon />}
+        tabIconTwo={<LinkIcon />}
+        tabIconThree={<AssignmentIndIcon />}
+        tabLabelOne={t("common:common.email")}
+        tabLabelTwo={t("common:common.link")}
+        tabLabelThree={t("common:common.username")}
+        tabPanelOne={
+          <>
+            <InviteEmailForm profile={profile} user={user} spaceId={spaceId} />
+            <Box p={1} />
+            {invites && <InviteList invites={invites} type="email" />}
+          </>
+        }
+        tabPanelTwo={
+          <>
+            <InviteLinkForm profile={profile} user={user} spaceId={spaceId} />
+            <Box p={1} />
+            {invites && <InviteList invites={invites} type="link" />}
+          </>
+        }
+        tabPanelThree={
+          <InviteUsernameForm profile={profile} user={user} spaceId={spaceId} />
+        }
+      />
+    </>
   );
 }

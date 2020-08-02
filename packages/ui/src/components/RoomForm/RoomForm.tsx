@@ -107,104 +107,98 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
   };
 
   return (
-    <FormSection
-      icon={
-        type === "create" ? (
-          <AddToPhotosIcon />
-        ) : type === "delete" ? (
-          <DeleteIcon />
-        ) : (
-          <></>
-        )
-      }
-      title={
-        type === "create"
-          ? t("room:room.createRoom")
-          : type === "delete"
-          ? t("room:room.deleteRoom")
-          : ""
-      }
-      size="sm"
-    >
-      <>
-        <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" noValidate>
-          <Grid container spacing={3}>
-            {type === "create" && (
-              <Grid item xs={12}>
-                <Controller
-                  as={
-                    <TextField
-                      autoFocus
-                      fullWidth
-                      id="room"
-                      label={t("common:common.name")}
-                      margin="normal"
-                      name="name"
-                      required
-                      variant="outlined"
-                      error={!!errors.name}
-                      inputRef={register}
-                      helperText={errors.name ? errors.name.message : ""}
-                      type="text"
-                    />
-                  }
-                  name="name"
-                  control={control}
-                  defaultValue=""
-                />
-              </Grid>
-            )}
-            {type === "delete" && (
-              <Grid item xs={12}>
-                <Controller
-                  as={
-                    <TextField
-                      autoFocus
-                      fullWidth
-                      id="room-delete"
-                      label="Type DELETE"
-                      margin="normal"
-                      name="delete"
-                      required
-                      variant="outlined"
-                      error={!!errors.delete}
-                      inputRef={register}
-                      helperText={errors.delete ? errors.delete.message : ""}
-                      type="text"
-                    />
-                  }
-                  name="delete"
-                  control={control}
-                  defaultValue=""
-                />
-              </Grid>
-            )}
+    <>
+      <FormSection
+        icon={
+          type === "create" ? (
+            <AddToPhotosIcon />
+          ) : type === "delete" ? (
+            <DeleteIcon />
+          ) : (
+            <></>
+          )
+        }
+        title={
+          type === "create"
+            ? t("room:room.createRoom")
+            : type === "delete"
+            ? t("room:room.deleteRoom")
+            : ""
+        }
+        size="sm"
+      />
+      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" noValidate>
+        <Grid container spacing={3}>
+          {type === "create" && (
             <Grid item xs={12}>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-              >
-                {type === "create" && t("common:common.create")}
-                {type === "delete" && t("common:common.delete")}
-              </Button>
+              <Controller
+                as={
+                  <TextField
+                    autoFocus
+                    fullWidth
+                    id="room"
+                    label={t("common:common.name")}
+                    margin="normal"
+                    name="name"
+                    required
+                    variant="outlined"
+                    error={!!errors.name}
+                    inputRef={register}
+                    helperText={errors.name ? errors.name.message : ""}
+                    type="text"
+                  />
+                }
+                name="name"
+                control={control}
+                defaultValue=""
+              />
             </Grid>
+          )}
+          {type === "delete" && (
             <Grid item xs={12}>
-              <Button
-                type="reset"
-                fullWidth
-                variant="outlined"
-                color="primary"
-                onClick={(): void => Router.back()}
-              >
-                {t("common:common.cancel")}
-              </Button>
+              <Controller
+                as={
+                  <TextField
+                    autoFocus
+                    fullWidth
+                    id="room-delete"
+                    label="Type DELETE"
+                    margin="normal"
+                    name="delete"
+                    required
+                    variant="outlined"
+                    error={!!errors.delete}
+                    inputRef={register}
+                    helperText={errors.delete ? errors.delete.message : ""}
+                    type="text"
+                  />
+                }
+                name="delete"
+                control={control}
+                defaultValue=""
+              />
             </Grid>
+          )}
+          <Grid item xs={12}>
+            <Button type="submit" fullWidth variant="contained" color="primary">
+              {type === "create" && t("common:common.create")}
+              {type === "delete" && t("common:common.delete")}
+            </Button>
           </Grid>
-        </form>
-      </>
-    </FormSection>
+          <Grid item xs={12}>
+            <Button
+              type="reset"
+              fullWidth
+              variant="outlined"
+              color="primary"
+              onClick={(): void => Router.back()}
+            >
+              {t("common:common.cancel")}
+            </Button>
+          </Grid>
+        </Grid>
+      </form>
+    </>
   );
 };
 

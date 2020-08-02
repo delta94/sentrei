@@ -25,37 +25,36 @@ const SpaceSettingsForm = ({profile, space, user}: Props): JSX.Element => {
   const {t} = useTranslation();
 
   return (
-    <FormSection
-      icon={<SettingsIcon />}
-      title={t("space:settings.title")}
-      size="md"
-    >
-      <>
-        <TabBoard
-          tabIconOne={<AccountBalanceIcon />}
-          tabIconTwo={<MeetingRoomIcon />}
-          tabIconThree={<DashboardIcon />}
-          tabLabelOne={t("common:common.billing")}
-          tabLabelTwo={t("common:common.room")}
-          tabLabelThree={t("common:common.space")}
-          tabPanelOne={
-            <Container component="main" maxWidth="xs">
-              <Box />
-            </Container>
-          }
-          tabPanelTwo={
-            <Container component="main" maxWidth="xs">
-              <Box />
-            </Container>
-          }
-          tabPanelThree={
-            <Container component="main" maxWidth="xs">
-              <Box />
-            </Container>
-          }
-        />
-      </>
-    </FormSection>
+    <>
+      <FormSection
+        icon={<SettingsIcon />}
+        title={t("space:settings.title")}
+        size="md"
+      />
+      <TabBoard
+        tabIconOne={<AccountBalanceIcon />}
+        tabIconTwo={<MeetingRoomIcon />}
+        tabIconThree={<DashboardIcon />}
+        tabLabelOne={t("common:common.billing")}
+        tabLabelTwo={t("common:common.room")}
+        tabLabelThree={t("common:common.space")}
+        tabPanelOne={
+          <Container component="main" maxWidth="xs">
+            <Box />
+          </Container>
+        }
+        tabPanelTwo={
+          <Container component="main" maxWidth="xs">
+            <Box />
+          </Container>
+        }
+        tabPanelThree={
+          <Container component="main" maxWidth="xs">
+            <Box />
+          </Container>
+        }
+      />
+    </>
   );
 };
 

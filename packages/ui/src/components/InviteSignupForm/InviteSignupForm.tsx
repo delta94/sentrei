@@ -48,9 +48,9 @@ export default function InviteSignupForm({
 
   const InviteSignupFormSchema = Yup.object().shape({
     email: Yup.string()
-      .required(t("auth:auth.email.required"))
-      .email(t("auth:auth.email.valid")),
-    password: Yup.string().required(t("auth:auth.password.valid")),
+      .required(t("form:email.required"))
+      .email(t("form.email.valid")),
+    password: Yup.string().required(t("form.password.valid")),
   });
 
   const {control, register, errors, handleSubmit} = useForm({
@@ -90,11 +90,12 @@ export default function InviteSignupForm({
   };
 
   return (
-    <FormSection
-      icon={<AccountCircleOutlinedIcon />}
-      title={t("auth:invite.title")}
-      size="sm"
-    >
+    <>
+      <FormSection
+        icon={<AccountCircleOutlinedIcon />}
+        title={t("auth:invite.title")}
+        size="sm"
+      />
       <Grid container spacing={3}>
         <Box p={1} />
         <Button
@@ -190,6 +191,6 @@ export default function InviteSignupForm({
           </Grid>
         </Grid>
       </Grid>
-    </FormSection>
+    </>
   );
 }

@@ -1,8 +1,5 @@
 {
   "settings": {
-    "title": "Settings",
-    "usernameAlreadyUsed": "Username is already used",
-    "usernameInvalid": "Username is invalid",
-    "usernameRequired": "Username is required"
+    "title": "Settings"
   }
 }

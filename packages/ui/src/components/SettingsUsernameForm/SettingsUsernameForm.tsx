@@ -32,12 +32,12 @@ const SettingsUsernameForm = ({profile}: Props): JSX.Element => {
 
   const SettingsUsernameFormSchema = Yup.object().shape({
     username: Yup.string()
-      .required(t("settings:settings.usernameRequired"))
+      .required(t("form:username.usernameRequired"))
       .matches(
         /^[a-z0-9][a-z0-9_]*([.][a-z0-9_]+)*$/,
-        t("settings:settings.usernameInvalid"),
+        t("form:username.usernameInvalid"),
       )
-      .test("id", t("settings:settings.usernameAlreadyUsed"), async value => {
+      .test("id", t("form:username.usernameAlreadyUsed"), async value => {
         const result = await validateUsername(value);
         return result;
       }),

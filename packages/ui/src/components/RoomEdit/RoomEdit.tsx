@@ -1,4 +1,3 @@
-import Container from "@material-ui/core/Container";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import DescriptionIcon from "@material-ui/icons/Description";
 import PhotoIcon from "@material-ui/icons/Photo";
@@ -42,12 +41,14 @@ export default function RoomEdit({profile, roomId, user}: Props): JSX.Element {
   }
 
   return (
-    <FormSection
-      icon={<SettingsIcon />}
-      title={t("room:room.editRoom")}
-      size="md"
-    >
+    <>
+      <FormSection
+        icon={<SettingsIcon />}
+        title={t("room:room.editRoom")}
+        size="md"
+      />
       <TabBoard
+        size="sm"
         tabIconOne={<DescriptionIcon />}
         tabIconTwo={<AssignmentIndIcon />}
         tabIconThree={<PhotoIcon />}
@@ -55,17 +56,11 @@ export default function RoomEdit({profile, roomId, user}: Props): JSX.Element {
         tabLabelTwo={t("common:common.name")}
         tabLabelThree={t("common:common.photo")}
         tabPanelOne={
-          <Container component="main" maxWidth="xs">
-            <RoomDescriptionForm profile={profile} room={room} user={user} />
-          </Container>
+          <RoomDescriptionForm profile={profile} room={room} user={user} />
         }
-        tabPanelTwo={
-          <Container component="main" maxWidth="xs">
-            <RoomNameForm profile={profile} room={room} user={user} />
-          </Container>
-        }
+        tabPanelTwo={<RoomNameForm profile={profile} room={room} user={user} />}
         tabPanelThree={<></>}
       />
-    </FormSection>
+    </>
   );
 }

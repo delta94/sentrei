@@ -57,7 +57,7 @@ export default function ListMenu({
       onClose={onClose}
     >
       <MenuItem disabled>
-        <ListItemText primary={t("space:space.mySpaces")} />
+        <ListItemText primary={t("common:common.mySpaces")} />
       </MenuItem>
       {spaces &&
         spaces.map(space => (

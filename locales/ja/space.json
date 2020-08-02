@@ -8,10 +8,7 @@
     "title": "あなたのスペース"
   },
   "invite": {
-    "invite": "招待する",
-    "usernameInvalid": "ユーザー名が無効です",
-    "usernameNotExist": "ユーザー名が存在しません",
-    "usernameRequired": "ユーザー名は必須です"
+    "invite": "招待する"
   },
   "leaderboard": {
     "title": "リーダーボード"
@@ -25,13 +22,6 @@
   "space": {
     "createSpace": "スペースを作成する",
     "editSpace": "スペースを編集",
-    "idAlreadyUsed": "IDは既に使用されています",
-    "idInvalid": "IDが無効です",
-    "idRequired": "IDが必要です",
-    "mySpaces": "私のスペース",
-    "nameRequired": "名前は必須です",
-    "quitRequired": "終了する必要があります",
-    "quitSpace": "スペースを終了",
-    "quitTypeRequired": "「QUIT」と入力する必要があります"
+    "quitSpace": "スペースを終了"
   }
 }

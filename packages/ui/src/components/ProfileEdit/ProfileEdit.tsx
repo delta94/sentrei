@@ -19,28 +19,24 @@ export default function ProfileEdit({profile}: Props): JSX.Element {
   const {t} = useTranslation();
 
   return (
-    <FormSection
-      icon={<SettingsIcon />}
-      title={t("profile:profile.editProfile")}
-      size="md"
-    >
-      <>
-        <TabBoard
-          tabIconOne={<DescriptionIcon />}
-          tabIconTwo={<AssignmentIndIcon />}
-          tabIconThree={<PhotoIcon />}
-          tabLabelOne={t("common:common.description")}
-          tabLabelTwo={t("common:common.name")}
-          tabLabelThree={t("common:common.photo")}
-          tabPanelOne={<></>}
-          tabPanelTwo={
-            <Container component="main" maxWidth="xs">
-              <ProfileNameForm profile={profile} />
-            </Container>
-          }
-          tabPanelThree={<></>}
-        />
-      </>
-    </FormSection>
+    <>
+      <FormSection
+        icon={<SettingsIcon />}
+        title={t("profile:profile.editProfile")}
+        size="md"
+      />
+      <TabBoard
+        size="sm"
+        tabIconOne={<DescriptionIcon />}
+        tabIconTwo={<AssignmentIndIcon />}
+        tabIconThree={<PhotoIcon />}
+        tabLabelOne={t("common:common.description")}
+        tabLabelTwo={t("common:common.name")}
+        tabLabelThree={t("common:common.photo")}
+        tabPanelOne={<></>}
+        tabPanelTwo={<ProfileNameForm profile={profile} />}
+        tabPanelThree={<></>}
+      />
+    </>
   );
 }

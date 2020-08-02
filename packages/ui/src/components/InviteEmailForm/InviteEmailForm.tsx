@@ -27,8 +27,8 @@ const InviteEmailForm = ({profile, user, spaceId}: Props): JSX.Element => {
 
   const InviteEmailFormSchema = Yup.object().shape({
     email: Yup.string()
-      .required(t("auth:auth.email.required"))
-      .email(t("auth:auth.email.valid")),
+      .required(t("form.email.required"))
+      .email(t("form.email.valid")),
   });
 
   const {control, register, errors, handleSubmit} = useForm({

@@ -19,11 +19,12 @@ export default function ProfileScreen({profile}: Props): JSX.Element {
   const {t} = useTranslation();
 
   return (
-    <FormSection
-      icon={<AccountCircleIcon />}
-      title={t("common:common.profile")}
-      size="sm"
-    >
+    <>
+      <FormSection
+        icon={<AccountCircleIcon />}
+        title={t("common:common.profile")}
+        size="sm"
+      />
       <Grid
         container
         direction="column"
@@ -51,6 +52,6 @@ export default function ProfileScreen({profile}: Props): JSX.Element {
           </Typography>
         </Grid>
       </Grid>
-    </FormSection>
+    </>
   );
 }

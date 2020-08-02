@@ -32,12 +32,12 @@ const InviteUsernameForm = ({profile, user, spaceId}: Props): JSX.Element => {
 
   const InviteUsernameFormSchema = Yup.object().shape({
     username: Yup.string()
-      .required(t("space:invite.usernameRequired"))
+      .required(t("form:username.usernameRequired"))
       // .matches(
       //   /^[a-z0-9][a-z0-9_]*([.][a-z0-9_]+)*$/,
-      //   t("space:invite.usernameInvalid"),
+      //   t("form:username.usernameInvalid"),
       // )
-      .test("id", t("space:invite.usernameNotExist"), async value => {
+      .test("id", t("form:username.usernameNotExist"), async value => {
         const result = await validateUsername(value);
         return !result;
       }),
