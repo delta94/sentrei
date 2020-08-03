@@ -1,6 +1,9 @@
 {
   "common": {
+    "activity": "Activity",
     "app": "App",
+    "analytics": "Analytics",
+    "back": "Back",
     "billing": "Billing",
     "cancel": "Cancel",
     "create": "Create",
@@ -15,6 +18,7 @@
     "id": "ID",
     "invite": "Invite",
     "language": "Language",
+    "leaderboard": "Leaderboard",
     "lightMode": "Light Mode",
     "link": "Link",
     "loadMore": "Load More",
@@ -24,8 +28,10 @@
     "mySpaces": "My Spaces",
     "name": "Name",
     "never": "Never",
+    "next": "Next",
     "none": "None",
     "notifications": "Notifications",
+    "other": "Other",
     "password": "Password",
     "passwordConfirm": "Password Confirmation",
     "passwordNew": "New Password",

@@ -57,8 +57,12 @@ export const validateSpaceMember = async (
   spaceId: string,
   userId: string,
 ): Promise<boolean> => {
-  const member = await db.doc(`spaces/${spaceId}/members/${userId}`).get();
-  return member.exists;
+  try {
+    const member = await db.doc(`spaces/${spaceId}/members/${userId}`).get();
+    return member.exists;
+  } catch {
+    return false;
+  }
 };
 
 export const getMembersSnapshot = async (

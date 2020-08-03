@@ -64,7 +64,11 @@ export default function ListMenu({
           <Link key={space.id} href="/[spaceId]" as={`/${space.id}`}>
             <MenuItem>
               <ListItemIcon>
-                <Avatar src={space.photo || undefined} />
+                {space.photo ? (
+                  <Avatar src={space.photo} />
+                ) : (
+                  <Avatar>{space.name[0]}</Avatar>
+                )}
               </ListItemIcon>
               <ListItemText primary={space.name} />
             </MenuItem>
