@@ -1,6 +1,7 @@
 import * as admin from "firebase-admin";
 import * as functions from "firebase-functions";
 
+import {timestamp} from "@sentrei/common/utils/firebase";
 import Member from "@sentrei/types/models/Member";
 import Status from "@sentrei/types/models/Status";
 
@@ -22,7 +23,7 @@ const memberStatusUpdate = functions.database
 
     const memberUpdate: Member.Update = {
       status: eventStatus.status,
-      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: timestamp,
       updatedBy: eventStatus.profile,
       updatedByUid: statusId,
     };

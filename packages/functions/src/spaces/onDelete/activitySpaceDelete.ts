@@ -1,6 +1,7 @@
 import * as admin from "firebase-admin";
 import * as functions from "firebase-functions";
 
+import {timestamp} from "@sentrei/common/utils/firebase";
 import Activity from "@sentrei/types/models/Activity";
 import Space from "@sentrei/types/models/Space";
 
@@ -25,7 +26,7 @@ const activitySpaceDelete = functions.firestore
       createdByUid: data.updatedByUid,
       fullItemPath: `spaces/${spaceId}`,
       itemPath: `spaces/${spaceId}`,
-      updatedAt: data.updatedAt,
+      updatedAt: timestamp,
       spaceId,
       user: data.updatedBy,
       userNotification:

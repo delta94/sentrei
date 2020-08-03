@@ -1,6 +1,7 @@
 import * as admin from "firebase-admin";
 import * as functions from "firebase-functions";
 
+import {timestamp} from "@sentrei/common/utils/firebase";
 import Activity from "@sentrei/types/models/Activity";
 import Member from "@sentrei/types/models/Member";
 
@@ -25,7 +26,7 @@ const activityMemberCreate = functions.firestore
       createdByUid: data.createdByUid,
       fullItemPath: `${collection}/${docId}/members/${memberId}`,
       itemPath: `members/${memberId}`,
-      updatedAt: data.updatedAt,
+      updatedAt: timestamp,
       spaceId: data.spaceId,
       user: data.updatedBy,
       userNotification: [],

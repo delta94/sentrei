@@ -1,11 +1,11 @@
 import * as admin from "firebase-admin";
 import * as functions from "firebase-functions";
 
+import {timestamp} from "@sentrei/common/utils/firebase";
 import Activity from "@sentrei/types/models/Activity";
 import Invite from "@sentrei/types/models/Invite";
 
 const db = admin.firestore();
-
 /**
  * Create invite activity on delete
  */
@@ -25,7 +25,7 @@ const activityInviteDelete = functions.firestore
       createdByUid: data.createdByUid,
       fullItemPath: `${collection}/${docId}/invites/${inviteId}`,
       itemPath: `invites/${inviteId}`,
-      updatedAt: data.updatedAt,
+      updatedAt: timestamp,
       spaceId: data.spaceId,
       user: data.updatedBy,
       userNotification: [],
