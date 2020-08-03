@@ -1,3 +1,9 @@
+## [1.18.3](https://github.com/sentrei/sentrei/compare/v1.18.2...v1.18.3) (2020-08-03)
+
+### Bug Fixes
+
+- **deps:** bump amondnet/vercel-action from v19 to v19.0.1 ([fea77f3](https://github.com/sentrei/sentrei/commit/fea77f3412be3fa5c76f5236beef161b3baf096d))
+
 ## [1.18.2](https://github.com/sentrei/sentrei/compare/v1.18.1...v1.18.2) (2020-08-03)
 
 ### Bug Fixes
