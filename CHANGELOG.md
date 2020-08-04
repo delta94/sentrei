@@ -1,3 +1,21 @@
+# [1.19.0](https://github.com/sentrei/sentrei/compare/v1.18.3...v1.19.0) (2020-08-04)
+
+### Features
+
+- 🎸 add delete activity mock dummy ([abf9b43](https://github.com/sentrei/sentrei/commit/abf9b432f6d8e21b2c2c3b02751079ecd7676d43))
+- 🎸 introduce stepper create form feature ([8b43ee9](https://github.com/sentrei/sentrei/commit/8b43ee9b232bb47354b4bd29d7e6c570001d5fed))
+- 🎸 refactor activity tests ([106b1bc](https://github.com/sentrei/sentrei/commit/106b1bc444b1725e4cbc1c448acac950500f6838))
+- 🎸 refactor dark mode intl menu ([6b39479](https://github.com/sentrei/sentrei/commit/6b39479a37bf41bfde977b230b982434ea4d8567))
+- 🎸 revamp functions timestamp ([89d0572](https://github.com/sentrei/sentrei/commit/89d0572a7423d520040bdd767b7fe6a0c79b5b7c))
+- 🎸 room form create ([cc5402b](https://github.com/sentrei/sentrei/commit/cc5402bd03c5974ac92a26bbfdfe69f245a77fd7))
+
+### Performance Improvements
+
+- ⚡️ icon button for list menu ([3d57e92](https://github.com/sentrei/sentrei/commit/3d57e920fb2c2abd0b9fa273fa1bfcf049c809ba))
+- ⚡️ include reset set active form ([04613bb](https://github.com/sentrei/sentrei/commit/04613bb7ddca1c3e7a40a9e361b5cbd8af79d991))
+- ⚡️ refactor pioneer week ([e4502b6](https://github.com/sentrei/sentrei/commit/e4502b6c1ec902725d4acc9a734baeaebfeda60c))
+- ⚡️ refactor vercel version ([6d7325e](https://github.com/sentrei/sentrei/commit/6d7325ee58dcd01f90aff678cc91da7099f9d218))
+
 ## [1.18.3](https://github.com/sentrei/sentrei/compare/v1.18.2...v1.18.3) (2020-08-03)
 
 ### Bug Fixes
