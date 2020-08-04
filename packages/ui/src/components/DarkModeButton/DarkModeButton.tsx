@@ -1,9 +1,10 @@
+import Box from "@material-ui/core/Box";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormGroup from "@material-ui/core/FormGroup";
-import Switch from "@material-ui/core/Switch";
 import useTranslation from "next-translate/useTranslation";
-
 import * as React from "react";
+
+import {DarkModeSwitch} from "react-toggle-dark-mode";
 
 import useDarkMode from "use-dark-mode";
 
@@ -15,7 +16,9 @@ function DarkModeButton(): JSX.Element {
     <FormGroup>
       <FormControlLabel
         control={
-          <Switch color="primary" checked={isDark} onChange={toggleDarkMode} />
+          <Box px={3}>
+            <DarkModeSwitch checked={isDark} onChange={toggleDarkMode} />
+          </Box>
         }
         label={
           isDark ? t("common:common.darkMode") : t("common:common.lightMode")

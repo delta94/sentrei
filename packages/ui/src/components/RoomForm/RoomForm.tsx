@@ -71,6 +71,7 @@ const RoomForm = ({profile, room, type, user, spaceId}: Props): JSX.Element => {
             createdByUid: user.uid,
             memberCount: 0,
             spaceId,
+            type: "focus",
             updatedAt: timestamp,
             updatedBy: profile,
             updatedByUid: user.uid,

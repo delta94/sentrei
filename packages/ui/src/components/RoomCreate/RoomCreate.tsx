@@ -1,3 +1,5 @@
+import AddToPhotosIcon from "@material-ui/icons/AddToPhotos";
+import useTranslation from "next-translate/useTranslation";
 import Error from "next/error";
 import * as React from "react";
 
@@ -5,7 +7,8 @@ import {getSpace} from "@sentrei/common/firebase/spaces";
 import Profile from "@sentrei/types/models/Profile";
 import Space from "@sentrei/types/models/Space";
 import User from "@sentrei/types/models/User";
-import RoomForm from "@sentrei/ui/components/RoomForm";
+import FormSection from "@sentrei/ui/components/FormSection";
+import RoomStepperCreate from "@sentrei/ui/components/RoomStepperCreate";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
 
 export interface Props {
@@ -19,6 +22,8 @@ export default function RoomCreate({
   spaceId,
   user,
 }: Props): JSX.Element {
+  const {t} = useTranslation();
+
   const [space, setSpace] = React.useState<Space.Get | null | undefined>();
 
   React.useEffect(() => {
@@ -34,6 +39,12 @@ export default function RoomCreate({
   }
 
   return (
-    <RoomForm type="create" profile={profile} user={user} spaceId={spaceId} />
+    <>
+      <FormSection
+        icon={<AddToPhotosIcon />}
+        title={t("room:room.createRoom")}
+      />
+      <RoomStepperCreate profile={profile} user={user} spaceId={spaceId} />
+    </>
   );
 }

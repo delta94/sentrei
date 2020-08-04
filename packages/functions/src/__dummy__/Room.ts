@@ -14,6 +14,7 @@ export const roomCreate: Room.Create = {
   ...roomBase,
   ...metadataCreate,
   memberCount: 0,
+  type: "focus",
 };
 
 export const roomResponse: Room.Response = {
@@ -21,6 +22,7 @@ export const roomResponse: Room.Response = {
   ...metadataResponse,
   joined: timestamp,
   memberCount: 0,
+  type: "focus",
 };
 
 export const roomUpdate: Room.Update = {
