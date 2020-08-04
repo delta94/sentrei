@@ -27,7 +27,6 @@
     "/login": ["auth"],
     "/notifications": ["notifications"],
     "/privacy": ["auth"],
-    "/profile/[usernameId]": ["profile"],
     "/profile": ["profile"],
     "/settings": ["settings"],
     "/signup": ["auth"],
