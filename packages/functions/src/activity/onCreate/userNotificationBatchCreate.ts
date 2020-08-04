@@ -6,6 +6,7 @@ import Notification from "@sentrei/types/models/Notification";
 
 const db = admin.firestore();
 const timestamp = admin.firestore.FieldValue.serverTimestamp();
+
 /**
  * Batch create notifications for each user
  */

@@ -83,7 +83,7 @@ declare namespace Activity {
     CreateActions | UpdateActions | DeleteActions,
     "updatedAt"
   > & {
-    updatedAt: firebase.firestore.Timestamp | firebase.firestore.FieldValue;
+    updatedAt: firebase.firestore.Timestamp;
   };
 
   export type Get = Omit<Response, "updatedAt"> & {
