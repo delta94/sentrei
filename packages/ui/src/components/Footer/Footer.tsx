@@ -16,7 +16,7 @@ import twitter from "react-useanimations/lib/twitter";
 
 import metomic from "@sentrei/common/services/metomic";
 import Copyright from "@sentrei/ui/components/Copyright";
-import DarkModeButton from "@sentrei/ui/components/DarkModeButton";
+import IntlForm from "@sentrei/ui/components/IntlForm";
 import Metomic from "@sentrei/ui/components/Metomic";
 import MuiLink from "@sentrei/ui/components/MuiLink";
 
@@ -65,7 +65,7 @@ export default function Footer(): JSX.Element {
               <Typography variant="h6" gutterBottom>
                 {t("index:footer.preferences")}
               </Typography>
-              <DarkModeButton />
+              <IntlForm />
             </Grid>
             <Grid item xs={12} sm={3}>
               <Typography variant="h6" gutterBottom>
