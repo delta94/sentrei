@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/sentrei/sentrei/compare/v1.19.0...v1.20.0) (2020-08-04)
+
+### Features
+
+- 🎸 ini badge status ([560a1a2](https://github.com/sentrei/sentrei/commit/560a1a2e1a0c8d0d111b6c1161103ff816672f66))
+- 🎸 profile screen remove ([3028371](https://github.com/sentrei/sentrei/commit/3028371fa85b0b6d25d68f80a37fd35317e4fe13))
+
 # [1.19.0](https://github.com/sentrei/sentrei/compare/v1.18.3...v1.19.0) (2020-08-04)
 
 ### Features
