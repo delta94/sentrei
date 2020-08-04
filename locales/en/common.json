@@ -1,8 +1,8 @@
 {
   "common": {
     "activity": "Activity",
-    "app": "App",
     "analytics": "Analytics",
+    "app": "App",
     "back": "Back",
     "billing": "Billing",
     "cancel": "Cancel",
