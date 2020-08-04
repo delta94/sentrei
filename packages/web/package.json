@@ -63,6 +63,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-intersection-observer": "^8.26.2",
+    "recoil": "^0.0.10",
     "responsive-loader": "^1.2.0",
     "sass": "^1.26.10",
     "styled-components": "^5.1.0",

@@ -10,7 +10,6 @@ import {useRecoilState, RecoilState} from "recoil";
 import {validateSpaceMember} from "@sentrei/common/firebase/members";
 import {createSpace} from "@sentrei/common/firebase/spaces";
 import {timestamp} from "@sentrei/common/utils/firebase";
-import sleep from "@sentrei/common/utils/sleep";
 import SpaceCreateForm from "@sentrei/types/atom/SpaceCreateForm";
 import Profile from "@sentrei/types/models/Profile";
 import User from "@sentrei/types/models/User";
@@ -68,7 +67,7 @@ const SpaceStepperOther = ({atom, form, profile, user}: Props): JSX.Element => {
         backdrop("loading");
         setTimeout(() => {
           goToSpace(activeForm.id);
-        }, 3000);
+        }, 9000);
       });
     } catch (err) {
       snackbar("error", err.message);

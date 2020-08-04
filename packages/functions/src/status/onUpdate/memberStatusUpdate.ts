@@ -1,11 +1,11 @@
 import * as admin from "firebase-admin";
 import * as functions from "firebase-functions";
 
-import {timestamp} from "@sentrei/common/utils/firebase";
 import Member from "@sentrei/types/models/Member";
 import Status from "@sentrei/types/models/Status";
 
 const db = admin.firestore();
+const timestamp = admin.firestore.FieldValue.serverTimestamp();
 
 /**
  * Update status from members

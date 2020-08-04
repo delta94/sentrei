@@ -5,7 +5,7 @@ import Activity from "@sentrei/types/models/Activity";
 import Notification from "@sentrei/types/models/Notification";
 
 const db = admin.firestore();
-
+const timestamp = admin.firestore.FieldValue.serverTimestamp();
 /**
  * Batch create notifications for each user
  */
@@ -29,7 +29,7 @@ const userNotificationBatchCreate = functions.firestore
       fullItemPath: data.fullItemPath,
       itemPath: data.itemPath,
       type: "update",
-      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: timestamp,
       user: data.user,
     };
 

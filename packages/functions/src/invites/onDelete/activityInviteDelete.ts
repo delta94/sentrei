@@ -1,11 +1,12 @@
 import * as admin from "firebase-admin";
 import * as functions from "firebase-functions";
 
-import {timestamp} from "@sentrei/common/utils/firebase";
 import Activity from "@sentrei/types/models/Activity";
 import Invite from "@sentrei/types/models/Invite";
 
 const db = admin.firestore();
+const timestamp = admin.firestore.FieldValue.serverTimestamp();
+
 /**
  * Create invite activity on delete
  */

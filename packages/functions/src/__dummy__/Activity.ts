@@ -3,7 +3,10 @@ import {viewerMemberResponse} from "@sentrei/functions/__dummy__/Member";
 import {profileGet} from "@sentrei/functions/__dummy__/Profile";
 import {roomResponse} from "@sentrei/functions/__dummy__/Room";
 import {spaceResponse} from "@sentrei/functions/__dummy__/Space";
-import {timestamp} from "@sentrei/functions/__mocks__/firebase-testing";
+import {
+  adminTimestamp,
+  timestamp,
+} from "@sentrei/functions/__mocks__/firebase-testing";
 import Activity from "@sentrei/types/models/Activity";
 
 export const activityResponseBase = {
@@ -49,6 +52,7 @@ export const activitySpaceResponseDeleted: Activity.Response = {
   createdByUid: "userId",
   fullItemPath: "spaces/spaceId",
   itemPath: "spaces/spaceId",
+  updatedAt: adminTimestamp,
 };
 
 export const activityRoomResponseCreated: Activity.Response = {
@@ -82,6 +86,7 @@ export const activityRoomResponseDeleted: Activity.Response = {
   categoryId: "roomId",
   fullItemPath: "spaces/spaceId/rooms/roomId",
   itemPath: "rooms/roomId",
+  updatedAt: adminTimestamp,
 };
 
 export const activityMemberResponseCreated: Activity.CreateMember = {
@@ -105,6 +110,7 @@ export const activityMemberResponseDeleted: Activity.DeleteMember = {
   categoryId: "userId",
   fullItemPath: "spaces/spaceId/members/userId",
   itemPath: "members/userId",
+  updatedAt: adminTimestamp,
 };
 
 export const activityInviteResponseCreated: Activity.CreateInvite = {
@@ -128,4 +134,5 @@ export const activityInviteResponseDeleted: Activity.DeleteInvite = {
   categoryId: "inviteId",
   fullItemPath: "spaces/spaceId/invites/inviteId",
   itemPath: "invites/inviteId",
+  updatedAt: adminTimestamp,
 };
