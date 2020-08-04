@@ -11,7 +11,7 @@ const db = admin.firestore();
 
 test("Send a request to add action category", async done => {
   const snap = {
-    data: (): Activity.Response => activitySpaceResponseUpdated,
+    data: (): Activity.UpdateSpace => activitySpaceResponseUpdated,
   };
 
   const expected = {

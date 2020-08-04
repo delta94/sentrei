@@ -3,7 +3,10 @@ import {viewerMemberResponse} from "@sentrei/functions/__dummy__/Member";
 import {profileGet} from "@sentrei/functions/__dummy__/Profile";
 import {roomResponse} from "@sentrei/functions/__dummy__/Room";
 import {spaceResponse} from "@sentrei/functions/__dummy__/Space";
-import {timestamp} from "@sentrei/functions/__mocks__/firebase-testing";
+import {
+  adminTimestamp,
+  timestamp,
+} from "@sentrei/functions/__mocks__/firebase-testing";
 import Activity from "@sentrei/types/models/Activity";
 
 export const activityResponseBase = {
@@ -15,7 +18,7 @@ export const activityResponseBase = {
   userNotification: [],
 };
 
-export const activitySpaceResponseCreated: Activity.Response = {
+export const activitySpaceResponseCreated: Activity.CreateSpace = {
   ...activityResponseBase,
   before: null,
   after: spaceResponse,
@@ -27,7 +30,7 @@ export const activitySpaceResponseCreated: Activity.Response = {
   itemPath: "spaces/spaceId",
 };
 
-export const activitySpaceResponseUpdated: Activity.Response = {
+export const activitySpaceResponseUpdated: Activity.UpdateSpace = {
   ...activityResponseBase,
   before: spaceResponse,
   after: spaceResponse,
@@ -39,7 +42,7 @@ export const activitySpaceResponseUpdated: Activity.Response = {
   itemPath: "spaces/spaceId",
 };
 
-export const activitySpaceResponseDeleted: Activity.Response = {
+export const activitySpaceResponseDeleted: Activity.DeleteSpace = {
   ...activityResponseBase,
   before: spaceResponse,
   after: null,
@@ -49,9 +52,10 @@ export const activitySpaceResponseDeleted: Activity.Response = {
   createdByUid: "userId",
   fullItemPath: "spaces/spaceId",
   itemPath: "spaces/spaceId",
+  updatedAt: adminTimestamp,
 };
 
-export const activityRoomResponseCreated: Activity.Response = {
+export const activityRoomResponseCreated: Activity.CreateRoom = {
   ...activityResponseBase,
   before: null,
   after: roomResponse,
@@ -62,7 +66,7 @@ export const activityRoomResponseCreated: Activity.Response = {
   itemPath: "rooms/roomId",
 };
 
-export const activityRoomResponseUpdated: Activity.Response = {
+export const activityRoomResponseUpdated: Activity.UpdateRoom = {
   ...activityResponseBase,
   before: roomResponse,
   after: roomResponse,
@@ -73,7 +77,7 @@ export const activityRoomResponseUpdated: Activity.Response = {
   itemPath: "rooms/roomId",
 };
 
-export const activityRoomResponseDeleted: Activity.Response = {
+export const activityRoomResponseDeleted: Activity.DeleteRoom = {
   ...activityResponseBase,
   before: roomResponse,
   after: null,
@@ -82,6 +86,7 @@ export const activityRoomResponseDeleted: Activity.Response = {
   categoryId: "roomId",
   fullItemPath: "spaces/spaceId/rooms/roomId",
   itemPath: "rooms/roomId",
+  updatedAt: adminTimestamp,
 };
 
 export const activityMemberResponseCreated: Activity.CreateMember = {
@@ -105,6 +110,7 @@ export const activityMemberResponseDeleted: Activity.DeleteMember = {
   categoryId: "userId",
   fullItemPath: "spaces/spaceId/members/userId",
   itemPath: "members/userId",
+  updatedAt: adminTimestamp,
 };
 
 export const activityInviteResponseCreated: Activity.CreateInvite = {
@@ -128,4 +134,5 @@ export const activityInviteResponseDeleted: Activity.DeleteInvite = {
   categoryId: "inviteId",
   fullItemPath: "spaces/spaceId/invites/inviteId",
   itemPath: "invites/inviteId",
+  updatedAt: adminTimestamp,
 };

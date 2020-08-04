@@ -2,6 +2,7 @@ import * as admin from "firebase-admin";
 import * as functions from "firebase-functions";
 
 const db = admin.firestore();
+const timestamp = admin.firestore.FieldValue.serverTimestamp();
 
 /**
  * Log IP Address on call
@@ -21,7 +22,7 @@ const ipAddressAdd = functions.https.onCall(async (_, context) => {
   const reqData = {
     ip,
     ips,
-    visited: admin.firestore.FieldValue.serverTimestamp(),
+    visited: timestamp,
   };
   const ref = await db.collection(`users/${uid}/ipAddress`).add(reqData);
 

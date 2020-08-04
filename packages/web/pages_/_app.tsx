@@ -3,6 +3,7 @@ import {ThemeProvider as MaterialThemeProvider} from "@material-ui/core/styles";
 import {AppProps} from "next/app";
 import Head from "next/head";
 import * as React from "react";
+import {RecoilRoot} from "recoil";
 import {ThemeProvider as StyledThemeProvider} from "styled-components";
 import useDarkMode from "use-dark-mode";
 
@@ -17,7 +18,6 @@ import User from "@sentrei/types/models/User";
 import Authentication from "@sentrei/ui/components/Authentication";
 import Backdrop from "@sentrei/ui/components/Backdrop";
 import Snackbar from "@sentrei/ui/components/Snackbar";
-
 import "@sentrei/common/utils/nprogress";
 import "@sentrei/common/utils/sentry";
 import "@sentrei/web/styles/global.scss";
@@ -48,10 +48,12 @@ const CustomApp = ({Component, pageProps}: AppProps): JSX.Element => {
             <GlobalContext.Provider
               value={{backdrop: BackdropEmitter, snackbar: SnackbarEmitter}}
             >
-              <Authentication />
-              <Backdrop />
-              <Snackbar />
-              <Component {...pageProps} />
+              <RecoilRoot>
+                <Authentication />
+                <Backdrop />
+                <Snackbar />
+                <Component {...pageProps} />
+              </RecoilRoot>
             </GlobalContext.Provider>
           </AuthContext.Provider>
         </MaterialThemeProvider>

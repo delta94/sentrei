@@ -5,6 +5,7 @@ import Member from "@sentrei/types/models/Member";
 import Status from "@sentrei/types/models/Status";
 
 const db = admin.firestore();
+const timestamp = admin.firestore.FieldValue.serverTimestamp();
 
 /**
  * Update status from members
@@ -22,7 +23,7 @@ const memberStatusUpdate = functions.database
 
     const memberUpdate: Member.Update = {
       status: eventStatus.status,
-      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: timestamp,
       updatedBy: eventStatus.profile,
       updatedByUid: statusId,
     };

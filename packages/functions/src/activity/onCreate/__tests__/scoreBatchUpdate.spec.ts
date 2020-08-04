@@ -35,7 +35,7 @@ beforeEach(() => {
 
 test("Increase score when a space item is created", async done => {
   const snap = {
-    data: (): Activity.Response => activitySpaceResponseCreated,
+    data: (): Activity.CreateSpace => activitySpaceResponseCreated,
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);
@@ -53,7 +53,7 @@ test("Increase score when a space item is created", async done => {
 
 test("Increase score when a space item is updated", async done => {
   const snap = {
-    data: (): Activity.Response => activitySpaceResponseUpdated,
+    data: (): Activity.UpdateSpace => activitySpaceResponseUpdated,
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);
@@ -71,7 +71,7 @@ test("Increase score when a space item is updated", async done => {
 
 test("Do not do anything when a space item is deleted", async done => {
   const snap = {
-    data: (): Activity.Response => activitySpaceResponseDeleted,
+    data: (): Activity.DeleteSpace => activitySpaceResponseDeleted,
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);
@@ -84,7 +84,7 @@ test("Do not do anything when a space item is deleted", async done => {
 
 test("Increase score when a room item is created", async done => {
   const snap = {
-    data: (): Activity.Response => activityRoomResponseCreated,
+    data: (): Activity.CreateRoom => activityRoomResponseCreated,
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);
@@ -102,7 +102,7 @@ test("Increase score when a room item is created", async done => {
 
 test("Increase score when a room item is updated", async done => {
   const snap = {
-    data: (): Activity.Response => activityRoomResponseUpdated,
+    data: (): Activity.UpdateRoom => activityRoomResponseUpdated,
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);
@@ -120,7 +120,7 @@ test("Increase score when a room item is updated", async done => {
 
 test("Decrease score when a room item is deleted by author", async done => {
   const snap = {
-    data: (): Activity.Response => activityRoomResponseDeleted,
+    data: (): Activity.DeleteRoom => activityRoomResponseDeleted,
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);
@@ -137,12 +137,12 @@ test("Decrease score when a room item is deleted by author", async done => {
 });
 
 test("Decrease score when a room item is deleted by other user", async done => {
-  const data: Activity.Response = {
+  const data: Activity.DeleteRoom = {
     ...activityRoomResponseDeleted,
     before: {...roomResponse, createdByUid: "otherUserId"},
   };
   const snap = {
-    data: (): Activity.Response => data,
+    data: (): Activity.DeleteRoom => data,
   };
   const wrapped = testEnv.wrap(scoreBatchUpdate);
   const req = await wrapped(snap);

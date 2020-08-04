@@ -3,21 +3,18 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import LanguageIcon from "@material-ui/icons/Language";
 import classNames from "classnames";
 
 import Link from "next-translate/Link";
-import Router from "next-translate/Router";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 import Scrollspy from "react-scrollspy";
 
+import DarkModeButton from "@sentrei/ui/components/DarkModeButton";
+
 import HubSpot from "@sentrei/ui/components/HubSpot";
-import IntlMenu from "@sentrei/ui/components/IntlMenu";
 import Logo from "@sentrei/ui/components/Logo";
 
 import HeaderStyles from "./HeaderStyles";
@@ -35,28 +32,6 @@ export default function Header({
 }: Props): JSX.Element {
   const classes = HeaderStyles();
   const {t} = useTranslation();
-  const mobileMenuId = "primary-search-account-menu-mobile";
-
-  const [
-    mobileMoreAnchorEl,
-    setMobileMoreAnchorEl,
-  ] = React.useState<null | HTMLElement>(null);
-
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleClose = (language?: string): void => {
-    if (language) {
-      Router.pushI18n({url: "/", options: {lang: language}});
-    }
-  };
-
-  const handleMobileMenuClose = (): void => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>): void => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
 
   const appBarClasses = classNames({
     [classes.appBar]: true,
@@ -82,22 +57,6 @@ export default function Header({
         .classList.remove(classes.paper);
     }
   };
-
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{vertical: "top", horizontal: "right"}}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{vertical: "top", horizontal: "right"}}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem onClick={(): void => handleClose("en")}>English</MenuItem>
-      <MenuItem onClick={(): void => handleClose("ja")}>日本語</MenuItem>
-      <MenuItem onClick={(): void => handleClose("zh")}>中文</MenuItem>
-    </Menu>
-  );
 
   React.useEffect(() => {
     window.addEventListener("scroll", headerColorChange);
@@ -171,24 +130,19 @@ export default function Header({
                       </Link>
                     </>
                   )}
-                  <IntlMenu />
+                  <IconButton edge="end">
+                    <DarkModeButton />
+                  </IconButton>
                 </Grid>
               </div>
               <div className={classes.sectionMobile}>
-                <IconButton
-                  edge="end"
-                  aria-controls={mobileMenuId}
-                  aria-label="menu"
-                  aria-haspopup="true"
-                  onClick={handleMobileMenuOpen}
-                >
-                  <LanguageIcon />
+                <IconButton edge="end">
+                  <DarkModeButton />
                 </IconButton>
               </div>
             </Grid>
           </Toolbar>
         </AppBar>
-        <div>{renderMobileMenu}</div>
         <Toolbar />
       </div>
     </>

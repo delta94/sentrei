@@ -1,5 +1,6 @@
 import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -64,7 +65,11 @@ export default function ListMenu({
           <Link key={space.id} href="/[spaceId]" as={`/${space.id}`}>
             <MenuItem>
               <ListItemIcon>
-                <Avatar src={space.photo || undefined} />
+                {space.photo ? (
+                  <Avatar src={space.photo} />
+                ) : (
+                  <Avatar>{space.name[0]}</Avatar>
+                )}
               </ListItemIcon>
               <ListItemText primary={space.name} />
             </MenuItem>
@@ -75,7 +80,9 @@ export default function ListMenu({
         <ListItemText primary={t("common:common.mode")} />
       </MenuItem>
       <ListItem>
-        <DarkModeButton />
+        <IconButton>
+          <DarkModeButton />
+        </IconButton>
       </ListItem>
       <Divider />
       <MenuItem disabled>

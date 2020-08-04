@@ -5,6 +5,7 @@ import Activity from "@sentrei/types/models/Activity";
 import Room from "@sentrei/types/models/Room";
 
 const db = admin.firestore();
+const timestamp = admin.firestore.FieldValue.serverTimestamp();
 
 /**
  * Create room activity on delete
@@ -25,7 +26,7 @@ const activityRoomDelete = functions.firestore
       createdByUid: data.updatedByUid,
       fullItemPath: `spaces/${data.spaceId}/rooms/${roomId}`,
       itemPath: `rooms/${roomId}`,
-      updatedAt: data.updatedAt,
+      updatedAt: timestamp,
       spaceId: data.spaceId,
       user: data.updatedBy,
       userNotification:

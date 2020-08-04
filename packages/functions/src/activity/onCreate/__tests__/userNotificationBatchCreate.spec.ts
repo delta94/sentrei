@@ -17,7 +17,7 @@ const db = admin.firestore();
 
 test("Return when an activity should not notify any users", async done => {
   const snap = {
-    data: (): Activity.Response => ({
+    data: (): Activity.UpdateSpace => ({
       ...activitySpaceResponseUpdated,
       userNotification: [],
     }),
@@ -48,7 +48,7 @@ test("Send a notification to all required users", async done => {
       doc: jest.fn().mockReturnValue("user2Ref"),
     });
 
-  const snapData: Activity.Response = {
+  const snapData: Activity.UpdateSpace = {
     ...activitySpaceResponseUpdated,
     userNotification: ["user1", "user2"],
   };
@@ -57,7 +57,7 @@ test("Send a notification to all required users", async done => {
     updatedAt: adminTimestamp,
   };
   const snap = {
-    data: (): Activity.Response => snapData,
+    data: (): Activity.UpdateSpace => snapData,
   };
 
   const context = {params: {activityId: "notificationId"}};

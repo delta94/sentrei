@@ -19,5 +19,6 @@ if (!admin.apps.length) {
   admin.initializeApp(firebaseAdminConfig);
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export const adminDb = admin.firestore();
+
+export const timestamp = admin.firestore.FieldValue.serverTimestamp();

@@ -43,7 +43,7 @@ afterAll(async done => {
 
 test("Can not create a new activity", async done => {
   await firebase.assertFails(
-    collection.add(<Activity.CreateSpace>activityRoomResponseCreated),
+    collection.add(<Activity.CreateRoom>activityRoomResponseCreated),
   );
   done();
 });

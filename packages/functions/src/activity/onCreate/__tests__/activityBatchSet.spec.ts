@@ -19,7 +19,7 @@ const db = admin.firestore();
 
 test("Do not send a request to update when an item was deleted", async done => {
   const snap = {
-    data: (): Activity.Response => activitySpaceResponseDeleted,
+    data: (): Activity.DeleteSpace => activitySpaceResponseDeleted,
   };
   const wrapped = testEnv.wrap(activityBatchSet);
   const req = await wrapped(snap);
@@ -43,7 +43,7 @@ test("Send a request to update the updatedAt field", async done => {
     .mockReturnValue("spaceActivityRef");
 
   const snap = {
-    data: (): Activity.Response => activitySpaceResponseUpdated,
+    data: (): Activity.UpdateSpace => activitySpaceResponseUpdated,
   };
   const params = {activityId: "activityId"};
   const wrapped = testEnv.wrap(activityBatchSet);

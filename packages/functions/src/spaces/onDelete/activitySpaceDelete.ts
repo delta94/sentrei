@@ -5,6 +5,7 @@ import Activity from "@sentrei/types/models/Activity";
 import Space from "@sentrei/types/models/Space";
 
 const db = admin.firestore();
+const timestamp = admin.firestore.FieldValue.serverTimestamp();
 
 /**
  * Create space activity on delete
@@ -25,7 +26,7 @@ const activitySpaceDelete = functions.firestore
       createdByUid: data.updatedByUid,
       fullItemPath: `spaces/${spaceId}`,
       itemPath: `spaces/${spaceId}`,
-      updatedAt: data.updatedAt,
+      updatedAt: timestamp,
       spaceId,
       user: data.updatedBy,
       userNotification:

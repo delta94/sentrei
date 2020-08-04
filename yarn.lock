@@ -27996,10 +27996,10 @@ react-helmet@^5.2.1:
     react-fast-compare "^2.0.2"
     react-side-effect "^1.1.0"
 
-react-hook-form@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.1.0.tgz#ef2d4d7ad4805b3f33d027448d8a0f2944ec8ca5"
-  integrity sha512-sPOTCaWQUOPaf+U8hJEXD3ZqBiBxnvCBNm/VLAOh6MUMxRz0Yl0PtsWHAXIqxz5yGLGPe7prgghlfEUJ+sb5Dg==
+react-hook-form@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.3.0.tgz#5c1926d51d4532f44818ef73f96d1a8c11015a76"
+  integrity sha512-Xz7xxnILftxttc6H+miTSi2eYPehiW3XdsPaqY5dW8HcURFZPrnpxnmaRqz6JtZcbfRM8qjjppP/pOBaUzhn4w==
 
 react-hot-loader@^4.12.21:
   version "4.12.21"
@@ -28222,7 +28222,7 @@ react-sizeme@^2.6.7:
     shallowequal "^1.1.0"
     throttle-debounce "^2.1.0"
 
-react-spring@^9.0.0-rc.2:
+react-spring@^9.0.0-rc.2, react-spring@^9.0.0-rc.3:
   version "9.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-9.0.0-rc.3.tgz#0ad7b1e803f4385b7cbb44fff6d26f5be78884d6"
   integrity sha512-VX5Gi6svgRzjGvJ7qVRQBhFN+O2IuPvkSWepIg838LNIMqlc42xdIYtoGJYSqYjNO3IocSfkHlh49WVw6hHMUg==
@@ -28263,6 +28263,13 @@ react-textarea-autosize@^7.1.0:
   dependencies:
     "@babel/runtime" "^7.1.2"
     prop-types "^15.6.0"
+
+react-toggle-dark-mode@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-toggle-dark-mode/-/react-toggle-dark-mode-1.0.2.tgz#3b2affb232c52f2482daf7f35f7ad82519b29e3f"
+  integrity sha512-eJW0vVOJBMx2vBqKUiiJVkdcc6WoIaGYV8wSnpFfIwj8r6dwFN41/QCROfuLYyDD80amryLx9nRFPB5emhMp0Q==
+  dependencies:
+    react-spring "^9.0.0-rc.3"
 
 react-transition-group@^4.3.0, react-transition-group@^4.4.0:
   version "4.4.1"
@@ -28619,6 +28626,11 @@ rechoir@^0.6.2:
   integrity sha1-hSBLVNuoLVdC4oyWdW70OvUOM4Q=
   dependencies:
     resolve "^1.1.6"
+
+recoil@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.0.10.tgz#679ab22306f559f8a63c46fd5ff5241539f9248f"
+  integrity sha512-+9gRqehw3yKETmoZbhSnWu4GO10HDb5xYf1CjLF1oXGK2uT6GX5Lu9mfTXwjxV/jXxEKx8MIRUUbgPxvbJ8SEw==
 
 recursive-readdir@2.2.1:
   version "2.2.1"

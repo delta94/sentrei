@@ -5,6 +5,7 @@ import Activity from "@sentrei/types/models/Activity";
 import Member from "@sentrei/types/models/Member";
 
 const db = admin.firestore();
+const timestamp = admin.firestore.FieldValue.serverTimestamp();
 
 /**
  * Create member activity on delete
@@ -25,7 +26,7 @@ const activityMemberCreate = functions.firestore
       createdByUid: data.createdByUid,
       fullItemPath: `${collection}/${docId}/members/${memberId}`,
       itemPath: `members/${memberId}`,
-      updatedAt: data.updatedAt,
+      updatedAt: timestamp,
       spaceId: data.spaceId,
       user: data.updatedBy,
       userNotification: [],

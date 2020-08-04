@@ -16,6 +16,9 @@
     "match": "Passwords must match",
     "valid": "Please enter a valid password"
   },
+  "type": {
+    "typeRequired": "Type is required"
+  },
   "username": {
     "usernameAlreadyUsed": "Username is already used",
     "usernameInvalid": "Username is invalid",

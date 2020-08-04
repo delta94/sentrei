@@ -8,6 +8,7 @@
     "*": ["_error", "common", "form"],
     "/": ["index"],
     "/[spaceId]/activity": ["space"],
+    "/[spaceId]/analytics": ["space"],
     "/[spaceId]/create": ["room", "space"],
     "/[spaceId]/edit": ["space"],
     "/[spaceId]/invite": ["space"],

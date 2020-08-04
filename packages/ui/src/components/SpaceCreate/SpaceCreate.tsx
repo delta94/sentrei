@@ -1,8 +1,11 @@
+import PeopleIcon from "@material-ui/icons/People";
+import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
 import Profile from "@sentrei/types/models/Profile";
 import User from "@sentrei/types/models/User";
-import SpaceForm from "@sentrei/ui/components/SpaceForm";
+import FormSection from "@sentrei/ui/components/FormSection";
+import SpaceStepperCreate from "@sentrei/ui/components/SpaceStepperCreate";
 
 export interface Props {
   profile: Profile.Get;
@@ -10,5 +13,12 @@ export interface Props {
 }
 
 export default function SpaceCreate({profile, user}: Props): JSX.Element {
-  return <SpaceForm type="create" profile={profile} user={user} />;
+  const {t} = useTranslation();
+
+  return (
+    <>
+      <FormSection icon={<PeopleIcon />} title={t("space:space.createSpace")} />
+      <SpaceStepperCreate profile={profile} user={user} />
+    </>
+  );
 }

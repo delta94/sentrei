@@ -14,15 +14,24 @@ export default function IntlForm(): JSX.Element {
 
   const [period] = React.useState<User.Language>(lang as User.Language);
 
-  const pathnameNoLang = router.asPath
-    .split("/")
-    .filter(section => section !== lang)
-    .join("/");
+  const pathnameNoLang = (): string => {
+    if (
+      router.pathname === "/" ||
+      router.pathname === "/ja" ||
+      router.pathname === "/zh"
+    ) {
+      return "/";
+    }
+    return router.asPath
+      .split("/")
+      .filter(section => section !== lang)
+      .join("/");
+  };
 
   const handleChange = (event: React.ChangeEvent<{value: unknown}>): void => {
     if ((event.target.value as User.Language) !== lang) {
       Router.pushI18n({
-        url: pathnameNoLang,
+        url: pathnameNoLang(),
         options: {lang: event.target.value},
       });
     }
