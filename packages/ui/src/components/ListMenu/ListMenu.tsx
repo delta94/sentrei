@@ -1,6 +1,6 @@
 import Avatar from "@material-ui/core/Avatar";
-import Box from "@material-ui/core/Box";
 import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -80,8 +80,9 @@ export default function ListMenu({
         <ListItemText primary={t("common:common.mode")} />
       </MenuItem>
       <ListItem>
-        <DarkModeButton />
-        <Box p={3} />
+        <IconButton>
+          <DarkModeButton />
+        </IconButton>
       </ListItem>
       <Divider />
       <MenuItem disabled>
