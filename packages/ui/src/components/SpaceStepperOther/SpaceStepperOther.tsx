@@ -29,6 +29,7 @@ const SpaceStepperOther = ({atom, form, profile, user}: Props): JSX.Element => {
   const {snackbar} = useSnackbar();
   const {backdrop} = useBackdrop();
 
+  const [, setActiveStep] = useRecoilState<number>(atom);
   const [activeForm, setActiveForm] = useRecoilState<SpaceCreateForm>(form);
 
   const {handleSubmit} = useForm({
@@ -66,6 +67,7 @@ const SpaceStepperOther = ({atom, form, profile, user}: Props): JSX.Element => {
         snackbar("success");
         backdrop("loading");
         setActiveForm({id: "", name: ""});
+        setActiveStep(0);
         setTimeout(() => {
           goToSpace(activeForm.id);
         }, 9000);
@@ -73,7 +75,6 @@ const SpaceStepperOther = ({atom, form, profile, user}: Props): JSX.Element => {
     } catch (err) {
       snackbar("error", err.message);
     }
-    setActiveForm({id: activeForm.id, name: activeForm.name});
   };
 
   return (

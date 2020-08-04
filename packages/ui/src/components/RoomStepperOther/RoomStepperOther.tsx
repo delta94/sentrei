@@ -34,8 +34,8 @@ const RoomStepperOther = ({
   const {t} = useTranslation();
   const {snackbar} = useSnackbar();
   const {backdrop} = useBackdrop();
-  const [, setActiveStep] = useRecoilState<number>(atom);
 
+  const [, setActiveStep] = useRecoilState<number>(atom);
   const [activeForm, setActiveForm] = useRecoilState<RoomCreateForm>(form);
 
   const {handleSubmit} = useForm({
@@ -63,6 +63,8 @@ const RoomStepperOther = ({
       })?.then(() => {
         snackbar("success");
         backdrop("loading");
+        setActiveForm({name: "", type: "focus"});
+        setActiveStep(0);
         setTimeout(() => {
           Router.pushI18n("/[spaceId]", `/${spaceId}`);
         }, 1500);
@@ -70,8 +72,6 @@ const RoomStepperOther = ({
     } catch (err) {
       snackbar("error", err.message);
     }
-    setActiveForm({name: activeForm.name, type: activeForm.type});
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
   };
 
   return (
