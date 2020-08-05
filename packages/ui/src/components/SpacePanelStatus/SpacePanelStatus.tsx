@@ -7,8 +7,9 @@ import InputBase from "@material-ui/core/InputBase";
 import Paper from "@material-ui/core/Paper";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
-import {Emoji} from "emoji-mart";
 import * as React from "react";
+
+import EmojiPicker from "@sentrei/ui/components/EmojiPicker";
 
 import SpacePanelStatusStyles from "./SpacePanelStatusStyles";
 
@@ -27,9 +28,7 @@ export default function SpacePanelStatus(): JSX.Element {
         <Grid item xs={12} sm={1} md={2} />
         <Grid item xs={12} sm={10} md={8}>
           <Paper component="form" className={classes.root}>
-            <ButtonBase className={classes.iconButton} aria-label="emoji">
-              <Emoji emoji="santa" set="twitter" size={30} />
-            </ButtonBase>
+            <EmojiPicker />
             <Divider className={classes.divider} orientation="vertical" />
             <InputBase
               className={classes.input}
