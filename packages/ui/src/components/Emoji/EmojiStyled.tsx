@@ -1,8 +1,6 @@
-import {NimblePicker} from "emoji-mart";
-
 import styled from "styled-components";
 
-const EmojiStyled = styled(NimblePicker)`
+const EmojiStyled = styled.div`
   .emoji-mart,
   .emoji-mart * {
     box-sizing: border-box;
