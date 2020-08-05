@@ -27,9 +27,10 @@ const Profile: NextPage = () => {
 
   return (
     <>
-      {user ? (
+      {user && profile ? (
         <SentreiAppHeader
           notificationCount={Number(user.notificationCount)}
+          profile={profile}
           userId={user.uid}
         />
       ) : (

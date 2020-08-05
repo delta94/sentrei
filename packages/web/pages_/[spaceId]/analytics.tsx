@@ -12,7 +12,8 @@ import SentreiAppHeader from "@sentrei/web/components/SentreiAppHeader";
 
 const AnalyticsPage: NextPage = () => {
   const {query} = useRouter();
-  const {user} = React.useContext(AuthContext);
+
+  const {user, profile} = React.useContext(AuthContext);
 
   React.useEffect(() => {
     analytics().setCurrentScreen("spaceAnalytics");
@@ -29,9 +30,10 @@ const AnalyticsPage: NextPage = () => {
   return (
     <>
       <NoHubSpot />
-      {user ? (
+      {user && profile ? (
         <SentreiAppHeader
           notificationCount={Number(user.notificationCount)}
+          profile={profile}
           userId={user.uid}
           spaceId={String(query.spaceId)}
         />

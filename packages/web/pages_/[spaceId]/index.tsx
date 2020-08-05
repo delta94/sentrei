@@ -20,6 +20,7 @@ const SpaceScreen = dynamic(
 
 const SpaceId = (): JSX.Element => {
   const {query} = useRouter();
+
   const {user, profile} = React.useContext(AuthContext);
 
   React.useEffect(() => {
@@ -37,9 +38,10 @@ const SpaceId = (): JSX.Element => {
   return (
     <>
       <NoHubSpot />
-      {user ? (
+      {user && profile ? (
         <SentreiAppHeader
           notificationCount={Number(user.notificationCount)}
+          profile={profile}
           userId={user.uid}
         />
       ) : (
