@@ -58,7 +58,7 @@
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/exec": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
-    "@typescript-eslint/parser": "^3.6.1",
+    "@typescript-eslint/parser": "^3.8.0",
     "commitizen": "^4.0.4",
     "depcheck": "^1.0.0",
     "eclint": "^2.8.1",
