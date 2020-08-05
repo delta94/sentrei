@@ -4,7 +4,7 @@ declare namespace Profile {
     photo: string | null;
     username: string;
     emoji?: string;
-    status?: string;
+    description?: string;
   };
 
   export type Response = Fields;

@@ -7,7 +7,6 @@ import * as React from "react";
 
 import Profile from "@sentrei/types/models/Profile";
 import FormSection from "@sentrei/ui/components/FormSection";
-import ProfileEmojiForm from "@sentrei/ui/components/ProfileEmojiForm";
 import ProfileNameForm from "@sentrei/ui/components/ProfileNameForm";
 import TabBoard from "@sentrei/ui/components/TabBoard";
 
@@ -34,7 +33,7 @@ export default function ProfileEdit({profile}: Props): JSX.Element {
         tabLabelTwo={t("common:common.photo")}
         tabLabelThree={t("common:common.status")}
         tabPanelOne={<ProfileNameForm profile={profile} />}
-        tabPanelTwo={<ProfileEmojiForm profile={profile} />}
+        tabPanelTwo={<ProfileNameForm profile={profile} />}
         tabPanelThree={<></>}
       />
     </>
