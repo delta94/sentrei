@@ -18,7 +18,7 @@ const NotificationScreen = dynamic(
 );
 
 const Notifications: NextPage = () => {
-  const {user} = React.useContext(AuthContext);
+  const {user, profile} = React.useContext(AuthContext);
 
   React.useEffect(() => {
     analytics().setCurrentScreen("notifications");
@@ -35,9 +35,10 @@ const Notifications: NextPage = () => {
   return (
     <>
       <NoHubSpot />
-      {user ? (
+      {user && profile ? (
         <SentreiAppHeader
           notificationCount={Number(user.notificationCount)}
+          profile={profile}
           userId={user.uid}
         />
       ) : (

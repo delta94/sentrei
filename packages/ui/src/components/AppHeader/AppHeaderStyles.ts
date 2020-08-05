@@ -9,6 +9,10 @@ const AppHeaderStyles = makeStyles((theme: Theme) =>
       color: theme.palette.common.white,
       width: "100%",
     },
+    avatar: {
+      width: theme.spacing(4),
+      height: theme.spacing(4),
+    },
     left: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(3),

@@ -19,7 +19,8 @@ const InviteSignup = dynamic(
 
 const InviteId: NextPage = () => {
   const {query} = useRouter();
-  const {profile, user} = React.useContext(AuthContext);
+
+  const {user, profile} = React.useContext(AuthContext);
 
   React.useEffect(() => {
     analytics().setCurrentScreen("inviteSignup");
@@ -36,9 +37,10 @@ const InviteId: NextPage = () => {
   return (
     <>
       <NoHubSpot />
-      {user ? (
+      {user && profile ? (
         <SentreiAppHeader
           notificationCount={Number(user.notificationCount)}
+          profile={profile}
           userId={user.uid}
           spaceId={String(query.spaceId)}
         />

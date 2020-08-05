@@ -8,6 +8,7 @@ type Props = Omit<Original, "logo">;
 
 export default function SentreiAppHeader({
   notificationCount,
+  profile,
   spaceId,
   userId,
 }: Props): JSX.Element {
@@ -15,6 +16,7 @@ export default function SentreiAppHeader({
     <AppHeader
       logo={<LogoPicture />}
       notificationCount={notificationCount}
+      profile={profile}
       spaceId={spaceId}
       userId={userId}
     />

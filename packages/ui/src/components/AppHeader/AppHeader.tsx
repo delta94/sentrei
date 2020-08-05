@@ -1,12 +1,13 @@
 import AppBar from "@material-ui/core/AppBar";
+import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import Toolbar from "@material-ui/core/Toolbar";
 import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
-import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import * as React from "react";
 
+import Profile from "@sentrei/types/models/Profile";
 import ListMenu from "@sentrei/ui/components/ListMenu";
 import Logo from "@sentrei/ui/components/Logo";
 import ProfileMenu from "@sentrei/ui/components/ProfileMenu";
@@ -15,6 +16,7 @@ import AppHeaderStyles from "./AppHeaderStyles";
 
 export interface Props {
   logo: JSX.Element;
+  profile?: Profile.Get;
   notificationCount?: number;
   userId?: string;
   spaceId?: string;
@@ -22,6 +24,7 @@ export interface Props {
 
 export default function AppHeader({
   logo,
+  profile,
   notificationCount,
   userId,
   spaceId,
@@ -82,7 +85,12 @@ export default function AppHeader({
             onClick={handleProfileClick}
             className={classes.right}
           >
-            {profileAnchorEl ? <CloseIcon /> : <PermIdentityIcon />}
+            <Avatar
+              className={classes.avatar}
+              component="span"
+              sizes="small"
+              src={profile ? profile.photo || profile.name[0] : undefined}
+            />
           </IconButton>
           <ProfileMenu
             notificationCount={notificationCount}

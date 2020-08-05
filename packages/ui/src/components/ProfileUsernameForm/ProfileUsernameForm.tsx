@@ -25,12 +25,12 @@ export interface Props {
   user: User.Get;
 }
 
-const SettingsUsernameForm = ({profile}: Props): JSX.Element => {
+const ProfileUsernameForm = ({profile}: Props): JSX.Element => {
   const {t} = useTranslation();
   const {snackbar} = useSnackbar();
   const {backdrop} = useBackdrop();
 
-  const SettingsUsernameFormSchema = Yup.object().shape({
+  const ProfileUsernameFormSchema = Yup.object().shape({
     username: Yup.string()
       .required(t("form:username.usernameRequired"))
       .matches(
@@ -46,7 +46,7 @@ const SettingsUsernameForm = ({profile}: Props): JSX.Element => {
   const {control, register, errors, handleSubmit} = useForm({
     mode: "onSubmit",
     reValidateMode: "onBlur",
-    resolver: yupResolver(SettingsUsernameFormSchema),
+    resolver: yupResolver(ProfileUsernameFormSchema),
   });
 
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
@@ -111,4 +111,4 @@ const SettingsUsernameForm = ({profile}: Props): JSX.Element => {
   );
 };
 
-export default SettingsUsernameForm;
+export default ProfileUsernameForm;
