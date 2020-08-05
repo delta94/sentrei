@@ -1,3 +1,16 @@
+# [1.22.0](https://github.com/sentrei/sentrei/compare/v1.21.0...v1.22.0) (2020-08-05)
+
+### Features
+
+- 🎸 ini emoji component ([7eb4b8f](https://github.com/sentrei/sentrei/commit/7eb4b8f1cd900d63f69ee9d5467b5423ce6ec8bf))
+- 🎸 ini emoji styles ([d10a1cf](https://github.com/sentrei/sentrei/commit/d10a1cff464c3e74e4f82960dade7b353643aee5))
+- 🎸 profile edit refactor ([ccbe3ef](https://github.com/sentrei/sentrei/commit/ccbe3efe198d6057abaf3a6ff43e65c12984d003))
+
+### Performance Improvements
+
+- ⚡️ changed license SPDX license expression ([807702a](https://github.com/sentrei/sentrei/commit/807702a177d67cb7b3126375768836179bd5cc8d))
+- ⚡️ refactor color and padding panel ([de00466](https://github.com/sentrei/sentrei/commit/de00466457b515d8b97519458f85cd48f1b82443))
+
 # [1.21.0](https://github.com/sentrei/sentrei/compare/v1.20.0...v1.21.0) (2020-08-05)
 
 ### Features
