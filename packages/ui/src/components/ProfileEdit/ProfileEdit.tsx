@@ -6,6 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
 import Profile from "@sentrei/types/models/Profile";
+import Emoji from "@sentrei/ui/components/Emoji";
 import FormSection from "@sentrei/ui/components/FormSection";
 import ProfileNameForm from "@sentrei/ui/components/ProfileNameForm";
 import TabBoard from "@sentrei/ui/components/TabBoard";
@@ -33,8 +34,8 @@ export default function ProfileEdit({profile}: Props): JSX.Element {
         tabLabelTwo={t("common:common.photo")}
         tabLabelThree={t("common:common.status")}
         tabPanelOne={<ProfileNameForm profile={profile} />}
-        tabPanelTwo={<ProfileNameForm profile={profile} />}
-        tabPanelThree={<></>}
+        tabPanelTwo={<Emoji />}
+        tabPanelThree={<Emoji />}
       />
     </>
   );
