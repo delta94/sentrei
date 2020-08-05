@@ -1,8 +1,8 @@
 [
   {
-    "command": "deliver",
-    "permission": "admin",
-    "issue_type": "issue",
+    "command": " backup",
+    "permission": "none",
+    "issue_type": "both",
     "allow_edits": true,
     "event_type_suffix": "-cmd"
   },
@@ -10,13 +10,6 @@
     "command": "deploy",
     "permission": "admin",
     "issue_type": "pull-request",
-    "allow_edits": true,
-    "event_type_suffix": "-cmd"
-  },
-  {
-    "command": "enforcer",
-    "permission": "none",
-    "issue_type": "both",
     "allow_edits": true,
     "event_type_suffix": "-cmd"
   },
@@ -51,13 +44,6 @@
   {
     "command": "sync",
     "permission": "none",
-    "issue_type": "both",
-    "allow_edits": true,
-    "event_type_suffix": "-cmd"
-  },
-  {
-    "command": "zenhub",
-    "permission": "admin",
     "issue_type": "both",
     "allow_edits": true,
     "event_type_suffix": "-cmd"
