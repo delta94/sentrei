@@ -10,6 +10,7 @@ declare namespace Room {
   };
 
   interface Fields extends EditableFields {
+    emoji?: string;
     type: Types;
     memberCount: number;
     spaceId: string;
