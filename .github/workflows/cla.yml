@@ -8,6 +8,12 @@ jobs:
   cla:
     runs-on: ubuntu-latest
     steps:
+      - uses: peterjgrainger/action-create-branch@v1.0.0
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branch: "cla"
       - if: (github.event.comment.body == 'recheckcla' || github.event.comment.body == 'I have read the CLA Document and I hereby sign the CLA') || github.event_name == 'pull_request'
         uses: cla-assistant/github-action@v1.4.2-alpha
         env:
