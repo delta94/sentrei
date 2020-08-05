@@ -4,14 +4,14 @@ import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 import useDarkMode from "use-dark-mode";
 
-import EmojiStyled from "./EmojiStyled";
+import EmojiMartStyled from "./EmojiMartStyled";
 
-export default function Emoji(): JSX.Element {
+export default function EmojiMart(): JSX.Element {
   const {t} = useTranslation();
   const {value: isDark} = useDarkMode(false);
 
   return (
-    <EmojiStyled>
+    <EmojiMartStyled>
       <NimblePicker
         title={t("common:common.pickYourEmoji")}
         emoji="point_up"
@@ -20,6 +20,6 @@ export default function Emoji(): JSX.Element {
         // @ts-ignore
         data={data}
       />
-    </EmojiStyled>
+    </EmojiMartStyled>
   );
 }
