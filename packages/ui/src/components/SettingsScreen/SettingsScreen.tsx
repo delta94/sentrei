@@ -9,9 +9,9 @@ import * as React from "react";
 import Profile from "@sentrei/types/models/Profile";
 import User from "@sentrei/types/models/User";
 import FormSection from "@sentrei/ui/components/FormSection";
-import NotificationForm from "@sentrei/ui/components/SettingsNotificationForm";
-import PasswordUpdateForm from "@sentrei/ui/components/SettingsPasswordForm";
-import SettingsUsernameForm from "@sentrei/ui/components/SettingsUsernameForm";
+import SettingsNotificationForm from "@sentrei/ui/components/SettingsNotificationForm";
+import SettingsOtherForm from "@sentrei/ui/components/SettingsOtherForm";
+import SettingsPasswordForm from "@sentrei/ui/components/SettingsPasswordForm";
 import TabBoard from "@sentrei/ui/components/TabBoard";
 
 export interface Props {
@@ -36,11 +36,11 @@ const SettingsScreen = ({profile, user}: Props): JSX.Element => {
         tabIconThree={<LockIcon />}
         tabLabelOne={t("common:common.notifications")}
         tabLabelTwo={t("common:common.password")}
-        tabLabelThree={t("common:common.username")}
+        tabLabelThree={t("common:common.other")}
         tabPanelOne={
           <Grid container justify="center" direction="row" spacing={3}>
             <Grid item xs={12}>
-              <NotificationForm
+              <SettingsNotificationForm
                 profile={profile}
                 user={user}
                 content="chat"
@@ -48,7 +48,7 @@ const SettingsScreen = ({profile, user}: Props): JSX.Element => {
               />
             </Grid>
             <Grid item xs={12}>
-              <NotificationForm
+              <SettingsNotificationForm
                 profile={profile}
                 user={user}
                 content="invitation"
@@ -56,7 +56,7 @@ const SettingsScreen = ({profile, user}: Props): JSX.Element => {
               />
             </Grid>
             <Grid item xs={12}>
-              <NotificationForm
+              <SettingsNotificationForm
                 profile={profile}
                 user={user}
                 content="update"
@@ -65,8 +65,8 @@ const SettingsScreen = ({profile, user}: Props): JSX.Element => {
             </Grid>
           </Grid>
         }
-        tabPanelTwo={<PasswordUpdateForm />}
-        tabPanelThree={<SettingsUsernameForm profile={profile} user={user} />}
+        tabPanelTwo={<SettingsPasswordForm />}
+        tabPanelThree={<SettingsOtherForm />}
       />
     </>
   );

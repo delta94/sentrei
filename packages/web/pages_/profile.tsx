@@ -36,7 +36,7 @@ const Profile: NextPage = () => {
       ) : (
         <SentreiAppHeader />
       )}
-      {user && profile && <ProfileEdit profile={profile} />}
+      {user && profile && <ProfileEdit profile={profile} user={user} />}
     </>
   );
 };
