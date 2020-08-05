@@ -1,3 +1,11 @@
+# [1.23.0](https://github.com/sentrei/sentrei/compare/v1.22.0...v1.23.0) (2020-08-05)
+
+### Features
+
+- 🎸 ini profile popover ([562bf57](https://github.com/sentrei/sentrei/commit/562bf57edaeb466da4439ca01083a052f069e1df))
+- 🎸 refactor profile appheader ([d882f53](https://github.com/sentrei/sentrei/commit/d882f5368ca839a101ada59a55137268742fda23))
+- 🎸 settins profile form ([f29d96d](https://github.com/sentrei/sentrei/commit/f29d96d8abf18cfe4b270656e300af3a642dae38))
+
 # [1.22.0](https://github.com/sentrei/sentrei/compare/v1.21.0...v1.22.0) (2020-08-05)
 
 ### Features
