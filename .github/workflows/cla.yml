@@ -1,0 +1,17 @@
+name: CLA
+on: pull_request
+jobs:
+  cla:
+    runs-on: ubuntu-latest
+    steps:
+      - if: (github.event.comment.body == 'recheckcla' || github.event.comment.body == 'I have read the CLA Document and I hereby sign the CLA') || github.event_name == 'pull_request'
+        uses: cla-assistant/github-action@v1.4.2-alpha
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          path-to-signatures: ".github/signatures/v1/cla.json"
+          path-to-cla-document: "https://github.com/sentrei/sentrei/blob/main/CLA.md"
+          branch: "main"
+          allowlist: dependabot*
+          empty-commit-flag: true
+          blockchain-storage-flag: false
