@@ -13,7 +13,7 @@ jobs:
         with:
           path-to-signatures: ".github/signatures/v1/cla.json"
           path-to-cla-document: "https://github.com/sentrei/sentrei/blob/main/CLA.md"
-          branch: "main"
+          branch: "cla"
           allowlist: dependabot*
           empty-commit-flag: true
           blockchain-storage-flag: false
