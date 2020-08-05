@@ -1,3 +1,5 @@
+import {useTheme} from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Error from "next/error";
 import * as React from "react";
 
@@ -17,6 +19,9 @@ export interface Props {
 }
 
 export default function SpaceScreen({spaceId}: Props): JSX.Element {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+
   const [space, setSpace] = React.useState<Space.Get | null | undefined>();
   const [members, setMembers] = React.useState<
     Member.Get[] | null | undefined
@@ -55,7 +60,7 @@ export default function SpaceScreen({spaceId}: Props): JSX.Element {
 
   return (
     <>
-      {members && <MemberFab members={members} space={space} />}
+      {members && matches && <MemberFab members={members} space={space} />}
       {space && <SpaceFab spaceId={space.id} type="space" />}
       {space && members && (
         <SpaceBoard members={members} rooms={rooms} space={space} />
