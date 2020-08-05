@@ -1,0 +1,16 @@
+name: Auto Pull Request
+on:
+  push:
+    branches-ignore:
+      - alpha
+      - beta
+      - main
+jobs:
+  auto-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: vsoch/pull-request-action@1.0.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_PREFIX: "cla"
+          PULL_REQUEST_BRANCH: "main"
