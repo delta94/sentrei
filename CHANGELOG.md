@@ -1,3 +1,9 @@
+# [1.21.0](https://github.com/sentrei/sentrei/compare/v1.20.0...v1.21.0) (2020-08-05)
+
+### Features
+
+- 🎸 upgrade license to gnu gpl v3 ([b7ebc82](https://github.com/sentrei/sentrei/commit/b7ebc824544faae09f501f63ef19a0aa502f54bd))
+
 # [1.20.0](https://github.com/sentrei/sentrei/compare/v1.19.0...v1.20.0) (2020-08-04)
 
 ### Features
