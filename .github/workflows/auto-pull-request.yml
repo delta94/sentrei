@@ -1,16 +1,16 @@
 name: Auto Pull Request
 on:
   push:
-    branches-ignore:
-      - alpha
-      - beta
-      - main
+    branches:
+      - cla
 jobs:
   auto-pull-request:
     runs-on: ubuntu-latest
     steps:
-      - uses: vsoch/pull-request-action@1.0.6
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH_PREFIX: "cla"
-          PULL_REQUEST_BRANCH: "main"
+      - uses: actions/checkout@v2
+      - uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          branch: create-pull-request/cla
+          title: "chore: [sentrei-auto-pr]"
+          commit-message: "chore: [sentrei-auto-pr]"
