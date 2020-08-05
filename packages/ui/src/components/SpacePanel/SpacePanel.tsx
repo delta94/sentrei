@@ -22,7 +22,6 @@ export default function SpacePanel({photo, name, spaceId}: Props): JSX.Element {
 
   return (
     <>
-      <Box py={1} />
       <Container maxWidth="xs">
         <Grid container alignItems="center" justify="center" direction="row">
           {photo ? (
@@ -30,15 +29,14 @@ export default function SpacePanel({photo, name, spaceId}: Props): JSX.Element {
           ) : (
             <DashboardIcon color="disabled" className={classes.large} />
           )}
-          <Box p={1} />
-          <Typography variant="h2" component="h2" align="center">
-            {name}
-          </Typography>
+          <Box p={2}>
+            <Typography variant="h2" component="h2" align="center">
+              {name}
+            </Typography>
+          </Box>
         </Grid>
       </Container>
-      <Box p={2}>
-        <SpacePanelAccordion spaceId={spaceId} />
-      </Box>
+      <SpacePanelAccordion spaceId={spaceId} />
     </>
   );
 }

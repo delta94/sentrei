@@ -23,14 +23,14 @@ export default function SpacePanelAccoion({spaceId}: Props): JSX.Element {
         alignItems="center"
         justify="flex-end"
         direction="row"
-        spacing={3}
+        spacing={2}
       >
         <Grid item xs={6} sm={6} md={3}>
           <Link href="/[spaceId]/activity" as={`/${spaceId}/activity`}>
             <Button
               fullWidth
               variant="outlined"
-              color="default"
+              color="primary"
               startIcon={<HistoryIcon />}
             >
               {t("common:common.activity")}
@@ -42,7 +42,7 @@ export default function SpacePanelAccoion({spaceId}: Props): JSX.Element {
             <Button
               fullWidth
               variant="outlined"
-              color="default"
+              color="primary"
               startIcon={<PollIcon />}
             >
               {t("common:common.analytics")}
@@ -54,7 +54,7 @@ export default function SpacePanelAccoion({spaceId}: Props): JSX.Element {
             <Button
               fullWidth
               variant="outlined"
-              color="default"
+              color="primary"
               startIcon={<FormatListNumberedIcon />}
             >
               {t("common:common.leaderboard")}
@@ -66,7 +66,7 @@ export default function SpacePanelAccoion({spaceId}: Props): JSX.Element {
             <Button
               fullWidth
               variant="outlined"
-              color="default"
+              color="primary"
               startIcon={<PeopleIcon />}
             >
               {t("common:common.members")}
