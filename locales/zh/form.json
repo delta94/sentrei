@@ -16,6 +16,9 @@
     "match": "密码必须匹配",
     "valid": "请输入有效密码"
   },
+  "type": {
+    "typeRequired": "类型为必填项"
+  },
   "username": {
     "usernameAlreadyUsed": "用户名已被使用",
     "usernameInvalid": "无效的用户名",

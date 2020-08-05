@@ -38,7 +38,7 @@ export default function RoomCreate({
     <StepperBoard
       atom={stepperState}
       stepperLabelOne={t("common:common.name")}
-      stepperLabelTwo={t("common:common.types")}
+      stepperLabelTwo={t("common:common.type")}
       stepperLabelThree={t("common:common.other")}
       stepperPanelOne={
         <RoomStepperName atom={stepperState} form={roomCreateForm} />
