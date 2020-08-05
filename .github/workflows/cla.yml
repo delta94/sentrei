@@ -1,5 +1,7 @@
 name: CLA
-on: pull_request
+on:
+  - issue_comment
+  - pull_request
 jobs:
   cla:
     runs-on: ubuntu-latest
