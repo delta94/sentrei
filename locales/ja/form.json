@@ -16,6 +16,9 @@
     "match": "パスワードが一致する必要があります",
     "valid": "有効なパスワードを入力して下さい"
   },
+  "type": {
+    "typeRequired": "タイプは必須です"
+  },
   "username": {
     "usernameAlreadyUsed": "ユーザー名は既に使用されています",
     "usernameInvalid": "ユーザー名が無効です",
