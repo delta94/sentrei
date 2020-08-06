@@ -1,3 +1,29 @@
+# [1.24.0](https://github.com/sentrei/sentrei/compare/v1.23.0...v1.24.0) (2020-08-06)
+
+### Features
+
+- 🎸 add members update ([6b9089f](https://github.com/sentrei/sentrei/commit/6b9089f0e04857c891051c2b948e9a6599bfca25))
+- 🎸 complete initial emoji picker ([83712ca](https://github.com/sentrei/sentrei/commit/83712caec84b3fc730c37fbcfa3a219e7d5eb681))
+- 🎸 ini emoji picker ([df91184](https://github.com/sentrei/sentrei/commit/df91184a1f656fff9230e6b80aef22aeb75d6528))
+- 🎸 ini profile for space screen ([596d603](https://github.com/sentrei/sentrei/commit/596d60333077f0a85b43f91d962ca64d53ec53c5))
+- 🎸 ini room card emoji picker ([1b93382](https://github.com/sentrei/sentrei/commit/1b93382be70832a8cbe21580b97da5b6ceccf6d8))
+- 🎸 ini room card emoji picker ([247479d](https://github.com/sentrei/sentrei/commit/247479dd73ad8a0f7edf093553e62757b07fd160))
+- 🎸 ini space panel description ([401ca07](https://github.com/sentrei/sentrei/commit/401ca074ab4e6170e94ad32ba22b52fe30805820))
+- 🎸 ini space panel emoji picker ([53d204d](https://github.com/sentrei/sentrei/commit/53d204dd698bf94d6510ee66144d59df327b17bb))
+- 🎸 ini user for space panel ([306ac20](https://github.com/sentrei/sentrei/commit/306ac205b814a5778926718bd56e539caf6575a1))
+- 🎸 refactor emoji to emoji mart ([e5c7416](https://github.com/sentrei/sentrei/commit/e5c741635830319f4170b3c5327b3b48e5824cc8))
+- 🎸 space panel refactor (banner, status, panel) ([0803e98](https://github.com/sentrei/sentrei/commit/0803e9814b9d862327ea73b1490844d48acd759d))
+- 🎸 update firestore rules ([d8389d2](https://github.com/sentrei/sentrei/commit/d8389d2d107527939f5b835661e1435fe853ed7f))
+- 🎸 working member profile ([3a8b058](https://github.com/sentrei/sentrei/commit/3a8b0588c781eb0a873ebbc58f31b0d35318da14))
+
+### Performance Improvements
+
+- ⚡️ add media query for memebers fab ([1c56599](https://github.com/sentrei/sentrei/commit/1c56599fcc3a1069c0cecd7591abedbcb02d0e70))
+- ⚡️ member update firebase rules test ([b3c34c8](https://github.com/sentrei/sentrei/commit/b3c34c87a0b928680740c3ce8db9fafcfa114086))
+- ⚡️ refactor to initialEmoji ([b0ec6c4](https://github.com/sentrei/sentrei/commit/b0ec6c4fc641be1355a20aced8dfbd0a95af7d50))
+- ⚡️ track emoji for room update ([04e7b31](https://github.com/sentrei/sentrei/commit/04e7b314d80ce9365d3b09283ff3e3f14453022e))
+- ⚡️ update members service ([22c52ae](https://github.com/sentrei/sentrei/commit/22c52ae34e0f8343c808cf290a99a5ec4f6863c7))
+
 # [1.23.0](https://github.com/sentrei/sentrei/compare/v1.22.0...v1.23.0) (2020-08-05)
 
 ### Features
