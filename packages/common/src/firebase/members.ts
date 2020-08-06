@@ -89,11 +89,11 @@ export const deleteMember = (
   return db.doc(`${collection}/${docId}/members/${userId}`).delete();
 };
 
-export const updateEmoji = (
+export const updateMemberEmoji = (
   collection: Member.Collections,
   docId: string,
   userId: string,
   emoji: string,
 ): Promise<void> => {
-  return db.doc(`${collection}/${docId}/followers/${userId}`).set({emoji});
+  return db.doc(`${collection}/${docId}/members/${userId}`).set({emoji});
 };
