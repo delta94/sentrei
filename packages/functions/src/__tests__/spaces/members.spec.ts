@@ -1,9 +1,8 @@
 import * as firebase from "@firebase/testing";
 
+import {spaceMemberEmoji} from "@sentrei/functions/__dummy__/Member";
 import {profileResponse} from "@sentrei/functions/__dummy__/Profile";
-
 import {userResponse} from "@sentrei/functions/__dummy__/User";
-import {timestamp} from "@sentrei/functions/__mocks__/firebase-testing";
 import {
   initializeAdminApp,
   initializeFirebaseApp,
@@ -93,9 +92,9 @@ test("Can not leave a space using a fake userId", async done => {
   done();
 });
 
-test("Can not update", async done => {
+test("Can update emoji", async done => {
   await admin.doc("spaces/spaceId/members/userId").set(profileResponse);
-  await firebase.assertFails(ref.update({timestamp}));
+  await firebase.assertFails(ref.update({spaceMemberEmoji}));
   done();
 });
 

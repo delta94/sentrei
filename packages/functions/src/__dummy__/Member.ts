@@ -48,3 +48,9 @@ export const roomMemberResponse: Member.Response = {
   status: "online",
   type: "spaces",
 };
+
+export const spaceMemberEmoji: Member.Update = {
+  ...baseMemberResponse,
+  ...profileResponse,
+  emoji: "emoji",
+};
