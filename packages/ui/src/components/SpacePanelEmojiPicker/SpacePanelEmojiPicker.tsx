@@ -7,14 +7,14 @@ import EmojiPicker from "@sentrei/ui/components/EmojiPicker";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 export interface Props {
-  emoji: string;
+  initialEmoji: string;
   profile: Profile.Get;
   spaceId: string;
   userId: string;
 }
 
 export default function SpacePanelEmojiPicker({
-  emoji,
+  initialEmoji,
   profile,
   spaceId,
   userId,
@@ -34,5 +34,5 @@ export default function SpacePanelEmojiPicker({
     }
   };
 
-  return <EmojiPicker emoji={emoji} onSelect={handleEmoji} />;
+  return <EmojiPicker initialEmoji={initialEmoji} onSelect={handleEmoji} />;
 }

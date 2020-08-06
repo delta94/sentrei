@@ -8,12 +8,12 @@ import EmojiMart from "@sentrei/ui/components/EmojiMart";
 import EmojiPickerStyles from "./EmojiPickerStyles";
 
 export interface Props {
-  emoji: string;
+  initialEmoji: string;
   onSelect?: (emoji: string) => void;
 }
 
 export default function EmojiPicker({
-  emoji: initialEmoji,
+  initialEmoji,
   onSelect,
 }: Props): JSX.Element {
   const classes = EmojiPickerStyles();
