@@ -19,8 +19,10 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 import {getMembersLive} from "@sentrei/common/firebase/members";
 import Member from "@sentrei/types/models/Member";
+import Profile from "@sentrei/types/models/Profile";
 import Room from "@sentrei/types/models/Room";
 import Space from "@sentrei/types/models/Space";
+import User from "@sentrei/types/models/User";
 import ProfileCard from "@sentrei/ui/components/ProfileCard";
 import RoomCardEmojiPicker from "@sentrei/ui/components/RoomCardEmojiPicker";
 import RoomMenu from "@sentrei/ui/components/RoomMenu";
@@ -29,11 +31,18 @@ import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 import RoomCardStyles from "./RoomCardStyles";
 
 export interface Props {
+  profile: Profile.Get;
   room: Room.Get;
   space: Space.Get;
+  user: User.Get;
 }
 
-export default function RoomCard({room, space}: Props): JSX.Element {
+export default function RoomCard({
+  profile,
+  room,
+  space,
+  user,
+}: Props): JSX.Element {
   const classes = RoomCardStyles();
   const {snackbar} = useSnackbar();
   const {t} = useTranslation();
@@ -54,12 +63,15 @@ export default function RoomCard({room, space}: Props): JSX.Element {
   };
 
   React.useEffect(() => {
-    const unsubscribe = getMembersLive("rooms", room.id, snap => {
-      setMembers(snap);
-    });
-    return (): void => {
-      unsubscribe();
-    };
+    if (room.memberCount > 0) {
+      const unsubscribe = getMembersLive("rooms", room.id, snap => {
+        setMembers(snap);
+      });
+      return (): void => {
+        unsubscribe();
+      };
+    }
+    return (): void => {};
   }, [room]);
 
   return (
@@ -84,7 +96,12 @@ export default function RoomCard({room, space}: Props): JSX.Element {
           alignItems="center"
         >
           <Grid item xs={1} sm={1} md={1}>
-            <RoomCardEmojiPicker />
+            <RoomCardEmojiPicker
+              initialEmoji={room?.emoji ?? "sushi"}
+              profile={profile}
+              roomId={room.id}
+              userId={user.uid}
+            />
           </Grid>
           <Grid item xs={6} sm={7} md={8}>
             <Typography
