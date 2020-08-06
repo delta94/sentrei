@@ -4,7 +4,7 @@ const SpacePanelDescriptionFormStyles = makeStyles((theme: Theme) =>
   createStyles({
     form: {
       display: "flex",
-      flexGrow: 3,
+      flexGrow: 10,
       justifyContent: "space-between",
       marginLeft: theme.spacing(1),
     },

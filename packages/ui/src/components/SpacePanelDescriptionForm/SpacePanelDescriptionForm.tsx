@@ -65,6 +65,7 @@ export default function SpacePanelDescriptionForm({
   };
 
   const handleClear = async (): Promise<void> => {
+    snackbar("info", t("common:snackbar.clearing"));
     try {
       await updateMember("spaces", spaceId, userId, {
         description: "",
@@ -74,7 +75,7 @@ export default function SpacePanelDescriptionForm({
       });
       setEmpty(true);
       reset();
-      snackbar("success", t("common:snackbar.updated"));
+      snackbar("success", t("common:snackbar.cleared"));
     } catch (err) {
       snackbar("error", err.message);
     }
