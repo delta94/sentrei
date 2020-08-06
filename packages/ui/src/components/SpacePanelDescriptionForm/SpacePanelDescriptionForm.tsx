@@ -16,7 +16,7 @@ import Member from "@sentrei/types/models/Member";
 import Profile from "@sentrei/types/models/Profile";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
-import SpacePanelStatusStyles from "./SpacePanelStatusStyles";
+import SpacePanelDescriptionFormStyles from "./SpacePanelDescriptionFormStyles";
 
 export interface Props {
   profile: Profile.Get;
@@ -31,7 +31,7 @@ export default function SpacePanelDescriptionForm({
   spaceId,
   userId,
 }: Props): JSX.Element {
-  const classes = SpacePanelStatusStyles();
+  const classes = SpacePanelDescriptionFormStyles();
   const {t} = useTranslation();
   const {snackbar} = useSnackbar();
 
@@ -61,11 +61,15 @@ export default function SpacePanelDescriptionForm({
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" noValidate>
+    <form
+      className={classes.form}
+      onSubmit={handleSubmit(onSubmit)}
+      autoComplete="off"
+      noValidate
+    >
       <Controller
         as={
           <InputBase
-            className={classes.input}
             placeholder={t("common:common.writeYourStatus")}
             inputProps={{"aria-label": "write your status"}}
           />
@@ -75,8 +79,8 @@ export default function SpacePanelDescriptionForm({
         defaultValue={member.description}
       />
       <IconButton
-        type="submit"
         className={classes.iconButton}
+        type="submit"
         aria-label="search"
       >
         <KeyboardReturnIcon />
