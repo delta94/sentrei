@@ -22,6 +22,7 @@ import Member from "@sentrei/types/models/Member";
 import Room from "@sentrei/types/models/Room";
 import Space from "@sentrei/types/models/Space";
 import ProfileCard from "@sentrei/ui/components/ProfileCard";
+import RoomCardEmojiPicker from "@sentrei/ui/components/RoomCardEmojiPicker";
 import RoomMenu from "@sentrei/ui/components/RoomMenu";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
@@ -76,8 +77,16 @@ export default function RoomCard({room, space}: Props): JSX.Element {
         </Link>
       </CardActionArea>
       <CardContent>
-        <Grid container direction="row" justify="space-between">
-          <Grid item xs={7} sm={8} md={9}>
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="center"
+        >
+          <Grid item xs={1} sm={1} md={1}>
+            <RoomCardEmojiPicker />
+          </Grid>
+          <Grid item xs={6} sm={7} md={8}>
             <Typography
               component="h3"
               variant="h4"
