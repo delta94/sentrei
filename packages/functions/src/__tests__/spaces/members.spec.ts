@@ -101,17 +101,13 @@ test("Can not leave a space using a fake userId", async done => {
 
 test("Can update description", async done => {
   await admin.doc("spaces/spaceId/members/userId").set(profileResponse);
-  await firebase.assertSucceeds(
-    ref.update({...memberDescriptionUpdate, updatedAt: timestampNow}),
-  );
+  await firebase.assertSucceeds(ref.update(memberDescriptionUpdate));
   done();
 });
 
 test("Can update emoji", async done => {
   await admin.doc("spaces/spaceId/members/userId").set(profileResponse);
-  await firebase.assertSucceeds(
-    ref.update({...memberEmojiUpdate, updatedAt: timestampNow}),
-  );
+  await firebase.assertSucceeds(ref.update(memberEmojiUpdate));
   done();
 });
 
