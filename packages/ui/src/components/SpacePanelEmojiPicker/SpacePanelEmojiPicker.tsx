@@ -1,25 +1,34 @@
 import * as React from "react";
 
-import {updateMemberEmoji} from "@sentrei/common/firebase/members";
+import {updateMember} from "@sentrei/common/firebase/members";
+import {timestamp} from "@sentrei/common/utils/firebase";
+import Profile from "@sentrei/types/models/Profile";
 import EmojiPicker from "@sentrei/ui/components/EmojiPicker";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 export interface Props {
+  profile: Profile.Get;
   spaceId: string;
   userId: string;
 }
 
 export default function SpacePanelEmojiPicker({
+  profile,
   spaceId,
   userId,
 }: Props): JSX.Element {
   const {snackbar} = useSnackbar();
 
-  const handleEmoji = (emoji: string): void => {
+  const handleEmoji = async (emoji: string): Promise<void> => {
     try {
-      updateMemberEmoji("spaces", spaceId, userId, emoji);
+      await updateMember("spaces", spaceId, userId, {
+        emoji,
+        updatedAt: timestamp,
+        updatedBy: profile,
+        updatedByUid: userId,
+      });
     } catch (err) {
-      snackbar("error", err);
+      snackbar("error", err.message);
     }
   };
 

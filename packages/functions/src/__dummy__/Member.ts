@@ -3,7 +3,14 @@ import Member from "@sentrei/types/models/Member";
 
 import {profileResponse, profileGet} from "./Profile";
 
+const baseUpdatedResponse = {
+  updatedAt: timestamp,
+  updatedBy: profileGet,
+  updatedByUid: "userId",
+};
+
 const baseMemberResponse = {
+  ...baseUpdatedResponse,
   createdAt: timestamp,
   createdBy: profileGet,
   createdByUid: "userId",
@@ -11,9 +18,6 @@ const baseMemberResponse = {
   joined: timestamp,
   roomId: null,
   spaceId: "spaceId",
-  updatedAt: timestamp,
-  updatedBy: profileGet,
-  updatedByUid: "userId",
 };
 
 export const viewerMemberResponse: Member.Response = {
@@ -49,8 +53,12 @@ export const roomMemberResponse: Member.Response = {
   type: "spaces",
 };
 
-export const spaceMemberEmoji: Member.Update = {
-  ...baseMemberResponse,
-  ...profileResponse,
+export const memberEmojiUpdate: Member.Update = {
+  ...baseUpdatedResponse,
   emoji: "emoji",
+};
+
+export const memberDescriptionUpdate: Member.Update = {
+  ...baseUpdatedResponse,
+  description: "description",
 };

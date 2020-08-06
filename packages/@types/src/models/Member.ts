@@ -8,6 +8,7 @@ declare namespace Member {
   export type Status = "online" | "offline" | "away";
 
   export type EditableFields = {
+    description?: string;
     emoji?: string;
     role: "admin" | "moderator" | "viewer";
     status: Status;

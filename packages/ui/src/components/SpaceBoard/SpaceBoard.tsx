@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import * as React from "react";
 
 import Member from "@sentrei/types/models/Member";
+import Profile from "@sentrei/types/models/Profile";
 import Room from "@sentrei/types/models/Room";
 import Space from "@sentrei/types/models/Space";
 import User from "@sentrei/types/models/User";
@@ -14,16 +15,23 @@ import SpacePanel from "@sentrei/ui/components/SpacePanel";
 
 export interface Props {
   members: Member.Get[];
+  profile: Profile.Get;
   rooms: Room.Get[] | null;
   space: Space.Get;
   user: User.Get;
 }
 
-export default function SpaceBoard({rooms, space, user}: Props): JSX.Element {
+export default function SpaceBoard({
+  rooms,
+  profile,
+  space,
+  user,
+}: Props): JSX.Element {
   return (
     <>
       <SpacePanel
         photo={space.photo}
+        profile={profile}
         name={space.name}
         spaceId={space.id}
         user={user}

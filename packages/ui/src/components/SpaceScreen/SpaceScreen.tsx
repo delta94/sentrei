@@ -7,6 +7,7 @@ import {getMembersLive} from "@sentrei/common/firebase/members";
 import {getRoomsLive} from "@sentrei/common/firebase/rooms";
 import {getSpace} from "@sentrei/common/firebase/spaces";
 import Member from "@sentrei/types/models/Member";
+import Profile from "@sentrei/types/models/Profile";
 import Room from "@sentrei/types/models/Room";
 import Space from "@sentrei/types/models/Space";
 import User from "@sentrei/types/models/User";
@@ -16,11 +17,16 @@ import SpaceBoard from "@sentrei/ui/components/SpaceBoard";
 import SpaceFab from "@sentrei/ui/components/SpaceFab";
 
 export interface Props {
+  profile: Profile.Get;
   spaceId: string;
   user: User.Get;
 }
 
-export default function SpaceScreen({spaceId, user}: Props): JSX.Element {
+export default function SpaceScreen({
+  profile,
+  spaceId,
+  user,
+}: Props): JSX.Element {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -65,7 +71,13 @@ export default function SpaceScreen({spaceId, user}: Props): JSX.Element {
       {members && matches && <MemberFab members={members} space={space} />}
       {space && <SpaceFab spaceId={space.id} type="space" />}
       {space && members && (
-        <SpaceBoard members={members} rooms={rooms} space={space} user={user} />
+        <SpaceBoard
+          members={members}
+          profile={profile}
+          rooms={rooms}
+          space={space}
+          user={user}
+        />
       )}
     </>
   );

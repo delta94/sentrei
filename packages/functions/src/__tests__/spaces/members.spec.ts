@@ -1,6 +1,9 @@
 import * as firebase from "@firebase/testing";
 
-import {spaceMemberEmoji} from "@sentrei/functions/__dummy__/Member";
+import {
+  memberDescriptionUpdate,
+  memberEmojiUpdate,
+} from "@sentrei/functions/__dummy__/Member";
 import {profileResponse} from "@sentrei/functions/__dummy__/Profile";
 import {userResponse} from "@sentrei/functions/__dummy__/User";
 import {
@@ -92,9 +95,15 @@ test("Can not leave a space using a fake userId", async done => {
   done();
 });
 
+test("Can update description", async done => {
+  await admin.doc("spaces/spaceId/members/userId").set(profileResponse);
+  await firebase.assertSucceeds(ref.update({memberDescriptionUpdate}));
+  done();
+});
+
 test("Can update emoji", async done => {
   await admin.doc("spaces/spaceId/members/userId").set(profileResponse);
-  await firebase.assertFails(ref.update({spaceMemberEmoji}));
+  await firebase.assertSucceeds(ref.update({memberEmojiUpdate}));
   done();
 });
 
