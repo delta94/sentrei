@@ -1,9 +1,19 @@
-import {timestamp} from "@sentrei/functions/__mocks__/firebase-testing";
+import {
+  timestamp,
+  timestampNow,
+} from "@sentrei/functions/__mocks__/firebase-testing";
 import Member from "@sentrei/types/models/Member";
 
 import {profileResponse, profileGet} from "./Profile";
 
+const baseUpdatedResponse = {
+  updatedAt: timestamp,
+  updatedBy: profileGet,
+  updatedByUid: "userId",
+};
+
 const baseMemberResponse = {
+  ...baseUpdatedResponse,
   createdAt: timestamp,
   createdBy: profileGet,
   createdByUid: "userId",
@@ -11,9 +21,6 @@ const baseMemberResponse = {
   joined: timestamp,
   roomId: null,
   spaceId: "spaceId",
-  updatedAt: timestamp,
-  updatedBy: profileGet,
-  updatedByUid: "userId",
 };
 
 export const viewerMemberResponse: Member.Response = {
@@ -47,4 +54,16 @@ export const roomMemberResponse: Member.Response = {
   role: "viewer",
   status: "online",
   type: "spaces",
+};
+
+export const memberEmojiUpdate: Member.Update = {
+  ...baseUpdatedResponse,
+  emoji: "emoji",
+  updatedAt: timestampNow,
+};
+
+export const memberDescriptionUpdate: Member.Update = {
+  ...baseUpdatedResponse,
+  description: "description",
+  updatedAt: timestampNow,
 };

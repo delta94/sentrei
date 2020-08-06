@@ -1,41 +1,41 @@
-import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import DashboardIcon from "@material-ui/icons/Dashboard";
 
 import * as React from "react";
 
+import Member from "@sentrei/types/models/Member";
+import Profile from "@sentrei/types/models/Profile";
+import User from "@sentrei/types/models/User";
 import SpacePanelAccordion from "@sentrei/ui/components/SpacePanelAccordion";
-
-import SpacePanelStyles from "./SpacePanelStyles";
+import SpacePanelBanner from "@sentrei/ui/components/SpacePanelBanner";
+import SpacePanelStatus from "@sentrei/ui/components/SpacePanelStatus";
 
 export interface Props {
   photo?: string | null;
+  member: Member.Get;
   name: string;
+  profile: Profile.Get;
   spaceId: string;
+  user: User.Get;
 }
 
-export default function SpacePanel({photo, name, spaceId}: Props): JSX.Element {
-  const classes = SpacePanelStyles();
-
+export default function SpacePanel({
+  member,
+  name,
+  profile,
+  photo,
+  spaceId,
+  user,
+}: Props): JSX.Element {
   return (
     <>
-      <Container maxWidth="xs">
-        <Grid container alignItems="center" justify="center" direction="row">
-          {photo ? (
-            <Avatar src={photo || undefined} className={classes.large} />
-          ) : (
-            <DashboardIcon color="disabled" className={classes.large} />
-          )}
-          <Box p={2}>
-            <Typography variant="h2" component="h2" align="center">
-              {name}
-            </Typography>
-          </Box>
-        </Grid>
-      </Container>
+      <SpacePanelBanner photo={photo} name={name} />
+      <SpacePanelStatus
+        profile={profile}
+        member={member}
+        spaceId={spaceId}
+        user={user}
+      />
+      <Box py={2} />
       <SpacePanelAccordion spaceId={spaceId} />
     </>
   );

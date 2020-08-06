@@ -101,6 +101,18 @@ export const activityMemberResponseCreated: Activity.CreateMember = {
   spaceId: "spaceId",
 };
 
+export const activityMemberResponseUpdated: Activity.UpdateMember = {
+  ...activityResponseBase,
+  before: null,
+  after: viewerMemberResponse,
+  action: "updated",
+  category: "members",
+  categoryId: "userId",
+  fullItemPath: "spaces/spaceId/members/userId",
+  itemPath: "members/userId",
+  spaceId: "spaceId",
+};
+
 export const activityMemberResponseDeleted: Activity.DeleteMember = {
   ...activityResponseBase,
   before: viewerMemberResponse,

@@ -53,6 +53,18 @@ export const getMembersLive = (
     });
 };
 
+export const getSpaceMember = async (
+  spaceId: string,
+  userId: string,
+): Promise<Member.Get | null> => {
+  const snap = await db
+    .doc(`spaces/${spaceId}/members/${userId}`)
+    .withConverter(memberConverter)
+    .get();
+
+  return snap.data() || null;
+};
+
 export const validateSpaceMember = async (
   spaceId: string,
   userId: string,
@@ -87,4 +99,13 @@ export const deleteMember = (
   userId: string,
 ): Promise<void> => {
   return db.doc(`${collection}/${docId}/members/${userId}`).delete();
+};
+
+export const updateMember = (
+  collection: Member.Collections,
+  docId: string,
+  userId: string,
+  member: Member.Update,
+): Promise<void> => {
+  return db.doc(`${collection}/${docId}/members/${userId}`).update(member);
 };

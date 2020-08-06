@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const EmojiStyled = styled.div`
+const EmojiMartStyled = styled.div`
   .emoji-mart,
   .emoji-mart * {
     box-sizing: border-box;
@@ -500,4 +500,4 @@ const EmojiStyled = styled.div`
   }
 `;
 
-export default EmojiStyled;
+export default EmojiMartStyled;

@@ -3,7 +3,6 @@ declare namespace Profile {
     name: string;
     photo: string | null;
     username: string;
-    emoji?: string;
     description?: string;
   };
 

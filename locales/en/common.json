@@ -50,15 +50,21 @@
     "update": "Update",
     "username": "Username",
     "visit": "Visit",
-    "week": "Week"
+    "week": "Week",
+    "writeYourStatus": "Write your status..."
   },
   "snackbar": {
-    "clipboard": "Copied link to clipboard!",
+    "clipboard": "Copied link to clipboard !",
+    "created": "Created !",
     "creating": "Creating...",
+    "deleted": "Deleted !",
     "deleting": "Deleting...",
+    "edited": "Edited !",
     "editing": "Editing...",
     "inviting": "Inviting...",
     "loading": "Loading...",
-    "quiting": "Quiting..."
+    "quiting": "Quiting...",
+    "updated": "Updated !",
+    "updating": "Updating..."
   }
 }

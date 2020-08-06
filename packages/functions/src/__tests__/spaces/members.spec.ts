@@ -1,9 +1,14 @@
 import * as firebase from "@firebase/testing";
 
-import {profileResponse} from "@sentrei/functions/__dummy__/Profile";
-
+import {
+  memberDescriptionUpdate,
+  memberEmojiUpdate,
+} from "@sentrei/functions/__dummy__/Member";
+import {
+  profileGet,
+  profileResponse,
+} from "@sentrei/functions/__dummy__/Profile";
 import {userResponse} from "@sentrei/functions/__dummy__/User";
-import {timestamp} from "@sentrei/functions/__mocks__/firebase-testing";
 import {
   initializeAdminApp,
   initializeFirebaseApp,
@@ -25,6 +30,7 @@ beforeAll(async done => {
   await admin
     .doc("users/userId")
     .set(<User.Response>{...userResponse, role: "viewer"});
+  await admin.doc("profiles/userId").set(profileGet);
   await admin.doc("spaces/spaceId/members/userId").set(profileResponse);
   await admin.doc("spaces/spaceId/members/otherUserId").set(profileResponse);
   await admin
@@ -93,9 +99,21 @@ test("Can not leave a space using a fake userId", async done => {
   done();
 });
 
-test("Can not update", async done => {
+test("Can update description", async done => {
   await admin.doc("spaces/spaceId/members/userId").set(profileResponse);
-  await firebase.assertFails(ref.update({timestamp}));
+  await firebase.assertSucceeds(ref.update(memberDescriptionUpdate));
+  done();
+});
+
+test("Can update emoji", async done => {
+  await admin.doc("spaces/spaceId/members/userId").set(profileResponse);
+  await firebase.assertSucceeds(ref.update(memberEmojiUpdate));
+  done();
+});
+
+test("Can not update role", async done => {
+  await admin.doc("spaces/spaceId/members/userId").set(profileResponse);
+  await firebase.assertFails(ref.update({...memberEmojiUpdate, role: "admin"}));
   done();
 });
 
