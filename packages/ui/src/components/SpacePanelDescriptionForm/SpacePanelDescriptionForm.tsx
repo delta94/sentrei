@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {yupResolver} from "@hookform/resolvers";
+import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
@@ -8,7 +9,6 @@ import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 import {useForm, Controller} from "react-hook-form";
-
 import * as Yup from "yup";
 
 import {updateMember} from "@sentrei/common/firebase/members";
@@ -82,40 +82,36 @@ export default function SpacePanelDescriptionForm({
   };
 
   return (
-    <form
-      className={classes.form}
-      onSubmit={handleSubmit(onSubmit)}
-      autoComplete="off"
-      noValidate
-    >
-      <Controller
-        as={
-          <InputBase
-            placeholder={t("common:common.writeYourStatus")}
-            inputProps={{"aria-label": "write your status"}}
-          />
-        }
-        name="description"
-        control={control}
-        defaultValue={member.description}
-      />
-      {empty ? (
-        <IconButton
-          className={classes.iconButton}
-          type="submit"
-          aria-label="return"
-        >
-          <KeyboardReturnIcon />
-        </IconButton>
-      ) : (
-        <IconButton
-          className={classes.iconButton}
-          aria-label="clear"
-          onClick={handleClear}
-        >
-          <HighlightOffIcon />
-        </IconButton>
-      )}
-    </form>
+    <div className={classes.root}>
+      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" noValidate>
+        <Box display="flex">
+          <Box p={1} flexGrow={1}>
+            <Controller
+              as={
+                <InputBase
+                  fullWidth
+                  placeholder={t("common:common.writeYourStatus")}
+                  inputProps={{"aria-label": "write your status"}}
+                />
+              }
+              name="description"
+              control={control}
+              defaultValue={member.description}
+            />
+          </Box>
+          <Box flexShrink={1}>
+            {empty ? (
+              <IconButton type="submit" aria-label="return">
+                <KeyboardReturnIcon />
+              </IconButton>
+            ) : (
+              <IconButton aria-label="clear" onClick={handleClear}>
+                <HighlightOffIcon />
+              </IconButton>
+            )}
+          </Box>
+        </Box>
+      </form>
+    </div>
   );
 }
