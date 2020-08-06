@@ -14,9 +14,6 @@ const activityMemberUpdate = functions.firestore
   .document("{collection}/{docId}/members/{memberId}")
   .onUpdate((change, context) => {
     const {collection, docId, memberId} = context.params;
-    // .document("members/{memberId}")
-    // .onUpdate(async (change, context) => {
-    //   const {memberId} = context.params;
 
     const before = change.before.data() as Member.Response;
     const after = change.after.data() as Member.Response;

@@ -197,7 +197,7 @@ service cloud.firestore {
           && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["description", "emoji", "updatedAt", "updatedBy", "updatedByUid"])
           && (request.resource.data.description == null || request.resource.data.description is string)
           && (request.resource.data.description == null || request.resource.data.description.size() <= 300)
-          && (request.resource.data.emoji == null || request.resource.data.photo is string)
+          && (request.resource.data.emoji == null || request.resource.data.emoji is string)
           && request.resource.data.updatedAt == request.time
           && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.name == request.resource.data.updatedBy.name
           && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.photo == request.resource.data.updatedBy.photo
