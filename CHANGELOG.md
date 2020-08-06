@@ -1,3 +1,18 @@
+# [1.25.0](https://github.com/sentrei/sentrei/compare/v1.24.0...v1.25.0) (2020-08-06)
+
+### Features
+
+- 🎸 space panel empty feature introduction ([3390816](https://github.com/sentrei/sentrei/commit/3390816799a6443c32509b322ea7180f6cbdd4e3))
+- 🎸 space panel refactor style input ([5a1d488](https://github.com/sentrei/sentrei/commit/5a1d4885a80d3b9f778a62b455c685279671fc52))
+
+### Performance Improvements
+
+- ⚡️ ini emoji select animation ([608ab12](https://github.com/sentrei/sentrei/commit/608ab1224953dab29612c71eed7ac9df97737ec1))
+- ⚡️ space panel styles ([2178378](https://github.com/sentrei/sentrei/commit/21783783f00420a399ea699c20c4066b62f086ef))
+- ⚡️ styel box with flex and flex grow ([ef0704a](https://github.com/sentrei/sentrei/commit/ef0704a0c1dbbd8663433df27613b45561e7daa1))
+- ⚡️ update common i18n ([35c1fb9](https://github.com/sentrei/sentrei/commit/35c1fb9db78871f1f5d2435e87c284adaf20f948))
+- ⚡️ updated padding for space screen ([690e070](https://github.com/sentrei/sentrei/commit/690e07093208f4eed59e6fac97ca848530a23cd7))
+
 # [1.24.0](https://github.com/sentrei/sentrei/compare/v1.23.0...v1.24.0) (2020-08-06)
 
 ### Features
