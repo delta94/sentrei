@@ -3,6 +3,7 @@
 import {yupResolver} from "@hookform/resolvers";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
@@ -35,11 +36,13 @@ export default function SpacePanelDescriptionForm({
   const {t} = useTranslation();
   const {snackbar} = useSnackbar();
 
+  const [empty, setEmpty] = React.useState<boolean>(!member.description);
+
   const SpaceDescriptionFormSchema = Yup.object().shape({
     description: Yup.string(),
   });
 
-  const {control, handleSubmit} = useForm({
+  const {control, handleSubmit, reset} = useForm({
     mode: "onSubmit",
     reValidateMode: "onBlur",
     resolver: yupResolver(SpaceDescriptionFormSchema),
@@ -54,6 +57,23 @@ export default function SpacePanelDescriptionForm({
         updatedBy: profile,
         updatedByUid: userId,
       });
+      setEmpty(false);
+      snackbar("success", t("common:snackbar.updated"));
+    } catch (err) {
+      snackbar("error", err.message);
+    }
+  };
+
+  const handleClear = async (): Promise<void> => {
+    try {
+      await updateMember("spaces", spaceId, userId, {
+        description: "",
+        updatedAt: timestamp,
+        updatedBy: profile,
+        updatedByUid: userId,
+      });
+      setEmpty(true);
+      reset();
       snackbar("success", t("common:snackbar.updated"));
     } catch (err) {
       snackbar("error", err.message);
@@ -78,13 +98,23 @@ export default function SpacePanelDescriptionForm({
         control={control}
         defaultValue={member.description}
       />
-      <IconButton
-        className={classes.iconButton}
-        type="submit"
-        aria-label="search"
-      >
-        <KeyboardReturnIcon />
-      </IconButton>
+      {empty ? (
+        <IconButton
+          className={classes.iconButton}
+          type="submit"
+          aria-label="return"
+        >
+          <KeyboardReturnIcon />
+        </IconButton>
+      ) : (
+        <IconButton
+          className={classes.iconButton}
+          aria-label="clear"
+          onClick={handleClear}
+        >
+          <HighlightOffIcon />
+        </IconButton>
+      )}
     </form>
   );
 }
