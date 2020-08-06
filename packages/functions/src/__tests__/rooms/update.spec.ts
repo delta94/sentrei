@@ -84,6 +84,13 @@ test("Description can be null", async done => {
   done();
 });
 
+test("Emoji is a string", async done => {
+  await firebase.assertSucceeds(
+    ref.update(<Room.Update>{...roomUpdate, emoji: "emoji"}),
+  );
+  done();
+});
+
 test("MemberCount can not be changed", async done => {
   await firebase.assertFails(
     ref.update(<Room.Update>{...roomUpdate, memberCount: 1}),

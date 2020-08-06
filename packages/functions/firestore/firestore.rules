@@ -48,9 +48,10 @@ service cloud.firestore {
         && request.resource.data.updatedByUid == request.auth.uid
         && exists(/databases/$(database)/documents/spaces/$(request.resource.data.spaceId)/members/$(request.auth.uid));
       allow update:
-        if request.resource.data.diff(resource.data).affectedKeys().hasOnly(["description", "name", "photo", "updatedAt", "updatedBy", "updatedByUid"])
+        if request.resource.data.diff(resource.data).affectedKeys().hasOnly(["description", "emoji", "name", "photo", "updatedAt", "updatedBy", "updatedByUid"])
         && (request.resource.data.description == null || request.resource.data.description is string)
         && (request.resource.data.description == null || request.resource.data.description.size() <= 1000)
+        && (!request.resource.data.keys().hasAll(["emoji"]) || request.resource.data.emoji == null || request.resource.data.emoji is string)
         && (request.resource.data.photo == null || request.resource.data.photo is string)
         && request.resource.data.updatedAt == request.time
         && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.name == request.resource.data.updatedBy.name

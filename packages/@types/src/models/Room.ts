@@ -5,12 +5,12 @@ declare namespace Room {
 
   export type EditableFields = {
     description: string | null;
+    emoji?: string;
     name: string;
     photo: string | null;
   };
 
   interface Fields extends EditableFields {
-    emoji?: string;
     type: Types;
     memberCount: number;
     spaceId: string;
