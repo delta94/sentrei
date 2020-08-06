@@ -1,15 +1,24 @@
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Popover from "@material-ui/core/Popover";
-import {Emoji} from "emoji-mart";
+import {Emoji, EmojiData} from "emoji-mart";
 import * as React from "react";
 
 import EmojiMart from "@sentrei/ui/components/EmojiMart";
 
 import EmojiPickerStyles from "./EmojiPickerStyles";
 
-export default function EmojiPicker(): JSX.Element {
+export interface Props {
+  emoji: string;
+  onSelect?: (emoji: string) => void;
+}
+
+export default function EmojiPicker({
+  emoji: initialEmoji,
+  onSelect,
+}: Props): JSX.Element {
   const classes = EmojiPickerStyles();
 
+  const [emoji, setEmoji] = React.useState<string>(initialEmoji);
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null,
   );
@@ -20,6 +29,15 @@ export default function EmojiPicker(): JSX.Element {
 
   const handleClose = (): void => {
     setAnchorEl(null);
+  };
+
+  const handleSelect = (e: EmojiData): void => {
+    const emojiString = e.colons;
+    setEmoji(emojiString ?? initialEmoji);
+    if (onSelect && emojiString) {
+      onSelect(emojiString);
+    }
+    handleClose();
   };
 
   const open = Boolean(anchorEl);
@@ -33,7 +51,7 @@ export default function EmojiPicker(): JSX.Element {
         onClick={handleClick}
         aria-label="emoji"
       >
-        <Emoji emoji="santa" set="twitter" size={30} />
+        <Emoji emoji={emoji} set="twitter" size={30} />
       </ButtonBase>
       <Popover
         id={id}
@@ -49,7 +67,7 @@ export default function EmojiPicker(): JSX.Element {
           horizontal: "center",
         }}
       >
-        <EmojiMart />
+        <EmojiMart onSelect={handleSelect} />
       </Popover>
     </>
   );

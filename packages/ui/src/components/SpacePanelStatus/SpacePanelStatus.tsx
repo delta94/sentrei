@@ -28,7 +28,7 @@ export default function SpacePanelStatus(): JSX.Element {
         <Grid item xs={12} sm={1} md={2} />
         <Grid item xs={12} sm={10} md={8}>
           <Paper component="form" className={classes.root}>
-            <EmojiPicker />
+            <EmojiPicker emoji="heart_eyes" />
             <Divider className={classes.divider} orientation="vertical" />
             <InputBase
               className={classes.input}
