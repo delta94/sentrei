@@ -1,4 +1,3 @@
-import ButtonBase from "@material-ui/core/ButtonBase";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
@@ -9,7 +8,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import * as React from "react";
 
-import EmojiPicker from "@sentrei/ui/components/EmojiPicker";
+import SpacePanelEmojiPicker from "@sentrei/ui/components/SpacePanelEmojiPicker";
 
 import SpacePanelStatusStyles from "./SpacePanelStatusStyles";
 
@@ -28,12 +27,12 @@ export default function SpacePanelStatus(): JSX.Element {
         <Grid item xs={12} sm={1} md={2} />
         <Grid item xs={12} sm={10} md={8}>
           <Paper component="form" className={classes.root}>
-            <EmojiPicker emoji="heart_eyes" />
+            <SpacePanelEmojiPicker />
             <Divider className={classes.divider} orientation="vertical" />
             <InputBase
               className={classes.input}
               placeholder="Write your status"
-              inputProps={{"aria-label": "search google maps"}}
+              inputProps={{"aria-label": "write your emoji"}}
             />
             <IconButton
               type="submit"
