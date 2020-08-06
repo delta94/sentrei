@@ -2,6 +2,7 @@ import Box from "@material-ui/core/Box";
 
 import * as React from "react";
 
+import Member from "@sentrei/types/models/Member";
 import Profile from "@sentrei/types/models/Profile";
 import User from "@sentrei/types/models/User";
 import SpacePanelAccordion from "@sentrei/ui/components/SpacePanelAccordion";
@@ -10,6 +11,7 @@ import SpacePanelStatus from "@sentrei/ui/components/SpacePanelStatus";
 
 export interface Props {
   photo?: string | null;
+  member: Member.Get;
   name: string;
   profile: Profile.Get;
   spaceId: string;
@@ -17,6 +19,7 @@ export interface Props {
 }
 
 export default function SpacePanel({
+  member,
   name,
   profile,
   photo,
@@ -26,7 +29,12 @@ export default function SpacePanel({
   return (
     <>
       <SpacePanelBanner photo={photo} name={name} />
-      <SpacePanelStatus profile={profile} spaceId={spaceId} user={user} />
+      <SpacePanelStatus
+        profile={profile}
+        member={member}
+        spaceId={spaceId}
+        user={user}
+      />
       <Box py={2} />
       <SpacePanelAccordion spaceId={spaceId} />
     </>

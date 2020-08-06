@@ -8,6 +8,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import * as React from "react";
 
+import Member from "@sentrei/types/models/Member";
 import Profile from "@sentrei/types/models/Profile";
 import User from "@sentrei/types/models/User";
 import SpacePanelEmojiPicker from "@sentrei/ui/components/SpacePanelEmojiPicker";
@@ -16,11 +17,13 @@ import SpacePanelStatusStyles from "./SpacePanelStatusStyles";
 
 export interface Props {
   profile: Profile.Get;
+  member: Member.Get;
   spaceId: string;
   user: User.Get;
 }
 
 export default function SpacePanelStatus({
+  member,
   profile,
   spaceId,
   user,
@@ -35,6 +38,7 @@ export default function SpacePanelStatus({
           <Paper component="form" className={classes.root}>
             <SpacePanelEmojiPicker
               profile={profile}
+              emoji={member.emoji ?? "joy"}
               spaceId={spaceId}
               userId={user.uid}
             />

@@ -14,6 +14,7 @@ import RoomNone from "@sentrei/ui/components/RoomNone";
 import SpacePanel from "@sentrei/ui/components/SpacePanel";
 
 export interface Props {
+  member: Member.Get;
   members: Member.Get[];
   profile: Profile.Get;
   rooms: Room.Get[] | null;
@@ -24,12 +25,14 @@ export interface Props {
 export default function SpaceBoard({
   rooms,
   profile,
+  member,
   space,
   user,
 }: Props): JSX.Element {
   return (
     <>
       <SpacePanel
+        member={member}
         photo={space.photo}
         profile={profile}
         name={space.name}

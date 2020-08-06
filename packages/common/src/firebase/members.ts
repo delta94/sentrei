@@ -53,6 +53,18 @@ export const getMembersLive = (
     });
 };
 
+export const getSpaceMember = async (
+  spaceId: string,
+  userId: string,
+): Promise<Member.Get | null> => {
+  const snap = await db
+    .doc(`spaces/${spaceId}/members/${userId}`)
+    .withConverter(memberConverter)
+    .get();
+
+  return snap.data() || null;
+};
+
 export const validateSpaceMember = async (
   spaceId: string,
   userId: string,

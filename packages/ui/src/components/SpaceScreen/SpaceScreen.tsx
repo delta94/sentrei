@@ -31,6 +31,7 @@ export default function SpaceScreen({
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
   const [space, setSpace] = React.useState<Space.Get | null | undefined>();
+  const [member, setMember] = React.useState<Member.Get | null | undefined>();
   const [members, setMembers] = React.useState<
     Member.Get[] | null | undefined
   >();
@@ -58,11 +59,17 @@ export default function SpaceScreen({
     };
   }, [spaceId]);
 
+  React.useEffect(() => {
+    if (members) {
+      setMember(members.filter(doc => doc.uid === profile.uid)[0]);
+    }
+  }, [members, profile]);
+
   if (space === undefined || members === undefined || rooms === undefined) {
     return <SkeletonScreen />;
   }
 
-  if (!space || !members) {
+  if (!space || !members || !member) {
     return <Error statusCode={404} />;
   }
 
@@ -70,8 +77,9 @@ export default function SpaceScreen({
     <>
       {members && matches && <MemberFab members={members} space={space} />}
       {space && <SpaceFab spaceId={space.id} type="space" />}
-      {space && members && (
+      {space && members && member && (
         <SpaceBoard
+          member={member}
           members={members}
           profile={profile}
           rooms={rooms}
