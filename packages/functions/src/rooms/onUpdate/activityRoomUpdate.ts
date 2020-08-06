@@ -17,7 +17,7 @@ const activityRoomUpdate = functions.firestore
 
     const before = change.before.data() as Room.Response;
     const after = change.after.data() as Room.Response;
-    const fieldsToTrack = ["description", "photo"];
+    const fieldsToTrack = ["description", "emoji", "photo"];
     const beforeChanges = pick(before, fieldsToTrack);
     const afterChanges = pick(after, fieldsToTrack);
     const noChanges = isEqual(beforeChanges, afterChanges);
