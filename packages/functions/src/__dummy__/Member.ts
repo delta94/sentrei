@@ -1,4 +1,7 @@
-import {timestamp} from "@sentrei/functions/__mocks__/firebase-testing";
+import {
+  timestamp,
+  timestampNow,
+} from "@sentrei/functions/__mocks__/firebase-testing";
 import Member from "@sentrei/types/models/Member";
 
 import {profileResponse, profileGet} from "./Profile";
@@ -56,9 +59,11 @@ export const roomMemberResponse: Member.Response = {
 export const memberEmojiUpdate: Member.Update = {
   ...baseUpdatedResponse,
   emoji: "emoji",
+  updatedAt: timestampNow,
 };
 
 export const memberDescriptionUpdate: Member.Update = {
   ...baseUpdatedResponse,
   description: "description",
+  updatedAt: timestampNow,
 };
