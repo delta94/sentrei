@@ -25,12 +25,13 @@ export default function SpacePanelBanner({photo, name}: Props): JSX.Element {
         ) : (
           <DashboardIcon color="disabled" className={classes.large} />
         )}
-        <Box p={2}>
-          <Typography variant="h2" component="h2" align="center">
+        <Box px={3}>
+          <Typography noWrap variant="h2" component="h2" align="center">
             {name}
           </Typography>
         </Box>
       </Grid>
+      <Box py={1} />
     </Container>
   );
 }

@@ -23,7 +23,7 @@ export default function SpacePanelAccoion({spaceId}: Props): JSX.Element {
         alignItems="center"
         justify="flex-end"
         direction="row"
-        spacing={2}
+        spacing={3}
       >
         <Grid item xs={6} sm={6} md={3}>
           <Link href="/[spaceId]/activity" as={`/${spaceId}/activity`}>

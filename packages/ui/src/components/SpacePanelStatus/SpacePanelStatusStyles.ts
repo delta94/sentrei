@@ -3,7 +3,6 @@ import {createStyles, makeStyles} from "@material-ui/core/styles";
 const SpaceScreenStyles = makeStyles(() =>
   createStyles({
     root: {
-      padding: "2px 4px",
       display: "flex",
       alignItems: "center",
     },
