@@ -14,7 +14,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: "cla"
-      - if: (github.event.comment.body == 'recheckcla' || github.event.comment.body == 'I have read the CLA Document and I hereby sign the CLA') || github.event_name == 'pull_request'
+      - if: |
+          github.actor != 'github-actions[bot]' ||
+          github.actor != 'dependabot[bot]' ||
+          github.actor != 'dependabot-preview[bot]' ||
+          github.actor != 'imgbot' ||
+          github.actor != 'imgbot[bot]' ||
+          github.event.comment.body == 'recheckcla' || 
+          github.event.comment.body == 'I have read the CLA Document and I hereby sign the CLA') || 
+          github.event_name == 'pull_request'
         uses: cla-assistant/github-action@v1.4.2-alpha
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -22,6 +30,5 @@ jobs:
           path-to-signatures: ".github/signatures/v1/cla.json"
           path-to-cla-document: "https://github.com/sentrei/sentrei/blob/main/CLA.md"
           branch: "cla"
-          allowlist: imgbot,dependabot*
           empty-commit-flag: false
           blockchain-storage-flag: false
