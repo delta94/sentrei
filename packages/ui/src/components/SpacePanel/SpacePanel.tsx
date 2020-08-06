@@ -1,5 +1,3 @@
-import Box from "@material-ui/core/Box";
-
 import * as React from "react";
 
 import Member from "@sentrei/types/models/Member";
@@ -35,7 +33,6 @@ export default function SpacePanel({
         spaceId={spaceId}
         user={user}
       />
-      <Box py={2} />
       <SpacePanelAccordion spaceId={spaceId} />
     </>
   );

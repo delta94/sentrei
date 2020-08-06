@@ -19,18 +19,20 @@ export default function SpacePanelBanner({photo, name}: Props): JSX.Element {
 
   return (
     <Container maxWidth="xs">
-      <Grid container alignItems="center" justify="center" direction="row">
-        {photo ? (
-          <Avatar src={photo || undefined} className={classes.large} />
-        ) : (
-          <DashboardIcon color="disabled" className={classes.large} />
-        )}
-        <Box p={2}>
-          <Typography variant="h2" component="h2" align="center">
-            {name}
-          </Typography>
-        </Box>
-      </Grid>
+      <Box p={1}>
+        <Grid container alignItems="center" justify="center" direction="row">
+          {photo ? (
+            <Avatar src={photo || undefined} className={classes.large} />
+          ) : (
+            <DashboardIcon color="disabled" className={classes.large} />
+          )}
+          <Box px={3}>
+            <Typography noWrap variant="h2" component="h2" align="center">
+              {name}
+            </Typography>
+          </Box>
+        </Grid>
+      </Box>
     </Container>
   );
 }

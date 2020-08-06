@@ -1,13 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {yupResolver} from "@hookform/resolvers";
+import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 import {useForm, Controller} from "react-hook-form";
-
 import * as Yup from "yup";
 
 import {updateMember} from "@sentrei/common/firebase/members";
@@ -16,7 +17,7 @@ import Member from "@sentrei/types/models/Member";
 import Profile from "@sentrei/types/models/Profile";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
-import SpacePanelStatusStyles from "./SpacePanelStatusStyles";
+import SpacePanelDescriptionFormStyles from "./SpacePanelDescriptionFormStyles";
 
 export interface Props {
   profile: Profile.Get;
@@ -31,15 +32,17 @@ export default function SpacePanelDescriptionForm({
   spaceId,
   userId,
 }: Props): JSX.Element {
-  const classes = SpacePanelStatusStyles();
+  const classes = SpacePanelDescriptionFormStyles();
   const {t} = useTranslation();
   const {snackbar} = useSnackbar();
+
+  const [empty, setEmpty] = React.useState<boolean>(!member.description);
 
   const SpaceDescriptionFormSchema = Yup.object().shape({
     description: Yup.string(),
   });
 
-  const {control, handleSubmit} = useForm({
+  const {control, handleSubmit, reset} = useForm({
     mode: "onSubmit",
     reValidateMode: "onBlur",
     resolver: yupResolver(SpaceDescriptionFormSchema),
@@ -54,33 +57,61 @@ export default function SpacePanelDescriptionForm({
         updatedBy: profile,
         updatedByUid: userId,
       });
+      setEmpty(false);
       snackbar("success", t("common:snackbar.updated"));
     } catch (err) {
       snackbar("error", err.message);
     }
   };
 
+  const handleClear = async (): Promise<void> => {
+    snackbar("info", t("common:snackbar.clearing"));
+    try {
+      await updateMember("spaces", spaceId, userId, {
+        description: "",
+        updatedAt: timestamp,
+        updatedBy: profile,
+        updatedByUid: userId,
+      });
+      setEmpty(true);
+      reset();
+      snackbar("success", t("common:snackbar.cleared"));
+    } catch (err) {
+      snackbar("error", err.message);
+    }
+  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" noValidate>
-      <Controller
-        as={
-          <InputBase
-            className={classes.input}
-            placeholder={t("common:common.writeYourStatus")}
-            inputProps={{"aria-label": "write your status"}}
-          />
-        }
-        name="description"
-        control={control}
-        defaultValue={member.description}
-      />
-      <IconButton
-        type="submit"
-        className={classes.iconButton}
-        aria-label="search"
-      >
-        <KeyboardReturnIcon />
-      </IconButton>
-    </form>
+    <div className={classes.root}>
+      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" noValidate>
+        <Box display="flex">
+          <Box p={1} flexGrow={1}>
+            <Controller
+              as={
+                <InputBase
+                  fullWidth
+                  placeholder={t("common:common.writeYourStatus")}
+                  inputProps={{"aria-label": "write your status"}}
+                />
+              }
+              name="description"
+              control={control}
+              defaultValue={member.description}
+            />
+          </Box>
+          <Box flexShrink={1}>
+            {empty ? (
+              <IconButton type="submit" aria-label="return">
+                <KeyboardReturnIcon />
+              </IconButton>
+            ) : (
+              <IconButton aria-label="clear" onClick={handleClear}>
+                <HighlightOffIcon />
+              </IconButton>
+            )}
+          </Box>
+        </Box>
+      </form>
+    </div>
   );
 }

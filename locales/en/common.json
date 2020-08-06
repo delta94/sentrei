@@ -54,6 +54,8 @@
     "writeYourStatus": "Write your status..."
   },
   "snackbar": {
+    "cleared": "Cleared !",
+    "clearing": "Clearing...",
     "clipboard": "Copied link to clipboard !",
     "created": "Created !",
     "creating": "Creating...",
