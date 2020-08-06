@@ -15,9 +15,10 @@ jobs:
         with:
           branch: "cla"
       - if: |
-          github.actor != 'github-actions[bot]' ||
+          github.actor != 'allcontributors[bot]' ||
           github.actor != 'dependabot[bot]' ||
           github.actor != 'dependabot-preview[bot]' ||
+          github.actor != 'github-actions[bot]' ||
           github.actor != 'imgbot' ||
           github.actor != 'imgbot[bot]' ||
           github.event.comment.body == 'recheckcla' ||
