@@ -95,5 +95,5 @@ export const updateMember = (
   userId: string,
   member: Member.Update,
 ): Promise<void> => {
-  return db.doc(`${collection}/${docId}/members/${userId}`).set(member);
+  return db.doc(`${collection}/${docId}/members/${userId}`).update(member);
 };

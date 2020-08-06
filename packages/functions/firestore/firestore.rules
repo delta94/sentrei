@@ -194,7 +194,11 @@ service cloud.firestore {
           || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator";
         allow update:
           if request.auth.uid != null
-          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["description", "emoji", "updatedAt", "updatedBy", "updatedByUid"]);
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["description", "emoji", "updatedAt", "updatedBy", "updatedByUid"])
+          && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.name == request.resource.data.updatedBy.name
+          && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.photo == request.resource.data.updatedBy.photo
+          && get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.username == request.resource.data.updatedBy.username
+          && request.resource.data.updatedByUid == request.auth.uid;
         allow delete:
           if request.auth.uid != null
           && request.auth.uid == memberId
