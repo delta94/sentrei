@@ -21,6 +21,7 @@
   },
   "space": {
     "createSpace": "创造空间",
+    "deleteSpace": "删除空间",
     "editSpace": "编辑空间",
     "quitSpace": "退出空间"
   }

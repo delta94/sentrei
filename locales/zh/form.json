@@ -1,4 +1,8 @@
 {
+  "delete": {
+    "deleteRequired": "必须为“删除”",
+    "deleteType": "请输入“删除”"
+  },
   "email": {
     "check": "请查看你的邮箱",
     "required": "电子邮件为必填项",
@@ -7,7 +11,11 @@
   "id": {
     "idAlreadyUsed": "ID已被使用",
     "idInvalid": "ID无效",
-    "idRequired": "ID为必填项"
+    "idMatch": "ID必须匹配",
+    "idRequired": "ID为必填项",
+    "pleaseType": "请输入",
+    "toDelete": "删除",
+    "toQuit": "退出"
   },
   "name": {
     "nameRequired": "名称为必填项"
@@ -15,6 +23,10 @@
   "password": {
     "match": "密码必须匹配",
     "valid": "请输入有效密码"
+  },
+  "quit": {
+    "quitRequired": "必须填写“ QUIT”",
+    "quitType": "请输入“ QUIT”"
   },
   "type": {
     "typeRequired": "类型为必填项"

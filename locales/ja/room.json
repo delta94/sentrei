@@ -4,6 +4,7 @@
     "deleteRoom": "部屋を削除",
     "editRoom": "部屋を編集",
     "none": "部屋がありません...",
+    "quitRoom": "部屋を辞める",
     "settings": "設定"
   },
   "settings": {
