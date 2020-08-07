@@ -17,6 +17,8 @@ const baseMemberResponse = {
   createdAt: timestamp,
   createdBy: profileGet,
   createdByUid: "userId",
+  description: "description",
+  emoji: "emoji",
   uid: "userId",
   joined: timestamp,
   roomId: null,

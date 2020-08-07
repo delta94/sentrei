@@ -1,9 +1,7 @@
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
-import GitHubIcon from "@material-ui/icons/GitHub";
 import * as React from "react";
 
 import Member from "@sentrei/types/models/Member";
@@ -45,13 +43,6 @@ export default function SpacePanelStatus({
           spaceId={spaceId}
           userId={user.uid}
         />
-        <IconButton
-          color="primary"
-          className={classes.iconButton}
-          aria-label="directions"
-        >
-          <GitHubIcon />
-        </IconButton>
       </Paper>
       <Box pb={3} />
     </Container>
