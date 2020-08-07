@@ -50,6 +50,7 @@ const RoomStepperOther = ({
       await createRoom({
         name: activeForm.name,
         description: null,
+        emoji: ":sushi:",
         photo: null,
         createdAt: timestamp,
         createdBy: profile,

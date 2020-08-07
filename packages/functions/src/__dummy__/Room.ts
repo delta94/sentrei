@@ -7,6 +7,7 @@ export const roomBase = {
   name: "room",
   photo: null,
   description: "room",
+  emoji: ":sushi:",
   spaceId: "spaceId",
 };
 
