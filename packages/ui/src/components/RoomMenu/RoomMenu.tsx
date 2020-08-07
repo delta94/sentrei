@@ -4,6 +4,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditAttributesIcon from "@material-ui/icons/EditAttributes";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import SettingsIcon from "@material-ui/icons/Settings";
 import Link from "next-translate/Link";
 import useTranslation from "next-translate/useTranslation";
@@ -54,6 +55,17 @@ export default function RoomMenu({
             <EditAttributesIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary={t("room:room.editRoom")} />
+        </MenuItem>
+      </Link>
+      <Link
+        href="/[spaceId]/room/[roomId]/quit"
+        as={`/${spaceId}/room/${roomId}/quit`}
+      >
+        <MenuItem>
+          <ListItemIcon>
+            <ExitToAppIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary={t("room:room.quitRoom")} />
         </MenuItem>
       </Link>
       <Link

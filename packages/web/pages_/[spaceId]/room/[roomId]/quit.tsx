@@ -10,17 +10,17 @@ import Loader from "@sentrei/ui/components/Loader";
 import NoHubSpot from "@sentrei/ui/components/NoHubSpot";
 import SentreiAppHeader from "@sentrei/web/components/SentreiAppHeader";
 
-const RoomDelete = dynamic(() => import("@sentrei/ui/components/RoomDelete"), {
+const RoomQuit = dynamic(() => import("@sentrei/ui/components/RoomQuit"), {
   ssr: false,
 });
 
-const Delete: NextPage = () => {
+const Quit: NextPage = () => {
   const {query} = useRouter();
 
   const {user, profile} = React.useContext(AuthContext);
 
   React.useEffect(() => {
-    analytics().setCurrentScreen("roomDelete");
+    analytics().setCurrentScreen("roomQuit");
   }, []);
 
   if (user === undefined) {
@@ -44,9 +44,11 @@ const Delete: NextPage = () => {
       ) : (
         <SentreiAppHeader spaceId={String(query.spaceId)} />
       )}
-      {user && profile && <RoomDelete roomId={String(query.roomId)} />}
+      {user && profile && (
+        <RoomQuit roomId={String(query.roomId)} user={user} />
+      )}
     </>
   );
 };
 
-export default Delete;
+export default Quit;

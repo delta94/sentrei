@@ -1,4 +1,4 @@
-import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import useTranslation from "next-translate/useTranslation";
 import Error from "next/error";
 import * as React from "react";
@@ -35,8 +35,8 @@ export default function RoomQuit({roomId, user}: Props): JSX.Element {
   return (
     <>
       <FormSection
-        icon={<DeleteForeverIcon />}
-        title={t("room:room.deleteRoom")}
+        icon={<ExitToAppIcon />}
+        title={t("room:room.quitRoom")}
         size="md"
       />
       <RoomQuitForm roomId={roomId} userId={user.uid} />
