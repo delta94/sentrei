@@ -1,3 +1,10 @@
+## [1.27.1](https://github.com/sentrei/sentrei/compare/v1.27.0...v1.27.1) (2020-08-07)
+
+### Performance Improvements
+
+- ⚡️ add emoji for popover w/refactoring ([1a3d73d](https://github.com/sentrei/sentrei/commit/1a3d73dd374ab1582b1178a79299a21795c7afdd))
+- ⚡️ text overflow fix ([5c41849](https://github.com/sentrei/sentrei/commit/5c41849f4f2634a4db422ca8820e36874835e357))
+
 # [1.27.0](https://github.com/sentrei/sentrei/compare/v1.26.0...v1.27.0) (2020-08-07)
 
 ### Features
