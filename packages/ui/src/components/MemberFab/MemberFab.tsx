@@ -90,7 +90,7 @@ export default function MemberFab({space, members}: Props): JSX.Element {
               <Box p={1} />
               <Link href="/[spaceId]/invite" as={`/${space.id}/invite`}>
                 <Button color="primary" variant="outlined">
-                  Invite
+                  {t("common:common.invite")}
                 </Button>
               </Link>
             </Grid>
