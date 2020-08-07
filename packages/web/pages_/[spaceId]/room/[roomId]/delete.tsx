@@ -48,8 +48,6 @@ const Delete: NextPage = () => {
         <RoomDelete
           roomId={String(query.roomId)}
           spaceId={String(query.spaceId)}
-          profile={profile}
-          user={user}
         />
       )}
     </>

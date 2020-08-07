@@ -4,6 +4,7 @@
     "deleteRoom": "删除房间",
     "editRoom": "编辑室",
     "none": "你没有房间...",
+    "quitRoom": "退出房间",
     "settings": "设定值"
   },
   "settings": {

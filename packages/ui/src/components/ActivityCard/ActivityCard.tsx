@@ -30,12 +30,13 @@ export default function ActivityCard({activity}: Props): JSX.Element {
         >
           <Grid container direction="row" justify="space-between">
             <Grid item xs={9}>
-              <Typography className={classes.heading}>
-                {activity.action} {activity.category} {activity.categoryId}
+              <Typography noWrap className={classes.heading}>
+                {activity.user.name} {activity.action} {activity.category}{" "}
+                {activity.categoryId}
               </Typography>
             </Grid>
             <Grid item xs={3}>
-              <Typography className={classes.secondaryHeading}>
+              <Typography noWrap className={classes.secondaryHeading}>
                 {activity.updatedAt}
               </Typography>
             </Grid>

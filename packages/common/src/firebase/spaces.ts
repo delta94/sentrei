@@ -48,10 +48,7 @@ export const deleteSpace = (spaceId: string): Promise<void> => {
   return db.doc(`spaces/${spaceId}`).delete();
 };
 
-export const deleteSpaceMember = (
-  spaceId: string,
-  userId: string,
-): Promise<void> => {
+export const quitSpace = (spaceId: string, userId: string): Promise<void> => {
   return db.doc(`spaces/${spaceId}/members/${userId}`).delete();
 };
 

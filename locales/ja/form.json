@@ -1,4 +1,8 @@
 {
+  "delete": {
+    "deleteRequired": "「DELETE」は必須です",
+    "deleteType": "「DELETE」と入力してください"
+  },
   "email": {
     "check": "メールを確認してください",
     "required": "メールは必須です",
@@ -7,7 +11,11 @@
   "id": {
     "idAlreadyUsed": "IDは既に使用されています",
     "idInvalid": "IDが無効です",
-    "idRequired": "IDが必要です"
+    "idMatch": "IDは一致する必要があります",
+    "idRequired": "IDが必要です",
+    "pleaseType": "入力してください",
+    "toDelete": "削除する",
+    "toQuit": "やめるために"
   },
   "name": {
     "nameRequired": "名前は必須です"
@@ -15,6 +23,10 @@
   "password": {
     "match": "パスワードが一致する必要があります",
     "valid": "有効なパスワードを入力して下さい"
+  },
+  "quit": {
+    "quitRequired": "「QUIT」は必須です",
+    "quitType": "「QUIT」と入力してください"
   },
   "type": {
     "typeRequired": "タイプは必須です"

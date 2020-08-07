@@ -5,7 +5,7 @@ declare namespace Room {
 
   export type EditableFields = {
     description: string | null;
-    emoji?: string;
+    emoji: string;
     name: string;
     photo: string | null;
   };

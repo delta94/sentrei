@@ -10,7 +10,7 @@ import Loader from "@sentrei/ui/components/Loader";
 import NoHubSpot from "@sentrei/ui/components/NoHubSpot";
 import SentreiAppHeader from "@sentrei/web/components/SentreiAppHeader";
 
-const SpaceQuit = dynamic(() => import("@sentrei/ui/components/SpaceQuit"), {
+const RoomQuit = dynamic(() => import("@sentrei/ui/components/RoomQuit"), {
   ssr: false,
 });
 
@@ -20,7 +20,7 @@ const Quit: NextPage = () => {
   const {user, profile} = React.useContext(AuthContext);
 
   React.useEffect(() => {
-    analytics().setCurrentScreen("spaceQuit");
+    analytics().setCurrentScreen("roomQuit");
   }, []);
 
   if (user === undefined) {
@@ -45,7 +45,11 @@ const Quit: NextPage = () => {
         <SentreiAppHeader spaceId={String(query.spaceId)} />
       )}
       {user && profile && (
-        <SpaceQuit spaceId={String(query.spaceId)} user={user} />
+        <RoomQuit
+          roomId={String(query.roomId)}
+          user={user}
+          spaceId={String(query.spaceId)}
+        />
       )}
     </>
   );

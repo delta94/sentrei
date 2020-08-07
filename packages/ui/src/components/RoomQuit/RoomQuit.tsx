@@ -3,32 +3,33 @@ import useTranslation from "next-translate/useTranslation";
 import Error from "next/error";
 import * as React from "react";
 
-import {getSpace} from "@sentrei/common/firebase/spaces";
-import Space from "@sentrei/types/models/Space";
+import {getRoom} from "@sentrei/common/firebase/rooms";
+import Room from "@sentrei/types/models/Room";
 import User from "@sentrei/types/models/User";
 import FormSection from "@sentrei/ui/components/FormSection";
+import RoomQuitForm from "@sentrei/ui/components/RoomQuitForm";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
-import SpaceQuitForm from "@sentrei/ui/components/SpaceQuitForm";
 
 export interface Props {
-  spaceId: string;
+  roomId: string;
   user: User.Get;
+  spaceId: string;
 }
 
-export default function SpaceQuit({spaceId, user}: Props): JSX.Element {
+export default function RoomQuit({roomId, user, spaceId}: Props): JSX.Element {
   const {t} = useTranslation();
 
-  const [space, setSpace] = React.useState<Space.Get | null | undefined>();
+  const [room, setRoom] = React.useState<Room.Get | null | undefined>();
 
   React.useEffect(() => {
-    getSpace(spaceId).then(setSpace);
-  }, [spaceId]);
+    getRoom(roomId).then(setRoom);
+  }, [roomId]);
 
-  if (space === undefined) {
+  if (room === undefined) {
     return <SkeletonForm />;
   }
 
-  if (space === null) {
+  if (room === null) {
     return <Error statusCode={404} />;
   }
 
@@ -36,10 +37,10 @@ export default function SpaceQuit({spaceId, user}: Props): JSX.Element {
     <>
       <FormSection
         icon={<ExitToAppIcon />}
-        title={t("space:space.quitSpace")}
+        title={t("room:room.quitRoom")}
         size="md"
       />
-      <SpaceQuitForm spaceId={spaceId} userId={user.uid} />
+      <RoomQuitForm roomId={roomId} userId={user.uid} spaceId={spaceId} />
     </>
   );
 }

@@ -21,6 +21,7 @@
   },
   "space": {
     "createSpace": "スペースを作成する",
+    "deleteSpace": "スペースを削除",
     "editSpace": "スペースを編集",
     "quitSpace": "スペースを終了"
   }
