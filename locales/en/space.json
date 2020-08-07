@@ -21,6 +21,7 @@
   },
   "space": {
     "createSpace": "Create Space",
+    "deleteSpace": "Delete Space",
     "editSpace": "Edit Space",
     "quitSpace": "Quit Space"
   }

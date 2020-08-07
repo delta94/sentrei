@@ -45,11 +45,7 @@ const Quit: NextPage = () => {
         <SentreiAppHeader spaceId={String(query.spaceId)} />
       )}
       {user && profile && (
-        <SpaceQuit
-          spaceId={String(query.spaceId)}
-          profile={profile}
-          user={user}
-        />
+        <SpaceQuit spaceId={String(query.spaceId)} user={user} />
       )}
     </>
   );

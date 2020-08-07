@@ -45,10 +45,7 @@ export const deleteRoom = (roomId: string): Promise<void> => {
   return db.doc(`rooms/${roomId}`).delete();
 };
 
-export const deleteRoomMember = (
-  roomId: string,
-  userId: string,
-): Promise<void> => {
+export const quitRoom = (roomId: string, userId: string): Promise<void> => {
   return db.doc(`rooms/${roomId}/members/${userId}`).delete();
 };
 

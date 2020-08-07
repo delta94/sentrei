@@ -1,21 +1,19 @@
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import SettingsIcon from "@material-ui/icons/Settings";
 import useTranslation from "next-translate/useTranslation";
 import Error from "next/error";
 import * as React from "react";
 
 import {getSpace} from "@sentrei/common/firebase/spaces";
 import Space from "@sentrei/types/models/Space";
-import User from "@sentrei/types/models/User";
 import FormSection from "@sentrei/ui/components/FormSection";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
-import SpaceQuitForm from "@sentrei/ui/components/SpaceQuitForm";
+import SpaceDeleteForm from "@sentrei/ui/components/SpaceDeleteForm";
 
-export interface Props {
+interface Props {
   spaceId: string;
-  user: User.Get;
 }
 
-export default function SpaceQuit({spaceId, user}: Props): JSX.Element {
+export default function SpaceEdit({spaceId}: Props): JSX.Element {
   const {t} = useTranslation();
 
   const [space, setSpace] = React.useState<Space.Get | null | undefined>();
@@ -35,11 +33,11 @@ export default function SpaceQuit({spaceId, user}: Props): JSX.Element {
   return (
     <>
       <FormSection
-        icon={<ExitToAppIcon />}
-        title={t("space:space.quitSpace")}
+        icon={<SettingsIcon />}
+        title={t("space:space.deleteSpace")}
         size="md"
       />
-      <SpaceQuitForm spaceId={spaceId} userId={user.uid} />
+      <SpaceDeleteForm spaceId={spaceId} />
     </>
   );
 }

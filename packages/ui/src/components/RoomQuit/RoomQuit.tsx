@@ -5,15 +5,17 @@ import * as React from "react";
 
 import {getRoom} from "@sentrei/common/firebase/rooms";
 import Room from "@sentrei/types/models/Room";
+import User from "@sentrei/types/models/User";
 import FormSection from "@sentrei/ui/components/FormSection";
-import RoomDeleteForm from "@sentrei/ui/components/RoomDeleteForm";
+import RoomQuitForm from "@sentrei/ui/components/RoomQuitForm";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
 
 export interface Props {
   roomId: string;
+  user: User.Get;
 }
 
-export default function RoomDelete({roomId}: Props): JSX.Element {
+export default function RoomQuit({roomId, user}: Props): JSX.Element {
   const {t} = useTranslation();
 
   const [room, setRoom] = React.useState<Room.Get | null | undefined>();
@@ -37,7 +39,7 @@ export default function RoomDelete({roomId}: Props): JSX.Element {
         title={t("room:room.deleteRoom")}
         size="md"
       />
-      <RoomDeleteForm roomId={roomId} />
+      <RoomQuitForm roomId={roomId} userId={user.uid} />
     </>
   );
 }
