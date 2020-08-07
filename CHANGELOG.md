@@ -1,3 +1,12 @@
+# [1.27.0](https://github.com/sentrei/sentrei/compare/v1.26.0...v1.27.0) (2020-08-07)
+
+### Features
+
+- 🎸 ini quit and delete form ([c0e872e](https://github.com/sentrei/sentrei/commit/c0e872e7e160a20255cb866be0e66359fa5b15f2))
+- 🎸 ini quit form for room and space ([a223d44](https://github.com/sentrei/sentrei/commit/a223d44368130504190586613163405405b5ca31))
+- 🎸 ini room quit and delete type ([e7d3a5c](https://github.com/sentrei/sentrei/commit/e7d3a5c7abb62836e899c69b92ef73b400bb9ea5))
+- 🎸 router transition upon success delete & quit ([4f2b9fb](https://github.com/sentrei/sentrei/commit/4f2b9fb7422ecb53f949d42694ddb6054f679e7e))
+
 # [1.26.0](https://github.com/sentrei/sentrei/compare/v1.25.0...v1.26.0) (2020-08-07)
 
 ### Bug Fixes
