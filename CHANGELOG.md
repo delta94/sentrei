@@ -1,3 +1,14 @@
+# [1.26.0](https://github.com/sentrei/sentrei/compare/v1.25.0...v1.26.0) (2020-08-07)
+
+### Bug Fixes
+
+- 🐛 no initial close button bug ([e1f8085](https://github.com/sentrei/sentrei/commit/e1f8085d264639e73992e23735c2ab33ffb1ef69))
+
+### Features
+
+- 🎸 ini member revalidation ([5c000a7](https://github.com/sentrei/sentrei/commit/5c000a7bc7dc83c48183f1cfda31c240038fd91f))
+- 🎸 refactor space panel description form ([f1f7676](https://github.com/sentrei/sentrei/commit/f1f767613e966db0938d813543dea4118b90f89e))
+
 # [1.25.0](https://github.com/sentrei/sentrei/compare/v1.24.0...v1.25.0) (2020-08-06)
 
 ### Features
