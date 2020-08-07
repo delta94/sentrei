@@ -27,7 +27,7 @@ const RoomDeleteForm = ({roomId}: Props): JSX.Element => {
     }
   };
 
-  return <DeleteForm id={roomId} onSubmit={onSubmit} />;
+  return <DeleteForm id={roomId} onSubmit={onSubmit} type="delete" />;
 };
 
 export default RoomDeleteForm;

@@ -17,10 +17,10 @@ const RoomQuitForm = ({roomId, userId}: Props): JSX.Element => {
   const {t} = useTranslation();
 
   const onSubmit = async (): Promise<void> => {
-    snackbar("info", t("common:snackbar.deleting"));
+    snackbar("info", t("common:snackbar.quiting"));
     try {
       await quitRoom(roomId, userId)?.then(() => {
-        snackbar("success");
+        snackbar("success", t("common:snackbar.quitted"));
         backdrop("loading");
       });
     } catch (err) {
@@ -28,7 +28,7 @@ const RoomQuitForm = ({roomId, userId}: Props): JSX.Element => {
     }
   };
 
-  return <QuitForm id={roomId} onSubmit={onSubmit} />;
+  return <QuitForm id={roomId} onSubmit={onSubmit} type="quit" />;
 };
 
 export default RoomQuitForm;

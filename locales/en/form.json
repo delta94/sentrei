@@ -1,4 +1,8 @@
 {
+  "delete": {
+    "deleteRequired": "'DELETE' is required",
+    "deleteType": "Please Type 'DELETE'"
+  },
   "email": {
     "check": "Please check your email",
     "required": "Email is required",
@@ -19,6 +23,10 @@
   "password": {
     "match": "Passwords must match",
     "valid": "Please enter a valid password"
+  },
+  "quit": {
+    "quitRequired": "'QUIT' is required",
+    "quitType": "Please Type 'QUIT'"
   },
   "type": {
     "typeRequired": "Type is required"

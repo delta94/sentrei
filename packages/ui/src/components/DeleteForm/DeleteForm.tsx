@@ -11,13 +11,20 @@ import * as Yup from "yup";
 
 export interface Props {
   id: string;
+  type?: "delete" | "id";
   onSubmit: () => Promise<void>;
 }
 
-const DeleteForm = ({id, onSubmit}: Props): JSX.Element => {
+const DeleteForm = ({id, type = "id", onSubmit}: Props): JSX.Element => {
   const {t} = useTranslation();
 
   const DeleteFormSchema = Yup.object().shape({
+    id: Yup.string()
+      .required(t("form:delete.deleteRequired"))
+      .oneOf(["DELETE"], t("form:delete.deleteType")),
+  });
+
+  const IdFormSchema = Yup.object().shape({
     id: Yup.string()
       .required(t("form:id.idRequired"))
       .oneOf([id], `${t("form:id.idMatch")} ${id}`),
@@ -26,11 +33,12 @@ const DeleteForm = ({id, onSubmit}: Props): JSX.Element => {
   const {control, register, errors, handleSubmit} = useForm({
     mode: "onSubmit",
     reValidateMode: "onBlur",
-    resolver: yupResolver(DeleteFormSchema),
+    resolver:
+      type === "id" ? yupResolver(IdFormSchema) : yupResolver(DeleteFormSchema),
   });
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="xs">
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" noValidate>
         <Grid container spacing={3}>
           <Grid item xs={12}>
@@ -40,11 +48,15 @@ const DeleteForm = ({id, onSubmit}: Props): JSX.Element => {
                   autoFocus
                   fullWidth
                   id="delete-id"
-                  label={`${t("form:id.pleaseType")} ${id} ${t(
-                    "form:id.toDelete",
-                  )}`}
+                  label={
+                    type === "id"
+                      ? `${t("form:id.pleaseType")} ${id} ${t(
+                          "form:id.toDelete",
+                        )}`
+                      : t("form:delete.deleteType")
+                  }
                   margin="normal"
-                  name="delete"
+                  name="id"
                   required
                   variant="outlined"
                   error={!!errors.id}
@@ -53,7 +65,7 @@ const DeleteForm = ({id, onSubmit}: Props): JSX.Element => {
                   type="text"
                 />
               }
-              name="delete"
+              name="id"
               control={control}
               defaultValue=""
             />

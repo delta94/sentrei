@@ -11,22 +11,30 @@ import * as Yup from "yup";
 
 export interface Props {
   id: string;
+  type?: "id" | "quit";
   onSubmit: () => Promise<void>;
 }
 
-const QuitForm = ({id, onSubmit}: Props): JSX.Element => {
+const QuitForm = ({id, type = "id", onSubmit}: Props): JSX.Element => {
   const {t} = useTranslation();
 
-  const QuitFormSchema = Yup.object().shape({
+  const IdFormSchema = Yup.object().shape({
     id: Yup.string()
       .required(t("form:id.idRequired"))
       .oneOf([id], `${t("form:id.idMatch")} ${id}`),
   });
 
+  const QuitFormSchema = Yup.object().shape({
+    id: Yup.string()
+      .required(t("form:quit.quitRequired"))
+      .oneOf(["QUIT"], t("form:quit.quitType")),
+  });
+
   const {control, register, errors, handleSubmit} = useForm({
     mode: "onSubmit",
     reValidateMode: "onBlur",
-    resolver: yupResolver(QuitFormSchema),
+    resolver:
+      type === "id" ? yupResolver(IdFormSchema) : yupResolver(QuitFormSchema),
   });
 
   return (
@@ -40,11 +48,15 @@ const QuitForm = ({id, onSubmit}: Props): JSX.Element => {
                   autoFocus
                   fullWidth
                   id="quit-id"
-                  label={`${t("form:id.pleaseType")} ${id} ${t(
-                    "form:id.toQuit",
-                  )}`}
+                  label={
+                    type === "id"
+                      ? `${t("form:id.pleaseType")} ${id} ${t(
+                          "form:id.toQuit",
+                        )}`
+                      : t("form:quit.quitType")
+                  }
                   margin="normal"
-                  name="quit"
+                  name="id"
                   required
                   variant="outlined"
                   error={!!errors.id}
@@ -53,7 +65,7 @@ const QuitForm = ({id, onSubmit}: Props): JSX.Element => {
                   type="text"
                 />
               }
-              name="quit"
+              name="id"
               control={control}
               defaultValue=""
             />
