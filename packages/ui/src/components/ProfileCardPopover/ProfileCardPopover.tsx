@@ -1,5 +1,6 @@
 import Popover from "@material-ui/core/Popover";
 import Typography from "@material-ui/core/Typography";
+import {Emoji} from "emoji-mart";
 import * as React from "react";
 
 import Member from "@sentrei/types/models/Member";
@@ -42,6 +43,8 @@ export default function ProfileCardPopover({
       disableRestoreFocus
     >
       <Typography>{member.name}</Typography>
+      <Typography>{member.description}</Typography>
+      <Emoji emoji={member.emoji} set="twitter" size={30} />
     </Popover>
   );
 }
