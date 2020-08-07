@@ -1,3 +1,4 @@
+import Router from "next-translate/Router";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
@@ -17,12 +18,13 @@ const SpaceQuitForm = ({spaceId, userId}: Props): JSX.Element => {
   const {t} = useTranslation();
 
   const onSubmit = async (): Promise<void> => {
-    snackbar("info", t("common:snackbar.deleting"));
+    snackbar("info", t("common:snackbar.quiting"));
     try {
       await quitSpace(spaceId, userId)?.then(() => {
         snackbar("success");
         backdrop("loading");
       });
+      Router.pushI18n("/dashboard");
     } catch (err) {
       snackbar("error", err.message);
     }

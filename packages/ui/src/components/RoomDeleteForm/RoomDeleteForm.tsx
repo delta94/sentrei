@@ -1,3 +1,4 @@
+import Router from "next-translate/Router";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
@@ -8,9 +9,10 @@ import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 interface Props {
   roomId: string;
+  spaceId: string;
 }
 
-const RoomDeleteForm = ({roomId}: Props): JSX.Element => {
+const RoomDeleteForm = ({roomId, spaceId}: Props): JSX.Element => {
   const {snackbar} = useSnackbar();
   const {backdrop} = useBackdrop();
   const {t} = useTranslation();
@@ -21,6 +23,7 @@ const RoomDeleteForm = ({roomId}: Props): JSX.Element => {
       await deleteRoom(roomId)?.then(() => {
         snackbar("success");
         backdrop("loading");
+        Router.pushI18n("/[spaceId]", `/${spaceId}`);
       });
     } catch (err) {
       snackbar("error", err.message);

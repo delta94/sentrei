@@ -1,3 +1,4 @@
+import Router from "next-translate/Router";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 
@@ -22,6 +23,7 @@ const SpaceDeleteForm = ({spaceId}: Props): JSX.Element => {
         snackbar("success");
         backdrop("loading");
       });
+      Router.pushI18n("/dashboard");
     } catch (err) {
       snackbar("error", err.message);
     }

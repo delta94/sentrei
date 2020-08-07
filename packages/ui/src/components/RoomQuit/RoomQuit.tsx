@@ -13,9 +13,10 @@ import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
 export interface Props {
   roomId: string;
   user: User.Get;
+  spaceId: string;
 }
 
-export default function RoomQuit({roomId, user}: Props): JSX.Element {
+export default function RoomQuit({roomId, user, spaceId}: Props): JSX.Element {
   const {t} = useTranslation();
 
   const [room, setRoom] = React.useState<Room.Get | null | undefined>();
@@ -39,7 +40,7 @@ export default function RoomQuit({roomId, user}: Props): JSX.Element {
         title={t("room:room.quitRoom")}
         size="md"
       />
-      <RoomQuitForm roomId={roomId} userId={user.uid} />
+      <RoomQuitForm roomId={roomId} userId={user.uid} spaceId={spaceId} />
     </>
   );
 }
