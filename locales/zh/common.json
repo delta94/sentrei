@@ -38,6 +38,7 @@
     "passwordNew": "新密码",
     "passwordOld": "旧密码",
     "photo": "照片",
+    "pickYourEmoji": "选择您的表情符号",
     "profile": "个人资料",
     "quit": "退出",
     "room": "房间",
@@ -49,15 +50,23 @@
     "update": "更新资料",
     "username": "用户名",
     "visit": "访问",
-    "week": "周"
+    "week": "周",
+    "writeYourStatus": "写你的状态..."
   },
   "snackbar": {
+    "cleared": "已清除！",
+    "clearing": "清除中...",
     "clipboard": "复制到剪贴板的链接！",
+    "created": "已创建！",
     "creating": "正在建立...",
+    "deleted": "已删除！",
     "deleting": "删除中...",
+    "edited": "编辑！",
     "editing": "编辑中...",
     "inviting": "邀请中...",
     "loading": "载入中...",
-    "quiting": "退出..."
+    "quiting": "退出...",
+    "updated": "更新 ！",
+    "updating": "正在更新..."
   }
 }

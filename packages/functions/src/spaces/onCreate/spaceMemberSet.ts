@@ -17,6 +17,8 @@ const spaceMemberSet = functions.firestore
       createdAt: data.createdAt,
       createdBy: data.createdBy,
       createdByUid: data.createdByUid,
+      description: "",
+      emoji: ":blush:",
       photo: data.createdBy.photo,
       name: data.createdBy.name,
       joined: data.createdAt,

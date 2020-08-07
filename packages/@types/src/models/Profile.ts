@@ -3,7 +3,6 @@ declare namespace Profile {
     name: string;
     photo: string | null;
     username: string;
-    description?: string;
   };
 
   export type Response = Fields;

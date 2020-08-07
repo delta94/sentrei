@@ -3,7 +3,7 @@
 import {yupResolver} from "@hookform/resolvers";
 import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
-import InputBase from "@material-ui/core/InputBase";
+import Input from "@material-ui/core/Input";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import useTranslation from "next-translate/useTranslation";
@@ -36,17 +36,33 @@ export default function SpacePanelDescriptionForm({
   const {t} = useTranslation();
   const {snackbar} = useSnackbar();
 
-  const [empty, setEmpty] = React.useState<boolean>(!member.description);
+  const [empty, setEmpty] = React.useState<boolean>(
+    member.description.length === 0,
+  );
+  const [progress, setProgress] = React.useState<boolean>(empty);
 
   const SpaceDescriptionFormSchema = Yup.object().shape({
     description: Yup.string(),
   });
 
-  const {control, handleSubmit, reset} = useForm({
+  const {control, watch, handleSubmit, reset} = useForm({
     mode: "onSubmit",
     reValidateMode: "onBlur",
     resolver: yupResolver(SpaceDescriptionFormSchema),
   });
+
+  const watchInput = watch("description", false);
+
+  React.useEffect(() => {
+    if (watchInput === member.description) {
+      setProgress(false);
+    } else if (watchInput !== member.description) {
+      setProgress(true);
+    } else {
+      setEmpty(true);
+      setProgress(false);
+    }
+  }, [watchInput, member.description]);
 
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
     snackbar("info", t("common:snackbar.updating"));
@@ -58,6 +74,7 @@ export default function SpacePanelDescriptionForm({
         updatedByUid: userId,
       });
       setEmpty(false);
+      setProgress(false);
       snackbar("success", t("common:snackbar.updated"));
     } catch (err) {
       snackbar("error", err.message);
@@ -74,6 +91,7 @@ export default function SpacePanelDescriptionForm({
         updatedByUid: userId,
       });
       setEmpty(true);
+      setProgress(false);
       reset();
       snackbar("success", t("common:snackbar.cleared"));
     } catch (err) {
@@ -88,8 +106,9 @@ export default function SpacePanelDescriptionForm({
           <Box p={1} flexGrow={1}>
             <Controller
               as={
-                <InputBase
+                <Input
                   fullWidth
+                  disableUnderline={!progress}
                   placeholder={t("common:common.writeYourStatus")}
                   inputProps={{"aria-label": "write your status"}}
                 />
@@ -101,6 +120,10 @@ export default function SpacePanelDescriptionForm({
           </Box>
           <Box flexShrink={1}>
             {empty ? (
+              <IconButton type="submit" aria-label="return">
+                <KeyboardReturnIcon />
+              </IconButton>
+            ) : progress ? (
               <IconButton type="submit" aria-label="return">
                 <KeyboardReturnIcon />
               </IconButton>

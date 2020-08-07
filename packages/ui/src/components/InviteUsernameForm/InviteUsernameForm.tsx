@@ -62,6 +62,8 @@ const InviteUsernameForm = ({profile, user, spaceId}: Props): JSX.Element => {
           createdAt: timestamp,
           createdBy: profile,
           createdByUid: user.uid,
+          description: "",
+          emoji: "joy",
           name: memberProfile.name,
           photo: memberProfile.photo,
           status: "offline",

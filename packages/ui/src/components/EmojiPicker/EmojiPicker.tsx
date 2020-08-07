@@ -1,7 +1,6 @@
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Popover from "@material-ui/core/Popover";
 import {Emoji, EmojiData} from "emoji-mart";
-import {motion, useAnimation} from "framer-motion";
 import * as React from "react";
 
 import EmojiMart from "@sentrei/ui/components/EmojiMart";
@@ -19,8 +18,6 @@ export default function EmojiPicker({
 }: Props): JSX.Element {
   const classes = EmojiPickerStyles();
 
-  const controls = useAnimation();
-
   const [emoji, setEmoji] = React.useState<string>(initialEmoji);
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null,
@@ -37,11 +34,6 @@ export default function EmojiPicker({
   const handleSelect = (e: EmojiData): void => {
     const emojiString = e.colons;
     setEmoji(emojiString ?? initialEmoji);
-    controls.start({
-      scale: [1, 1.2, 1.2, 1, 1],
-      rotate: [0, 0, 270, 270, 0],
-      borderRadius: ["20%", "20%", "50%", "50%", "20%"],
-    });
     if (onSelect && emojiString) {
       onSelect(emojiString);
     }
@@ -59,9 +51,7 @@ export default function EmojiPicker({
         onClick={handleClick}
         aria-label="emoji"
       >
-        <motion.span animate={controls}>
-          <Emoji emoji={emoji} set="twitter" size={30} />
-        </motion.span>
+        <Emoji emoji={emoji} set="twitter" size={30} />
       </ButtonBase>
       <Popover
         id={id}
