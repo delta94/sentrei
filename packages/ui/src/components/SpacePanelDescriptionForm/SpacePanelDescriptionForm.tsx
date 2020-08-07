@@ -39,7 +39,7 @@ export default function SpacePanelDescriptionForm({
   const [empty, setEmpty] = React.useState<boolean>(
     member.description.length === 0,
   );
-  const [progress, setProgress] = React.useState<boolean>(empty);
+  const [progress, setProgress] = React.useState<boolean>(!empty);
 
   const SpaceDescriptionFormSchema = Yup.object().shape({
     description: Yup.string(),
@@ -54,13 +54,15 @@ export default function SpacePanelDescriptionForm({
   const watchInput = watch("description", false);
 
   React.useEffect(() => {
-    if (watchInput) {
+    if (watchInput === member.description) {
+      setProgress(false);
+    } else if (watchInput !== member.description) {
       setProgress(true);
     } else {
       setEmpty(true);
       setProgress(false);
     }
-  }, [watchInput]);
+  }, [watchInput, member.description]);
 
   const onSubmit = async (data: Record<string, any>): Promise<void> => {
     snackbar("info", t("common:snackbar.updating"));

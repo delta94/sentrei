@@ -11,7 +11,7 @@ const SpaceScreenStyles = makeStyles(() =>
     },
     divider: {
       height: 28,
-      margin: 4,
+      marginRight: 3,
     },
   }),
 );
