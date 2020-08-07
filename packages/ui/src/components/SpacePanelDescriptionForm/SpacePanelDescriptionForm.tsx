@@ -39,7 +39,7 @@ export default function SpacePanelDescriptionForm({
   const [empty, setEmpty] = React.useState<boolean>(
     member.description.length === 0,
   );
-  const [progress, setProgress] = React.useState<boolean>(!empty);
+  const [progress, setProgress] = React.useState<boolean>(empty);
 
   const SpaceDescriptionFormSchema = Yup.object().shape({
     description: Yup.string(),
