@@ -8,6 +8,9 @@ const ActivityCardStyles = makeStyles((theme: Theme) =>
     middle: {
       flexBasis: "30%",
     },
+    root: {
+      overflow: "hidden",
+    },
     heading: {
       fontSize: theme.typography.pxToRem(15),
     },

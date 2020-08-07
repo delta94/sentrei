@@ -21,53 +21,57 @@ export default function ActivityCard({activity}: Props): JSX.Element {
   const {t} = useTranslation();
 
   return (
-    <>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+    <Accordion className={classes.root}>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel1a-content"
+        id="panel1a-header"
+      >
+        <Grid
+          container
+          direction="row"
+          justify="flex-end"
+          alignItems="baseline"
+          wrap="nowrap"
         >
-          <Grid container direction="row" justify="space-between">
-            <Grid item xs={9}>
-              <Typography noWrap className={classes.heading}>
-                {activity.user.name} {activity.action} {activity.category}{" "}
-                {activity.categoryId}
-              </Typography>
-            </Grid>
-            <Grid item xs={3}>
-              <Typography noWrap className={classes.secondaryHeading}>
-                {activity.updatedAt}
-              </Typography>
-            </Grid>
+          <Grid item xs={9} zeroMinWidth>
+            <Typography noWrap className={classes.heading}>
+              {activity.user.name} {activity.action} {activity.category}{" "}
+              {activity.categoryId}
+            </Typography>
           </Grid>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Grid
-            container
-            direction="row"
-            alignItems="center"
-            justify="space-around"
-          >
-            <Grid item xs={2} sm={2} md={1}>
-              <Avatar src={activity.user.photo || undefined} />
-            </Grid>
-            <Grid item xs={4} sm={3} md={2}>
-              <Typography noWrap>{activity.user.name}</Typography>
-            </Grid>
-            <Grid item xs={5} sm={5} md={5}>
-              <Typography noWrap>
-                {t("common:common.id")}
-                {": "}
-                {activity.user.username}
-              </Typography>
-            </Grid>
-            <Grid item xs={1} sm={2} md={4}>
-              <Typography noWrap>{activity.itemPath}</Typography>
-            </Grid>
+          <Grid item xs={3} zeroMinWidth>
+            <Typography noWrap className={classes.secondaryHeading}>
+              {activity.updatedAt}
+            </Typography>
           </Grid>
-        </AccordionDetails>
-      </Accordion>
-    </>
+        </Grid>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Grid
+          container
+          direction="row"
+          alignItems="center"
+          justify="space-around"
+        >
+          <Grid item xs={2} sm={2} md={1}>
+            <Avatar src={activity.user.photo || undefined} />
+          </Grid>
+          <Grid item xs={4} sm={3} md={2}>
+            <Typography noWrap>{activity.user.name}</Typography>
+          </Grid>
+          <Grid item xs={5} sm={5} md={5}>
+            <Typography noWrap>
+              {t("common:common.id")}
+              {": "}
+              {activity.user.username}
+            </Typography>
+          </Grid>
+          <Grid item xs={1} sm={2} md={4}>
+            <Typography noWrap>{activity.itemPath}</Typography>
+          </Grid>
+        </Grid>
+      </AccordionDetails>
+    </Accordion>
   );
 }
