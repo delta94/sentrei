@@ -1,8 +1,15 @@
 {
   "version": 2,
+  "alias": ["sentrei.com"],
   "cleanUrls": true,
+  "collectMetrics": true,
   "public": true,
   "scope": "sentrei",
   "trailingSlash": false,
-  "builds": [{"src": "package.json", "use": "@now/next"}]
+  "github": {
+    "autoJobCancelation": false,
+    "autoAlias": true,
+    "silent": true
+  },
+  "builds": [{"src": "packages/web/package.json", "use": "@vercel/next"}]
 }
