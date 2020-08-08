@@ -1,10 +1,15 @@
 {
   "version": 2,
+  "alias": ["sentrei.com"],
   "cleanUrls": true,
+  "collectMetrics": true,
   "public": true,
   "scope": "sentrei",
   "trailingSlash": false,
   "github": {
-    "enabled": false
+    "enabled": true,
+    "autoJobCancelation": false,
+    "autoAlias": true,
+    "silent": true
   }
 }
