@@ -7,6 +7,7 @@
   "scope": "sentrei",
   "trailingSlash": false,
   "github": {
+    "enabled": true,
     "autoJobCancelation": false,
     "autoAlias": true,
     "silent": true
