@@ -24,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async ({params}) => {
   const spaceId = String(params?.spaceId);
   // const space = JSON.stringify(await adminDb.doc(`spaces/${spaceId}`).get());
-  const space = spaceId;
+  const space = JSON.stringify(spaceId);
   return {props: {space}, revalidate: 1};
 };
 
