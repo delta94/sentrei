@@ -48,6 +48,7 @@ const aliases = {
 };
 
 const nextConfig = {
+  target: "serverless",
   trailingSlash: false,
   publicRuntimeConfig: {
     DATA_CLIENT_ID: process.env.DATA_CLIENT_ID,

@@ -3,5 +3,6 @@
   "cleanUrls": true,
   "public": true,
   "scope": "sentrei",
-  "trailingSlash": false
+  "trailingSlash": false,
+  "builds": [{"src": "package.json", "use": "@now/next"}]
 }
