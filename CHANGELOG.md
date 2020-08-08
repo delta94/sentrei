@@ -1,3 +1,10 @@
+## [1.27.2](https://github.com/sentrei/sentrei/compare/v1.27.1...v1.27.2) (2020-08-08)
+
+### Performance Improvements
+
+- ⚡️ refactor vercel next.js ([376e6b2](https://github.com/sentrei/sentrei/commit/376e6b2043997499ab98f7cd170a2c36718ee836))
+- ⚡️ vercel ([4c494b8](https://github.com/sentrei/sentrei/commit/4c494b8f514e1503992e683f99f6c0d7e53aa4c9))
+
 ## [1.27.1](https://github.com/sentrei/sentrei/compare/v1.27.0...v1.27.1) (2020-08-07)
 
 ### Performance Improvements
