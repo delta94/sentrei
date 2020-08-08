@@ -10,6 +10,5 @@
     "autoJobCancelation": false,
     "autoAlias": true,
     "silent": true
-  },
-  "builds": [{"src": "packages/web/package.json", "use": "@vercel/next"}]
+  }
 }
