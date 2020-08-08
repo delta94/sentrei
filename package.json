@@ -29,7 +29,7 @@
     "jsonsort:check": "jsonsort .devcontainer .vscode locales -a -c",
     "jsonsort:fix": "jsonsort .devcontainer .vscode locales -a",
     "lint": "yarn run jsonsort:check && yarn run sort-package-json:check && yarn run eclint:check && yarn run eslint:check && yarn run prettier:check",
-    "now-build": "yarn run typescript && lerna run build --scope={@sentrei/web}",
+    "now-build": "yarn run typescript && lerna run build --scope @sentrei/web",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "publish:lerna": "lerna publish from-package --yes --dist-tag ${DIST_TAG}",
