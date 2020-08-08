@@ -3,8 +3,5 @@
   "cleanUrls": true,
   "public": true,
   "scope": "sentrei",
-  "trailingSlash": false,
-  "github": {
-    "enabled": false
-  }
+  "trailingSlash": false
 }

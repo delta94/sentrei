@@ -48,7 +48,7 @@ const aliases = {
 };
 
 const nextConfig = {
-  target: "experimental-serverless-trace",
+  trailingSlash: false,
   publicRuntimeConfig: {
     DATA_CLIENT_ID: process.env.DATA_CLIENT_ID,
   },
