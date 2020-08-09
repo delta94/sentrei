@@ -74,7 +74,7 @@ module.exports = {
         title: "2020/08",
         collapsable: true,
         children: readDayFileList("2020", "08"),
-      }
+      },
       {
         title: "2020/07",
         collapsable: true,
