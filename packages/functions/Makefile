@@ -1,4 +1,26 @@
-SECRETS_VERSION = 8
+SECRETS_VERSION = 1
+
+secrets-create: secrets-create-alpha secrets-create-beta secrets-create-main
+
+secrets-create-alpha:
+	gcloud secrets create functions_alpha_env --data-file="alpha.env.json" --locations=us-central1 --replication-policy="user-managed"
+
+secrets-create-beta:
+	gcloud secrets create functions_beta_env --data-file="beta.env.json" --locations=us-central1 --replication-policy="user-managed"
+
+secrets-create-main:
+	gcloud secrets create functions_main_env --data-file="main.env.json" --locations=us-central1 --replication-policy="user-managed"
+
+secrets-delete: secrets-delete-alpha secrets-delete-beta secrets-delete-main
+
+secrets-delete-alpha:
+	gcloud secrets delete functions_alpha_env
+
+secrets-delete-beta:
+	gcloud secrets delete functions_beta_env
+
+secrets-delete-main:
+	gcloud secrets delete functions_main_env
 
 secrets-get: secrets-get-alpha secrets-get-beta secrets-get-main
 
