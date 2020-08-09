@@ -1,18 +1,35 @@
-SECRETS_VERSION = 1
+secrets-create: secrets-create-alpha secrets-create-beta secrets-create-main
 
-secrets-get: secrets-get-alpha secrets-get-beta secrets-get-main secrets-get-local-beta
+secrets-create-alpha:
+	gcloud secrets create web_alpha_env --data-file="alpha.env" --locations=us-central1 --replication-policy="user-managed"
+
+secrets-create-beta:
+	gcloud secrets create web_beta_env --data-file="beta.env" --locations=us-central1 --replication-policy="user-managed"
+
+secrets-create-main:
+	gcloud secrets create web_main_env --data-file="main.env" --locations=us-central1 --replication-policy="user-managed"
+
+secrets-delete: secrets-delete-alpha secrets-delete-beta secrets-delete-main
+
+secrets-delete-alpha:
+	gcloud secrets delete web_alpha_env
+
+secrets-delete-beta:
+	gcloud secrets delete web_beta_env
+
+secrets-delete-main:
+	gcloud secrets delete web_main_env
+
+secrets-get: secrets-get-alpha secrets-get-beta secrets-get-main
 
 secrets-get-alpha:
-	gcloud secrets versions access $(SECRETS_VERSION) --secret=web_alpha_env > .env
+	gcloud secrets versions access $(SECRETS_VERSION) --secret=web_alpha_env > alpha.env
 
 secrets-get-beta:
-	gcloud secrets versions access $(SECRETS_VERSION) --secret=web_beta_env > .env
+	gcloud secrets versions access $(SECRETS_VERSION) --secret=web_beta_env > beta.env
 
 secrets-get-main:
-	gcloud secrets versions access $(SECRETS_VERSION) --secret=web_main_env > .env
-
-secrets-get-local-beta:
-	gcloud secrets versions access $(SECRETS_VERSION) --secret=web_local_beta_env > .env.local
+	gcloud secrets versions access $(SECRETS_VERSION) --secret=web_main_env > main.env
 
 secrets-list: secrets-list-alpha secrets-list-beta secrets-list-main
 
@@ -24,3 +41,14 @@ secrets-list-beta:
 
 secrets-list-main:
 	gcloud secrets versions list web_main_env --limit=1
+
+secrets-set: secrets-set-alpha secrets-set-beta secrets-set-main
+
+secrets-set-alpha:
+	gcloud secrets versions add "web_alpha_env" --data-file="alpha.env"
+
+secrets-set-beta:
+	gcloud secrets versions add "web_beta_env" --data-file="beta.env"
+
+secrets-set-main:
+	gcloud secrets versions add "web_main_env" --data-file="main.env"
