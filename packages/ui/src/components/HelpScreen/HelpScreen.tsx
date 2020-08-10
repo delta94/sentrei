@@ -4,7 +4,7 @@ import * as React from "react";
 import PaperCups from "@sentrei/ui/components/PaperCups";
 
 export interface Props {
-  email: string;
+  email: string | null;
   name: string;
   userId: string;
 }
@@ -14,7 +14,7 @@ export default function HelpScreen({email, name, userId}: Props): JSX.Element {
       <Container maxWidth="xs">
         <PaperCups
           defaultIsOpen
-          customerEmail={email}
+          customerEmail={email || ""}
           customerName={name}
           customerUid={userId}
         />
