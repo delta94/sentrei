@@ -5,14 +5,15 @@ import Video, {
   CreateLocalTrackOptions,
 } from "twilio-video";
 
+import {DEFAULT_VIDEO_CONSTRAINTS} from "@sentrei/video/constants";
+
 export default function useLocalTracks(): {
-  localTracks: (Video.LocalVideoTrack | Video.LocalAudioTrack)[];
+  localTracks: (Video.LocalAudioTrack | Video.LocalVideoTrack)[];
   getLocalVideoTrack: (
     newOptions?: Video.CreateLocalTrackOptions | undefined,
   ) => Promise<Video.LocalVideoTrack>;
-  getLocalAudioTrack: (
-    deviceId?: string | undefined,
-  ) => Promise<Video.LocalAudioTrack>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  getLocalAudioTrack: (deviceId?: string | undefined) => Promise<any>;
   isAcquiringLocalTracks: boolean;
   removeLocalVideoTrack: () => void;
 } {
@@ -41,9 +42,7 @@ export default function useLocalTracks(): {
       // track name is 'camera', so here we append a timestamp to the track name to avoid the
       // conflict.
       const options: CreateLocalTrackOptions = {
-        frameRate: 24,
-        height: 720,
-        width: 1280,
+        ...(DEFAULT_VIDEO_CONSTRAINTS as {}),
         name: `camera-${Date.now()}`,
         ...newOptions,
       };
@@ -67,9 +66,7 @@ export default function useLocalTracks(): {
     setIsAcquiringLocalTracks(true);
     Video.createLocalTracks({
       video: {
-        frameRate: 24,
-        height: 720,
-        width: 1280,
+        ...(DEFAULT_VIDEO_CONSTRAINTS as {}),
         name: `camera-${Date.now()}`,
       },
       audio: true,
