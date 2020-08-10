@@ -52,6 +52,7 @@ const nextConfig = {
   trailingSlash: false,
   publicRuntimeConfig: {
     DATA_CLIENT_ID: process.env.DATA_CLIENT_ID,
+    PAPERCUPS_ID: process.env.PAPERCUPS_ID,
   },
   serverRuntimeConfig: {
     FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,
