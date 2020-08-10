@@ -15,12 +15,6 @@ jobs:
         with:
           branch: "cla"
       - if: |
-          github.actor != 'allcontributors[bot]' ||
-          github.actor != 'dependabot[bot]' ||
-          github.actor != 'dependabot-preview[bot]' ||
-          github.actor != 'github-actions[bot]' ||
-          github.actor != 'imgbot' ||
-          github.actor != 'imgbot[bot]' ||
           github.event.comment.body == 'recheckcla' ||
           github.event.comment.body == 'I have read the CLA Document and I hereby sign the CLA'
         uses: cla-assistant/github-action@v1.4.2-alpha
@@ -30,5 +24,6 @@ jobs:
           path-to-signatures: ".github/signatures/v1/cla.json"
           path-to-cla-document: "https://github.com/sentrei/sentrei/blob/main/CLA.md"
           branch: "cla"
+          allowlist: dependabot[bot],github-actions[bot],mergify[bot]
           empty-commit-flag: false
           blockchain-storage-flag: false
