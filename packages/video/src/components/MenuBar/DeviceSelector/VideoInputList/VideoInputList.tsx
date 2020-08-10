@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import {FormControl, MenuItem, Typography, Select} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import React from "react";
@@ -40,12 +42,7 @@ export default function VideoInputList(): JSX.Element {
         <FormControl>
           <Typography variant="h6">Video Input:</Typography>
           <Select
-            onChange={(
-              e: React.ChangeEvent<{
-                name?: string | undefined;
-                value: unknown;
-              }>,
-            ): void => replaceTrack(e.target.value as string)}
+            onChange={e => replaceTrack(e.target.value as string)}
             value={localVideoInputDeviceId || ""}
           >
             {videoInputDevices.map(device => (

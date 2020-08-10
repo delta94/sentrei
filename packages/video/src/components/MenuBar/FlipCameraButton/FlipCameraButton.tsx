@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import {IconButton} from "@material-ui/core";
 import FlipCameraIosIcon from "@material-ui/icons/FlipCameraIos";
 import React, {useCallback, useEffect, useState} from "react";
@@ -9,7 +11,7 @@ import {DEFAULT_VIDEO_CONSTRAINTS} from "@sentrei/video/constants";
 import useMediaStreamTrack from "@sentrei/video/hooks/useMediaStreamTrack";
 import useVideoContext from "@sentrei/video/hooks/useVideoContext";
 
-export default function FlipCameraButton(): JSX.Element | null {
+export default function FlipCameraButton() {
   const {localTracks} = useVideoContext();
   const [supportsFacingMode, setSupportsFacingMode] = useState<Boolean | null>(
     null,

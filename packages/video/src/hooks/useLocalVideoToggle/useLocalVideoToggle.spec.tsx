@@ -1,3 +1,6 @@
+/* eslint-disable prefer-promise-reject-errors */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import {act, renderHook} from "@testing-library/react-hooks";
 
 import {LocalParticipant} from "twilio-video";
@@ -8,27 +11,15 @@ import useLocalVideoToggle from "./useLocalVideoToggle";
 
 import {EventEmitter} from "events";
 
-jest.mock("../useVideoContext/useVideoContext");
+jest.mock("@sentrei/video/useVideoContext");
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mockUseVideoContext = useVideoContext as jest.Mock<any>;
 
-function getMockTrack(
-  name: string,
-  deviceId?: string,
-): {
-  name: string;
-  mediaStreamTrack: {
-    getSettings: () => {
-      deviceId: string | undefined;
-    };
-  };
-} {
+function getMockTrack(name: string, deviceId?: string) {
   return {
     name,
     mediaStreamTrack: {
-      getSettings: (): {
-        deviceId: string | undefined;
-      } => ({
+      getSettings: () => ({
         deviceId,
       }),
     },
@@ -83,7 +74,7 @@ describe("the useLocalVideoToggle hook", () => {
       mockUseVideoContext.mockImplementation(() => ({
         localTracks: [mockLocalTrack],
         room: {localParticipant: mockLocalParticipant},
-        removeLocalVideoTrack: (): void => {},
+        removeLocalVideoTrack: () => {},
       }));
 
       const {result} = renderHook(useLocalVideoToggle);
@@ -167,7 +158,6 @@ describe("the useLocalVideoToggle hook", () => {
 
       const mockLocalParticipant = new EventEmitter() as LocalParticipant;
       mockLocalParticipant.publishTrack = jest.fn(() =>
-        // eslint-disable-next-line prefer-promise-reject-errors
         Promise.reject("mockError"),
       );
 

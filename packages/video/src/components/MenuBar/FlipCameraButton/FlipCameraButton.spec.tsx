@@ -1,14 +1,18 @@
+/* eslint-disable @typescript-eslint/require-await */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import {fireEvent, render} from "@testing-library/react";
 import React from "react";
 
 import {DEFAULT_VIDEO_CONSTRAINTS} from "@sentrei/video/constants";
-import useVideoContext from "@sentrei/video/hooks/useVideoContext/useVideoContext";
+import useVideoContext from "@sentrei/video/hooks/useVideoContext";
 
 import FlipCameraButton from "./FlipCameraButton";
 
-jest.mock("@sentrei/video/hooks/useMediaStreamTrack/useMediaStreamTrack");
-jest.mock("@sentrei/video/hooks/useVideoContext/useVideoContext");
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+jest.mock("@sentrei/video/hooks/useMediaStreamTrack");
+jest.mock("@sentrei/video/hooks/useVideoContext");
 const mockUserVideoContext = useVideoContext as jest.Mock<any>;
 
 const mockStreamSettings = {facingMode: "user"};
@@ -16,9 +20,7 @@ const mockStreamSettings = {facingMode: "user"};
 const mockVideoTrack = {
   name: "camera",
   mediaStreamTrack: {
-    getSettings: (): {
-      facingMode: string;
-    } => mockStreamSettings,
+    getSettings: () => mockStreamSettings,
   },
   restart: jest.fn(),
 };
@@ -44,7 +46,7 @@ describe("the FlipCameraButton", () => {
         {
           ...mockVideoTrack,
           mediaStreamTrack: {
-            getSettings: (): {} => ({}),
+            getSettings: () => ({}),
           },
         },
       ],
@@ -62,7 +64,6 @@ describe("the FlipCameraButton", () => {
     expect(container.querySelector("button")).not.toBeTruthy();
   });
 
-  // eslint-disable-next-line @typescript-eslint/require-await
   it("should call track.replace() with the correct facing mode when clicked", async () => {
     mockUserVideoContext.mockImplementation(() => ({
       ...mockVideoContext,
@@ -70,15 +71,12 @@ describe("the FlipCameraButton", () => {
         {
           ...mockVideoTrack,
           mediaStreamTrack: {
-            getSettings: (): {
-              facingMode: string;
-            } => ({facingMode: "environment"}),
+            getSettings: () => ({facingMode: "environment"}),
           },
         },
       ],
     }));
     const {container} = render(<FlipCameraButton />);
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     fireEvent.click(container.querySelector("button")!);
     expect(mockVideoTrack.restart).toHaveBeenCalledWith({
       ...(DEFAULT_VIDEO_CONSTRAINTS as {}),

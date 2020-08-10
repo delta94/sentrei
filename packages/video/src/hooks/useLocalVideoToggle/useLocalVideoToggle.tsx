@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import {useCallback, useRef, useState} from "react";
 import {LocalVideoTrack} from "twilio-video";
 
 import useVideoContext from "@sentrei/video/hooks/useVideoContext";
 
-export default function useLocalVideoToggle(): readonly [true, () => void] {
+export default function useLocalVideoToggle() {
   const {
     room: {localParticipant},
     localTracks,
@@ -29,13 +31,9 @@ export default function useLocalVideoToggle(): readonly [true, () => void] {
         removeLocalVideoTrack();
       } else {
         setIspublishing(true);
-        getLocalVideoTrack({
-          deviceId: {exact: previousDeviceIdRef.current},
-        })
+        getLocalVideoTrack({deviceId: {exact: previousDeviceIdRef.current}})
           .then((track: LocalVideoTrack) =>
-            localParticipant?.publishTrack(track, {
-              priority: "low",
-            }),
+            localParticipant?.publishTrack(track, {priority: "low"}),
           )
           .catch(onError)
           .finally(() => setIspublishing(false));

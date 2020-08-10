@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import {render} from "@testing-library/react";
 import React from "react";
 
@@ -10,8 +14,7 @@ describe("the VideoTrack component", () => {
     attach: jest.fn(),
     detach: jest.fn(),
     setPriority: jest.fn(),
-    mediaStreamTrack: {getSettings: (): {} => ({})},
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    mediaStreamTrack: {getSettings: () => ({})},
   } as any;
 
   afterEach(jest.clearAllMocks);
@@ -34,7 +37,6 @@ describe("the VideoTrack component", () => {
 
   it("should flip the video horizontally if the track is local", () => {
     const {container} = render(<VideoTrack track={mockTrack} isLocal />);
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     expect(container.querySelector("video")!.style.transform).toEqual(
       "rotateY(180deg)",
     );
@@ -44,19 +46,15 @@ describe("the VideoTrack component", () => {
     const mockTrack2 = {
       ...mockTrack,
       mediaStreamTrack: {
-        getSettings: (): {
-          facingMode: string;
-        } => ({facingMode: "environment"}),
+        getSettings: () => ({facingMode: "environment"}),
       },
     };
     const {container} = render(<VideoTrack track={mockTrack2} isLocal />);
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     expect(container.querySelector("video")!.style.transform).toEqual("");
   });
 
   it("should not flip the video horizontally if the track is not local", () => {
     const {container} = render(<VideoTrack track={mockTrack} />);
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     expect(container.querySelector("video")!.style.transform).toEqual("");
   });
 
@@ -70,8 +68,7 @@ describe("the VideoTrack component", () => {
       attach: jest.fn(),
       detach: jest.fn(),
       setPriority: jest.fn(),
-      mediaStreamTrack: {getSettings: (): {} => ({})},
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      mediaStreamTrack: {getSettings: () => ({})},
     } as any;
     const {rerender} = render(<VideoTrack track={mockTrack} priority="high" />);
     expect(mockTrack.setPriority).toHaveBeenCalledWith("high");

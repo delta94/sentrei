@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import {FormControl, MenuItem, Typography, Select} from "@material-ui/core";
 
 import {makeStyles} from "@material-ui/core/styles";
@@ -5,8 +7,8 @@ import React from "react";
 
 import {useAudioInputDevices} from "@sentrei/video/components/MenuBar/DeviceSelector/deviceHooks";
 import LocalAudioLevelIndicator from "@sentrei/video/components/MenuBar/DeviceSelector/LocalAudioLevelIndicator";
-import useMediaStreamTrack from "@sentrei/video/hooks/useMediaStreamTrack/useMediaStreamTrack";
-import useVideoContext from "@sentrei/video/hooks/useVideoContext/useVideoContext";
+import useMediaStreamTrack from "@sentrei/video/hooks/useMediaStreamTrack";
+import useVideoContext from "@sentrei/video/hooks/useVideoContext";
 
 const useStyles = makeStyles({
   container: {
@@ -36,12 +38,7 @@ export default function AudioInputList(): JSX.Element {
           <FormControl fullWidth>
             <Typography variant="h6">Audio Input:</Typography>
             <Select
-              onChange={(
-                e: React.ChangeEvent<{
-                  name?: string | undefined;
-                  value: unknown;
-                }>,
-              ): void => replaceTrack(e.target.value as string)}
+              onChange={e => replaceTrack(e.target.value as string)}
               value={localAudioInputDeviceId || ""}
             >
               {audioInputDevices.map(device => (

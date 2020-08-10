@@ -1,3 +1,6 @@
+/* eslint-disable no-shadow */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import {useCallback, useEffect, useState} from "react";
 import Video, {
   LocalVideoTrack,
@@ -7,16 +10,7 @@ import Video, {
 
 import {DEFAULT_VIDEO_CONSTRAINTS} from "@sentrei/video/constants";
 
-export default function useLocalTracks(): {
-  localTracks: (Video.LocalAudioTrack | Video.LocalVideoTrack)[];
-  getLocalVideoTrack: (
-    newOptions?: Video.CreateLocalTrackOptions | undefined,
-  ) => Promise<Video.LocalVideoTrack>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  getLocalAudioTrack: (deviceId?: string | undefined) => Promise<any>;
-  isAcquiringLocalTracks: boolean;
-  removeLocalVideoTrack: () => void;
-} {
+export default function useLocalTracks() {
   const [audioTrack, setAudioTrack] = useState<LocalAudioTrack>();
   const [videoTrack, setVideoTrack] = useState<LocalVideoTrack>();
   const [isAcquiringLocalTracks, setIsAcquiringLocalTracks] = useState(false);
@@ -72,9 +66,7 @@ export default function useLocalTracks(): {
       audio: true,
     })
       .then(tracks => {
-        // eslint-disable-next-line no-shadow
         const videoTrack = tracks.find(track => track.kind === "video");
-        // eslint-disable-next-line no-shadow
         const audioTrack = tracks.find(track => track.kind === "audio");
         if (videoTrack) {
           setVideoTrack(videoTrack as LocalVideoTrack);

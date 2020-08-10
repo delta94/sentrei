@@ -1,5 +1,8 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import MicOff from "@material-ui/icons/MicOff";
 import {interval} from "d3-timer";
 import React, {useEffect, useRef, useState} from "react";
@@ -10,7 +13,7 @@ import useMediaStreamTrack from "@sentrei/video/hooks/useMediaStreamTrack";
 
 let clipId = 0;
 // eslint-disable-next-line no-plusplus
-const getUniqueClipId = (): number => clipId++;
+const getUniqueClipId = () => clipId++;
 
 // @ts-ignore
 const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -36,7 +39,7 @@ function AudioLevelIndicator({
   size?: number;
   audioTrack?: AudioTrack;
   background?: string;
-}): JSX.Element {
+}) {
   const SIZE = size || 24;
   const SVGRectRef = useRef<SVGRectElement>(null);
   const [analyser, setAnalyser] = useState<AnalyserNode>();
@@ -56,11 +59,11 @@ function AudioLevelIndicator({
       // we stop the cloned track that is stored in 'newMediaStream'. It is important that we stop
       // all tracks when they are not in use. Browsers like Firefox don't let you create a new stream
       // from a new audio device while the active audio device still has active tracks.
-      const stopAllMediaStreamTracks = (): void =>
+      const stopAllMediaStreamTracks = () =>
         newMediaStream.getTracks().forEach(track => track.stop());
       audioTrack.on("stopped", stopAllMediaStreamTracks);
 
-      const reinitializeAnalyser = (): void => {
+      const reinitializeAnalyser = () => {
         stopAllMediaStreamTracks();
         newMediaStream = new MediaStream([mediaStreamTrack.clone()]);
         setAnalyser(initializeAnalyser(newMediaStream));
@@ -73,7 +76,7 @@ function AudioLevelIndicator({
       // and switches back to the app.
       window.addEventListener("focus", reinitializeAnalyser);
 
-      return (): void => {
+      return () => {
         stopAllMediaStreamTracks();
         window.removeEventListener("focus", reinitializeAnalyser);
         audioTrack.off("stopped", stopAllMediaStreamTracks);
@@ -92,7 +95,6 @@ function AudioLevelIndicator({
         let values = 0;
 
         const {length} = sampleArray;
-        // eslint-disable-next-line no-plusplus
         for (let i = 0; i < length; i++) {
           values += sampleArray[i];
         }
@@ -105,7 +107,7 @@ function AudioLevelIndicator({
         SVGClipElement?.setAttribute("y", String(21 - volume));
       }, 50);
 
-      return (): void => {
+      return () => {
         SVGClipElement.setAttribute("y", "21");
         timer.stop();
       };
