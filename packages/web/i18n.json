@@ -6,7 +6,7 @@
   "localesPath": "locales",
   "pages": {
     "*": ["_error", "common", "form"],
-    "/": ["index"],
+    "/": ["index", "papercups"],
     "/[spaceId]/activity": ["space"],
     "/[spaceId]/analytics": ["space"],
     "/[spaceId]/create": ["room", "space"],
@@ -25,13 +25,13 @@
     "/[spaceId]": ["room", "space"],
     "/create": ["space"],
     "/dashboard": ["space"],
-    "/login": ["auth"],
+    "/login": ["auth", "papercups"],
     "/notifications": ["notifications"],
-    "/privacy": ["auth"],
+    "/privacy": ["auth", "papercups"],
     "/profile": ["profile"],
     "/settings": ["settings"],
-    "/signup": ["auth"],
-    "/reset-password": ["auth"],
-    "/terms": ["auth"]
+    "/signup": ["auth", "papercups"],
+    "/reset-password": ["auth", "papercups"],
+    "/terms": ["auth", "papercups"]
   }
 }
