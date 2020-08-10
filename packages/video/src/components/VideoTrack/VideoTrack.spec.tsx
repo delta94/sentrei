@@ -1,20 +1,17 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 
 import {render} from "@testing-library/react";
 import React from "react";
 
 import VideoTrack from "./VideoTrack";
 
-jest.mock("@sentrei/video/hooks/useMediaStreamTrack");
-
 describe("the VideoTrack component", () => {
   const mockTrack = {
     attach: jest.fn(),
     detach: jest.fn(),
     setPriority: jest.fn(),
-    mediaStreamTrack: {getSettings: () => ({})},
+    mediaStreamTrack: {getSettings: (): {} => ({})},
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } as any;
 
   afterEach(jest.clearAllMocks);
@@ -42,17 +39,16 @@ describe("the VideoTrack component", () => {
     );
   });
 
-  // TODO: Make test suite work https://github.com/sentrei/sentrei/issues/163
-  // it("should not flip the video horizontally if the track is the local rear-facing camera", () => {
-  //   const mockTrack2 = {
-  //     ...mockTrack,
-  //     mediaStreamTrack: {
-  //       getSettings: () => ({facingMode: "environment"}),
-  //     },
-  //   };
-  //   const {container} = render(<VideoTrack track={mockTrack2} isLocal />);
-  //   expect(container.querySelector("video")!.style.transform).toEqual("");
-  // });
+  it("should not flip the video horizontally if the track is the local rear-facing camera", () => {
+    const mockTrack2 = {
+      ...mockTrack,
+      mediaStreamTrack: {
+        getSettings: (): {facingMode: string} => ({facingMode: "environment"}),
+      },
+    };
+    const {container} = render(<VideoTrack track={mockTrack2} isLocal />);
+    expect(container.querySelector("video")!.style.transform).toEqual("");
+  });
 
   it("should not flip the video horizontally if the track is not local", () => {
     const {container} = render(<VideoTrack track={mockTrack} />);
@@ -69,7 +65,8 @@ describe("the VideoTrack component", () => {
       attach: jest.fn(),
       detach: jest.fn(),
       setPriority: jest.fn(),
-      mediaStreamTrack: {getSettings: () => ({})},
+      mediaStreamTrack: {getSettings: (): {} => ({})},
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any;
     const {rerender} = render(<VideoTrack track={mockTrack} priority="high" />);
     expect(mockTrack.setPriority).toHaveBeenCalledWith("high");

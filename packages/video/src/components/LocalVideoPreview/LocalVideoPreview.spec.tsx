@@ -1,17 +1,12 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import {render} from "@testing-library/react";
 import React from "react";
 
+import {IVideoContext} from "@sentrei/video/components/VideoProvider";
 import useVideoContext from "@sentrei/video/hooks/useVideoContext";
-
-import {IVideoContext} from "../VideoProvider";
 
 import LocalVideoPreview from "./LocalVideoPreview";
 
 jest.mock("@sentrei/video/hooks/useVideoContext");
-jest.mock("@sentrei/video/hooks/useMediaStreamTrack");
 
 const mockedVideoContext = useVideoContext as jest.Mock<IVideoContext>;
 
@@ -24,9 +19,10 @@ describe("the LocalVideoPreview component", () => {
             name: "camera-123456",
             attach: jest.fn(),
             detach: jest.fn(),
-            mediaStreamTrack: {getSettings: () => ({})},
+            mediaStreamTrack: {getSettings: (): {} => ({})},
           },
         ],
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any;
     });
     const {container} = render(<LocalVideoPreview />);
@@ -39,6 +35,7 @@ describe("the LocalVideoPreview component", () => {
         localTracks: [
           {name: "microphone", attach: jest.fn(), detach: jest.fn()},
         ],
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any;
     });
     const {container} = render(<LocalVideoPreview />);

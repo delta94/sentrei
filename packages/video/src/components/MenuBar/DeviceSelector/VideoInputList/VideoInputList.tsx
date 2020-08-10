@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-
 import {FormControl, MenuItem, Typography, Select} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import React from "react";
@@ -7,8 +5,6 @@ import {LocalVideoTrack} from "twilio-video";
 
 import {useVideoInputDevices} from "@sentrei/video/components/MenuBar/DeviceSelector/deviceHooks";
 import VideoTrack from "@sentrei/video/components/VideoTrack";
-import {DEFAULT_VIDEO_CONSTRAINTS} from "@sentrei/video/constants";
-import useMediaStreamTrack from "@sentrei/video/hooks/useMediaStreamTrack";
 import useVideoContext from "@sentrei/video/hooks/useVideoContext";
 
 const useStyles = makeStyles({
@@ -21,18 +17,30 @@ const useStyles = makeStyles({
 export default function VideoInputList(): JSX.Element {
   const classes = useStyles();
   const videoInputDevices = useVideoInputDevices();
-  const {localTracks} = useVideoContext();
+  const {
+    room: {localParticipant},
+    localTracks,
+    getLocalVideoTrack,
+  } = useVideoContext();
 
   const localVideoTrack = localTracks.find(
     track => track.kind === "video",
   ) as LocalVideoTrack;
-  const mediaStreamTrack = useMediaStreamTrack(localVideoTrack);
-  const localVideoInputDeviceId = mediaStreamTrack?.getSettings().deviceId;
+  const localVideoInputDeviceId = localVideoTrack?.mediaStreamTrack.getSettings()
+    .deviceId;
 
   function replaceTrack(newDeviceId: string): void {
-    localVideoTrack.restart({
-      ...(DEFAULT_VIDEO_CONSTRAINTS as {}),
-      deviceId: {exact: newDeviceId},
+    localVideoTrack?.stop();
+    getLocalVideoTrack({deviceId: {exact: newDeviceId}}).then(newTrack => {
+      if (localVideoTrack) {
+        const localTrackPublication = localParticipant?.unpublishTrack(
+          localVideoTrack,
+        );
+        // TODO: remove when SDK implements this event. See: https://issues.corp.twilio.com/browse/JSDK-2592
+        localParticipant?.emit("trackUnpublished", localTrackPublication);
+      }
+
+      localParticipant?.publishTrack(newTrack);
     });
   }
 
@@ -42,7 +50,12 @@ export default function VideoInputList(): JSX.Element {
         <FormControl>
           <Typography variant="h6">Video Input:</Typography>
           <Select
-            onChange={e => replaceTrack(e.target.value as string)}
+            onChange={(
+              e: React.ChangeEvent<{
+                name?: string | undefined;
+                value: unknown;
+              }>,
+            ): void => replaceTrack(e.target.value as string)}
             value={localVideoInputDeviceId || ""}
           >
             {videoInputDevices.map(device => (

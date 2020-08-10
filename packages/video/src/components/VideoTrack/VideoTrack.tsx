@@ -1,11 +1,8 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable react/require-default-props */
-
 import {styled} from "@material-ui/core/styles";
 import React, {useRef, useEffect} from "react";
+
 import {Track} from "twilio-video";
 
-import useMediaStreamTrack from "@sentrei/video/hooks/useMediaStreamTrack";
 import {IVideoTrack} from "@sentrei/video/types";
 
 const Video = styled("video")({
@@ -16,7 +13,9 @@ const Video = styled("video")({
 
 interface VideoTrackProps {
   track: IVideoTrack;
+  // eslint-disable-next-line react/require-default-props
   isLocal?: boolean;
+  // eslint-disable-next-line react/require-default-props
   priority?: Track.Priority | null;
 }
 
@@ -25,8 +24,8 @@ export default function VideoTrack({
   isLocal,
   priority,
 }: VideoTrackProps): JSX.Element {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const ref = useRef<HTMLVideoElement>(null!);
-  const mediaStreamTrack = useMediaStreamTrack(track);
 
   useEffect(() => {
     const el = ref.current;
@@ -44,9 +43,9 @@ export default function VideoTrack({
     };
   }, [track, priority]);
 
-  // The local video track is mirrored if it is not facing the environment.
+  // The local video track is mirrored.
   const isFrontFacing =
-    mediaStreamTrack?.getSettings().facingMode !== "environment";
+    track.mediaStreamTrack.getSettings().facingMode !== "environment";
   const style = isLocal && isFrontFacing ? {transform: "rotateY(180deg)"} : {};
 
   return <Video ref={ref} style={style} />;

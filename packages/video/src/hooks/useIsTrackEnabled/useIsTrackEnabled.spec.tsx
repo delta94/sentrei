@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/require-await */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import {act, renderHook} from "@testing-library/react-hooks";
 
 import useIsTrackEnabled from "./useIsTrackEnabled";
@@ -8,6 +5,7 @@ import useIsTrackEnabled from "./useIsTrackEnabled";
 import EventEmitter from "events";
 
 describe("the useIsTrackEnabled hook", () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let mockTrack: any;
 
   beforeEach(() => {
@@ -25,7 +23,8 @@ describe("the useIsTrackEnabled hook", () => {
     expect(result.current).toBe(false);
   });
 
-  it('should respond to "enabled" events', async () => {
+  // eslint-disable-next-line @typescript-eslint/require-await
+  it('should return respond to "subscribed" events', async () => {
     mockTrack.isEnabled = false;
     const {result} = renderHook(() => useIsTrackEnabled(mockTrack));
     act(() => {
@@ -34,7 +33,8 @@ describe("the useIsTrackEnabled hook", () => {
     expect(result.current).toBe(true);
   });
 
-  it('should respond to "disabled" events', async () => {
+  // eslint-disable-next-line @typescript-eslint/require-await
+  it('should return respond to "unsubscribed" events', async () => {
     mockTrack.isEnabled = true;
     const {result} = renderHook(() => useIsTrackEnabled(mockTrack));
     act(() => {

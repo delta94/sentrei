@@ -1,25 +1,23 @@
-/* eslint-disable no-plusplus */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 
 import MicOff from "@material-ui/icons/MicOff";
 import {interval} from "d3-timer";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef} from "react";
 import {AudioTrack, LocalAudioTrack, RemoteAudioTrack} from "twilio-video";
 
 import useIsTrackEnabled from "@sentrei/video/hooks/useIsTrackEnabled";
-import useMediaStreamTrack from "@sentrei/video/hooks/useMediaStreamTrack";
 
 let clipId = 0;
 // eslint-disable-next-line no-plusplus
-const getUniqueClipId = () => clipId++;
+const getUniqueClipId = (): number => clipId++;
 
 // @ts-ignore
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 let audioContext: AudioContext;
 
-export function initializeAnalyser(stream: MediaStream) {
+export function initializeAnalyser(stream: MediaStream): AnalyserNode {
   audioContext = audioContext || new AudioContext();
   const audioSource = audioContext.createMediaStreamSource(stream);
 
@@ -39,55 +37,49 @@ function AudioLevelIndicator({
   size?: number;
   audioTrack?: AudioTrack;
   background?: string;
-}) {
+}): JSX.Element {
   const SIZE = size || 24;
-  const SVGRectRef = useRef<SVGRectElement>(null);
-  const [analyser, setAnalyser] = useState<AnalyserNode>();
+  const ref = useRef<SVGRectElement>(null);
+  const mediaStreamRef = useRef<MediaStream>();
   const isTrackEnabled = useIsTrackEnabled(
     audioTrack as LocalAudioTrack | RemoteAudioTrack,
   );
-  const mediaStreamTrack = useMediaStreamTrack(audioTrack);
 
   useEffect(() => {
-    if (audioTrack && mediaStreamTrack && isTrackEnabled) {
+    // Here we listen for the 'stopped' event on the audioTrack. When the audioTrack is stopped,
+    // we stop the cloned track that is stored in mediaStreamRef. It is important that we stop
+    // all tracks when they are not in use. Browsers like Firefox don't let you create a stream
+    // from a new audio device while the active audio device still has active tracks.
+    const handleStopped = (): void | undefined =>
+      mediaStreamRef.current?.getTracks().forEach(track => track.stop());
+    audioTrack?.on("stopped", handleStopped);
+    return (): void => {
+      audioTrack?.off("stopped", handleStopped);
+    };
+  }, [audioTrack]);
+
+  useEffect(() => {
+    const SVGClipElement = ref.current;
+
+    if (audioTrack && isTrackEnabled && SVGClipElement) {
       // Here we create a new MediaStream from a clone of the mediaStreamTrack.
       // A clone is created to allow multiple instances of this component for a single
-      // AudioTrack on iOS Safari.
-      let newMediaStream = new MediaStream([mediaStreamTrack.clone()]);
+      // AudioTrack on iOS Safari. It is stored in a ref so that the cloned track can be stopped
+      // when the original track is stopped.
+      mediaStreamRef.current = new MediaStream([
+        audioTrack.mediaStreamTrack.clone(),
+      ]);
+      let analyser = initializeAnalyser(mediaStreamRef.current);
 
-      // Here we listen for the 'stopped' event on the audioTrack. When the audioTrack is stopped,
-      // we stop the cloned track that is stored in 'newMediaStream'. It is important that we stop
-      // all tracks when they are not in use. Browsers like Firefox don't let you create a new stream
-      // from a new audio device while the active audio device still has active tracks.
-      const stopAllMediaStreamTracks = () =>
-        newMediaStream.getTracks().forEach(track => track.stop());
-      audioTrack.on("stopped", stopAllMediaStreamTracks);
-
-      const reinitializeAnalyser = () => {
-        stopAllMediaStreamTracks();
-        newMediaStream = new MediaStream([mediaStreamTrack.clone()]);
-        setAnalyser(initializeAnalyser(newMediaStream));
+      const reinitializeAnalyser = (): void => {
+        analyser = initializeAnalyser(mediaStreamRef.current!);
       };
-
-      setAnalyser(initializeAnalyser(newMediaStream));
 
       // Here we reinitialize the AnalyserNode on focus to avoid an issue in Safari
       // where the analysers stop functioning when the user switches to a new tab
       // and switches back to the app.
       window.addEventListener("focus", reinitializeAnalyser);
 
-      return () => {
-        stopAllMediaStreamTracks();
-        window.removeEventListener("focus", reinitializeAnalyser);
-        audioTrack.off("stopped", stopAllMediaStreamTracks);
-      };
-    }
-  }, [isTrackEnabled, mediaStreamTrack, audioTrack]);
-
-  useEffect(() => {
-    const SVGClipElement = SVGRectRef.current;
-
-    if (isTrackEnabled && SVGClipElement && analyser) {
       const sampleArray = new Uint8Array(analyser.frequencyBinCount);
 
       const timer = interval(() => {
@@ -95,6 +87,7 @@ function AudioLevelIndicator({
         let values = 0;
 
         const {length} = sampleArray;
+        // eslint-disable-next-line no-plusplus
         for (let i = 0; i < length; i++) {
           values += sampleArray[i];
         }
@@ -107,12 +100,13 @@ function AudioLevelIndicator({
         SVGClipElement?.setAttribute("y", String(21 - volume));
       }, 50);
 
-      return () => {
+      return (): void => {
         SVGClipElement.setAttribute("y", "21");
         timer.stop();
+        window.removeEventListener("focus", reinitializeAnalyser);
       };
     }
-  }, [isTrackEnabled, analyser]);
+  }, [audioTrack, isTrackEnabled]);
 
   // Each instance of this component will need a unique HTML ID
   const clipPathId = `audio-level-clip-${getUniqueClipId()}`;
@@ -127,7 +121,7 @@ function AudioLevelIndicator({
     >
       <defs>
         <clipPath id={clipPathId}>
-          <rect ref={SVGRectRef} x="0" y="21" width="24" height="24" />
+          <rect ref={ref} x="0" y="21" width="24" height="24" />
         </clipPath>
       </defs>
       <path

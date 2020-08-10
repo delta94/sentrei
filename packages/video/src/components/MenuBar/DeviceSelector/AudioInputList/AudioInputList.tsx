@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-
 import {FormControl, MenuItem, Typography, Select} from "@material-ui/core";
 
 import {makeStyles} from "@material-ui/core/styles";
@@ -7,7 +5,6 @@ import React from "react";
 
 import {useAudioInputDevices} from "@sentrei/video/components/MenuBar/DeviceSelector/deviceHooks";
 import LocalAudioLevelIndicator from "@sentrei/video/components/MenuBar/DeviceSelector/LocalAudioLevelIndicator";
-import useMediaStreamTrack from "@sentrei/video/hooks/useMediaStreamTrack";
 import useVideoContext from "@sentrei/video/hooks/useVideoContext";
 
 const useStyles = makeStyles({
@@ -21,14 +18,29 @@ const useStyles = makeStyles({
 export default function AudioInputList(): JSX.Element {
   const classes = useStyles();
   const audioInputDevices = useAudioInputDevices();
-  const {localTracks} = useVideoContext();
+  const {
+    room: {localParticipant},
+    localTracks,
+    getLocalAudioTrack,
+  } = useVideoContext();
 
   const localAudioTrack = localTracks.find(track => track.kind === "audio");
-  const mediaStreamTrack = useMediaStreamTrack(localAudioTrack);
-  const localAudioInputDeviceId = mediaStreamTrack?.getSettings().deviceId;
+  const localAudioInputDeviceId = localAudioTrack?.mediaStreamTrack.getSettings()
+    .deviceId;
 
   function replaceTrack(newDeviceId: string): void {
-    localAudioTrack?.restart({deviceId: {exact: newDeviceId}});
+    localAudioTrack?.stop();
+    getLocalAudioTrack(newDeviceId).then(newTrack => {
+      if (localAudioTrack) {
+        const localTrackPublication = localParticipant?.unpublishTrack(
+          localAudioTrack,
+        );
+        // TODO: remove when SDK implements this event. See: https://issues.corp.twilio.com/browse/JSDK-2592
+        localParticipant?.emit("trackUnpublished", localTrackPublication);
+      }
+
+      localParticipant?.publishTrack(newTrack);
+    });
   }
 
   return (
@@ -38,7 +50,12 @@ export default function AudioInputList(): JSX.Element {
           <FormControl fullWidth>
             <Typography variant="h6">Audio Input:</Typography>
             <Select
-              onChange={e => replaceTrack(e.target.value as string)}
+              onChange={(
+                e: React.ChangeEvent<{
+                  name?: string | undefined;
+                  value: unknown;
+                }>,
+              ): void => replaceTrack(e.target.value as string)}
               value={localAudioInputDeviceId || ""}
             >
               {audioInputDevices.map(device => (
