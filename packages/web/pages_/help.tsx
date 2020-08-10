@@ -12,7 +12,7 @@ const Help: NextPage = () => {
   const {user, profile} = React.useContext(AuthContext);
 
   React.useEffect(() => {
-    analytics().setCurrentScreen("dashboard");
+    analytics().setCurrentScreen("help");
   }, []);
 
   if (user === undefined) {

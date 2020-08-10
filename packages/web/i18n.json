@@ -25,6 +25,7 @@
     "/[spaceId]": ["room", "space"],
     "/create": ["space"],
     "/dashboard": ["space"],
+    "/help": ["papercups"],
     "/login": ["auth", "papercups"],
     "/notifications": ["notifications"],
     "/privacy": ["auth", "papercups"],
