@@ -34,7 +34,9 @@ const Help: NextPage = () => {
       ) : (
         <SentreiAppHeader />
       )}
-      <HelpScreen />
+      {user && profile && (
+        <HelpScreen email={user.email} name={profile.name} userId={user.uid} />
+      )}
     </>
   );
 };
