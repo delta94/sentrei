@@ -1,12 +1,12 @@
 import {NextPage} from "next";
 import * as React from "react";
 
-import PaperCups from "@sentrei/ui/components/PaperCups";
+import HelpScreen from "@sentrei/ui/components/HelpScreen";
 
 const Help: NextPage = () => {
   return (
     <>
-      <PaperCups defaultIsOpen />
+      <HelpScreen />
     </>
   );
 };
