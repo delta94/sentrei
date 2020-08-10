@@ -33039,6 +33039,23 @@ twilio@^3.48.0:
     url-parse "^1.4.7"
     xmlbuilder "^13.0.2"
 
+twilio@^3.48.2:
+  version "3.48.2"
+  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.48.2.tgz#b062045c5046cdbca425cce8c95b396c7464aabc"
+  integrity sha512-9HoEIANLUpqHQNzX8j9kXUx/YRbo+HANlT7dpORgyAGEu4pm1HlA0MTWRtR3Rj13Cuut0n8GXvHO9uizCNfGmg==
+  dependencies:
+    "@types/express" "^4.17.7"
+    axios "^0.19.2"
+    dayjs "^1.8.29"
+    jsonwebtoken "^8.5.1"
+    lodash "^4.17.19"
+    q "2.0.x"
+    qs "^6.9.4"
+    rootpath "^0.1.2"
+    scmp "^2.1.0"
+    url-parse "^1.4.7"
+    xmlbuilder "^13.0.2"
+
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/type-check/-/type-check-0.4.0.tgz#07b8203bfa7056c0657050e3ccd2c37730bab8f1"
