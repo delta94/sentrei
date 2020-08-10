@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable react/prop-types */
 import MicOff from "@material-ui/icons/MicOff";
 import {interval} from "d3-timer";
 import React, {useEffect, useRef, useState} from "react";
@@ -14,7 +16,6 @@ const getUniqueClipId = (): number => clipId++;
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 let audioContext: AudioContext;
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function initializeAnalyser(stream: MediaStream) {
   audioContext = audioContext || new AudioContext();
   const audioSource = audioContext.createMediaStreamSource(stream);
@@ -28,11 +29,8 @@ export function initializeAnalyser(stream: MediaStream) {
 }
 
 function AudioLevelIndicator({
-  // eslint-disable-next-line react/prop-types
   size,
-  // eslint-disable-next-line react/prop-types
   audioTrack,
-  // eslint-disable-next-line react/prop-types
   background,
 }: {
   size?: number;
@@ -47,7 +45,6 @@ function AudioLevelIndicator({
   );
   const mediaStreamTrack = useMediaStreamTrack(audioTrack);
 
-  // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (audioTrack && mediaStreamTrack && isTrackEnabled) {
       // Here we create a new MediaStream from a clone of the mediaStreamTrack.
@@ -61,7 +58,6 @@ function AudioLevelIndicator({
       // from a new audio device while the active audio device still has active tracks.
       const stopAllMediaStreamTracks = (): void =>
         newMediaStream.getTracks().forEach(track => track.stop());
-      // eslint-disable-next-line react/prop-types
       audioTrack.on("stopped", stopAllMediaStreamTracks);
 
       const reinitializeAnalyser = (): void => {
@@ -80,13 +76,11 @@ function AudioLevelIndicator({
       return (): void => {
         stopAllMediaStreamTracks();
         window.removeEventListener("focus", reinitializeAnalyser);
-        // eslint-disable-next-line react/prop-types
         audioTrack.off("stopped", stopAllMediaStreamTracks);
       };
     }
   }, [isTrackEnabled, mediaStreamTrack, audioTrack]);
 
-  // eslint-disable-next-line consistent-return
   useEffect(() => {
     const SVGClipElement = SVGRectRef.current;
 
