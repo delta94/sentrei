@@ -14,8 +14,8 @@ import Scrollspy from "react-scrollspy";
 
 import DarkModeButton from "@sentrei/ui/components/DarkModeButton";
 
-import HubSpot from "@sentrei/ui/components/HubSpot";
 import Logo from "@sentrei/ui/components/Logo";
+import PaperCups from "@sentrei/ui/components/PaperCups";
 
 import HeaderStyles from "./HeaderStyles";
 
@@ -67,7 +67,7 @@ export default function Header({
 
   return (
     <>
-      <HubSpot />
+      <PaperCups />
       <div className={classes.grow}>
         <AppBar position="fixed" className={appBarClasses}>
           <Toolbar>

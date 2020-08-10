@@ -1,12 +1,12 @@
 import {NextPage} from "next";
 import * as React from "react";
 
-import HubSpot from "@sentrei/ui/components/HubSpot";
+import PaperCups from "@sentrei/ui/components/PaperCups";
 
 const Help: NextPage = () => {
   return (
     <>
-      <HubSpot />
+      <PaperCups defaultIsOpen />
     </>
   );
 };
