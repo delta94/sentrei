@@ -11,7 +11,8 @@ import useLocalVideoToggle from "./useLocalVideoToggle";
 
 import {EventEmitter} from "events";
 
-jest.mock("@sentrei/video/useVideoContext");
+jest.mock("@sentrei/video/hooks/useVideoContext");
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mockUseVideoContext = useVideoContext as jest.Mock<any>;
 
