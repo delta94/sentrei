@@ -7,7 +7,6 @@ import * as React from "react";
 import AuthContext from "@sentrei/common/context/AuthContext";
 import {analytics} from "@sentrei/common/utils/firebase";
 import Loader from "@sentrei/ui/components/Loader";
-import NoHubSpot from "@sentrei/ui/components/NoHubSpot";
 import SentreiAppHeader from "@sentrei/web/components/SentreiAppHeader";
 
 const InviteScreen = dynamic(
@@ -35,7 +34,6 @@ const Invite: NextPage = () => {
 
   return (
     <>
-      <NoHubSpot />
       {user && profile ? (
         <SentreiAppHeader
           notificationCount={Number(user.notificationCount)}

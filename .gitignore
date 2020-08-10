@@ -1,3 +1,7 @@
+.env.development
+.env.preview
+.env.production
+
 # Blog related.
 **/blog/public
 
@@ -31,6 +35,14 @@
 **/ui/__screenshots__
 
 # Web related.
+**/web/.alpha.env
+**/web/.beta.env
+**/web/.main.env
+**/web/.env.development.local
+**/web/.env.local
+**/web/.env.preview.local
+**/web/.env.production.local
+**/web/.env.test.local
 **/web/cypress/integration/*.d.ts
 **/web/cypress/integration/*.d.ts.map
 **/web/cypress/videos

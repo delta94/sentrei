@@ -76,12 +76,14 @@ export default function ProfileMenu({
         </MenuItem>
       </Link>
       <Divider />
-      <MenuItem>
-        <ListItemIcon>
-          <AccessibilityNewIcon fontSize="small" />
-        </ListItemIcon>
-        <ListItemText primary={t("common:common.help")} />
-      </MenuItem>
+      <Link href="/help">
+        <MenuItem>
+          <ListItemIcon>
+            <AccessibilityNewIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary={t("common:common.help")} />
+        </MenuItem>
+      </Link>
       <MenuItem onClick={(): Promise<void> => auth.signOut()}>
         <ListItemIcon>
           <ExitToAppIcon fontSize="small" />

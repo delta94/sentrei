@@ -52,6 +52,7 @@ const nextConfig = {
   trailingSlash: false,
   publicRuntimeConfig: {
     DATA_CLIENT_ID: process.env.DATA_CLIENT_ID,
+    PAPERCUPS_ID: process.env.PAPERCUPS_ID,
   },
   serverRuntimeConfig: {
     FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,
@@ -67,6 +68,7 @@ const nextConfig = {
     FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
     FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,
     METOMIC_PROJECT_ID: process.env.METOMIC_PROJECT_ID,
+    PAPERCUPS_ID: process.env.PAPERCUPS_ID,
     SENTREI_VERSION: require("./package.json").version,
     SENTRY_DSN: process.env.SENTRY_DSN,
     SENTRY_ENVIRONMENT: process.env.SENTRY_ENVIRONMENT,
