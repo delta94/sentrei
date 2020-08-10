@@ -1,3 +1,15 @@
+# [1.28.0](https://github.com/sentrei/sentrei/compare/v1.27.2...v1.28.0) (2020-08-10)
+
+### Features
+
+- 🎸 ini help screen ([fedc858](https://github.com/sentrei/sentrei/commit/fedc8582560d3ec5a79fbe98128c4d2a840eb9fd))
+- 🎸 ini papercups widget ([257c4cb](https://github.com/sentrei/sentrei/commit/257c4cbfe55a447e52e9f347d2f391e99880a60e))
+
+### Performance Improvements
+
+- ⚡️ help for profile menu item ([f057a55](https://github.com/sentrei/sentrei/commit/f057a550b0a19d1e1706afab3c2aa592cd8c16b7))
+- ⚡️ remove hubspot components ([e986fd0](https://github.com/sentrei/sentrei/commit/e986fd0a2ca0c138a3888a35157921f861513d18))
+
 ## [1.27.2](https://github.com/sentrei/sentrei/compare/v1.27.1...v1.27.2) (2020-08-08)
 
 ### Performance Improvements
