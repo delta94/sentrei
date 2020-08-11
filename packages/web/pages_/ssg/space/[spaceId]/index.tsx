@@ -22,7 +22,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async ({params}) => {
   const spaceId = String(params?.spaceId);
   const space = JSON.stringify(await getSpace(spaceId));
-  return {props: {space}, revalidate: 1};
+  return {props: {space}, revalidate: 300};
 };
 
 const SpaceId = ({
