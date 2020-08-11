@@ -18,19 +18,23 @@ import SpaceFab from "@sentrei/ui/components/SpaceFab";
 
 export interface Props {
   profile: Profile.Get;
+  spaceData: Space.Get;
   spaceId: string;
   user: User.Get;
 }
 
 export default function SpaceScreen({
   profile,
+  spaceData,
   spaceId,
   user,
 }: Props): JSX.Element {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
-  const [space, setSpace] = React.useState<Space.Get | null | undefined>();
+  const [space, setSpace] = React.useState<Space.Get | null | undefined>(
+    spaceData,
+  );
   const [member, setMember] = React.useState<Member.Get | null | undefined>();
   const [members, setMembers] = React.useState<
     Member.Get[] | null | undefined
