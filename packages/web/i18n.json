@@ -6,7 +6,7 @@
   "localesPath": "locales",
   "pages": {
     "*": ["_error", "common", "form"],
-    "/": ["index", "credits", "papercups"],
+    "/": ["index", "papercups"],
     "/[spaceId]/activity": ["space"],
     "/[spaceId]/analytics": ["space"],
     "/[spaceId]/create": ["room", "space"],
