@@ -26,11 +26,11 @@ export default function FooterCredits(): JSX.Element {
         color="textSecondary"
         align="center"
       >
-        {t("credits:footer.titleOne")}
+        {t("index:footer.titleOne")}
         <UseAnimations
           animation={heart}
           reverse={isOpen}
-          strokeColor={theme.palette.secondary.main}
+          strokeColor={theme.palette.error.main}
           onClick={handleClick}
           pathCss={`fill: ${theme.palette.secondary.main};`}
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -40,8 +40,8 @@ export default function FooterCredits(): JSX.Element {
             </ButtonBase>
           )}
         />
-        {t("credits:footer.titleTwo")}{" "}
-        <MuiLink href="/team">{t("credits:footer.titleThree")}</MuiLink>
+        {t("index:footer.titleTwo")}{" "}
+        <MuiLink href="/team">{t("index:footer.titleThree")}</MuiLink>
       </Typography>
       <AnimatePresence initial={isOpen}>
         {isOpen && (
@@ -67,7 +67,7 @@ export default function FooterCredits(): JSX.Element {
                 }
                 align="center"
               >
-                {t("credits:footer.specialThanks")}
+                {t("index:footer.specialThanks")}
               </Typography>
             </MuiLink>
           </motion.section>

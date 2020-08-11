@@ -1,8 +1,5 @@
 {
-  "footer": {
-    "titleOne": "Brought you with",
-    "titleTwo": "from the",
-    "titleThree": "Sentrei Team",
-    "specialThanks": "Special thanks to our families, friends, and everyone who have made the journey possible"
+  "credits": {
+    "title": "Credits"
   }
 }

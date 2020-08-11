@@ -1,8 +1,5 @@
 {
-  "footer": {
-    "specialThanks": "特别感谢我们的家人，朋友和所有使旅程成为可能的人",
-    "titleOne": "带给你",
-    "titleThree": "森特雷队",
-    "titleTwo": "来自"
+  "credits": {
+    "title": ""
   }
 }

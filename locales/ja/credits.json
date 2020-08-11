@@ -1,8 +1,5 @@
 {
-  "footer": {
-    "specialThanks": "私たちの家族、友人、そして旅を可能にしてくれたすべての人に感謝します",
-    "titleOne": "持ってきた",
-    "titleThree": "セントレイチーム",
-    "titleTwo": "から"
+  "credits": {
+    "title": ""
   }
 }
