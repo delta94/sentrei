@@ -29,6 +29,7 @@
     "titleTwo": "フォーカス指向"
   },
   "footer": {
+    "company": "会社",
     "cookies": "クッキー",
     "legal": "法律関係",
     "preferences": "環境設定",
@@ -36,6 +37,7 @@
     "product": "プロダクト",
     "releases": "リリース一覧",
     "social": "SNS",
+    "team": "チーム",
     "terms": "利用規約"
   },
   "header": {

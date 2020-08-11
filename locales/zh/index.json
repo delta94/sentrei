@@ -29,6 +29,7 @@
     "titleTwo": "关注焦点"
   },
   "footer": {
+    "company": "公司",
     "cookies": "饼干",
     "legal": "法律",
     "preferences": "优先",
@@ -36,6 +37,7 @@
     "product": "产品",
     "releases": "发布",
     "social": "社会的",
+    "team": "球队",
     "terms": "条款和条件"
   },
   "header": {
