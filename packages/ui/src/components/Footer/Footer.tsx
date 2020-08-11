@@ -15,8 +15,8 @@ import linkedin from "react-useanimations/lib/linkedin";
 import twitter from "react-useanimations/lib/twitter";
 
 import metomic from "@sentrei/common/services/metomic";
-import Copyright from "@sentrei/ui/components/Copyright";
-import Credits from "@sentrei/ui/components/Credits";
+import FooterCopyright from "@sentrei/ui/components/FooterCopyright";
+import FooterCredits from "@sentrei/ui/components/FooterCredits";
 import IntlForm from "@sentrei/ui/components/IntlForm";
 import Metomic from "@sentrei/ui/components/Metomic";
 import MuiLink from "@sentrei/ui/components/MuiLink";
@@ -106,10 +106,10 @@ export default function Footer(): JSX.Element {
             </Grid>
           </Grid>
           <Box m={3}>
-            <Credits />
+            <FooterCredits />
           </Box>
           <Box mt={3}>
-            <Copyright />
+            <FooterCopyright />
           </Box>
         </Container>
       </footer>

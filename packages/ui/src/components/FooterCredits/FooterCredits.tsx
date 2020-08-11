@@ -8,7 +8,7 @@ import heart from "react-useanimations/lib/heart";
 
 import MuiLink from "@sentrei/ui/components/MuiLink";
 
-export default function Credits(): JSX.Element {
+export default function FooterCredits(): JSX.Element {
   const theme = useTheme();
   const [isOpen, setIsOpen] = React.useState(false);
   const handleClick = (): void => {

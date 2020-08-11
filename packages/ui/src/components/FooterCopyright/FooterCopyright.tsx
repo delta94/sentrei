@@ -2,7 +2,7 @@ import MuiLink from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import * as React from "react";
 
-export default function Copyright(): JSX.Element {
+export default function FooterCopyright(): JSX.Element {
   return (
     <>
       <Typography variant="body2" color="textSecondary" align="center">
