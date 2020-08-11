@@ -2,6 +2,7 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import {useTheme} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import {motion, AnimatePresence} from "framer-motion";
+import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 import UseAnimations from "react-useanimations";
 import heart from "react-useanimations/lib/heart";
@@ -10,6 +11,8 @@ import MuiLink from "@sentrei/ui/components/MuiLink";
 
 export default function FooterCredits(): JSX.Element {
   const theme = useTheme();
+  const {t} = useTranslation();
+
   const [isOpen, setIsOpen] = React.useState(false);
   const handleClick = (): void => {
     setIsOpen(!isOpen);
@@ -17,8 +20,13 @@ export default function FooterCredits(): JSX.Element {
 
   return (
     <>
-      <Typography variant="body2" color="textSecondary" align="center">
-        Brought you with
+      <Typography
+        variant="h6"
+        component="h6"
+        color="textSecondary"
+        align="center"
+      >
+        {t("credits:footer.titleOne")}
         <UseAnimations
           animation={heart}
           reverse={isOpen}
@@ -32,7 +40,8 @@ export default function FooterCredits(): JSX.Element {
             </ButtonBase>
           )}
         />
-        from the <MuiLink href="/team">Sentrei Team</MuiLink>
+        {t("credits:footer.titleTwo")}{" "}
+        <MuiLink href="/team">{t("credits:footer.titleThree")}</MuiLink>
       </Typography>
       <AnimatePresence initial={isOpen}>
         {isOpen && (
@@ -47,10 +56,18 @@ export default function FooterCredits(): JSX.Element {
             }}
             transition={{duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98]}}
           >
-            <MuiLink color="secondary" href="/credits">
-              <Typography variant="body2" color="secondary" align="center">
-                Special thanks to our families, friends, and everyone who have
-                made it possible
+            <MuiLink
+              color={theme.palette.type === "light" ? "primary" : "secondary"}
+              href="/credits"
+            >
+              <Typography
+                variant="body2"
+                color={
+                  theme.palette.type === "light" ? "textSecondary" : "secondary"
+                }
+                align="center"
+              >
+                {t("credits:footer.specialThanks")}
               </Typography>
             </MuiLink>
           </motion.section>
