@@ -16,6 +16,7 @@ import twitter from "react-useanimations/lib/twitter";
 
 import metomic from "@sentrei/common/services/metomic";
 import Copyright from "@sentrei/ui/components/Copyright";
+import Credits from "@sentrei/ui/components/Credits";
 import IntlForm from "@sentrei/ui/components/IntlForm";
 import Metomic from "@sentrei/ui/components/Metomic";
 import MuiLink from "@sentrei/ui/components/MuiLink";
@@ -30,19 +31,17 @@ export default function Footer(): JSX.Element {
     <>
       <Metomic />
       <footer className={classes.footer}>
-        <Container maxWidth="md" component="footer" className={classes.footer}>
+        <Container maxWidth="lg" component="footer" className={classes.footer}>
           <Grid container justify="space-evenly">
-            <Grid item xs={12} sm={3}>
+            <Grid item xs={12} sm={3} md={2}>
               <Typography variant="h6" gutterBottom>
-                {t("index:footer.product")}
+                {t("index:footer.company")}
               </Typography>
-              <Link href="https://github.com/sentrei/sentrei/releases">
-                <Typography gutterBottom>
-                  {t("index:footer.releases")}
-                </Typography>
-              </Link>
+              <MuiLink href="/team">
+                <Typography gutterBottom>{t("index:footer.team")}</Typography>
+              </MuiLink>
             </Grid>
-            <Grid item xs={12} sm={3}>
+            <Grid item xs={12} sm={3} md={2}>
               <Typography variant="h6" gutterBottom>
                 {t("index:footer.legal")}
               </Typography>
@@ -61,13 +60,23 @@ export default function Footer(): JSX.Element {
                 <Typography gutterBottom>{t("index:footer.terms")}</Typography>
               </MuiLink>
             </Grid>
-            <Grid item xs={12} sm={3}>
+            <Grid item xs={12} sm={3} md={2}>
+              <Typography variant="h6" gutterBottom>
+                {t("index:footer.product")}
+              </Typography>
+              <Link href="https://github.com/sentrei/sentrei/releases">
+                <Typography gutterBottom>
+                  {t("index:footer.releases")}
+                </Typography>
+              </Link>
+            </Grid>
+            <Grid item xs={12} sm={3} md={2}>
               <Typography variant="h6" gutterBottom>
                 {t("index:footer.preferences")}
               </Typography>
               <IntlForm />
             </Grid>
-            <Grid item xs={12} sm={3}>
+            <Grid item xs={12} sm={3} md={2}>
               <Typography variant="h6" gutterBottom>
                 {t("index:footer.social")}
               </Typography>
@@ -96,8 +105,10 @@ export default function Footer(): JSX.Element {
               </Grid>
             </Grid>
           </Grid>
-          <Grid container spacing={3} justify="space-evenly" />
-          <Box mt={5}>
+          <Box m={3}>
+            <Credits />
+          </Box>
+          <Box mt={3}>
             <Copyright />
           </Box>
         </Container>
