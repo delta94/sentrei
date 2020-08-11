@@ -19,6 +19,7 @@ import SpaceFab from "@sentrei/ui/components/SpaceFab";
 export interface Props {
   user: User.Get;
   profile: Profile.Get;
+  memberData: Member.Get;
   membersData: Member.Get[];
   roomsData: Room.Get[];
   spaceData: Space.Get;
@@ -28,6 +29,7 @@ export interface Props {
 export default function SpaceScreen({
   user,
   profile,
+  memberData,
   membersData,
   roomsData,
   spaceData,
@@ -39,7 +41,9 @@ export default function SpaceScreen({
   const [space, setSpace] = React.useState<Space.Get | null | undefined>(
     spaceData,
   );
-  const [member, setMember] = React.useState<Member.Get | null | undefined>();
+  const [member, setMember] = React.useState<Member.Get | null | undefined>(
+    memberData,
+  );
   const [members, setMembers] = React.useState<Member.Get[] | null | undefined>(
     membersData,
   );
@@ -79,7 +83,7 @@ export default function SpaceScreen({
     return <SkeletonScreen />;
   }
 
-  if (!space || !members || !member) {
+  if (!space || !members) {
     return <Error statusCode={404} />;
   }
 

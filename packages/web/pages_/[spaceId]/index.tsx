@@ -97,6 +97,11 @@ const SpaceId = ({
         <SpaceScreen
           user={user}
           profile={profile}
+          memberData={
+            (JSON.parse(membersData) as Member.Get[]).filter(
+              doc => doc.uid === profile.uid,
+            )[0] as Member.Get
+          }
           membersData={JSON.parse(membersData) as Member.Get[]}
           roomsData={JSON.parse(roomsData) as Room.Get[]}
           spaceData={JSON.parse(spaceData) as Space.Get}
