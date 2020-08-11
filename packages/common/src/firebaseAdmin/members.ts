@@ -22,8 +22,8 @@ export const membersAdminQuery = ({
 }: MembersQuery): FirebaseFirestore.Query<Member.Get> => {
   let ref = adminDb
     .collection(`${collection}/${docId}/members`)
+    .orderBy("updatedAt", "desc")
     .withConverter(memberAdminConverter)
-    .orderBy("xp", "desc")
     .limit(limit);
 
   if (last) {

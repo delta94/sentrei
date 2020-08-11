@@ -83,6 +83,9 @@ const SpaceId = ({
 
   return (
     <>
+      {/* <h1>{spaceData}</h1>
+      <h2>{membersData}</h2>
+      <h3>{roomsData}</h3> */}
       {user && profile ? (
         <SentreiAppHeader
           notificationCount={Number(user.notificationCount)}
