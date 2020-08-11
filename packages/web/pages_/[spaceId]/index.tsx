@@ -6,8 +6,12 @@ import {useRouter} from "next/router";
 import * as React from "react";
 
 import AuthContext from "@sentrei/common/context/AuthContext";
-import {getSpace} from "@sentrei/common/firebaseAdmin/spaces";
+import {getAdminMembers} from "@sentrei/common/firebaseAdmin/members";
+import {getAdminRooms} from "@sentrei/common/firebaseAdmin/rooms";
+import {getAdminSpace} from "@sentrei/common/firebaseAdmin/spaces";
 import {analytics} from "@sentrei/common/utils/firebase";
+import Member from "@sentrei/types/models/Member";
+import Room from "@sentrei/types/models/Room";
 import Space from "@sentrei/types/models/Space";
 import Loader from "@sentrei/ui/components/Loader";
 import StatusSpace from "@sentrei/ui/components/StatusSpace";
@@ -22,6 +26,8 @@ const SpaceScreen = dynamic(
 
 export interface Props {
   spaceData: string | null;
+  membersData: string | null;
+  roomsData: string | null;
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
@@ -31,12 +37,33 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({params}) => {
   const spaceId = String(params?.spaceId);
-  const spaceData = JSON.stringify(await getSpace(spaceId));
-  return {props: {spaceData}, revalidate: 300};
+  const spaceReq = getAdminSpace(spaceId);
+  const membersReq = getAdminMembers({
+    collection: "spaces",
+    docId: spaceId,
+  });
+  const roomsReq = getAdminRooms({
+    spaceId,
+  });
+  const [spaceData, membersData, roomsData] = await Promise.all([
+    spaceReq,
+    membersReq,
+    roomsReq,
+  ]);
+  return {
+    props: {
+      spaceData: JSON.stringify(spaceData),
+      membersData: JSON.stringify(membersData),
+      roomsData: JSON.stringify(roomsData),
+    },
+    revalidate: 300,
+  };
 };
 
 const SpaceId = ({
   spaceData,
+  membersData,
+  roomsData,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   const {query} = useRouter();
 
@@ -66,12 +93,14 @@ const SpaceId = ({
         <SentreiAppHeader />
       )}
       {user && profile && <StatusSpace userId={user.uid} profile={profile} />}
-      {user && profile && spaceData && (
+      {user && profile && spaceData && membersData && roomsData && (
         <SpaceScreen
+          user={user}
           profile={profile}
+          membersData={JSON.parse(membersData) as Member.Get[]}
+          roomsData={JSON.parse(roomsData) as Room.Get[]}
           spaceData={JSON.parse(spaceData) as Space.Get}
           spaceId={String(query.spaceId)}
-          user={user}
         />
       )}
     </>

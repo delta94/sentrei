@@ -17,17 +17,21 @@ import SpaceBoard from "@sentrei/ui/components/SpaceBoard";
 import SpaceFab from "@sentrei/ui/components/SpaceFab";
 
 export interface Props {
+  user: User.Get;
   profile: Profile.Get;
+  membersData: Member.Get[];
+  roomsData: Room.Get[];
   spaceData: Space.Get;
   spaceId: string;
-  user: User.Get;
 }
 
 export default function SpaceScreen({
+  user,
   profile,
+  membersData,
+  roomsData,
   spaceData,
   spaceId,
-  user,
 }: Props): JSX.Element {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
@@ -36,10 +40,12 @@ export default function SpaceScreen({
     spaceData,
   );
   const [member, setMember] = React.useState<Member.Get | null | undefined>();
-  const [members, setMembers] = React.useState<
-    Member.Get[] | null | undefined
-  >();
-  const [rooms, setRooms] = React.useState<Room.Get[] | null | undefined>();
+  const [members, setMembers] = React.useState<Member.Get[] | null | undefined>(
+    membersData,
+  );
+  const [rooms, setRooms] = React.useState<Room.Get[] | null | undefined>(
+    roomsData,
+  );
 
   React.useEffect(() => {
     getSpace(spaceId).then(setSpace);
