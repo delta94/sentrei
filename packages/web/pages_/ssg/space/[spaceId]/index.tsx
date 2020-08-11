@@ -7,11 +7,12 @@ import * as React from "react";
 import AuthContext from "@sentrei/common/context/AuthContext";
 import {getSpace} from "@sentrei/common/firebaseAdmin/spaces";
 import {analytics} from "@sentrei/common/utils/firebase";
+import Space from "@sentrei/types/models/Space";
 import SkeletonForm from "@sentrei/ui/components/SkeletonForm";
 import SentreiAppHeader from "@sentrei/web/components/SentreiAppHeader";
 
 export interface Props {
-  space: string | null;
+  spaceData: string | null;
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
@@ -21,14 +22,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({params}) => {
   const spaceId = String(params?.spaceId);
-  const space = JSON.stringify(await getSpace(spaceId));
-  return {props: {space}, revalidate: 300};
+  const spaceData = JSON.stringify(await getSpace(spaceId));
+  return {props: {spaceData}, revalidate: 300};
 };
 
 const SpaceId = ({
-  space,
+  spaceData,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
   const {user} = React.useContext(AuthContext);
+  const [space] = React.useState<Space.Get | null | undefined>(
+    spaceData ? (JSON.parse(spaceData) as Space.Get) : null,
+  );
 
   React.useEffect(() => {
     analytics().setCurrentScreen("profile");
@@ -54,7 +58,7 @@ const SpaceId = ({
   return (
     <>
       {user ? <SentreiAppHeader userId={user.uid} /> : <SentreiAppHeader />}
-      {user && space && <h1>{space}</h1>}
+      {user && space && <h1>{space.id}</h1>}
     </>
   );
 };
