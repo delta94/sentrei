@@ -26,7 +26,7 @@
     "jest": "jest --coverage",
     "jest:watch": "jest --watch",
     "reg": "reg-suit run",
-    "storycap": "storycap --serverCmd 'start-storybook -p 9001' http://localhost:9001 --serverTimeout 120000",
+    "storycap": "storycap --serverCmd 'start-storybook -p 9001' http://localhost:9001 --serverTimeout 300000",
     "test": "yarn run jest",
     "test:watch": "yarn run jest:watch",
     "tsc": "tsc --p tsconfig.build.json",

@@ -29,6 +29,7 @@
     "titleTwo": "フォーカス指向"
   },
   "footer": {
+    "company": "会社",
     "cookies": "クッキー",
     "legal": "法律関係",
     "preferences": "環境設定",
@@ -36,7 +37,12 @@
     "product": "プロダクト",
     "releases": "リリース一覧",
     "social": "SNS",
-    "terms": "利用規約"
+    "specialThanks": "家族、友人、そしてこの瞬間を可能にしてくれたすべての人に感謝します",
+    "team": "チーム",
+    "terms": "利用規約",
+    "titleOne": "あなたへ",
+    "titleThree": "Sentreiチームより",
+    "titleTwo": "感謝"
   },
   "header": {
     "faq": "FAQ",

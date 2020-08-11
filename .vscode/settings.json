@@ -41,7 +41,6 @@
     "tab.activeBorder": "#d04649",
     "titleBar.activeBackground": "#b52e31",
     "titleBar.activeForeground": "#e7e7e7",
-    "titleBar.border": "#b52e31",
     "titleBar.inactiveBackground": "#b52e3199",
     "titleBar.inactiveForeground": "#e7e7e799"
   }

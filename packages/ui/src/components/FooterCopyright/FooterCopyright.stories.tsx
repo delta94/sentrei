@@ -1,12 +1,12 @@
 import {storiesOf} from "@storybook/react";
 import * as React from "react";
 
-import Copyright from ".";
+import FooterCopyright from ".";
 
-storiesOf("Copyright", module)
+storiesOf("FooterCopyright", module)
   .addParameters({
     screenshot: {
       delay: 200,
     },
   })
-  .add("Just an Copyright story", () => <Copyright />);
+  .add("Just an FooterCopyright story", () => <FooterCopyright />);
