@@ -11,8 +11,6 @@ isort = "*"
 [packages]
 dvc = {extras = ["gs"],version = "*"}
 nodeenv = "*"
-requests = "*"
-requests-toolbelt = "*"
 
 [requires]
 python_version = "3.8"
