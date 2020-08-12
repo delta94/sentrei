@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({params}) => {
       membersData: JSON.stringify(membersData),
       roomsData: JSON.stringify(roomsData),
     },
-    revalidate: 300,
+    revalidate: 1,
   };
 };
 
