@@ -57,12 +57,13 @@ export default function SpaceScreen({
 
   React.useEffect(() => {
     const unsubscribe = getMembersLive("spaces", spaceId, snap => {
+      setMember(snap.filter(doc => doc.uid === profile.uid)[0]);
       setMembers(snap);
     });
     return (): void => {
       unsubscribe();
     };
-  }, [spaceId]);
+  }, [spaceId, profile]);
 
   React.useEffect(() => {
     const unsubscribe = getRoomsLive(spaceId, snap => {
@@ -72,12 +73,6 @@ export default function SpaceScreen({
       unsubscribe();
     };
   }, [spaceId]);
-
-  React.useEffect(() => {
-    if (members) {
-      setMember(members.filter(doc => doc.uid === profile.uid)[0]);
-    }
-  }, [members, profile]);
 
   if (space === undefined || members === undefined || rooms === undefined) {
     return <SkeletonScreen />;
