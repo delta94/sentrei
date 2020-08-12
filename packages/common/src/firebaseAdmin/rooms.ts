@@ -48,7 +48,7 @@ export const roomsQuery = ({
   return ref;
 };
 
-export const getRooms = async (query: RoomQuery): Promise<Room.Get[]> => {
+export const getAdminRooms = async (query: RoomQuery): Promise<Room.Get[]> => {
   const ref = await roomsQuery(query).get();
   return ref.docs.map(doc => doc.data());
 };

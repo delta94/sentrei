@@ -32,7 +32,7 @@ export default function SpacePanelStatus({
       <Paper className={classes.root}>
         <SpacePanelEmojiPicker
           profile={profile}
-          initialEmoji={member.emoji ?? "joy"}
+          emoji={member.emoji}
           spaceId={spaceId}
           userId={user.uid}
         />

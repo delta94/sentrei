@@ -8,17 +8,13 @@ import EmojiMart from "@sentrei/ui/components/EmojiMart";
 import EmojiPickerStyles from "./EmojiPickerStyles";
 
 export interface Props {
-  initialEmoji: string;
+  emoji: string;
   onSelect?: (emoji: string) => void;
 }
 
-export default function EmojiPicker({
-  initialEmoji,
-  onSelect,
-}: Props): JSX.Element {
+export default function EmojiPicker({emoji, onSelect}: Props): JSX.Element {
   const classes = EmojiPickerStyles();
 
-  const [emoji, setEmoji] = React.useState<string>(initialEmoji);
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null,
   );
@@ -33,7 +29,6 @@ export default function EmojiPicker({
 
   const handleSelect = (e: EmojiData): void => {
     const emojiString = e.colons;
-    setEmoji(emojiString ?? initialEmoji);
     if (onSelect && emojiString) {
       onSelect(emojiString);
     }

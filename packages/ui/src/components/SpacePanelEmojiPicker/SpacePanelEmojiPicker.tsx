@@ -7,24 +7,24 @@ import EmojiPicker from "@sentrei/ui/components/EmojiPicker";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 export interface Props {
-  initialEmoji: string;
+  emoji: string;
   profile: Profile.Get;
   spaceId: string;
   userId: string;
 }
 
 export default function SpacePanelEmojiPicker({
-  initialEmoji,
+  emoji,
   profile,
   spaceId,
   userId,
 }: Props): JSX.Element {
   const {snackbar} = useSnackbar();
 
-  const handleEmoji = async (emoji: string): Promise<void> => {
+  const handleEmoji = async (emojiString: string): Promise<void> => {
     try {
       await updateMember("spaces", spaceId, userId, {
-        emoji,
+        emoji: emojiString,
         updatedAt: timestamp,
         updatedBy: profile,
         updatedByUid: userId,
@@ -34,5 +34,5 @@ export default function SpacePanelEmojiPicker({
     }
   };
 
-  return <EmojiPicker initialEmoji={initialEmoji} onSelect={handleEmoji} />;
+  return <EmojiPicker emoji={emoji} onSelect={handleEmoji} />;
 }

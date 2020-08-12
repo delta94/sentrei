@@ -17,25 +17,39 @@ import SpaceBoard from "@sentrei/ui/components/SpaceBoard";
 import SpaceFab from "@sentrei/ui/components/SpaceFab";
 
 export interface Props {
-  profile: Profile.Get;
-  spaceId: string;
   user: User.Get;
+  profile: Profile.Get;
+  memberData: Member.Get;
+  membersData: Member.Get[];
+  roomsData: Room.Get[] | null;
+  spaceData: Space.Get;
+  spaceId: string;
 }
 
 export default function SpaceScreen({
-  profile,
-  spaceId,
   user,
+  profile,
+  memberData,
+  membersData,
+  roomsData,
+  spaceData,
+  spaceId,
 }: Props): JSX.Element {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
-  const [space, setSpace] = React.useState<Space.Get | null | undefined>();
-  const [member, setMember] = React.useState<Member.Get | null | undefined>();
-  const [members, setMembers] = React.useState<
-    Member.Get[] | null | undefined
-  >();
-  const [rooms, setRooms] = React.useState<Room.Get[] | null | undefined>();
+  const [space, setSpace] = React.useState<Space.Get | null | undefined>(
+    spaceData,
+  );
+  const [member, setMember] = React.useState<Member.Get | null | undefined>(
+    memberData,
+  );
+  const [members, setMembers] = React.useState<Member.Get[] | null | undefined>(
+    membersData,
+  );
+  const [rooms, setRooms] = React.useState<Room.Get[] | null | undefined>(
+    roomsData,
+  );
 
   React.useEffect(() => {
     getSpace(spaceId).then(setSpace);
@@ -43,12 +57,13 @@ export default function SpaceScreen({
 
   React.useEffect(() => {
     const unsubscribe = getMembersLive("spaces", spaceId, snap => {
+      setMember(snap.filter(doc => doc.uid === profile.uid)[0]);
       setMembers(snap);
     });
     return (): void => {
       unsubscribe();
     };
-  }, [spaceId]);
+  }, [spaceId, profile]);
 
   React.useEffect(() => {
     const unsubscribe = getRoomsLive(spaceId, snap => {
@@ -59,17 +74,11 @@ export default function SpaceScreen({
     };
   }, [spaceId]);
 
-  React.useEffect(() => {
-    if (members) {
-      setMember(members.filter(doc => doc.uid === profile.uid)[0]);
-    }
-  }, [members, profile]);
-
   if (space === undefined || members === undefined || rooms === undefined) {
     return <SkeletonScreen />;
   }
 
-  if (!space || !members || !member) {
+  if (!space || !members) {
     return <Error statusCode={404} />;
   }
 
