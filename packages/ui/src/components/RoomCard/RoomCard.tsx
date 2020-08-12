@@ -97,7 +97,7 @@ export default function RoomCard({
         >
           <Grid item xs={1} sm={1} md={1}>
             <RoomCardEmojiPicker
-              initialEmoji={room?.emoji ?? "sushi"}
+              emoji={room.emoji}
               profile={profile}
               roomId={room.id}
               userId={user.uid}

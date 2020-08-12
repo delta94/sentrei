@@ -8,25 +8,25 @@ import EmojiPicker from "@sentrei/ui/components/EmojiPicker";
 import useSnackbar from "@sentrei/ui/hooks/useSnackbar";
 
 export interface Props {
-  initialEmoji: string;
+  emoji: string;
   profile: Profile.Get;
   roomId: string;
   userId: string;
 }
 
 export default function RoomCardEmojiPicker({
-  initialEmoji,
+  emoji,
   profile,
   roomId,
   userId,
 }: Props): JSX.Element {
   const {snackbar} = useSnackbar();
 
-  const handleEmoji = async (emoji: string): Promise<void> => {
+  const handleEmoji = async (emojiString: string): Promise<void> => {
     try {
       await updateRoom(
         {
-          emoji,
+          emoji: emojiString,
           updatedAt: timestamp,
           updatedBy: profile,
           updatedByUid: userId,
@@ -38,5 +38,5 @@ export default function RoomCardEmojiPicker({
     }
   };
 
-  return <EmojiPicker initialEmoji={initialEmoji} onSelect={handleEmoji} />;
+  return <EmojiPicker emoji={emoji} onSelect={handleEmoji} />;
 }
