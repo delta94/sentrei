@@ -1,3 +1,23 @@
+# [1.31.0](https://github.com/sentrei/sentrei/compare/v1.30.0...v1.31.0) (2020-08-12)
+
+### Bug Fixes
+
+- 🐛 admin members bug ([7708b14](https://github.com/sentrei/sentrei/commit/7708b14861cf8f037e36274bdfc79b04077eec0d))
+
+### Features
+
+- 🎸 emoji update synchronous ([11923a5](https://github.com/sentrei/sentrei/commit/11923a507a83b345e725a795e705abf156a418c5))
+- 🎸 ini isg members ([81aa212](https://github.com/sentrei/sentrei/commit/81aa2126e3df891db0a574e3e3ab2da772fa127a))
+- 🎸 ini next 9-5-2 ([a8b94d2](https://github.com/sentrei/sentrei/commit/a8b94d207fc1251178f48f88608166c8b14aed25))
+- 🎸 ini ssg spaceId ([40afc74](https://github.com/sentrei/sentrei/commit/40afc7471dcd967a24042f2e46d9b6ca0a618075))
+- 🎸 ini updatte member ([fd255ed](https://github.com/sentrei/sentrei/commit/fd255edcaf8ce69137c60f7b1caa26d25fc0c60a))
+- 🎸 space index data ([df9459c](https://github.com/sentrei/sentrei/commit/df9459cb42838427edef85210e252e11e83e2222))
+- 🎸 Update member snapshot ([c88ddb9](https://github.com/sentrei/sentrei/commit/c88ddb9c3b190688e7d6fdce5c61c28c352d4a66))
+
+### Performance Improvements
+
+- ⚡️ revalidate from 300 to 1 ([9a8e841](https://github.com/sentrei/sentrei/commit/9a8e8416c5868576dccb71f2ee6c35411cc5a69a))
+
 # [1.28.0](https://github.com/sentrei/sentrei/compare/v1.27.2...v1.28.0) (2020-08-10)
 
 ### Features
