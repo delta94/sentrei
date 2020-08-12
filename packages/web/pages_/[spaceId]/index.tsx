@@ -74,7 +74,12 @@ const SpaceId = ({
   }, []);
 
   if (user === undefined || !spaceData || !membersData) {
-    return <SkeletonScreen />;
+    return (
+      <>
+        <SentreiAppHeader />
+        <SkeletonScreen />
+      </>
+    );
   }
 
   if (!user) {
