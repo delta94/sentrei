@@ -21,7 +21,7 @@ export interface Props {
   profile: Profile.Get;
   memberData: Member.Get;
   membersData: Member.Get[];
-  roomsData: Room.Get[];
+  roomsData: Room.Get[] | null;
   spaceData: Space.Get;
   spaceId: string;
 }

@@ -13,7 +13,7 @@ import {analytics} from "@sentrei/common/utils/firebase";
 import Member from "@sentrei/types/models/Member";
 import Room from "@sentrei/types/models/Room";
 import Space from "@sentrei/types/models/Space";
-import Loader from "@sentrei/ui/components/Loader";
+import SkeletonScreen from "@sentrei/ui/components/SkeletonScreen";
 import StatusSpace from "@sentrei/ui/components/StatusSpace";
 import SentreiAppHeader from "@sentrei/web/components/SentreiAppHeader";
 
@@ -73,11 +73,11 @@ const SpaceId = ({
     analytics().setCurrentScreen("space");
   }, []);
 
-  if (user === undefined) {
-    return <Loader />;
+  if (user === undefined || !spaceData || !membersData) {
+    return <SkeletonScreen />;
   }
 
-  if (!user || !spaceData) {
+  if (!user) {
     Router.pushI18n("/");
   }
 
@@ -93,7 +93,7 @@ const SpaceId = ({
         <SentreiAppHeader />
       )}
       {user && profile && <StatusSpace userId={user.uid} profile={profile} />}
-      {user && profile && spaceData && membersData && roomsData && (
+      {user && profile && (
         <SpaceScreen
           user={user}
           profile={profile}
@@ -103,7 +103,7 @@ const SpaceId = ({
             )[0] as Member.Get
           }
           membersData={JSON.parse(membersData) as Member.Get[]}
-          roomsData={JSON.parse(roomsData) as Room.Get[]}
+          roomsData={roomsData ? (JSON.parse(roomsData) as Room.Get[]) : null}
           spaceData={JSON.parse(spaceData) as Space.Get}
           spaceId={String(query.spaceId)}
         />

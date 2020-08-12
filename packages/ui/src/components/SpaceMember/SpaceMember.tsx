@@ -7,13 +7,17 @@ import SkeletonList from "@sentrei/ui/components/SkeletonList";
 import SpaceMemberList from "@sentrei/ui/components/SpaceMemberList";
 
 export interface Props {
+  membersData: Member.Get[];
   spaceId: string;
 }
 
-export default function SpaceMember({spaceId}: Props): JSX.Element {
-  const [members, setMembers] = React.useState<
-    Member.Get[] | null | undefined
-  >();
+export default function SpaceMember({
+  membersData,
+  spaceId,
+}: Props): JSX.Element {
+  const [members, setMembers] = React.useState<Member.Get[] | null | undefined>(
+    membersData,
+  );
 
   React.useEffect(() => {
     const unsubscribe = getMembersLive("spaces", spaceId, snap => {
